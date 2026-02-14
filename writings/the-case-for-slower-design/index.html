@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writings — Efe Bakır</title>
+  <title>The Case for Slower Design — Efe Bakır</title>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -29,48 +29,54 @@
 
   <!-- Main Content -->
   <main class="page-content">
-    <div class="page-inner">
+    <div class="article-inner">
 
-      <!-- Page Header -->
-      <div class="page-header">
-        <h2 class="page-title">Writings</h2>
-        <p class="page-description">Thoughts on design, technology, and the space between.</p>
+      <!-- Article Header -->
+      <div class="article-header">
+        <span class="article-date">FEB 2026</span>
+        <h1 class="article-title">The Case for Slower Design</h1>
+        <p class="article-intro">Why rushing through the design process often leads to solutions that feel polished but miss the point entirely. A reflection on patience as a design tool.</p>
       </div>
 
-      <!-- Writings List -->
-      <div class="writings-list">
+      <!-- Article Body -->
+      <article class="article-body">
+        <p>Lorem ipsum dolor sit amet consectetur. Sed non fames risus vitae justo consequat phasellus non. Vestibulum placerat eu rutrum dui. Sit odio feugiat lectus nunc faucibus proin egestas enim nunc.</p>
 
-        <a href="/writings/the-case-for-slower-design/" class="writing-entry">
-          <h3 class="writing-title">The Case for Slower Design</h3>
-          <p class="writing-excerpt">Why rushing through the design process often leads to solutions that feel polished but miss the point entirely. A reflection on patience as a design tool.</p>
-          <span class="writing-date">FEB 2026</span>
+        <h2>The Pressure to Ship Fast</h2>
+        <p>In modern product teams, speed is often treated as a virtue in itself. We celebrate "shipping fast and iterating," we admire designers who can turn around mockups overnight, and we measure success in velocity. But somewhere in this rush, we've conflated speed with effectiveness.</p>
+
+        <p>The problem isn't iteration—it's shallow iteration. When we move too quickly, we iterate on surfaces instead of understanding. We refine the UI before we've properly understood the problem. We A/B test button colors before we've validated whether users even need that button in the first place.</p>
+
+        <h2>What Slower Design Looks Like</h2>
+        <p>Slower design doesn't mean procrastination or perfectionism. It means being deliberate about where you invest time. It means spending three days understanding a workflow before touching Figma. It means sketching twenty rough concepts before committing to high-fidelity mockups. It means saying "I need more time to think about this" when your instinct tells you something's off, even if the stakeholder is eager to move forward.</p>
+
+        <p>This kind of slowness is strategic. It prevents costly rework later. It surfaces edge cases early. It allows you to design systems instead of just screens.</p>
+
+        <h2>How to Practice Slower Design</h2>
+        <ul>
+          <li><strong>Front-load research.</strong> Spend disproportionate time early in the process understanding the problem space. Talk to users, map workflows, identify constraints. This upfront investment pays dividends downstream.</li>
+          <li><strong>Sit with ambiguity.</strong> Resist the urge to jump straight to solutions. Let ideas marinate. The best insights often come when you're not actively trying to solve the problem.</li>
+          <li><strong>Design in lo-fi longer.</strong> Stay in sketches and wireframes until you're confident in the structure and flow. Polish is cheap to add; strategy is expensive to retrofit.</li>
+          <li><strong>Build in reflection time.</strong> After completing a design sprint or milestone, pause before moving to the next thing. What worked? What didn't? What would you do differently?</li>
+        </ul>
+
+        <h2>The Paradox</h2>
+        <p>Here's the counterintuitive part: slower design often leads to faster outcomes. When you invest time upfront to understand the problem deeply, the execution phase becomes straightforward. You make fewer wrong turns. You need fewer rounds of revision. You ship something that actually solves the problem, rather than something that merely addresses the symptoms.</p>
+
+        <p>Speed without understanding is just thrashing. Patience with intention is how you build things that last.</p>
+      </article>
+
+      <!-- Navigation -->
+      <nav class="article-nav">
+        <a href="/writings/moving-to-milan/" class="article-nav-btn article-nav-prev">
+          <span class="article-nav-label">PREVIOUS</span>
+          <span class="article-nav-title">Moving to Milan: A Design Perspective</span>
         </a>
-
-        <a href="/writings/interfaces-as-conversations/" class="writing-entry">
-          <h3 class="writing-title">Interfaces as Conversations</h3>
-          <p class="writing-excerpt">Every interaction is a dialogue. Exploring how conversational patterns can inform better interface design beyond chatbots and voice assistants.</p>
-          <span class="writing-date">JAN 2026</span>
+        <a href="/writings/interfaces-as-conversations/" class="article-nav-btn article-nav-next">
+          <span class="article-nav-label">NEXT</span>
+          <span class="article-nav-title">Interfaces as Conversations</span>
         </a>
-
-        <a href="/writings/on-systems-thinking-in-product-design/" class="writing-entry">
-          <h3 class="writing-title">On Systems Thinking in Product Design</h3>
-          <p class="writing-excerpt">Design decisions don't exist in isolation. How understanding feedback loops and emergent behavior changes the way we approach product work.</p>
-          <span class="writing-date">DEC 2025</span>
-        </a>
-
-        <a href="/writings/typography-as-ux/" class="writing-entry">
-          <h3 class="writing-title">Typography as UX</h3>
-          <p class="writing-excerpt">The most overlooked user experience decision is the one you read. Notes on how type choices shape perception, trust, and usability.</p>
-          <span class="writing-date">NOV 2025</span>
-        </a>
-
-        <a href="/writings/moving-to-milan/" class="writing-entry">
-          <h3 class="writing-title">Moving to Milan: A Design Perspective</h3>
-          <p class="writing-excerpt">What relocating to a city steeped in design history teaches you about your own practice. On environment, influence, and starting fresh.</p>
-          <span class="writing-date">OCT 2025</span>
-        </a>
-
-      </div>
+      </nav>
 
     </div>
   </main>
@@ -96,7 +102,6 @@
             <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Behance</a>
           </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">EXPERIENCE</h2>
           <div class="cv-entry">
@@ -107,16 +112,7 @@
             <p class="cv-company">Company Name • Milan, IT</p>
             <p class="cv-description">Leading end-to-end product design for web and mobile applications. Conducting user research, creating design systems, and collaborating with cross-functional teams.</p>
           </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">UX Designer</h3>
-              <span class="cv-date">2023 - 2024</span>
-            </div>
-            <p class="cv-company">Previous Company • Remote</p>
-            <p class="cv-description">Designed user experiences for digital products, conducted usability testing, and created wireframes and prototypes.</p>
-          </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">EDUCATION</h2>
           <div class="cv-entry">
@@ -126,27 +122,15 @@
             </div>
             <p class="cv-company">Master's Degree • Milan, IT</p>
           </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">METU</h3>
-              <span class="cv-date">2018 - 2022</span>
-            </div>
-            <p class="cv-company">Bachelor's Degree • Ankara, TR</p>
-          </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">SKILLS</h2>
           <div class="cv-skills">
             <span class="cv-skill">Visual Design</span>
             <span class="cv-skill">UX Design</span>
             <span class="cv-skill">UI Design</span>
-            <span class="cv-skill">Prototyping</span>
-            <span class="cv-skill">User Research</span>
-            <span class="cv-skill">Design Systems</span>
           </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">LANGUAGES</h2>
           <div class="cv-languages">
@@ -157,10 +141,6 @@
             <div class="cv-language-item">
               <span class="cv-language">English</span>
               <span class="cv-proficiency">Fluent</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">Italian</span>
-              <span class="cv-proficiency">Intermediate</span>
             </div>
           </div>
         </div>

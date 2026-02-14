@@ -1,0 +1,145 @@
+/* Design System Variables - Extracted from Figma Published Design System */
+
+:root {
+  /* Colors - Gray Scale */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  
+  /* Colors - Black & White */
+  --black: #000000;
+  --white: #ffffff;
+  
+  /* Colors - Accent */
+  --accent: #FC5113;
+  
+  /* Typography - Body/Body-1 */
+  --body-1-font-family: "Suisse Int'l", sans-serif;
+  --body-1-font-size: 18px;
+  --body-1-line-height: 28px;
+  --body-1-letter-spacing: 0px;
+  --body-1-weight-regular: 400;
+  
+  /* Typography - Body/Body-3 */
+  --body-3-font-family: "Suisse Int'l", sans-serif;
+  --body-3-font-size: 14px;
+  --body-3-line-height: 20px;
+  --body-3-letter-spacing: 0px;
+  --body-3-weight-regular: 400;
+  
+  /* Typography - Label/Label-3 */
+  --label-3-font-family: "Suisse Int'l", sans-serif;
+  --label-3-font-size: 14px;
+  --label-3-line-height: 20px;
+  --label-3-letter-spacing: 0px;
+  --label-3-weight-regular: 400;
+  
+  /* Typography - Label Headings (Reddit Mono) */
+  --label-heading-font-family: "Reddit Mono", monospace;
+  --label-heading-font-size: 12px;
+  --label-heading-line-height: 16px;
+  --label-heading-letter-spacing: -0.12px;
+  --label-heading-weight-regular: 400;
+  
+  /* Typography - Body/Body-2 (intermediate size for mobile optimizations) */
+  --body-2-font-family: "Suisse Int'l", sans-serif;
+  --body-2-font-size: 16px;
+  --body-2-line-height: 24px;
+  --body-2-letter-spacing: 0px;
+  --body-2-weight-regular: 400;
+  
+  /* Typography - Label/Label-2 (for emphasized mobile labels) */
+  --label-2-font-family: "Suisse Int'l", sans-serif;
+  --label-2-font-size: 15px;
+  --label-2-line-height: 22px;
+  --label-2-letter-spacing: 0px;
+  --label-2-weight-regular: 400;
+  
+  /* Typography - Label/Label-Heading-Small (mobile heading) */
+  --label-heading-sm-font-family: "Reddit Mono", monospace;
+  --label-heading-sm-font-size: 13px;
+  --label-heading-sm-line-height: 18px;
+  --label-heading-sm-letter-spacing: -0.12px;
+  --label-heading-sm-weight-regular: 400;
+  
+  /* Font Weights */
+  --weight-regular: 400;
+  
+  /* Spacing - Based on 4px grid system */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  
+  /* Icon Sizes */
+  --icon-sm: 12px;
+  --icon-md: 16px;
+  --icon-lg: 20px;
+  
+  /* Content Width Constraints */
+  --content-width-narrow: 680px;
+  --content-width-medium: 800px;
+  --content-column-sm: 100px;
+  --content-column-md: 187px;
+  
+  /* Dark Mode Colors */
+  --dark-bg: #000000;
+  --dark-text: #ffffff;
+  --dark-gray-400: #9ca3af;
+  
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  
+  /* Opacity - hover states */
+  --opacity-hover-subtle: 0.85;
+  --opacity-hover-strong: 0.55;
+
+  /* Border */
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--gray-200);
+  --border: var(--border-width) var(--border-style) var(--border-color);
+  
+  /* Legacy variable names for compatibility (matching Figma variable names) */
+  --gray\/50: var(--gray-50);
+  --gray\/100: var(--gray-100);
+  --gray\/200: var(--gray-200);
+  --gray\/400: var(--gray-400);
+  --b\&w\/black: var(--black);
+  
+  --body\/body-1\/fontfamily: var(--body-1-font-family);
+  --body\/body-1\/fontsize: var(--body-1-font-size);
+  --body\/body-1\/lineheight: var(--body-1-line-height);
+  --body\/body-1\/letterspacing: var(--body-1-letter-spacing);
+  
+  --body\/body-3\/fontfamily: var(--body-3-font-family);
+  --body\/body-3\/fontsize: var(--body-3-font-size);
+  --body\/body-3\/lineheight: var(--body-3-line-height);
+  --body\/body-3\/letterspacing: var(--body-3-letter-spacing);
+  
+  --label\/label-3\/fontfamily: var(--label-3-font-family);
+  --label\/label-3\/fontsize: var(--label-3-font-size);
+  --label\/label-3\/lineheight: var(--label-3-line-height);
+  --label\/label-3\/letterspacing: var(--label-3-letter-spacing);
+  
+  --Weights\/Regular: var(--weight-regular);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --black: #ffffff;
+  --white: #000000;
+  --gray-400: #9ca3af;
+  --gray-200: #1f2937;
+  --gray-100: #111827;
+  --gray-50: #030712;
+}
+
+/* Font Face - Reddit Mono */
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@400&display=swap');
