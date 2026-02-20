@@ -79,7 +79,7 @@
     if (!projectsNavigator) return;
 
     var rail = document.getElementById('projects-rail');
-    var projectItems = Array.from(projectsNavigator.querySelectorAll('.projects-rail .project-item'));
+    var projectFlows = Array.from(projectsNavigator.querySelectorAll('.projects-rail .project-flow'));
     var overviewImage = document.getElementById('projects-overview-image');
     var overviewFile = document.getElementById('projects-overview-file');
     var overviewTitle = document.getElementById('projects-overview-title');
@@ -91,7 +91,7 @@
 
     if (
       !rail ||
-      !projectItems.length ||
+      !projectFlows.length ||
       !overviewImage ||
       !overviewFile ||
       !overviewTitle ||
@@ -104,9 +104,7 @@
       return;
     }
 
-    var activeItem = null;
-    var observer = null;
-    var intersectionRatios = new Map();
+    var activeFlow = null;
     var scrollRaf = 0;
 
     function toSummaryItems(summaryText) {
@@ -116,14 +114,14 @@
         .filter(Boolean);
     }
 
-    function setOverviewFromItem(item) {
-      var title = (item.dataset.projectTitle || '').trim();
-      var about = (item.dataset.projectAbout || '').trim();
-      var summaryItems = toSummaryItems(item.dataset.projectSummary);
-      var year = (item.dataset.projectYear || '').trim();
-      var team = (item.dataset.projectTeam || '').trim();
-      var image = (item.dataset.projectImage || '').trim();
-      var filename = (item.dataset.projectFilename || '').trim();
+    function setOverviewFromFlow(flow) {
+      var title = (flow.dataset.projectTitle || '').trim();
+      var about = (flow.dataset.projectAbout || '').trim();
+      var summaryItems = toSummaryItems(flow.dataset.projectSummary);
+      var year = (flow.dataset.projectYear || '').trim();
+      var team = (flow.dataset.projectTeam || '').trim();
+      var image = (flow.dataset.projectImage || '').trim();
+      var filename = (flow.dataset.projectFilename || '').trim();
 
       if (image) overviewImage.src = image;
       overviewImage.alt = title ? title + ' project preview' : 'Project preview';
@@ -147,109 +145,59 @@
       });
     }
 
-    function setActiveProject(item) {
-      if (!item || activeItem === item) return;
+    function setActiveProject(flow) {
+      if (!flow || activeFlow === flow) return;
 
-      activeItem = item;
-      projectItems.forEach(function (projectItem) {
-        projectItem.classList.toggle('is-active', projectItem === item);
+      activeFlow = flow;
+      projectFlows.forEach(function (projectFlow) {
+        projectFlow.classList.toggle('is-active', projectFlow === flow);
       });
-      setOverviewFromItem(item);
+      setOverviewFromFlow(flow);
     }
 
-    function getItemScore(item) {
-      var rect = item.getBoundingClientRect();
+    function pickProjectByEndThreshold() {
       var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
-      var visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-      var visibility = Math.max(0, visibleHeight) / Math.max(1, Math.min(rect.height, viewportHeight));
-      var ratio = intersectionRatios.get(item) || visibility;
-      var viewportCenter = viewportHeight / 2;
-      var itemCenter = rect.top + rect.height / 2;
-      var centerDistance = Math.abs(viewportCenter - itemCenter);
-      var centerScore = Math.max(0, 1 - centerDistance / viewportCenter);
-      return (ratio * 0.65) + (visibility * 0.2) + (centerScore * 0.15);
-    }
-
-    function pickBestVisibleItem() {
-      var bestItem = null;
-      var bestScore = -1;
-      projectItems.forEach(function (item) {
-        var score = getItemScore(item);
-        if (score > bestScore) {
-          bestScore = score;
-          bestItem = item;
-        }
-      });
-      return bestItem || projectItems[0];
+      var switchThreshold = viewportHeight * 0.72;
+      for (var i = 0; i < projectFlows.length; i += 1) {
+        var rect = projectFlows[i].getBoundingClientRect();
+        if (rect.bottom > switchThreshold) return projectFlows[i];
+      }
+      return projectFlows[projectFlows.length - 1];
     }
 
     function scheduleScrollSync() {
       if (scrollRaf) return;
       scrollRaf = window.requestAnimationFrame(function () {
         scrollRaf = 0;
-        setActiveProject(pickBestVisibleItem());
+        setActiveProject(pickProjectByEndThreshold());
       });
     }
 
-    function initIntersectionTracking() {
-      if (!('IntersectionObserver' in window)) {
-        window.addEventListener('scroll', scheduleScrollSync, { passive: true });
-        window.addEventListener('resize', scheduleScrollSync);
-        return;
-      }
-
-      var thresholds = [];
-      for (var i = 0; i <= 10; i += 1) thresholds.push(i / 10);
-
-      observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          intersectionRatios.set(entry.target, entry.intersectionRatio);
-        });
-        scheduleScrollSync();
-      }, {
-        root: null,
-        rootMargin: '-12% 0px -12% 0px',
-        threshold: thresholds
+    projectFlows.forEach(function (flow) {
+      flow.addEventListener('focusin', function () {
+        setActiveProject(flow);
       });
-
-      projectItems.forEach(function (item) {
-        observer.observe(item);
+      flow.addEventListener('mouseenter', function () {
+        setActiveProject(flow);
       });
-
-      window.addEventListener('resize', scheduleScrollSync);
-    }
-
-    projectItems.forEach(function (item) {
-      item.addEventListener('focusin', function () {
-        setActiveProject(item);
-      });
-      item.addEventListener('mouseenter', function () {
-        setActiveProject(item);
-      });
-      item.addEventListener('touchstart', function () {
-        setActiveProject(item);
+      flow.addEventListener('touchstart', function () {
+        setActiveProject(flow);
       }, { passive: true });
-      item.addEventListener('click', function () {
-        setActiveProject(item);
-      });
     });
 
     nextProjectButton.addEventListener('click', function () {
-      if (!activeItem) return;
-      var currentIndex = projectItems.indexOf(activeItem);
-      var nextIndex = (currentIndex + 1) % projectItems.length;
-      var nextProject = projectItems[nextIndex];
+      if (!activeFlow) return;
+      var currentIndex = projectFlows.indexOf(activeFlow);
+      var nextIndex = (currentIndex + 1) % projectFlows.length;
+      var nextProject = projectFlows[nextIndex];
       setActiveProject(nextProject);
-      nextProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      try {
-        nextProject.focus({ preventScroll: true });
-      } catch (error) {
-        nextProject.focus();
-      }
+      nextProject.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    setActiveProject(projectItems[0]);
-    initIntersectionTracking();
+    window.addEventListener('scroll', scheduleScrollSync, { passive: true });
+    window.addEventListener('resize', scheduleScrollSync);
+
+    setActiveProject(projectFlows[0]);
     scheduleScrollSync();
   }
 
