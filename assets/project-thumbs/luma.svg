@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset="1" stop-color="#303030"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g1)"/>
+  <rect x="135" y="125" width="280" height="420" rx="18" fill="#FFFFFF" fill-opacity="0.08"/>
+  <rect x="460" y="125" width="280" height="420" rx="18" fill="#FFFFFF" fill-opacity="0.13"/>
+  <rect x="785" y="125" width="280" height="420" rx="18" fill="#FFFFFF" fill-opacity="0.18"/>
+  <rect x="173" y="175" width="204" height="16" rx="8" fill="#FC5113"/>
+  <rect x="498" y="175" width="204" height="16" rx="8" fill="#FC5113"/>
+  <rect x="823" y="175" width="204" height="16" rx="8" fill="#FC5113"/>
+  <text x="110" y="620" fill="#F5F5F5" font-size="52" font-family="Arial, sans-serif" letter-spacing="2">LUMA DESIGN SYSTEM</text>
+</svg>

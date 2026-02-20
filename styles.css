@@ -511,6 +511,7 @@ body {
   display: none;
 }
 
+.project-item-thumb-image,
 .project-item-thumb-inner {
   display: block;
   width: 100%;
@@ -519,8 +520,8 @@ body {
   border-radius: var(--radius-md);
 }
 
-[data-theme="dark"] .project-item-thumb-inner {
-  background: var(--color-surface-muted);
+.project-item-thumb-image {
+  object-fit: cover;
 }
 
 .project-item-title {
@@ -581,6 +582,9 @@ body {
   width: 100%;
   height: 100%;
   background: var(--color-surface-muted);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: var(--radius-md);
 }
 
@@ -970,7 +974,11 @@ body {
   }
 
   .main-content {
-    row-gap: var(--spacing-12);
+    row-gap: var(--section-gap);
+  }
+
+  .projects-section {
+    padding-top: var(--section-gap);
   }
 
   /* Nav in flow so it doesn't overlap logo/theme on narrow widths */
@@ -1046,14 +1054,16 @@ body {
     grid-column: 1;
     grid-row: 1;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: var(--radius-md);
     overflow: hidden;
   }
 
+  .project-item-thumb-image,
   .project-item-thumb-inner {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 100%;
     background: var(--color-surface-muted);
     border-radius: var(--radius-md);
   }
@@ -1088,6 +1098,20 @@ body {
   .project-detail-body {
     grid-template-columns: 1fr;
     gap: var(--spacing-6);
+  }
+
+  .article-nav {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+
+  .article-nav-btn {
+    padding: var(--spacing-4) 0;
+  }
+
+  .project-image-grid-2,
+  .project-image-grid-3 {
+    grid-template-columns: 1fr;
   }
 
   /* Improve touch targets for mobile-ish screens */
@@ -1264,8 +1288,8 @@ body {
   }
 }
 
-/* --- Narrow viewport: hamburger menu (nav + theme inside; avoid overlap with logo/theme) --- */
-@media (max-width: 520px) {
+/* --- Tablet/Mobile nav collapse: hamburger menu (nav + theme inside) --- */
+@media (max-width: 768px) {
   .nav-toggle {
     display: flex;
     margin-left: auto;

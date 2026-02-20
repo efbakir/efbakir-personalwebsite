@@ -136,6 +136,7 @@
       hoverVideo.pause();
       hoverVideo.src = '';
       hoverVideo.style.display = 'none';
+      hoverImageInner.style.backgroundImage = '';
       hoverImageInner.style.display = 'block';
       hoverImage.hidden = true;
       hoverImage.style.display = 'none';
@@ -144,6 +145,7 @@
     projectItems.forEach(function (item) {
       item.addEventListener('mouseenter', function (event) {
         var videoSrc = (item.getAttribute('data-video') || '').trim();
+        var imageSrc = (item.getAttribute('data-thumb') || '').trim();
 
         hoverImage.hidden = false;
         hoverImage.style.display = 'block';
@@ -159,6 +161,7 @@
           hoverVideo.src = '';
           hoverVideo.pause();
           hoverVideo.style.display = 'none';
+          hoverImageInner.style.backgroundImage = imageSrc ? "url('" + imageSrc + "')" : '';
           hoverImageInner.style.display = 'block';
         }
       });

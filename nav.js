@@ -45,6 +45,9 @@
   if (overlay) {
     overlay.addEventListener('click', close);
   }
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768 && header.classList.contains('nav-open')) close();
+  });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && header.classList.contains('nav-open')) close();
   });
