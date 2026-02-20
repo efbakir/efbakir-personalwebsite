@@ -74,103 +74,183 @@
     });
   }
 
-  function initProjectFilters() {
-    var filterBtns = document.querySelectorAll('.filter-btn');
-    var projectItems = document.querySelectorAll('.project-item');
-    if (!filterBtns.length || !projectItems.length) return;
+  function initProjectsNavigator() {
+    var projectsNavigator = document.getElementById('projects-navigator');
+    if (!projectsNavigator) return;
 
-    function setFirstVisibleProject() {
+    var rail = document.getElementById('projects-rail');
+    var projectItems = Array.from(projectsNavigator.querySelectorAll('.projects-rail .project-item'));
+    var overviewImage = document.getElementById('projects-overview-image');
+    var overviewFile = document.getElementById('projects-overview-file');
+    var overviewTitle = document.getElementById('projects-overview-title');
+    var overviewAbout = document.getElementById('projects-overview-about');
+    var overviewSummary = document.getElementById('projects-overview-summary');
+    var overviewYear = document.getElementById('projects-overview-year');
+    var overviewTeam = document.getElementById('projects-overview-team');
+    var nextProjectButton = document.getElementById('projects-overview-next');
+
+    if (
+      !rail ||
+      !projectItems.length ||
+      !overviewImage ||
+      !overviewFile ||
+      !overviewTitle ||
+      !overviewAbout ||
+      !overviewSummary ||
+      !overviewYear ||
+      !overviewTeam ||
+      !nextProjectButton
+    ) {
+      return;
+    }
+
+    var activeItem = null;
+    var observer = null;
+    var intersectionRatios = new Map();
+    var scrollRaf = 0;
+
+    function toSummaryItems(summaryText) {
+      return (summaryText || '')
+        .split('|')
+        .map(function (item) { return item.trim(); })
+        .filter(Boolean);
+    }
+
+    function setOverviewFromItem(item) {
+      var title = (item.dataset.projectTitle || '').trim();
+      var about = (item.dataset.projectAbout || '').trim();
+      var summaryItems = toSummaryItems(item.dataset.projectSummary);
+      var year = (item.dataset.projectYear || '').trim();
+      var team = (item.dataset.projectTeam || '').trim();
+      var image = (item.dataset.projectImage || '').trim();
+      var filename = (item.dataset.projectFilename || '').trim();
+
+      if (image) overviewImage.src = image;
+      overviewImage.alt = title ? title + ' project preview' : 'Project preview';
+      overviewFile.textContent = filename || 'PROJECT_PREVIEW';
+      overviewTitle.textContent = title || 'Project';
+      overviewAbout.textContent = about || 'Project overview';
+      overviewYear.textContent = year || '—';
+      overviewTeam.textContent = team || '—';
+
+      overviewSummary.innerHTML = '';
+      if (!summaryItems.length) {
+        var emptyItem = document.createElement('li');
+        emptyItem.textContent = 'No summary available.';
+        overviewSummary.appendChild(emptyItem);
+        return;
+      }
+      summaryItems.forEach(function (summaryItem) {
+        var listItem = document.createElement('li');
+        listItem.textContent = summaryItem;
+        overviewSummary.appendChild(listItem);
+      });
+    }
+
+    function setActiveProject(item) {
+      if (!item || activeItem === item) return;
+
+      activeItem = item;
+      projectItems.forEach(function (projectItem) {
+        projectItem.classList.toggle('is-active', projectItem === item);
+      });
+      setOverviewFromItem(item);
+    }
+
+    function getItemScore(item) {
+      var rect = item.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+      var visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+      var visibility = Math.max(0, visibleHeight) / Math.max(1, Math.min(rect.height, viewportHeight));
+      var ratio = intersectionRatios.get(item) || visibility;
+      var viewportCenter = viewportHeight / 2;
+      var itemCenter = rect.top + rect.height / 2;
+      var centerDistance = Math.abs(viewportCenter - itemCenter);
+      var centerScore = Math.max(0, 1 - centerDistance / viewportCenter);
+      return (ratio * 0.65) + (visibility * 0.2) + (centerScore * 0.15);
+    }
+
+    function pickBestVisibleItem() {
+      var bestItem = null;
+      var bestScore = -1;
       projectItems.forEach(function (item) {
-        item.classList.remove('first-visible');
+        var score = getItemScore(item);
+        if (score > bestScore) {
+          bestScore = score;
+          bestItem = item;
+        }
       });
-      var firstVisible = Array.from(projectItems).find(function (item) {
-        return !item.hidden;
-      });
-      if (firstVisible) firstVisible.classList.add('first-visible');
+      return bestItem || projectItems[0];
     }
 
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var filter = btn.dataset.filter;
-
-        filterBtns.forEach(function (other) {
-          other.classList.remove('active');
-        });
-        btn.classList.add('active');
-
-        projectItems.forEach(function (item) {
-          item.hidden = !(filter === 'all' || item.dataset.type === filter);
-        });
-
-        setFirstVisibleProject();
+    function scheduleScrollSync() {
+      if (scrollRaf) return;
+      scrollRaf = window.requestAnimationFrame(function () {
+        scrollRaf = 0;
+        setActiveProject(pickBestVisibleItem());
       });
-    });
-
-    setFirstVisibleProject();
-  }
-
-  function initProjectHoverPreview() {
-    var projectItems = document.querySelectorAll('.project-item');
-    var hoverImage = document.getElementById('project-hover-image');
-    var hoverVideo = document.getElementById('project-hover-video');
-    var hoverImageInner = hoverImage ? hoverImage.querySelector('.project-hover-image-inner') : null;
-    var pointerSupportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-    if (!projectItems.length || !hoverImage || !hoverVideo || !hoverImageInner || !pointerSupportsHover) return;
-
-    function updateImagePosition(event) {
-      var offsetX = 20;
-      var offsetY = 20;
-      var previewWidth = hoverImage.offsetWidth || 400;
-      var previewHeight = hoverImage.offsetHeight || 300;
-      var maxX = window.innerWidth - previewWidth - 20;
-      var maxY = window.innerHeight - previewHeight - 20;
-      var x = Math.max(16, Math.min(event.clientX + offsetX, maxX));
-      var y = Math.max(16, Math.min(event.clientY + offsetY, maxY));
-
-      hoverImage.style.left = x + 'px';
-      hoverImage.style.top = y + 'px';
     }
 
-    function hidePreview() {
-      hoverVideo.pause();
-      hoverVideo.src = '';
-      hoverVideo.style.display = 'none';
-      hoverImageInner.style.backgroundImage = '';
-      hoverImageInner.style.display = 'block';
-      hoverImage.hidden = true;
-      hoverImage.style.display = 'none';
+    function initIntersectionTracking() {
+      if (!('IntersectionObserver' in window)) {
+        window.addEventListener('scroll', scheduleScrollSync, { passive: true });
+        window.addEventListener('resize', scheduleScrollSync);
+        return;
+      }
+
+      var thresholds = [];
+      for (var i = 0; i <= 10; i += 1) thresholds.push(i / 10);
+
+      observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          intersectionRatios.set(entry.target, entry.intersectionRatio);
+        });
+        scheduleScrollSync();
+      }, {
+        root: null,
+        rootMargin: '-12% 0px -12% 0px',
+        threshold: thresholds
+      });
+
+      projectItems.forEach(function (item) {
+        observer.observe(item);
+      });
+
+      window.addEventListener('resize', scheduleScrollSync);
     }
 
     projectItems.forEach(function (item) {
-      item.addEventListener('mouseenter', function (event) {
-        var videoSrc = (item.getAttribute('data-video') || '').trim();
-        var imageSrc = (item.getAttribute('data-thumb') || '').trim();
-
-        hoverImage.hidden = false;
-        hoverImage.style.display = 'block';
-        updateImagePosition(event);
-
-        if (videoSrc) {
-          hoverVideo.src = videoSrc;
-          hoverVideo.style.display = 'block';
-          hoverImageInner.style.display = 'none';
-          hoverVideo.muted = true;
-          hoverVideo.play().catch(function () {});
-        } else {
-          hoverVideo.src = '';
-          hoverVideo.pause();
-          hoverVideo.style.display = 'none';
-          hoverImageInner.style.backgroundImage = imageSrc ? "url('" + imageSrc + "')" : '';
-          hoverImageInner.style.display = 'block';
-        }
+      item.addEventListener('focusin', function () {
+        setActiveProject(item);
       });
-
-      item.addEventListener('mousemove', updateImagePosition);
-      item.addEventListener('mouseleave', hidePreview);
+      item.addEventListener('mouseenter', function () {
+        setActiveProject(item);
+      });
+      item.addEventListener('touchstart', function () {
+        setActiveProject(item);
+      }, { passive: true });
+      item.addEventListener('click', function () {
+        setActiveProject(item);
+      });
     });
 
-    window.addEventListener('scroll', hidePreview, { passive: true });
+    nextProjectButton.addEventListener('click', function () {
+      if (!activeItem) return;
+      var currentIndex = projectItems.indexOf(activeItem);
+      var nextIndex = (currentIndex + 1) % projectItems.length;
+      var nextProject = projectItems[nextIndex];
+      setActiveProject(nextProject);
+      nextProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try {
+        nextProject.focus({ preventScroll: true });
+      } catch (error) {
+        nextProject.focus();
+      }
+    });
+
+    setActiveProject(projectItems[0]);
+    initIntersectionTracking();
+    scheduleScrollSync();
   }
 
   function initGlossaryAccordion() {
@@ -204,8 +284,7 @@
 
   initTheme();
   initCvOverlay();
-  initProjectFilters();
-  initProjectHoverPreview();
+  initProjectsNavigator();
   initGlossaryAccordion();
 
   syncBodyScrollLock();

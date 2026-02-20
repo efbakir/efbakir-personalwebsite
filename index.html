@@ -63,44 +63,92 @@
 
     <!-- Projects Section -->
     <section class="projects-section">
-      <!-- Filter Bar (horizontal scroll + gradient hint) -->
-      <div class="project-filters-wrap">
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">ALL</button>
-          <button class="filter-btn" data-filter="web">WEB DESIGN</button>
-          <button class="filter-btn" data-filter="ux">UX DESIGN</button>
+      <div class="projects-navigator" id="projects-navigator">
+        <div class="projects-rail" id="projects-rail">
+          <a
+            href="/projects/nat-hellen/"
+            class="project-item is-active"
+            data-project-title="Nat Hellen"
+            data-project-about="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+            data-project-summary="Brand positioning|Identity and visual language|Portfolio website design|Ecommerce-ready experience"
+            data-project-year="2026"
+            data-project-team="Solo"
+            data-project-image="/assets/projects/nat-hellen/coverimg.png"
+            data-project-filename="NH_COVERIMAGE.PNG"
+          >
+            <span class="project-item-media" aria-hidden="true">
+              <img src="/assets/projects/nat-hellen/coverimg.png" alt="" class="project-item-thumb-image" loading="lazy" decoding="async" width="1600" height="900">
+            </span>
+            <div class="project-item-meta">
+              <p class="project-item-file">NH_COVERIMAGE.PNG</p>
+              <h3 class="project-item-title">Nat Hellen</h3>
+              <p class="project-item-desc">Brand system for meditation musician.</p>
+            </div>
+          </a>
+
+          <a
+            href="/projects/finova-banking-app/"
+            class="project-item"
+            data-project-title="Finova Banking App"
+            data-project-about="An end-to-end UX case focused on making digital banking easier to understand through clear flows and educational touchpoints."
+            data-project-summary="UX research and synthesis|Journey mapping and IA|Mobile-first interface design|Prototype and usability validation"
+            data-project-year="2025"
+            data-project-team="Lead Product Designer"
+            data-project-image="/assets/project-thumbs/finova.svg"
+            data-project-filename="FINOVA_01.JPG"
+          >
+            <span class="project-item-media" aria-hidden="true">
+              <img src="/assets/project-thumbs/finova.svg" alt="" class="project-item-thumb-image" loading="lazy" decoding="async" width="1200" height="675">
+            </span>
+            <div class="project-item-meta">
+              <p class="project-item-file">FINOVA_01.JPG</p>
+              <h3 class="project-item-title">Finova Banking App</h3>
+              <p class="project-item-desc">Digital banking experience focused on financial literacy.</p>
+            </div>
+          </a>
         </div>
+
+        <aside class="projects-overview" id="projects-overview" aria-live="polite">
+          <div class="projects-overview-inner">
+            <div class="projects-overview-media">
+              <img src="/assets/projects/nat-hellen/coverimg.png" alt="Nat Hellen project preview" id="projects-overview-image" class="projects-overview-image" width="1600" height="900">
+            </div>
+            <div class="projects-overview-head">
+              <p class="projects-overview-file" id="projects-overview-file">NH_COVERIMAGE.PNG</p>
+              <h3 class="projects-overview-title" id="projects-overview-title">Nat Hellen</h3>
+            </div>
+            <div class="projects-overview-about">
+              <p class="section-heading">ABOUT</p>
+              <p class="projects-overview-about-text" id="projects-overview-about">Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.</p>
+            </div>
+            <div class="projects-overview-meta">
+              <div class="projects-overview-summary">
+                <p class="section-heading">SUMMARY</p>
+                <ul class="projects-overview-summary-list" id="projects-overview-summary">
+                  <li>Brand positioning</li>
+                  <li>Identity and visual language</li>
+                  <li>Portfolio website design</li>
+                  <li>Ecommerce-ready experience</li>
+                </ul>
+              </div>
+              <div class="projects-overview-facts">
+                <div class="projects-overview-fact">
+                  <p class="section-heading">YEAR</p>
+                  <p class="projects-overview-fact-value" id="projects-overview-year">2026</p>
+                </div>
+                <div class="projects-overview-fact">
+                  <p class="section-heading">TEAM</p>
+                  <p class="projects-overview-fact-value" id="projects-overview-team">Solo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="projects-overview-next" id="projects-overview-next">
+            <span>Jump to next project</span>
+            <span class="projects-overview-next-arrow" aria-hidden="true">→</span>
+          </button>
+        </aside>
       </div>
-
-      <!-- Project List -->
-      <div class="project-list">
-
-        <a href="/projects/nat-hellen/" class="project-item" data-type="web" data-thumb="/assets/project-thumbs/nat-hellen.png">
-          <span class="project-item-thumb" aria-hidden="true">
-            <img src="/assets/project-thumbs/nat-hellen.png" alt="" class="project-item-thumb-image" loading="lazy" decoding="async" width="1200" height="675">
-          </span>
-          <h3 class="project-item-title">Nat Hellen</h3>
-          <p class="project-item-desc">Brand system for meditation musician.</p>
-          <span class="project-item-date">JAN 2026</span>
-        </a>
-
-        <a href="/projects/finova-banking-app/" class="project-item" data-type="ux" data-thumb="/assets/project-thumbs/finova.svg">
-          <span class="project-item-thumb" aria-hidden="true">
-            <img src="/assets/project-thumbs/finova.svg" alt="" class="project-item-thumb-image" loading="lazy" decoding="async" width="1200" height="675">
-          </span>
-          <h3 class="project-item-title">Finova Banking App</h3>
-          <p class="project-item-desc">Digital banking experience focused on financial literacy.</p>
-          <span class="project-item-date">FEB 2025</span>
-        </a>
-
-      </div>
-
-      <!-- Hover Preview (video or image) -->
-      <div class="project-hover-image" id="project-hover-image" hidden>
-        <video class="project-hover-video" id="project-hover-video" muted loop playsinline></video>
-        <div class="project-hover-image-inner"></div>
-      </div>
-
     </section>
   </main>
 

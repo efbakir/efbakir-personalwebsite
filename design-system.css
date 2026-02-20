@@ -20,6 +20,7 @@
   --color-text-inverse: #ffffff;
   --color-overlay: rgba(0, 0, 0, 0.8);
   --color-overlay-strong: rgba(0, 0, 0, 0.9);
+  --color-accent-soft: rgba(252, 81, 19, 0.18);
 
   /* Legacy black/white aliases */
   --black: var(--color-text-primary);
@@ -124,6 +125,12 @@
   --size-project-list-media-col-compact: 240px;
   --size-hover-preview-width: 400px;
   --size-hover-preview-height: 300px;
+  --size-project-nav-split-gap: var(--spacing-4);
+  --size-project-nav-sidebar-width: clamp(248px, 22vw, 320px);
+  --size-project-nav-sidebar-width-tablet: clamp(200px, 28vw, 248px);
+  --size-project-nav-sticky-top: calc(var(--spacing-8) + var(--spacing-4));
+  --size-project-nav-card-media-aspect: 908 / 520;
+  --size-project-nav-overview-media-aspect: 292 / 220;
   --size-modal-max-width: 800px;
   --size-close-icon: 28px;
   --size-nav-menu-link-min-height: 48px;
@@ -143,6 +150,8 @@
   /* Opacity */
   --opacity-hover-subtle: 0.85;
   --opacity-hover-strong: 0.55;
+  --opacity-project-card-idle: 0.78;
+  --opacity-project-card-active: 1;
 
   /* Motion */
   --duration-fast: 0.2s;
@@ -160,6 +169,8 @@
   /* Shadows */
   --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.2);
   --shadow-modal-dark: 0 8px 32px rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-soft-dark: 0 8px 24px rgba(0, 0, 0, 0.35);
 
   /* Dark legacy aliases */
   --dark-bg: #000000;
@@ -206,6 +217,7 @@
   --color-text-inverse: #000000;
   --color-overlay: rgba(0, 0, 0, 0.9);
   --color-overlay-strong: rgba(0, 0, 0, 0.95);
+  --color-accent-soft: rgba(252, 81, 19, 0.24);
 
   --dark-bg: var(--color-bg);
   --dark-text: var(--color-text-primary);
