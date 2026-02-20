@@ -10,12 +10,18 @@
 <body>
   <!-- Header -->
   <header class="header">
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
       <button class="logo-btn" id="cv-trigger" aria-label="View CV">
         <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
         Efe Bakır
       </button>
-      <nav class="main-nav">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
         <a href="/" class="nav-link active">PROJECTS</a>
         <a href="/writings/" class="nav-link">WRITINGS</a>
         <a href="/glossary/" class="nav-link">GLOSSARY</a>
@@ -57,13 +63,13 @@
           <p class="project-section-text">End-to-end UX research and design for a digital banking experience focused on financial literacy. Conducted user interviews, journey mapping, and iterative prototyping to create an accessible mobile-first product.</p>
         </div>
         <div class="project-section-media">
-          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--gray-100);"></div>
+          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--color-surface-muted);"></div>
         </div>
       </section>
 
       <!-- Full Width Image -->
       <div class="project-image-full">
-        <div class="project-image-placeholder" style="aspect-ratio: 16/9; background: var(--gray-100);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 16/9; background: var(--color-surface-muted);"></div>
       </div>
 
       <!-- Problem + Research Side by Side -->
@@ -73,7 +79,7 @@
           <p class="project-section-text">Traditional banking apps focus on transactions but don't help users understand the "why" behind their financial behavior. Young users especially struggle with financial literacy.</p>
         </div>
         <div class="project-section-media">
-          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--gray-100);"></div>
+          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--color-surface-muted);"></div>
         </div>
       </section>
 
@@ -89,14 +95,14 @@
           </ul>
         </div>
         <div class="project-section-media">
-          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--gray-100);"></div>
+          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--color-surface-muted);"></div>
         </div>
       </section>
 
       <!-- Full Width Image Grid -->
       <div class="project-image-grid-2">
-        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--gray-100);"></div>
-        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--gray-100);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--color-surface-muted);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--color-surface-muted);"></div>
       </div>
 
       <!-- Solution + Image -->
@@ -106,13 +112,13 @@
           <p class="project-section-text">We created an educational layer within the banking experience. Contextual tooltips, smart insights, and a learning center that adapts to each user's financial behavior.</p>
         </div>
         <div class="project-section-media">
-          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--gray-100);"></div>
+          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--color-surface-muted);"></div>
         </div>
       </section>
 
       <!-- Full Width Image -->
       <div class="project-image-full">
-        <div class="project-image-placeholder" style="aspect-ratio: 16/9; background: var(--gray-100);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 16/9; background: var(--color-surface-muted);"></div>
       </div>
 
       <!-- Key Features + Image -->
@@ -127,15 +133,15 @@
           </ul>
         </div>
         <div class="project-section-media">
-          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--gray-100);"></div>
+          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--color-surface-muted);"></div>
         </div>
       </section>
 
       <!-- Full Width Image Grid -->
       <div class="project-image-grid-3">
-        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--gray-100);"></div>
-        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--gray-100);"></div>
-        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--gray-100);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--color-surface-muted);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--color-surface-muted);"></div>
+        <div class="project-image-placeholder" style="aspect-ratio: 3/4; background: var(--color-surface-muted);"></div>
       </div>
 
       <!-- Outcome -->
@@ -145,7 +151,7 @@
           <p class="project-section-text">Post-launch metrics showed a 45% increase in user engagement with financial planning features. Support tickets related to feature confusion decreased by 60%.</p>
         </div>
         <div class="project-section-media">
-          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--gray-100);"></div>
+          <div class="project-image-placeholder" style="aspect-ratio: 4/3; background: var(--color-surface-muted);"></div>
         </div>
       </section>
 
@@ -199,68 +205,7 @@
     </div>
   </div>
 
-  <script>
-    // Dark/Light Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', currentTheme);
-    updateThemeToggle(currentTheme);
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeToggle(newTheme);
-    });
-    
-    function updateThemeToggle(theme) {
-      const moonLabel = themeToggle.querySelector('.theme-label:first-child');
-      const sunLabel = themeToggle.querySelector('.theme-label:last-child');
-      
-      if (theme === 'dark') {
-        moonLabel.classList.add('active');
-        moonLabel.classList.remove('inactive');
-        sunLabel.classList.add('inactive');
-        sunLabel.classList.remove('active');
-      } else {
-        sunLabel.classList.add('active');
-        sunLabel.classList.remove('inactive');
-        moonLabel.classList.add('inactive');
-        moonLabel.classList.remove('active');
-      }
-    }
-
-    // CV Overlay
-    const cvTrigger = document.getElementById('cv-trigger');
-    const cvOverlay = document.getElementById('cv-overlay');
-    const cvClose = document.getElementById('cv-close');
-
-    cvTrigger.addEventListener('click', () => {
-      cvOverlay.hidden = false;
-      document.body.style.overflow = 'hidden';
-    });
-
-    cvClose.addEventListener('click', () => {
-      cvOverlay.hidden = true;
-      document.body.style.overflow = '';
-    });
-
-    cvOverlay.addEventListener('click', (e) => {
-      if (e.target === cvOverlay) {
-        cvOverlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !cvOverlay.hidden) {
-        cvOverlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
+  <script src="/nav.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

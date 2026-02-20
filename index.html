@@ -10,12 +10,18 @@
 <body>
   <!-- Header -->
   <header class="header">
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
       <button class="logo-btn" id="cv-trigger" aria-label="View CV">
         <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
         Efe Bakır
       </button>
-      <nav class="main-nav">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav" >
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
         <a href="/" class="nav-link active">PROJECTS</a>
         <a href="/writings/" class="nav-link">WRITINGS</a>
         <a href="/glossary/" class="nav-link">GLOSSARY</a>
@@ -49,8 +55,8 @@
             <span class="contact-label">Email</span>
             <a href="mailto:efeec.bakir@gmail.com" class="contact-value">efeec.bakir@gmail.com</a>
           </div>
-          <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">LinkedIn<span class="contact-link-icon" aria-hidden="true">↗</span></a>
-          <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">Behance<span class="contact-link-icon" aria-hidden="true">↗</span></a>
+          <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">LinkedIn</a>
+          <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">Behance</a>
         </div>
       </div>
     </section>
@@ -72,36 +78,42 @@
       <div class="project-list">
 
         <a href="/projects/finova-banking-app/" class="project-item" data-type="ux" data-image="placeholder1">
+          <span class="project-item-thumb" aria-hidden="true"><span class="project-item-thumb-inner"></span></span>
           <h3 class="project-item-title">Finova Banking App</h3>
           <p class="project-item-desc">Digital banking experience focused on financial literacy.</p>
           <span class="project-item-date">FEB 2025</span>
         </a>
 
         <a href="/projects/luma-design-system/" class="project-item" data-type="ui" data-image="placeholder2">
+          <span class="project-item-thumb" aria-hidden="true"><span class="project-item-thumb-inner"></span></span>
           <h3 class="project-item-title">Luma Design System</h3>
           <p class="project-item-desc">Component library and design tokens for SaaS platform.</p>
           <span class="project-item-date">JAN 2025</span>
         </a>
 
         <a href="/projects/atelier-collective/" class="project-item" data-type="web" data-image="placeholder3">
+          <span class="project-item-thumb" aria-hidden="true"><span class="project-item-thumb-inner"></span></span>
           <h3 class="project-item-title">Atelier Collective</h3>
           <p class="project-item-desc">Portfolio and e-commerce for Milan furniture studio.</p>
           <span class="project-item-date">DEC 2024</span>
         </a>
 
         <a href="/projects/horizon-wayfinding/" class="project-item" data-type="concept" data-image="placeholder4">
+          <span class="project-item-thumb" aria-hidden="true"><span class="project-item-thumb-inner"></span></span>
           <h3 class="project-item-title">Horizon Wayfinding</h3>
           <p class="project-item-desc">Indoor navigation using spatial audio technology.</p>
           <span class="project-item-date">NOV 2024</span>
         </a>
 
         <a href="/projects/meditrack-patient-portal/" class="project-item" data-type="ux" data-image="placeholder5">
+          <span class="project-item-thumb" aria-hidden="true"><span class="project-item-thumb-inner"></span></span>
           <h3 class="project-item-title">MediTrack Patient Portal</h3>
           <p class="project-item-desc">Healthcare platform redesign for 200k+ users.</p>
           <span class="project-item-date">OCT 2024</span>
         </a>
 
         <a href="/projects/verso-publishing/" class="project-item" data-type="web" data-image="placeholder6">
+          <span class="project-item-thumb" aria-hidden="true"><span class="project-item-thumb-inner"></span></span>
           <h3 class="project-item-title">Verso Publishing</h3>
           <p class="project-item-desc">Editorial website for independent publishing house.</p>
           <span class="project-item-date">SEP 2023</span>
@@ -211,152 +223,7 @@
     </div>
   </div>
 
-  <script>
-    // Dark/Light Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', currentTheme);
-    updateThemeToggle(currentTheme);
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeToggle(newTheme);
-    });
-    
-    function updateThemeToggle(theme) {
-      const moonLabel = themeToggle.querySelector('.theme-label:first-child');
-      const sunLabel = themeToggle.querySelector('.theme-label:last-child');
-      
-      if (theme === 'dark') {
-        moonLabel.classList.add('active');
-        moonLabel.classList.remove('inactive');
-        sunLabel.classList.add('inactive');
-        sunLabel.classList.remove('active');
-      } else {
-        sunLabel.classList.add('active');
-        sunLabel.classList.remove('inactive');
-        moonLabel.classList.add('inactive');
-        moonLabel.classList.remove('active');
-      }
-    }
-
-    // CV Overlay
-    const cvTrigger = document.getElementById('cv-trigger');
-    const cvOverlay = document.getElementById('cv-overlay');
-    const cvClose = document.getElementById('cv-close');
-
-    cvTrigger.addEventListener('click', () => {
-      cvOverlay.hidden = false;
-      document.body.style.overflow = 'hidden';
-    });
-
-    cvClose.addEventListener('click', () => {
-      cvOverlay.hidden = true;
-      document.body.style.overflow = '';
-    });
-
-    // Close on overlay background click
-    cvOverlay.addEventListener('click', (e) => {
-      if (e.target === cvOverlay) {
-        cvOverlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !cvOverlay.hidden) {
-        cvOverlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-    });
-
-    // --- Filter logic ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-
-    function setFirstVisibleProject() {
-      projectItems.forEach(item => item.classList.remove('first-visible'));
-      const firstVisible = Array.from(projectItems).find(item => !item.hidden);
-      if (firstVisible) firstVisible.classList.add('first-visible');
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-
-        // Update active state
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // Show/hide items
-        projectItems.forEach(item => {
-          if (filter === 'all' || item.dataset.type === filter) {
-            item.hidden = false;
-          } else {
-            item.hidden = true;
-          }
-        });
-        setFirstVisibleProject();
-      });
-    });
-
-    setFirstVisibleProject();
-
-    // --- Hover preview (video or image placeholder) ---
-    const hoverImage = document.getElementById('project-hover-image');
-    const hoverVideo = document.getElementById('project-hover-video');
-    const hoverImageInner = hoverImage.querySelector('.project-hover-image-inner');
-
-    projectItems.forEach(item => {
-      item.addEventListener('mouseenter', (e) => {
-        const videoSrc = (item.getAttribute('data-video') || '').trim();
-        hoverImage.hidden = false;
-        hoverImage.style.display = 'block';
-        updateImagePosition(e);
-
-        if (videoSrc) {
-          hoverVideo.src = videoSrc;
-          hoverVideo.style.display = 'block';
-          hoverImageInner.style.display = 'none';
-          hoverVideo.muted = true;
-          hoverVideo.play().catch(() => {});
-        } else {
-          hoverVideo.src = '';
-          hoverVideo.pause();
-          hoverVideo.style.display = 'none';
-          hoverImageInner.style.display = 'block';
-        }
-      });
-
-      item.addEventListener('mousemove', (e) => {
-        updateImagePosition(e);
-      });
-
-      item.addEventListener('mouseleave', () => {
-        hoverVideo.pause();
-        hoverVideo.src = '';
-        hoverVideo.style.display = 'none';
-        hoverImageInner.style.display = 'block';
-        hoverImage.hidden = true;
-        hoverImage.style.display = 'none';
-      });
-    });
-
-    function updateImagePosition(e) {
-      const offsetX = 20;
-      const offsetY = 20;
-      const x = e.clientX + offsetX;
-      const y = e.clientY + offsetY;
-      
-      hoverImage.style.left = x + 'px';
-      hoverImage.style.top = y + 'px';
-    }
-  </script>
+  <script src="/nav.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>

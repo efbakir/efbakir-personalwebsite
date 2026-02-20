@@ -1,144 +1,215 @@
-/* Design System Variables - Extracted from Figma Published Design System */
+/* Design System Variables */
 
 :root {
-  /* Colors - Gray Scale */
+  /* Brand */
+  --accent: #fc5113;
+
+  /* Base palette */
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-400: #9ca3af;
-  
-  /* Colors - Black & White */
-  --black: #000000;
-  --white: #ffffff;
-  
-  /* Colors - Accent */
-  --accent: #FC5113;
-  
-  /* Typography - Body/Body-1 */
+
+  /* Semantic colors */
+  --color-bg: #ffffff;
+  --color-surface: var(--gray-50);
+  --color-surface-muted: var(--gray-100);
+  --color-border: var(--gray-200);
+  --color-text-primary: #000000;
+  --color-text-secondary: var(--gray-400);
+  --color-text-inverse: #ffffff;
+  --color-overlay: rgba(0, 0, 0, 0.8);
+  --color-overlay-strong: rgba(0, 0, 0, 0.9);
+
+  /* Legacy black/white aliases */
+  --black: var(--color-text-primary);
+  --white: var(--color-bg);
+
+  /* Typography */
   --body-1-font-family: "Suisse Int'l", sans-serif;
   --body-1-font-size: 18px;
   --body-1-line-height: 28px;
   --body-1-letter-spacing: 0px;
   --body-1-weight-regular: 400;
-  
-  /* Typography - Body/Body-3 */
-  --body-3-font-family: "Suisse Int'l", sans-serif;
-  --body-3-font-size: 14px;
-  --body-3-line-height: 20px;
-  --body-3-letter-spacing: 0px;
-  --body-3-weight-regular: 400;
-  
-  /* Typography - Label/Label-3 */
-  --label-3-font-family: "Suisse Int'l", sans-serif;
-  --label-3-font-size: 14px;
-  --label-3-line-height: 20px;
-  --label-3-letter-spacing: 0px;
-  --label-3-weight-regular: 400;
-  
-  /* Typography - Label Headings (Reddit Mono) */
-  --label-heading-font-family: "Reddit Mono", monospace;
-  --label-heading-font-size: 12px;
-  --label-heading-line-height: 16px;
-  --label-heading-letter-spacing: -0.12px;
-  --label-heading-weight-regular: 400;
-  
-  /* Typography - Body/Body-2 (intermediate size for mobile optimizations) */
+
   --body-2-font-family: "Suisse Int'l", sans-serif;
   --body-2-font-size: 16px;
   --body-2-line-height: 24px;
   --body-2-letter-spacing: 0px;
   --body-2-weight-regular: 400;
-  
-  /* Typography - Label/Label-2 (for emphasized mobile labels) */
+
+  --body-3-font-family: "Suisse Int'l", sans-serif;
+  --body-3-font-size: 14px;
+  --body-3-line-height: 20px;
+  --body-3-letter-spacing: 0px;
+  --body-3-weight-regular: 400;
+
   --label-2-font-family: "Suisse Int'l", sans-serif;
   --label-2-font-size: 15px;
   --label-2-line-height: 22px;
   --label-2-letter-spacing: 0px;
   --label-2-weight-regular: 400;
-  
-  /* Typography - Label/Label-Heading-Small (mobile heading) */
+
+  --label-3-font-family: "Suisse Int'l", sans-serif;
+  --label-3-font-size: 14px;
+  --label-3-line-height: 20px;
+  --label-3-letter-spacing: 0px;
+  --label-3-weight-regular: 400;
+
+  --label-heading-font-family: "Reddit Mono", monospace;
+  --label-heading-font-size: 12px;
+  --label-heading-line-height: 16px;
+  --label-heading-letter-spacing: -0.12px;
+  --label-heading-weight-regular: 400;
+
   --label-heading-sm-font-family: "Reddit Mono", monospace;
   --label-heading-sm-font-size: 13px;
   --label-heading-sm-line-height: 18px;
   --label-heading-sm-letter-spacing: -0.12px;
   --label-heading-sm-weight-regular: 400;
-  
-  /* Font Weights */
+
   --weight-regular: 400;
-  
-  /* Spacing - Based on 4px grid system */
+
+  /* Display type */
+  --display-lg-font-size: 24px;
+  --display-lg-line-height: 32px;
+  --display-md-font-size: 22px;
+  --display-md-line-height: 1.35;
+  --display-sm-font-size: 20px;
+
+  /* Spacing scale (4px base) */
+  --spacing-0: 0;
   --spacing-1: 4px;
   --spacing-2: 8px;
+  --spacing-3: 12px;
   --spacing-4: 16px;
+  --spacing-5: 20px;
   --spacing-6: 24px;
   --spacing-8: 32px;
+  --spacing-10: 40px;
   --spacing-12: 48px;
+  --spacing-14: 56px;
   --spacing-16: 64px;
+  --spacing-20: 80px;
   --spacing-24: 96px;
-  
-  /* Icon Sizes */
-  --icon-sm: 12px;
-  --icon-md: 16px;
-  --icon-lg: 20px;
-  
-  /* Content Width Constraints */
+
+  /* Layout */
+  --grid-container-width: 1280px;
+  --grid-margin: var(--spacing-8);
+  --grid-gutter: var(--spacing-4);
+  --grid-columns: 12;
+  --grid-content-width: calc(var(--grid-container-width) - (var(--grid-margin) * 2));
+  --grid-column-width: calc((var(--grid-content-width) - (var(--grid-gutter) * 11)) / 12);
   --content-width-narrow: 680px;
   --content-width-medium: 800px;
   --content-column-sm: 100px;
   --content-column-md: 187px;
-  
-  /* Dark Mode Colors */
-  --dark-bg: #000000;
-  --dark-text: #ffffff;
-  --dark-gray-400: #9ca3af;
-  
-  /* Border Radius */
+  --page-padding-top: var(--spacing-16);
+  --page-padding-bottom: var(--spacing-8);
+  --section-gap: var(--spacing-8);
+  --section-gap-large: var(--spacing-12);
+
+  /* Icon & control sizes */
+  --icon-sm: 12px;
+  --icon-md: 16px;
+  --icon-lg: 20px;
+  --size-touch-target: 44px;
+  --size-nav-toggle-gap: 5px;
+  --size-nav-icon-width: 18px;
+  --size-nav-icon-height: 2px;
+  --size-nav-icon-radius: 1px;
+  --size-nav-icon-shift: 7px;
+  --size-filter-fade-width: 48px;
+  --size-project-list-media-col: 280px;
+  --size-project-list-media-col-compact: 240px;
+  --size-hover-preview-width: 400px;
+  --size-hover-preview-height: 300px;
+  --size-modal-max-width: 800px;
+  --size-close-icon: 28px;
+  --size-nav-menu-link-min-height: 48px;
+
+  /* Radius */
   --radius-sm: 2px;
   --radius-md: 4px;
-  
-  /* Opacity - hover states */
-  --opacity-hover-subtle: 0.85;
-  --opacity-hover-strong: 0.55;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
 
   /* Border */
   --border-width: 1px;
   --border-style: solid;
-  --border-color: var(--gray-200);
+  --border-color: var(--color-border);
   --border: var(--border-width) var(--border-style) var(--border-color);
-  
-  /* Legacy variable names for compatibility (matching Figma variable names) */
+
+  /* Opacity */
+  --opacity-hover-subtle: 0.85;
+  --opacity-hover-strong: 0.55;
+
+  /* Motion */
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --easing-standard: ease;
+  --transition-color: color var(--duration-fast) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard), border-color var(--duration-fast) var(--easing-standard);
+  --transition-opacity: opacity var(--duration-fast) var(--easing-standard);
+  --transition-transform: transform var(--duration-fast) var(--easing-standard);
+
+  /* Focus */
+  --focus-ring-width: 2px;
+  --focus-ring-color: var(--accent);
+  --focus-ring-offset: 2px;
+
+  /* Shadows */
+  --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-modal-dark: 0 8px 32px rgba(255, 255, 255, 0.1);
+
+  /* Dark legacy aliases */
+  --dark-bg: #000000;
+  --dark-text: #ffffff;
+  --dark-gray-400: #9ca3af;
+
+  /* Legacy variable names for compatibility (matching Figma names) */
   --gray\/50: var(--gray-50);
   --gray\/100: var(--gray-100);
   --gray\/200: var(--gray-200);
   --gray\/400: var(--gray-400);
   --b\&w\/black: var(--black);
-  
+
   --body\/body-1\/fontfamily: var(--body-1-font-family);
   --body\/body-1\/fontsize: var(--body-1-font-size);
   --body\/body-1\/lineheight: var(--body-1-line-height);
   --body\/body-1\/letterspacing: var(--body-1-letter-spacing);
-  
+
   --body\/body-3\/fontfamily: var(--body-3-font-family);
   --body\/body-3\/fontsize: var(--body-3-font-size);
   --body\/body-3\/lineheight: var(--body-3-line-height);
   --body\/body-3\/letterspacing: var(--body-3-letter-spacing);
-  
+
   --label\/label-3\/fontfamily: var(--label-3-font-family);
   --label\/label-3\/fontsize: var(--label-3-font-size);
   --label\/label-3\/lineheight: var(--label-3-line-height);
   --label\/label-3\/letterspacing: var(--label-3-letter-spacing);
-  
+
   --Weights\/Regular: var(--weight-regular);
 }
 
-/* Dark Mode */
 [data-theme="dark"] {
-  --black: #ffffff;
-  --white: #000000;
-  --gray-400: #9ca3af;
-  --gray-200: #1f2937;
-  --gray-100: #111827;
   --gray-50: #030712;
+  --gray-100: #111827;
+  --gray-200: #1f2937;
+  --gray-400: #9ca3af;
+
+  --color-bg: #000000;
+  --color-surface: #030712;
+  --color-surface-muted: #111827;
+  --color-border: #1f2937;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-inverse: #000000;
+  --color-overlay: rgba(0, 0, 0, 0.9);
+  --color-overlay-strong: rgba(0, 0, 0, 0.95);
+
+  --dark-bg: var(--color-bg);
+  --dark-text: var(--color-text-primary);
+  --dark-gray-400: var(--color-text-secondary);
 }
 
 /* Font Face - Reddit Mono */

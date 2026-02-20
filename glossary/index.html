@@ -10,12 +10,18 @@
 <body>
   <!-- Header -->
   <header class="header">
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
       <button class="logo-btn" id="cv-trigger" aria-label="View CV">
         <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
         Efe Bakır
       </button>
-      <nav class="main-nav">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
         <a href="/" class="nav-link">PROJECTS</a>
         <a href="/writings/" class="nav-link">WRITINGS</a>
         <a href="/glossary/" class="nav-link active">GLOSSARY</a>
@@ -37,122 +43,108 @@
         <p class="page-description">Mental models and frameworks I find useful for thinking about design and decisions.</p>
       </div>
 
-      <!-- Glossary Filters (placeholder) -->
-      <div class="glossary-filters">
-        <button type="button" class="glossary-filter-btn active" data-filter="all" aria-pressed="true">ALL</button>
-        <button type="button" class="glossary-filter-btn" data-filter="design">DESIGN</button>
-        <button type="button" class="glossary-filter-btn" data-filter="life">LIFE</button>
-        <button type="button" class="glossary-filter-btn" data-filter="engineering">ENGINEERING</button>
-        <button type="button" class="glossary-filter-btn" data-filter="decision-making">DECISION MAKING</button>
-        <button type="button" class="glossary-filter-btn" data-filter="cognitive">COGNITIVE</button>
-      </div>
-
-      <!-- Glossary Entries -->
+      <!-- Glossary Entries (grouped) -->
       <div class="glossary-list">
 
-        <div class="glossary-entry open" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="true" aria-controls="glossary-def-0" id="glossary-term-0">
-            <span class="glossary-term-text">First Principles Thinking</span>
-            <span class="glossary-toggle" aria-hidden="true">−</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-0" role="region" aria-labelledby="glossary-term-0">
-            <div class="glossary-definition">
-              <p>Breaking down a problem into its most fundamental truths and reasoning up from there, rather than reasoning by analogy. Useful when existing solutions feel inadequate or when entering unfamiliar territory.</p>
-              <span class="glossary-tag">Problem Solving</span>
+        <section class="glossary-group">
+          <h3 class="glossary-group-title">Group one</h3>
+          <div class="glossary-entry open" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="true" aria-controls="glossary-def-0" id="glossary-term-0">
+              <span class="glossary-term-text">First Principles Thinking</span>
+              <span class="glossary-toggle" aria-hidden="true">−</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-0" role="region" aria-labelledby="glossary-term-0">
+              <div class="glossary-definition">
+                <p>Breaking down a problem into its most fundamental truths and reasoning up from there, rather than reasoning by analogy. Useful when existing solutions feel inadequate or when entering unfamiliar territory.</p>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-1" id="glossary-term-1">
+              <span class="glossary-term-text">Inversion</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-1" role="region" aria-labelledby="glossary-term-1">
+              <div class="glossary-definition">
+                <p>Instead of asking "how do I achieve X?", ask "what would guarantee failure?" and avoid those things. Often reveals blind spots that forward-thinking misses. Charlie Munger's favorite tool.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-2" id="glossary-term-2">
+              <span class="glossary-term-text">Map is Not the Territory</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-2" role="region" aria-labelledby="glossary-term-2">
+              <div class="glossary-definition">
+                <p>Models and representations of reality are not reality itself. A wireframe is not the product. A user persona is not the user. Keeping this distinction sharp prevents designing for the abstraction instead of the truth.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-1" id="glossary-term-1">
-            <span class="glossary-term-text">Inversion</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-1" role="region" aria-labelledby="glossary-term-1">
-            <div class="glossary-definition">
-              <p>Instead of asking "how do I achieve X?", ask "what would guarantee failure?" and avoid those things. Often reveals blind spots that forward-thinking misses. Charlie Munger's favorite tool.</p>
-              <span class="glossary-tag">Decision Making</span>
+        <section class="glossary-group">
+          <h3 class="glossary-group-title">Group two</h3>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-3" id="glossary-term-3">
+              <span class="glossary-term-text">Second-Order Thinking</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-3" role="region" aria-labelledby="glossary-term-3">
+              <div class="glossary-definition">
+                <p>Considering not just the immediate consequences of a decision, but the consequences of the consequences. "And then what?" repeated. Essential for design systems where one change ripples everywhere.</p>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-4" id="glossary-term-4">
+              <span class="glossary-term-text">Occam's Razor</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-4" role="region" aria-labelledby="glossary-term-4">
+              <div class="glossary-definition">
+                <p>Among competing hypotheses, the one with the fewest assumptions should be preferred. In design: the simplest solution that solves the problem is usually the best. Complexity should be earned, not defaulted to.</p>
+              </div>
+            </div>
+          </div>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-5" id="glossary-term-5">
+              <span class="glossary-term-text">Feedback Loops</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-5" role="region" aria-labelledby="glossary-term-5">
+              <div class="glossary-definition">
+                <p>Systems where outputs circle back as inputs. Positive loops amplify (viral growth, design debt), negative loops stabilize (user testing, iteration). Recognizing which loop you're in changes how you intervene.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-2" id="glossary-term-2">
-            <span class="glossary-term-text">Map is Not the Territory</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-2" role="region" aria-labelledby="glossary-term-2">
-            <div class="glossary-definition">
-              <p>Models and representations of reality are not reality itself. A wireframe is not the product. A user persona is not the user. Keeping this distinction sharp prevents designing for the abstraction instead of the truth.</p>
-              <span class="glossary-tag">Systems Thinking</span>
+        <section class="glossary-group">
+          <h3 class="glossary-group-title">Group three</h3>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-6" id="glossary-term-6">
+              <span class="glossary-term-text">Circle of Competence</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-6" role="region" aria-labelledby="glossary-term-6">
+              <div class="glossary-definition">
+                <p>Know the boundaries of what you truly understand versus what you think you understand. Operating inside your circle with awareness of its edges leads to better work and better collaboration with those whose circles complement yours.</p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-3" id="glossary-term-3">
-            <span class="glossary-term-text">Second-Order Thinking</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-3" role="region" aria-labelledby="glossary-term-3">
-            <div class="glossary-definition">
-              <p>Considering not just the immediate consequences of a decision, but the consequences of the consequences. "And then what?" repeated. Essential for design systems where one change ripples everywhere.</p>
-              <span class="glossary-tag">Decision Making</span>
+          <div class="glossary-entry" data-entry>
+            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-7" id="glossary-term-7">
+              <span class="glossary-term-text">Entropy</span>
+              <span class="glossary-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="glossary-definition-wrapper" id="glossary-def-7" role="region" aria-labelledby="glossary-term-7">
+              <div class="glossary-definition">
+                <p>All systems tend toward disorder over time without deliberate energy input. Codebases decay, design systems drift, team alignment erodes. Maintenance is not a failure of design — it's a law of nature.</p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-4" id="glossary-term-4">
-            <span class="glossary-term-text">Occam's Razor</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-4" role="region" aria-labelledby="glossary-term-4">
-            <div class="glossary-definition">
-              <p>Among competing hypotheses, the one with the fewest assumptions should be preferred. In design: the simplest solution that solves the problem is usually the best. Complexity should be earned, not defaulted to.</p>
-              <span class="glossary-tag">Problem Solving</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-5" id="glossary-term-5">
-            <span class="glossary-term-text">Feedback Loops</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-5" role="region" aria-labelledby="glossary-term-5">
-            <div class="glossary-definition">
-              <p>Systems where outputs circle back as inputs. Positive loops amplify (viral growth, design debt), negative loops stabilize (user testing, iteration). Recognizing which loop you're in changes how you intervene.</p>
-              <span class="glossary-tag">Systems Thinking</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-6" id="glossary-term-6">
-            <span class="glossary-term-text">Circle of Competence</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-6" role="region" aria-labelledby="glossary-term-6">
-            <div class="glossary-definition">
-              <p>Know the boundaries of what you truly understand versus what you think you understand. Operating inside your circle with awareness of its edges leads to better work and better collaboration with those whose circles complement yours.</p>
-              <span class="glossary-tag">Self-Awareness</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="glossary-entry" data-entry>
-          <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-7" id="glossary-term-7">
-            <span class="glossary-term-text">Entropy</span>
-            <span class="glossary-toggle" aria-hidden="true">+</span>
-          </button>
-          <div class="glossary-definition-wrapper" id="glossary-def-7" role="region" aria-labelledby="glossary-term-7">
-            <div class="glossary-definition">
-              <p>All systems tend toward disorder over time without deliberate energy input. Codebases decay, design systems drift, team alignment erodes. Maintenance is not a failure of design — it's a law of nature.</p>
-              <span class="glossary-tag">Systems Thinking</span>
-            </div>
-          </div>
-        </div>
+        </section>
 
       </div>
 
@@ -252,105 +244,7 @@
     </div>
   </div>
 
-  <script>
-    // Dark/Light Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', currentTheme);
-    updateThemeToggle(currentTheme);
-    
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeToggle(newTheme);
-    });
-    
-    function updateThemeToggle(theme) {
-      const moonLabel = themeToggle.querySelector('.theme-label:first-child');
-      const sunLabel = themeToggle.querySelector('.theme-label:last-child');
-      
-      if (theme === 'dark') {
-        moonLabel.classList.add('active');
-        moonLabel.classList.remove('inactive');
-        sunLabel.classList.add('inactive');
-        sunLabel.classList.remove('active');
-      } else {
-        sunLabel.classList.add('active');
-        sunLabel.classList.remove('inactive');
-        moonLabel.classList.add('inactive');
-        moonLabel.classList.remove('active');
-      }
-    }
-
-    // Glossary filter bar — placeholder active state (no filtering logic yet)
-    document.querySelectorAll('.glossary-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.glossary-filter-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.glossary-filter-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-      });
-    });
-
-    // Glossary accordion — one open at a time, smooth height animation
-    const glossaryEntries = document.querySelectorAll('.glossary-entry[data-entry]');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    glossaryEntries.forEach(entry => {
-      const btn = entry.querySelector('.glossary-term');
-      const toggleEl = entry.querySelector('.glossary-toggle');
-      if (!btn || !toggleEl) return;
-
-      btn.addEventListener('click', () => {
-        const isOpen = entry.classList.contains('open');
-        // Close all others first (single coordinated step)
-        glossaryEntries.forEach(other => {
-          other.classList.remove('open');
-          const otherBtn = other.querySelector('.glossary-term');
-          const otherToggle = other.querySelector('.glossary-toggle');
-          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-          if (otherToggle) otherToggle.textContent = '+';
-        });
-        if (!isOpen) {
-          entry.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-          toggleEl.textContent = '−';
-        }
-      });
-    });
-
-    // CV Overlay
-    const cvTrigger = document.getElementById('cv-trigger');
-    const cvOverlay = document.getElementById('cv-overlay');
-    const cvClose = document.getElementById('cv-close');
-
-    cvTrigger.addEventListener('click', () => {
-      cvOverlay.hidden = false;
-      document.body.style.overflow = 'hidden';
-    });
-
-    cvClose.addEventListener('click', () => {
-      cvOverlay.hidden = true;
-      document.body.style.overflow = '';
-    });
-
-    cvOverlay.addEventListener('click', (e) => {
-      if (e.target === cvOverlay) {
-        cvOverlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !cvOverlay.hidden) {
-        cvOverlay.hidden = true;
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
+  <script src="/nav.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>
