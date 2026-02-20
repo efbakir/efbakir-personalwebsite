@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nat Hellen — Efe Bakır</title>
+  <link rel="stylesheet" href="/design-system.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
+    <div class="header-content">
+      <button class="logo-btn" id="cv-trigger" aria-label="View CV">
+        <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
+        Efe Bakır
+      </button>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="/" class="nav-link active">PROJECTS</a>
+        <a href="/writings/" class="nav-link">WRITINGS</a>
+        <a href="/glossary/" class="nav-link">GLOSSARY</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-label inactive">MOON</span>
+        <span class="theme-label active">SUN</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="project-detail-page">
+      <div class="project-detail-page-header">
+        <h1 class="project-detail-page-title">Nat Hellen</h1>
+        <div class="project-detail-page-meta">
+          <div class="project-detail-page-meta-item">
+            <span class="project-meta-label">YEAR</span>
+            <span class="project-meta-value">2026</span>
+          </div>
+          <div class="project-detail-page-meta-item">
+            <span class="project-meta-label">TYPE</span>
+            <span class="project-meta-value">Web Design, Branding</span>
+          </div>
+          <div class="project-detail-page-meta-item">
+            <span class="project-meta-label">ROLE</span>
+            <span class="project-meta-value">Brand & Web Designer</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="project-section">
+        <div class="project-section-content">
+          <h2 class="project-section-title">SUMMARY</h2>
+          <p class="project-section-text">Created a brand system for Nat Hellen, an Italy-based meditation musician, aligned with the launch of her new portfolio and ecommerce website where she can sell music online and showcase her work.</p>
+        </div>
+        <div class="project-section-media">
+          <img src="/assets/projects/nat-hellen/coverimg.png" alt="Nat Hellen project cover" class="project-image-placeholder" width="1600" height="900" loading="eager" decoding="async">
+        </div>
+      </section>
+
+      <nav class="article-nav">
+        <a href="/projects/finova-banking-app/" class="article-nav-btn article-nav-prev">
+          <span class="article-nav-label">PREVIOUS</span>
+          <span class="article-nav-title">Finova Banking App</span>
+        </a>
+        <a href="/" class="article-nav-btn article-nav-next">
+          <span class="article-nav-label">NEXT</span>
+          <span class="article-nav-title">All Projects</span>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <div class="cv-overlay" id="cv-overlay" hidden>
+    <div class="cv-modal">
+      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</button>
+      <div class="cv-content">
+        <div class="cv-header">
+          <h1 class="cv-name">Efe Eren Can Bakır</h1>
+          <div class="cv-contact-info">
+            <a href="mailto:efeec.bakir@gmail.com" class="cv-link">efeec.bakir@gmail.com</a>
+            <span class="cv-divider">•</span>
+            <span class="cv-phone">+39 351 4705647</span>
+            <span class="cv-divider">•</span>
+            <span class="cv-location">Milan, IT</span>
+          </div>
+          <div class="cv-social-links">
+            <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">LinkedIn</a>
+            <a href="https://layers.to/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Layers</a>
+            <a href="https://bento.me/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Bento</a>
+            <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Behance</a>
+          </div>
+        </div>
+        <div class="cv-section">
+          <h2 class="cv-section-title">EXPERIENCE</h2>
+          <div class="cv-entry">
+            <div class="cv-entry-header">
+              <h3 class="cv-role">Product Designer</h3>
+              <span class="cv-date">2024 - Present</span>
+            </div>
+            <p class="cv-company">Company Name • Milan, IT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/nav.js"></script>
+  <script src="/site.js"></script>
+</body>
+</html>
