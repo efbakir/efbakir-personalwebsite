@@ -104,6 +104,10 @@
       return;
     }
 
+    var overviewTeamFact = overviewTeam.closest
+      ? overviewTeam.closest('.projects-overview-fact')
+      : overviewTeam.parentElement;
+
     var activeFlow = null;
     var scrollRaf = 0;
 
@@ -129,7 +133,19 @@
       overviewTitle.textContent = title || 'Project';
       overviewAbout.textContent = about || 'Project overview';
       overviewYear.textContent = year || '—';
-      overviewTeam.textContent = team || '—';
+
+      if (overviewTeamFact) {
+        var isSolo = !team || team.toLowerCase() === 'solo';
+        if (isSolo) {
+          overviewTeamFact.style.display = 'none';
+          overviewTeam.textContent = '';
+        } else {
+          overviewTeamFact.style.display = '';
+          overviewTeam.textContent = team;
+        }
+      } else {
+        overviewTeam.textContent = team || '—';
+      }
 
       overviewSummary.innerHTML = '';
       if (!summaryItems.length) {
