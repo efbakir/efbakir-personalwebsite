@@ -2,7 +2,7 @@
   var html = document.documentElement;
   var header = document.querySelector('.header');
   var themeToggle = document.getElementById('theme-toggle');
-  var cvTrigger = document.getElementById('cv-trigger');
+  var cvTriggers = Array.from(document.querySelectorAll('[data-open-cv]'));
   var cvOverlay = document.getElementById('cv-overlay');
   var cvClose = document.getElementById('cv-close');
 
@@ -50,7 +50,7 @@
   }
 
   function initCvOverlay() {
-    if (!cvTrigger || !cvOverlay || !cvClose) return;
+    if (!cvTriggers.length || !cvOverlay || !cvClose) return;
 
     function openCv() {
       cvOverlay.hidden = false;
@@ -62,7 +62,9 @@
       syncBodyScrollLock();
     }
 
-    cvTrigger.addEventListener('click', openCv);
+    cvTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', openCv);
+    });
     cvClose.addEventListener('click', closeCv);
 
     cvOverlay.addEventListener('click', function (event) {
@@ -74,182 +76,226 @@
     });
   }
 
-  function initProjectsNavigator() {
-    var projectsNavigator = document.getElementById('projects-navigator');
-    if (!projectsNavigator) return;
+  function initHomepageLayout() {
+    var layout = document.getElementById('homepage-layout');
+    if (!layout) return;
 
-    var rail = document.getElementById('projects-rail');
-    var projectFlows = Array.from(projectsNavigator.querySelectorAll('.projects-rail .project-flow'));
-    var overviewImage = document.getElementById('projects-overview-image');
-    var overviewFile = document.getElementById('projects-overview-file');
-    var overviewTitle = document.getElementById('projects-overview-title');
-    var overviewAbout = document.getElementById('projects-overview-about');
-    var overviewSummary = document.getElementById('projects-overview-summary');
-    var overviewYear = document.getElementById('projects-overview-year');
-    var overviewTeam = document.getElementById('projects-overview-team');
-    var nextProjectButton = document.getElementById('projects-overview-next');
+    var panelInfo = document.getElementById('panel-project-info');
+    var panelTitle = document.getElementById('panel-project-title');
+    var panelYear = document.getElementById('panel-project-year');
+    var panelDesc = document.getElementById('panel-project-description');
+    var panelTags = document.getElementById('panel-project-tags');
+    var panelControls = document.getElementById('panel-project-controls');
+    var detailImages = document.getElementById('project-detail-images');
+    var backButton = document.getElementById('project-back-btn');
+    var panelImages = document.getElementById('panel-images');
 
-    if (
-      !rail ||
-      !projectFlows.length ||
-      !overviewImage ||
-      !overviewFile ||
-      !overviewTitle ||
-      !overviewAbout ||
-      !overviewSummary ||
-      !overviewYear ||
-      !overviewTeam ||
-      !nextProjectButton
-    ) {
-      return;
+    if (!panelInfo || !panelTitle || !panelYear || !panelDesc || !panelTags || !panelImages) return;
+
+    var groups = Array.from(layout.querySelectorAll('.project-images-group'));
+    if (!groups.length) return;
+
+    var detailProjectId = 'nat-hellen';
+
+    function parseTags(tagString) {
+      return (tagString || '').split('|').map(function (t) { return t.trim(); }).filter(Boolean);
     }
 
-    var overviewTeamFact = overviewTeam.closest
-      ? overviewTeam.closest('.projects-overview-fact')
-      : overviewTeam.parentElement;
+    function ensureOverviewRows() {
+      groups.forEach(function (group) {
+        if (group.querySelector('.project-group-info')) return;
 
-    var activeFlow = null;
-    var scrollRaf = 0;
+        var info = document.createElement('div');
+        info.className = 'project-group-info';
 
-    function toSummaryItems(summaryText) {
-      return (summaryText || '')
-        .split('|')
-        .map(function (item) { return item.trim(); })
-        .filter(Boolean);
-    }
+        var header = document.createElement('div');
+        header.className = 'project-group-header';
 
-    function setOverviewFromFlow(flow) {
-      var title = (flow.dataset.projectTitle || '').trim();
-      var about = (flow.dataset.projectAbout || '').trim();
-      var summaryItems = toSummaryItems(flow.dataset.projectSummary);
-      var year = (flow.dataset.projectYear || '').trim();
-      var team = (flow.dataset.projectTeam || '').trim();
-      var image = (flow.dataset.projectImage || '').trim();
-      var filename = (flow.dataset.projectFilename || '').trim();
+        var title = document.createElement('h3');
+        title.className = 'project-group-title';
+        title.textContent = group.dataset.projectTitle || '';
 
-      if (image) overviewImage.src = image;
-      overviewImage.alt = title ? title + ' project preview' : 'Project preview';
-      overviewFile.textContent = filename || 'PROJECT_PREVIEW';
-      overviewTitle.textContent = title || 'Project';
-      overviewAbout.textContent = about || 'Project overview';
-      overviewYear.textContent = year || '—';
+        var year = document.createElement('span');
+        year.className = 'project-group-year';
+        year.textContent = group.dataset.projectYear || '';
 
-      if (overviewTeamFact) {
-        var isSolo = !team || team.toLowerCase() === 'solo';
-        if (isSolo) {
-          overviewTeamFact.style.display = 'none';
-          overviewTeam.textContent = '';
-        } else {
-          overviewTeamFact.style.display = '';
-          overviewTeam.textContent = team;
-        }
-      } else {
-        overviewTeam.textContent = team || '—';
-      }
+        header.appendChild(title);
+        header.appendChild(year);
 
-      overviewSummary.innerHTML = '';
-      if (!summaryItems.length) {
-        var emptyItem = document.createElement('li');
-        emptyItem.textContent = 'No summary available.';
-        overviewSummary.appendChild(emptyItem);
-        return;
-      }
-      summaryItems.forEach(function (summaryItem) {
-        var listItem = document.createElement('li');
-        listItem.textContent = summaryItem;
-        overviewSummary.appendChild(listItem);
+        var desc = document.createElement('p');
+        desc.className = 'project-group-description';
+        desc.textContent = group.dataset.projectDescription || '';
+
+        var tags = document.createElement('ul');
+        tags.className = 'project-group-tags';
+        parseTags(group.dataset.projectTags).forEach(function (tag) {
+          var li = document.createElement('li');
+          li.textContent = tag;
+          tags.appendChild(li);
+        });
+
+        info.appendChild(header);
+        info.appendChild(desc);
+        info.appendChild(tags);
+        group.insertBefore(info, group.firstChild);
       });
     }
 
-    function setActiveProject(flow) {
-      if (!flow || activeFlow === flow) return;
-
-      activeFlow = flow;
-      projectFlows.forEach(function (projectFlow) {
-        projectFlow.classList.toggle('is-active', projectFlow === flow);
-      });
-      setOverviewFromFlow(flow);
+    function enterDetail() {
+      layout.classList.add('is-detail');
+      if (detailImages) detailImages.hidden = false;
+      if (panelControls) panelControls.hidden = false;
     }
 
-    function pickProjectByEndThreshold() {
-      var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
-      var switchThreshold = viewportHeight * 0.72;
-      for (var i = 0; i < projectFlows.length; i += 1) {
-        var rect = projectFlows[i].getBoundingClientRect();
-        if (rect.bottom > switchThreshold) return projectFlows[i];
-      }
-      return projectFlows[projectFlows.length - 1];
+    function exitDetail() {
+      layout.classList.remove('is-detail');
+      if (detailImages) detailImages.hidden = true;
+      if (panelControls) panelControls.hidden = true;
     }
 
-    function scheduleScrollSync() {
-      if (scrollRaf) return;
-      scrollRaf = window.requestAnimationFrame(function () {
-        scrollRaf = 0;
-        setActiveProject(pickProjectByEndThreshold());
-      });
-    }
-
-    projectFlows.forEach(function (flow) {
-      flow.addEventListener('focusin', function () {
-        setActiveProject(flow);
-      });
-      flow.addEventListener('mouseenter', function () {
-        setActiveProject(flow);
-      });
-      flow.addEventListener('touchstart', function () {
-        setActiveProject(flow);
-      }, { passive: true });
+    panelImages.addEventListener('click', function (event) {
+      var trigger = event.target.closest('.project-images-group');
+      if (!trigger) return;
+      if (trigger.dataset.projectId !== detailProjectId) return;
+      enterDetail();
     });
 
-    nextProjectButton.addEventListener('click', function () {
-      if (!activeFlow) return;
-      var currentIndex = projectFlows.indexOf(activeFlow);
-      var nextIndex = (currentIndex + 1) % projectFlows.length;
-      var nextProject = projectFlows[nextIndex];
-      setActiveProject(nextProject);
-      nextProject.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    if (backButton) {
+      backButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        exitDetail();
+      });
+    }
 
-    window.addEventListener('scroll', scheduleScrollSync, { passive: true });
-    window.addEventListener('resize', scheduleScrollSync);
-
-    setActiveProject(projectFlows[0]);
-    scheduleScrollSync();
+    ensureOverviewRows();
+    panelTitle.textContent = 'Nat Hellen';
+    panelYear.textContent = '2026';
+    panelDesc.textContent = 'Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.';
+    panelTags.innerHTML = '<li>CREATIVE DIRECTION</li><li>WEB DESIGN</li><li>BRANDING</li>';
+    if (detailImages) detailImages.hidden = true;
+    if (panelControls) panelControls.hidden = true;
   }
 
-  function initGlossaryAccordion() {
-    var glossaryEntries = document.querySelectorAll('.glossary-entry[data-entry]');
-    if (!glossaryEntries.length) return;
+  function initWritingsLayout() {
+    var list = document.getElementById('writings-list');
+    var articlePanel = document.getElementById('writings-article-panel');
+    if (!list || !articlePanel) return;
 
-    function setEntryState(entry, open) {
-      var button = entry.querySelector('.glossary-term');
-      var toggle = entry.querySelector('.glossary-toggle');
+    var items = Array.from(list.querySelectorAll('.writing-list-item'));
+    var articles = Array.from(articlePanel.querySelectorAll('.writing-article'));
+    if (!items.length || !articles.length) return;
 
-      entry.classList.toggle('open', open);
-      if (button) button.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (toggle) toggle.textContent = open ? '−' : '+';
+    var transitionDuration = 150;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      articlePanel.style.transition = 'none';
+      transitionDuration = 0;
     }
 
-    glossaryEntries.forEach(function (entry) {
-      setEntryState(entry, entry.classList.contains('open'));
+    function activate(id, skipTransition) {
+      // Update list items
+      items.forEach(function (item) {
+        item.classList.toggle('active', item.dataset.writingId === id);
+      });
 
-      var button = entry.querySelector('.glossary-term');
-      if (!button) return;
-
-      button.addEventListener('click', function () {
-        var isOpen = entry.classList.contains('open');
-        glossaryEntries.forEach(function (other) {
-          setEntryState(other, false);
+      // Swap article with fade
+      if (skipTransition || transitionDuration === 0) {
+        articles.forEach(function (article) {
+          article.hidden = (article.id !== 'article-' + id);
         });
-        if (!isOpen) setEntryState(entry, true);
+        articlePanel.scrollTop = 0;
+        articlePanel.style.opacity = '1';
+        return;
+      }
+
+      articlePanel.style.opacity = '0';
+      articlePanel.style.transition = transitionDuration > 0
+        ? 'opacity ' + transitionDuration + 'ms ease'
+        : 'none';
+
+      setTimeout(function () {
+        articles.forEach(function (article) {
+          var articleId = 'article-' + article.id.replace('article-', '');
+          article.hidden = (article.id !== 'article-' + id);
+        });
+        articlePanel.scrollTop = 0;
+        articlePanel.style.opacity = '1';
+      }, transitionDuration);
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        activate(item.dataset.writingId);
       });
     });
+
+    var initialItem = items.find(function (item) {
+      return item.classList.contains('active');
+    }) || items[0];
+    activate(initialItem.dataset.writingId, true);
+  }
+
+  function initGlossaryLayout() {
+    var list = document.getElementById('glossary-list');
+    var articlePanel = document.getElementById('glossary-article-panel');
+    if (!list || !articlePanel) return;
+
+    var items = Array.from(list.querySelectorAll('.glossary-list-item'));
+    var articles = Array.from(articlePanel.querySelectorAll('.glossary-article'));
+    if (!items.length || !articles.length) return;
+
+    var transitionDuration = 150;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      articlePanel.style.transition = 'none';
+      transitionDuration = 0;
+    }
+
+    function activate(id, skipTransition) {
+      items.forEach(function (item) {
+        item.classList.toggle('active', item.dataset.glossaryId === id);
+      });
+
+      if (skipTransition || transitionDuration === 0) {
+        articles.forEach(function (article) {
+          article.hidden = (article.id !== 'glossary-article-' + id);
+        });
+        articlePanel.scrollTop = 0;
+        articlePanel.style.opacity = '1';
+        return;
+      }
+
+      articlePanel.style.opacity = '0';
+      articlePanel.style.transition = transitionDuration > 0
+        ? 'opacity ' + transitionDuration + 'ms ease'
+        : 'none';
+
+      setTimeout(function () {
+        articles.forEach(function (article) {
+          article.hidden = (article.id !== 'glossary-article-' + id);
+        });
+        articlePanel.scrollTop = 0;
+        articlePanel.style.opacity = '1';
+      }, transitionDuration);
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        activate(item.dataset.glossaryId);
+      });
+    });
+
+    var initialItem = items.find(function (item) {
+      return item.classList.contains('active');
+    }) || items[0];
+    activate(initialItem.dataset.glossaryId, true);
   }
 
   initTheme();
   initCvOverlay();
-  initProjectsNavigator();
-  initGlossaryAccordion();
+  initHomepageLayout();
+  initWritingsLayout();
+  initGlossaryLayout();
 
   syncBodyScrollLock();
 })();

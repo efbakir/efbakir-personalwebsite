@@ -12,15 +12,17 @@
   <header class="header">
     <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
-      <button class="logo-btn" id="cv-trigger" aria-label="View CV">
-        <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
-        Efe Bakır
-      </button>
+      <div class="brand-group">
+        <a href="/" class="logo-btn" aria-label="Go to projects">
+          <img src="/star.svg" alt="" class="logo-star" width="16" height="16">
+          Efe Bakır
+        </a>
+      </div>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
         <span class="nav-toggle-icon" aria-hidden="true"></span>
         <span class="nav-toggle-icon" aria-hidden="true"></span>
         <span class="nav-toggle-icon" aria-hidden="true"></span>
-      </button>
+      </a>
       <nav class="main-nav" id="main-nav">
         <a href="/" class="nav-link">PROJECTS</a>
         <a href="/writings/" class="nav-link active">WRITINGS</a>
@@ -29,7 +31,7 @@
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <span class="theme-label inactive">MOON</span>
         <span class="theme-label active">SUN</span>
-      </button>
+      </a>
     </div>
   </header>
 
@@ -72,25 +74,13 @@
         <p>Speed without understanding is just thrashing. Patience with intention is how you build things that last.</p>
       </article>
 
-      <!-- Navigation -->
-      <nav class="article-nav">
-        <a href="/writings/moving-to-milan/" class="article-nav-btn article-nav-prev">
-          <span class="article-nav-label">PREVIOUS</span>
-          <span class="article-nav-title">Moving to Milan: A Design Perspective</span>
-        </a>
-        <a href="/writings/interfaces-as-conversations/" class="article-nav-btn article-nav-next">
-          <span class="article-nav-label">NEXT</span>
-          <span class="article-nav-title">Interfaces as Conversations</span>
-        </a>
-      </nav>
-
     </div>
   </main>
 
   <!-- CV Overlay Modal -->
   <div class="cv-overlay" id="cv-overlay" hidden>
     <div class="cv-modal">
-      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</button>
+      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</a>
       <div class="cv-content">
         <div class="cv-header">
           <h1 class="cv-name">Efe Eren Can Bakır</h1>

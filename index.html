@@ -6,16 +6,19 @@
   <title>Efe Bakır</title>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
-      <button class="logo-btn" id="cv-trigger" aria-label="View CV">
-        <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
-        Efe Bakır
-      </button>
+      <div class="brand-group">
+        <a href="/" class="logo-btn" aria-label="Go to projects">
+          <img src="/star.svg" alt="" class="logo-star" width="16" height="16">
+          Efe Bakır
+        </a>
+      </div>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav" >
         <span class="nav-toggle-icon" aria-hidden="true"></span>
         <span class="nav-toggle-icon" aria-hidden="true"></span>
@@ -35,207 +38,210 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-section-inner">
-        <div class="hero-text">
+    <div class="homepage-layout" id="homepage-layout">
+
+      <!-- LEFT: Bio + Contact — always sticky -->
+      <div class="panel-bio">
+        <div class="panel-bio-about">
           <p>Lorem ipsum dolor sit amet consectetur. Sed non fames risus vitae justo consequat phasellus non. Vestibulum placerat eu rutrum dui. Sit odio feugiat lectus nunc faucibus proin egestas enim nunc. About.</p>
           <p>Currently based in Milan, IT.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-      <div class="contact-section-inner">
-        <h2 class="section-heading">CONTACT</h2>
-        <p class="contact-description">If you'd like further details about my work approach or want to discuss a project or idea, please get in touch.</p>
-        <div class="contact-links-row">
-          <div class="contact-item">
-            <span class="contact-label">Email</span>
-            <a href="mailto:efeec.bakir@gmail.com" class="contact-value">efeec.bakir@gmail.com</a>
+        <div class="panel-bio-contact">
+          <p class="section-heading">CONTACT</p>
+          <p class="panel-bio-contact-description">If you'd like further details about my work approach or want to discuss a project or idea, please get in touch.</p>
+          <div class="panel-bio-contact-links">
+            <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">LINKEDIN</a>
+            <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">BEHANCE</a>
+            <button type="button" class="contact-item-link" data-open-cv>CV</button>
+            <a href="mailto:efeec.bakir@gmail.com" class="contact-item-link">efeec.bakir@gmail.com</a>
           </div>
-          <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">LinkedIn</a>
-          <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">Behance</a>
         </div>
       </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section class="projects-section">
-      <div class="projects-navigator" id="projects-navigator">
-        <div class="projects-rail" id="projects-rail">
-          <article
-            class="project-flow is-active"
-            data-project-id="nat-hellen"
-            data-project-title="Nat Hellen"
-            data-project-about="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-            data-project-summary="Brand positioning|Identity and visual language|Portfolio website design|Ecommerce-ready experience"
-            data-project-year="2026"
-            data-project-team="Solo"
-            data-project-image="/assets/projects/nat-hellen/coverimg.png"
-            data-project-filename="NH_COVERIMAGE.PNG"
-          >
-            <div class="project-flow-body">
-              <figure class="project-flow-block">
-                <div class="project-flow-media" aria-hidden="true">
-                  <img src="/assets/projects/nat-hellen/coverimg.png" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="900">
-                </div>
-                <figcaption class="project-flow-caption">
-                  <span>NH_COVERIMAGE.PNG</span>
-                  <span>Brand system hero</span>
-                </figcaption>
-              </figure>
+      <!-- MIDDLE: Active project info — sticky, JS-updated -->
+      <div class="panel-project-info" id="panel-project-info" aria-live="polite">
+        <div class="panel-project-header">
+          <h2 class="panel-project-title" id="panel-project-title">Nat Hellen</h2>
+          <span class="panel-project-year" id="panel-project-year">2026</span>
+        </div>
+        <p class="panel-project-description" id="panel-project-description">Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.</p>
+        <ul class="panel-project-tags" id="panel-project-tags">
+          <li>CREATIVE DIRECTION</li>
+          <li>WEB DESIGN</li>
+          <li>BRANDING</li>
+        </ul>
+        <div class="panel-project-controls" id="panel-project-controls" hidden>
+          <button type="button" class="panel-project-back" id="project-back-btn">BACK TO PROJECTS</button>
+          <div class="panel-project-next">
+            <span class="panel-project-next-label">NEXT PROJECT</span>
+            <span class="panel-project-next-title">Wardrobe</span>
+          </div>
+        </div>
+      </div>
 
-              <section class="project-flow-text-block">
-                <h4 class="section-heading">SUMMARY</h4>
-                <p class="project-flow-text">Created a brand system for Nat Hellen, an Italy-based meditation musician, aligned with the launch of her new portfolio and ecommerce website where she can sell her music online and showcase her work.</p>
-              </section>
+      <!-- RIGHT: All project images — scrolls with the page -->
+      <div class="panel-images" id="panel-images">
 
-              <figure class="project-flow-block">
-                <div class="project-flow-media" aria-hidden="true">
-                  <img src="/assets/projects/nat-hellen/coverimg.png" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="900">
-                </div>
-                <figcaption class="project-flow-caption">
-                  <span>NH_VISUALS_01.PNG</span>
-                  <span>Visual language and tone</span>
-                </figcaption>
-              </figure>
-
-              <section class="project-flow-text-block">
-                <h4 class="section-heading">DELIVERABLES</h4>
-                <ul class="project-flow-list">
-                  <li>Brand positioning and messaging direction</li>
-                  <li>Visual identity guidelines and assets</li>
-                  <li>Portfolio structure for launch-ready web</li>
-                  <li>Ecommerce-oriented creative system</li>
-                </ul>
-              </section>
-
-              <figure class="project-flow-block">
-                <div class="project-flow-media" aria-hidden="true">
-                  <img src="/assets/projects/nat-hellen/coverimg.png" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="900">
-                </div>
-                <figcaption class="project-flow-caption">
-                  <span>NH_WEBSITE_01.PNG</span>
-                  <span>Portfolio and commerce direction</span>
-                </figcaption>
-              </figure>
+        <div class="project-images-group"
+             data-project-id="nat-hellen"
+             data-project-title="Nat Hellen"
+             data-project-year="2026"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/240e3740-543f-4bb9-94bf-131c1bf94553" alt="" class="project-flow-media-image" loading="eager" decoding="async" width="592" height="333">
             </div>
-          </article>
-
-          <article
-            class="project-flow"
-            data-project-id="finova-banking-app"
-            data-project-title="Finova Banking App"
-            data-project-about="An end-to-end UX case focused on making digital banking easier to understand through clear flows and educational touchpoints."
-            data-project-summary="UX research and synthesis|Journey mapping and IA|Mobile-first interface design|Prototype and usability validation"
-            data-project-year="2025"
-            data-project-team="Lead Product Designer"
-            data-project-image="/assets/project-thumbs/finova.svg"
-            data-project-filename="FINOVA_01.JPG"
-          >
-            <div class="project-flow-body">
-              <figure class="project-flow-block">
-                <div class="project-flow-media" aria-hidden="true">
-                  <img src="/assets/project-thumbs/finova.svg" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="1200" height="675">
-                </div>
-                <figcaption class="project-flow-caption">
-                  <span>FINOVA_01.JPG</span>
-                  <span>Experience overview</span>
-                </figcaption>
-              </figure>
-
-              <section class="project-flow-text-block">
-                <h4 class="section-heading">OVERVIEW</h4>
-                <p class="project-flow-text">End-to-end UX research and design for a digital banking experience focused on financial literacy. The flow was built as a mobile-first product with iterative prototyping and usability testing.</p>
-              </section>
-
-              <section class="project-flow-text-block">
-                <h4 class="section-heading">PROBLEM</h4>
-                <p class="project-flow-text">Traditional banking apps focus on transactions but do not help users understand the reasons behind their financial behavior. Younger users especially struggle with financial terminology and confidence.</p>
-              </section>
-
-              <figure class="project-flow-block">
-                <div class="project-flow-media" aria-hidden="true">
-                  <img src="/assets/project-thumbs/finova.svg" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="1200" height="675">
-                </div>
-                <figcaption class="project-flow-caption">
-                  <span>FINOVA_02.JPG</span>
-                  <span>Research synthesis boards</span>
-                </figcaption>
-              </figure>
-
-              <section class="project-flow-text-block">
-                <h4 class="section-heading">RESEARCH INSIGHTS</h4>
-                <ul class="project-flow-list">
-                  <li>73% of users aged 18-30 felt confused by banking terminology</li>
-                  <li>Users asked for contextual education inside the main journey</li>
-                  <li>Visual patterns were more effective than pure numeric data</li>
-                  <li>Goal systems worked only when motivation felt authentic</li>
-                </ul>
-              </section>
-
-              <figure class="project-flow-block">
-                <div class="project-flow-media" aria-hidden="true">
-                  <img src="/assets/project-thumbs/finova.svg" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="1200" height="675">
-                </div>
-                <figcaption class="project-flow-caption">
-                  <span>FINOVA_03.JPG</span>
-                  <span>Solution and feature directions</span>
-                </figcaption>
-              </figure>
-
-              <section class="project-flow-text-block">
-                <h4 class="section-heading">OUTCOME</h4>
-                <p class="project-flow-text">Post-launch metrics showed stronger planning engagement and significantly reduced support requests related to feature confusion.</p>
-              </section>
-            </div>
-          </article>
+            <figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption>
+          </figure>
         </div>
 
-        <aside class="projects-overview" id="projects-overview" aria-live="polite">
-          <div class="projects-overview-inner">
-            <div class="projects-overview-media">
-              <img src="/assets/projects/nat-hellen/coverimg.png" alt="Nat Hellen project preview" id="projects-overview-image" class="projects-overview-image" width="1600" height="900">
+        <div class="project-images-group"
+             data-project-id="wardrobe"
+             data-project-title="Wardrobe"
+             data-project-year="2024"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/e6ccb018-8bb5-4b03-9da5-337d5e4d4169" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
-            <div class="projects-overview-head">
-              <p class="projects-overview-file" id="projects-overview-file">NH_COVERIMAGE.PNG</p>
-              <h3 class="projects-overview-title" id="projects-overview-title">Nat Hellen</h3>
+            <figcaption class="project-flow-caption">WD_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="amazon-tvgether"
+             data-project-title="Amazon TVgether"
+             data-project-year="2025"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="SMART TV APP DESIGN|APP DESIGN">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/7fd51b71-3448-47e0-9e76-4577bebb5308" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
-            <div class="projects-overview-about">
-              <p class="section-heading">ABOUT</p>
-              <p class="projects-overview-about-text" id="projects-overview-about">Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.</p>
+            <figcaption class="project-flow-caption">AT_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="boty"
+             data-project-title="Böty"
+             data-project-year="2025"
+             data-project-description="Surrealism-forward identity for böty — beauty cosmetics coming to change your attitude towards yourself for expressive purposes."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/d9aded3d-914a-436a-8fe8-27d8129edaf2" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
-            <div class="projects-overview-meta">
-              <div class="projects-overview-summary">
-                <p class="section-heading">SUMMARY</p>
-                <ul class="projects-overview-summary-list" id="projects-overview-summary">
-                  <li>Brand positioning</li>
-                  <li>Identity and visual language</li>
-                  <li>Portfolio website design</li>
-                  <li>Ecommerce-ready experience</li>
-                </ul>
-              </div>
-              <div class="projects-overview-facts">
-                <div class="projects-overview-fact">
-                  <p class="section-heading">YEAR</p>
-                  <p class="projects-overview-fact-value" id="projects-overview-year">2026</p>
-                </div>
-                <div class="projects-overview-fact">
-                  <p class="section-heading">TEAM</p>
-                  <p class="projects-overview-fact-value" id="projects-overview-team">Solo</p>
-                </div>
-              </div>
+            <figcaption class="project-flow-caption">BT_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="marte-carmen"
+             data-project-title="Marte Carmen"
+             data-project-year="2025"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/e5dde7c6-cb7c-4a14-9e3e-9615083e1637" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
-          </div>
-          <button type="button" class="projects-overview-next" id="projects-overview-next">
-            <span>Jump to next project</span>
-            <span class="projects-overview-next-arrow" aria-hidden="true">⌄</span>
-          </button>
-        </aside>
-      </div>
-    </section>
+            <figcaption class="project-flow-caption">MC_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="aletheai"
+             data-project-title="AletheAI"
+             data-project-year="2026"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/e130dc88-9942-47d8-b6b4-fbde7e11cc42" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">AL_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="landscapes"
+             data-project-title="Landscapes"
+             data-project-year="2026"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/4a317d64-751d-463e-ae6c-de5f60727229" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">LS_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="love"
+             data-project-title="Love"
+             data-project-year="2024"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/4cba5951-53f4-424f-927b-4921a21c3a2a" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">LV_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="colonist"
+             data-project-title="Colonist"
+             data-project-year="2025"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/240e3740-543f-4bb9-94bf-131c1bf94553" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">CL_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="harvest-kaplankaya"
+             data-project-title="Harvest Kaplankaya"
+             data-project-year="2025"
+             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
+             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="https://www.figma.com/api/mcp/asset/a334ddde-9867-43e2-9f1a-d72a4c082da1" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">HK_COVERIMAGE.PNG</figcaption>
+          </figure>
+        </div>
+
+      </div><!-- /panel-images -->
+
+      <!-- RIGHT: Nat Hellen detail media (shown in detail mode) -->
+      <div class="project-detail-images" id="project-detail-images" hidden>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/ecc07308-a9ba-4f83-955b-28118967e8f0" alt="" class="project-flow-media-image" loading="eager" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/4dc0e4fe-ed94-406f-8144-f2219c4fbcdc" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="339"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/b7b290be-2fa9-46ca-896f-c8e9e6c9fcd1" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="339"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/bd4a2776-76e8-4826-8de9-7de5e16552c7" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/dab5e069-47a7-4981-9bdf-729e4994b23f" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/a7ed1e4f-e237-48cd-9b34-bcd4f26528a0" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/951c7403-3541-45f9-b7b7-c2e2019a8427" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/c47a9fc2-0d17-49bf-99c8-986729e398c1" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/aeaf9267-4337-4110-b890-34a0f14b31c0" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/22f87638-7ba0-49cd-86f5-b6669cc1f467" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="678"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/37909a44-086d-489e-8081-2a479816e6b3" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/e16bdb6d-c56f-4f6c-9a4a-33a12c53562f" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/91083435-9725-48a7-89d8-4ade0013c55f" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+      </div><!-- /project-detail-images -->
+
+    </div><!-- /homepage-layout -->
   </main>
 
   <!-- CV Overlay Modal -->

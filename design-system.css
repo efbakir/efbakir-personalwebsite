@@ -11,12 +11,13 @@
   --gray-400: #9ca3af;
 
   /* Semantic colors */
-  --color-bg: #ffffff;
+  --color-bg: #ebebeb;
   --color-surface: var(--gray-50);
   --color-surface-muted: var(--gray-100);
   --color-border: var(--gray-200);
-  --color-text-primary: #000000;
-  --color-text-secondary: var(--gray-400);
+  --color-text-primary: #141414;
+  --color-text-secondary: #8c8c8c;
+  --color-text-tertiary: #b4b4b4;
   --color-text-inverse: #ffffff;
   --color-overlay: rgba(0, 0, 0, 0.8);
   --color-overlay-strong: rgba(0, 0, 0, 0.9);
@@ -36,13 +37,13 @@
   --body-2-font-family: "Suisse Int'l", sans-serif;
   --body-2-font-size: 16px;
   --body-2-line-height: 24px;
-  --body-2-letter-spacing: 0px;
+  --body-2-letter-spacing: -0.08px;
   --body-2-weight-regular: 400;
 
   --body-3-font-family: "Suisse Int'l", sans-serif;
   --body-3-font-size: 14px;
   --body-3-line-height: 20px;
-  --body-3-letter-spacing: 0px;
+  --body-3-letter-spacing: -0.035px;
   --body-3-weight-regular: 400;
 
   --label-2-font-family: "Suisse Int'l", sans-serif;
@@ -97,7 +98,7 @@
   /* Layout */
   --grid-container-width: 1280px;
   --grid-margin: var(--spacing-8);
-  --grid-gutter: var(--spacing-4);
+  --grid-gutter: var(--spacing-8);
   --grid-columns: 12;
   --grid-content-width: calc(var(--grid-container-width) - (var(--grid-margin) * 2));
   --grid-column-width: calc((var(--grid-content-width) - (var(--grid-gutter) * 11)) / 12);
@@ -109,6 +110,13 @@
   --page-padding-bottom: var(--spacing-8);
   --section-gap: var(--spacing-8);
   --section-gap-large: var(--spacing-12);
+  --intro-text-measure: 100%;
+  --intro-panel-padding-inline-end: var(--spacing-0);
+  --intro-block-gap: var(--spacing-3);
+  --intro-copy-font-size: 13px;
+  --intro-copy-line-height: 18px;
+  --intro-lead-font-size: 14px;
+  --intro-lead-line-height: 20px;
 
   /* Icon & control sizes */
   --icon-sm: 12px;
@@ -129,6 +137,7 @@
   --size-project-nav-sidebar-width: clamp(248px, 22vw, 320px);
   --size-project-nav-sidebar-width-tablet: clamp(200px, 28vw, 248px);
   --size-project-nav-sticky-top: calc(var(--spacing-8) + var(--spacing-4));
+  --size-panel-sticky-top: 96px;
   --size-project-nav-card-media-aspect: 908 / 520;
   --size-project-nav-overview-media-aspect: 292 / 220;
   --size-modal-max-width: 800px;
@@ -208,12 +217,13 @@
   --gray-200: #1f2937;
   --gray-400: #9ca3af;
 
-  --color-bg: #000000;
-  --color-surface: #030712;
-  --color-surface-muted: #111827;
-  --color-border: #1f2937;
-  --color-text-primary: #ffffff;
+  --color-bg: #141414;
+  --color-surface: #1a1a1a;
+  --color-surface-muted: #222222;
+  --color-border: #2a2a2a;
+  --color-text-primary: #ebebeb;
   --color-text-secondary: #9ca3af;
+  --color-text-tertiary: #555555;
   --color-text-inverse: #000000;
   --color-overlay: rgba(0, 0, 0, 0.9);
   --color-overlay-strong: rgba(0, 0, 0, 0.95);

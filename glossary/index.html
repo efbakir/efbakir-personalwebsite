@@ -12,10 +12,12 @@
   <header class="header">
     <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
-      <button class="logo-btn" id="cv-trigger" aria-label="View CV">
-        <img src="/star.svg" alt="" class="logo-star" width="20" height="20">
-        Efe Bakır
-      </button>
+      <div class="brand-group">
+        <a href="/" class="logo-btn" aria-label="Go to projects">
+          <img src="/star.svg" alt="" class="logo-star" width="16" height="16">
+          Efe Bakır
+        </a>
+      </div>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
         <span class="nav-toggle-icon" aria-hidden="true"></span>
         <span class="nav-toggle-icon" aria-hidden="true"></span>
@@ -34,127 +36,204 @@
   </header>
 
   <!-- Main Content -->
-  <main class="page-content">
-    <div class="page-inner">
+  <main class="main-content">
+    <div class="glossary-layout" id="glossary-layout">
 
-      <!-- Page Header -->
-      <div class="page-header">
-        <h2 class="page-title">Glossary</h2>
-        <p class="page-description">Mental models and frameworks I find useful for thinking about design and decisions.</p>
+      <!-- LEFT: Page header — sticky -->
+      <div class="glossary-panel-header">
+        <h1 class="glossary-page-title">Glossary</h1>
+        <p class="glossary-page-subtitle">Models and frameworks.</p>
       </div>
 
-      <!-- Glossary Entries (grouped) -->
-      <div class="glossary-list">
+      <!-- MIDDLE: Term list — sticky, scrollable -->
+      <div class="glossary-panel-list" id="glossary-list" role="list">
 
-        <section class="glossary-group">
-          <h3 class="glossary-group-title">Group one</h3>
-          <div class="glossary-entry open" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="true" aria-controls="glossary-def-0" id="glossary-term-0">
-              <span class="glossary-term-text">First Principles Thinking</span>
-              <span class="glossary-toggle" aria-hidden="true">−</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-0" role="region" aria-labelledby="glossary-term-0">
-              <div class="glossary-definition">
-                <p>Breaking down a problem into its most fundamental truths and reasoning up from there, rather than reasoning by analogy. Useful when existing solutions feel inadequate or when entering unfamiliar territory.</p>
-              </div>
-            </div>
-          </div>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-1" id="glossary-term-1">
-              <span class="glossary-term-text">Inversion</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-1" role="region" aria-labelledby="glossary-term-1">
-              <div class="glossary-definition">
-                <p>Instead of asking "how do I achieve X?", ask "what would guarantee failure?" and avoid those things. Often reveals blind spots that forward-thinking misses. Charlie Munger's favorite tool.</p>
-              </div>
-            </div>
-          </div>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-2" id="glossary-term-2">
-              <span class="glossary-term-text">Map is Not the Territory</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-2" role="region" aria-labelledby="glossary-term-2">
-              <div class="glossary-definition">
-                <p>Models and representations of reality are not reality itself. A wireframe is not the product. A user persona is not the user. Keeping this distinction sharp prevents designing for the abstraction instead of the truth.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <a class="glossary-list-item" href="/glossary/first-principles-thinking/" data-glossary-id="first-principles" role="listitem">
+          <span class="glossary-list-item-title">First Principles Thinking</span>
+          <p class="glossary-list-item-definition">Break problems into fundamentals.</p>
+        </a>
 
-        <section class="glossary-group">
-          <h3 class="glossary-group-title">Group two</h3>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-3" id="glossary-term-3">
-              <span class="glossary-term-text">Second-Order Thinking</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-3" role="region" aria-labelledby="glossary-term-3">
-              <div class="glossary-definition">
-                <p>Considering not just the immediate consequences of a decision, but the consequences of the consequences. "And then what?" repeated. Essential for design systems where one change ripples everywhere.</p>
-              </div>
-            </div>
-          </div>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-4" id="glossary-term-4">
-              <span class="glossary-term-text">Occam's Razor</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-4" role="region" aria-labelledby="glossary-term-4">
-              <div class="glossary-definition">
-                <p>Among competing hypotheses, the one with the fewest assumptions should be preferred. In design: the simplest solution that solves the problem is usually the best. Complexity should be earned, not defaulted to.</p>
-              </div>
-            </div>
-          </div>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-5" id="glossary-term-5">
-              <span class="glossary-term-text">Feedback Loops</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-5" role="region" aria-labelledby="glossary-term-5">
-              <div class="glossary-definition">
-                <p>Systems where outputs circle back as inputs. Positive loops amplify (viral growth, design debt), negative loops stabilize (user testing, iteration). Recognizing which loop you're in changes how you intervene.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <a class="glossary-list-item active" href="/glossary/inversion/" data-glossary-id="inversion" role="listitem">
+          <span class="glossary-list-item-title">Inversion</span>
+          <p class="glossary-list-item-definition">Ask what guarantees failure.</p>
+        </a>
 
-        <section class="glossary-group">
-          <h3 class="glossary-group-title">Group three</h3>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-6" id="glossary-term-6">
-              <span class="glossary-term-text">Circle of Competence</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-6" role="region" aria-labelledby="glossary-term-6">
-              <div class="glossary-definition">
-                <p>Know the boundaries of what you truly understand versus what you think you understand. Operating inside your circle with awareness of its edges leads to better work and better collaboration with those whose circles complement yours.</p>
-              </div>
-            </div>
-          </div>
-          <div class="glossary-entry" data-entry>
-            <button type="button" class="glossary-term" aria-expanded="false" aria-controls="glossary-def-7" id="glossary-term-7">
-              <span class="glossary-term-text">Entropy</span>
-              <span class="glossary-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="glossary-definition-wrapper" id="glossary-def-7" role="region" aria-labelledby="glossary-term-7">
-              <div class="glossary-definition">
-                <p>All systems tend toward disorder over time without deliberate energy input. Codebases decay, design systems drift, team alignment erodes. Maintenance is not a failure of design — it's a law of nature.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <a class="glossary-list-item" href="/glossary/map-is-not-the-territory/" data-glossary-id="map-territory" role="listitem">
+          <span class="glossary-list-item-title">Map is Not the Territory</span>
+          <p class="glossary-list-item-definition">Remember models aren't reality.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/second-order-thinking/" data-glossary-id="second-order" role="listitem">
+          <span class="glossary-list-item-title">Second-Order Thinking</span>
+          <p class="glossary-list-item-definition">Consider consequences of consequences.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/occams-razor/" data-glossary-id="occams-razor" role="listitem">
+          <span class="glossary-list-item-title">Occam's Razor</span>
+          <p class="glossary-list-item-definition">Prefer simplest working explanation.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/feedback-loops/" data-glossary-id="feedback-loops" role="listitem">
+          <span class="glossary-list-item-title">Feedback Loops</span>
+          <p class="glossary-list-item-definition">Watch outputs feeding back in.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/circle-of-competence/" data-glossary-id="circle-competence" role="listitem">
+          <span class="glossary-list-item-title">Circle of Competence</span>
+          <p class="glossary-list-item-definition">Stay within what you understand.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/entropy/" data-glossary-id="entropy" role="listitem">
+          <span class="glossary-list-item-title">Entropy</span>
+          <p class="glossary-list-item-definition">Systems decay without deliberate upkeep.</p>
+        </a>
 
       </div>
 
-    </div>
+      <!-- RIGHT: Active term content — sticky, scrollable -->
+      <div class="glossary-panel-article" id="glossary-article-panel" aria-live="polite">
+
+        <article class="glossary-article" id="glossary-article-first-principles" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">First Principles Thinking</h2>
+            <p class="writing-article-intro">Break problems into fundamentals.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">First principles thinking is the practice of breaking down a problem to its most basic, foundational elements and reasoning up from there. Rather than reasoning by analogy — assuming things must work the way they've always worked — first principles thinking asks: what do we know for certain? What is actually true?</p>
+            <p class="writing-article-body">It's a method used by scientists, engineers, and designers to escape the constraints of conventional thinking. When you reason from first principles, you're not limited by what's been done before. You start from scratch, identify the core constraints, and build a solution that actually fits the problem.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">The process involves identifying your assumptions, breaking them apart, and reconstructing from what you know to be true. Ask: why does this constraint exist? Is it physical, social, historical? Many constraints that seem fixed are actually conventions. First principles thinking surfaces which ones.</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-inversion">
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Inversion</h2>
+            <p class="writing-article-intro">Ask what guarantees failure.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">Inversion is the practice of thinking backwards. Instead of asking "how do I succeed at X?", you ask "what would guarantee failure at X?" Then you avoid those things. It sounds simple, but it's surprisingly powerful because it surfaces risks and obstacles that forward-thinking tends to miss.</p>
+            <p class="writing-article-body">The mental model was championed by Charlie Munger, who borrowed it from mathematician Carl Jacobi. Jacobi's advice: "Invert, always invert." By approaching problems in reverse, you often find solutions that direct thinking never would.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">When starting a new project, take ten minutes to list every way it could fail. What assumptions are you making that might be wrong? What dependencies could break? What would the worst version of this look like? Use those answers to stress-test your plan before you invest in it.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Why it matters in design</h3>
+            <p class="writing-article-body">Design is particularly prone to optimism bias. Inverted thinking is a check on that. Before shipping, ask: what would make users hate this? What would make it confusing, broken, or irrelevant? The answers are often more valuable than any positive validation you could seek.</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-map-territory" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Map is Not the Territory</h2>
+            <p class="writing-article-intro">Remember models aren't reality.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">The phrase originates with Alfred Korzybski: "A map is not the territory it represents, but, if correct, it has a similar structure to the territory." All models, frameworks, and abstractions are simplifications. They are useful, but they are not the thing itself.</p>
+            <p class="writing-article-body">This is a warning against mistaking the representation for reality. A business model is not a business. A persona is not a user. A wireframe is not an experience. When we forget this, we optimize the model instead of solving the underlying problem.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">Hold your frameworks loosely. Use them to navigate, not to dictate. When data from the real world contradicts your model, update the model — not your interpretation of the data. Stay curious about where your map and the territory diverge.</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-second-order" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Second-Order Thinking</h2>
+            <p class="writing-article-intro">Consider consequences of consequences.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">First-order thinking asks: what happens if I do this? Second-order thinking asks: and then what? It's thinking about the consequences of consequences, the ripple effects of decisions that aren't immediately obvious. Most people stop at first-order. Second-order thinkers have an edge.</p>
+            <p class="writing-article-body">The concept is associated with Howard Marks and Charlie Munger. In investing, it means thinking not just about whether a company will perform well, but about whether that is already priced in. In design, it means thinking not just about whether a feature solves a user problem, but about what behaviour it incentivises downstream.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">When making decisions, ask "and then what?" at least twice. Force yourself past the immediate, obvious outcome. What does this change about the environment around the decision? What does it make easier or harder down the line?</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-occams-razor" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Occam's Razor</h2>
+            <p class="writing-article-intro">Prefer simplest working explanation.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">Among competing hypotheses, the one with the fewest assumptions should be selected. Named after 14th-century friar William of Ockham, Occam's Razor is a principle of parsimony. It doesn't say the simplest explanation is always correct — it says that, all else being equal, unnecessary complexity should be cut away.</p>
+            <p class="writing-article-body">In science, it's a heuristic for hypothesis selection. In design, it's an argument for restraint: do not add what you cannot justify. Every element of a system should earn its place.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">When a design or decision feels complicated, ask what assumptions are holding it together. Can you remove any of them? Can you reduce the solution without reducing its effectiveness? The version that does the same job with less is usually better.</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-feedback-loops" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Feedback Loops</h2>
+            <p class="writing-article-intro">Watch outputs feeding back in.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">A feedback loop occurs when the output of a system feeds back into the system as an input. Positive feedback amplifies change; negative feedback dampens it. Understanding which loops are operating in a system tells you a lot about how it will behave over time.</p>
+            <p class="writing-article-body">In product design, user behaviour creates feedback loops. A feature that's used more gets prioritised; a feature that's confusing generates support tickets that trigger redesigns. These loops shape the product over time, often in ways that weren't intended.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">Map the feedback loops in the systems you work with. Which loops are reinforcing (amplifying)? Which are balancing (stabilising)? Which loops are you inadvertently creating with your design decisions? Understanding feedback loops is essential for designing systems that behave predictably.</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-circle-competence" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Circle of Competence</h2>
+            <p class="writing-article-intro">Stay within what you understand.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">Each person has a domain — a circle — of things they genuinely understand. Within that circle, their judgement is sound. Outside it, they're guessing. The mental model, associated with Warren Buffett and Charlie Munger, is less about staying small and more about knowing where you are.</p>
+            <p class="writing-article-body">The danger isn't operating outside your circle — sometimes you have to. The danger is not knowing when you're outside it. Overconfidence in unfamiliar territory is where most serious mistakes are made.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">Be explicit about what you know and what you don't. When venturing into new territory, say so — to yourself and to others. Bring in people whose circle covers the area yours doesn't. And work consistently to expand your circle by learning deeply rather than broadly skimming.</p>
+          </div>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-entropy" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Entropy</h2>
+            <p class="writing-article-intro">Systems decay without deliberate upkeep.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">What it means</h3>
+            <p class="writing-article-body">In thermodynamics, entropy is the measure of disorder in a system. The second law of thermodynamics states that entropy in an isolated system always increases over time — things tend toward disorder, not order. Applied as a mental model, entropy is a reminder that systems don't maintain themselves.</p>
+            <p class="writing-article-body">Organisations, codebases, relationships, and design systems all tend toward disorder unless actively maintained. The effort you put in just to stay at the same level is the entropy tax. Recognising this helps you plan for maintenance, not just creation.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">In practice</h3>
+            <p class="writing-article-body">Build maintenance into your plans from the start. For every system you create, ask: what is the minimum ongoing effort to keep this functional? Who is responsible for it? What happens if that effort stops? The answer tells you whether you're building something sustainable or just deferring decay.</p>
+          </div>
+        </article>
+
+      </div><!-- /glossary-panel-article -->
+
+    </div><!-- /glossary-layout -->
   </main>
 
   <!-- CV Overlay Modal -->
   <div class="cv-overlay" id="cv-overlay" hidden>
     <div class="cv-modal">
-      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</button>
+      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</a>
       <div class="cv-content">
         <div class="cv-header">
           <h1 class="cv-name">Efe Eren Can Bakır</h1>
@@ -172,7 +251,6 @@
             <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Behance</a>
           </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">EXPERIENCE</h2>
           <div class="cv-entry">
@@ -192,7 +270,6 @@
             <p class="cv-description">Designed user experiences for digital products, conducted usability testing, and created wireframes and prototypes.</p>
           </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">EDUCATION</h2>
           <div class="cv-entry">
@@ -210,7 +287,6 @@
             <p class="cv-company">Bachelor's Degree • Ankara, TR</p>
           </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">SKILLS</h2>
           <div class="cv-skills">
@@ -222,7 +298,6 @@
             <span class="cv-skill">Design Systems</span>
           </div>
         </div>
-
         <div class="cv-section">
           <h2 class="cv-section-title">LANGUAGES</h2>
           <div class="cv-languages">
