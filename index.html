@@ -246,93 +246,167 @@
   <!-- CV Overlay Modal -->
   <div class="cv-overlay" id="cv-overlay" hidden>
     <div class="cv-modal">
-      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</button>
-      <div class="cv-content">
-        <div class="cv-header">
-          <h1 class="cv-name">Efe Eren Can Bakır</h1>
-          <div class="cv-contact-info">
-            <a href="mailto:efeec.bakir@gmail.com" class="cv-link">efeec.bakir@gmail.com</a>
-            <span class="cv-divider">•</span>
-            <span class="cv-phone">+39 351 4705647</span>
-            <span class="cv-divider">•</span>
-            <span class="cv-location">Milan, IT</span>
+      <!-- Sidebar: title + author -->
+      <div class="cv-sidebar">
+        <p class="cv-sidebar-title">Curriculum Vitae</p>
+        <div class="cv-sidebar-author">
+          <img src="/star.svg" alt="" class="logo-star">
+          <span class="cv-sidebar-author-name">Efe Bakır</span>
+        </div>
+      </div>
+
+      <!-- Middle column: Experience + Education -->
+      <div class="cv-col">
+        <div class="cv-group">
+          <p class="cv-group-label">EXPERIENCE</p>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">Product Designer</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">USA</span></span>
+            </div>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">Colonist</span>
+              <span class="cv-entry-date">JUL 2024 — CURRENT</span>
+            </div>
           </div>
-          <div class="cv-social-links">
-            <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">LinkedIn</a>
-            <a href="https://layers.to/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Layers</a>
-            <a href="https://bento.me/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Bento</a>
-            <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Behance</a>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">Bachelors Graduation Project</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
+            </div>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">Insider</span>
+              <span class="cv-entry-date">FEB — JUN 2024</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">Digital Designer</span>
+              <span class="cv-entry-metas">
+                <span class="cv-entry-tag">NETHERLANDS</span>
+                <span class="cv-entry-tag">ERASMUS</span>
+              </span>
+            </div>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">HLO Branding</span>
+              <span class="cv-entry-date">JUN — OCT 2023</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">UX Designer</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
+            </div>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">I-AM Online</span>
+              <span class="cv-entry-date">SEP 2022 — JUN 2023</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">UI Designer</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
+            </div>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">UTRLAB</span>
+              <span class="cv-entry-date">OCT 2022 — MAY 2023</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">Product Designer</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
+            </div>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">Smartest Co.</span>
+              <span class="cv-entry-date">SEP 2022 — JUN 2023</span>
+            </div>
           </div>
         </div>
 
-        <div class="cv-section">
-          <h2 class="cv-section-title">EXPERIENCE</h2>
+        <div class="cv-group">
+          <p class="cv-group-label">EDUCATION</p>
           <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">Product Designer</h3>
-              <span class="cv-date">2024 - Present</span>
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">Politecnico di Milano</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">ITALY</span></span>
             </div>
-            <p class="cv-company">Company Name • Milan, IT</p>
-            <p class="cv-description">Leading end-to-end product design for web and mobile applications. Conducting user research, creating design systems, and collaborating with cross-functional teams.</p>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">UX Designer</h3>
-              <span class="cv-date">2023 - 2024</span>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">MSc of Digital Design</span>
+              <span class="cv-entry-date">2024 — 2026</span>
             </div>
-            <p class="cv-company">Previous Company • Remote</p>
-            <p class="cv-description">Designed user experiences for digital products, conducted usability testing, and created wireframes and prototypes.</p>
-          </div>
-        </div>
-
-        <div class="cv-section">
-          <h2 class="cv-section-title">EDUCATION</h2>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">Politecnico di Milano</h3>
-              <span class="cv-date">2022 - 2024</span>
-            </div>
-            <p class="cv-company">Master's Degree • Milan, IT</p>
           </div>
           <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">METU</h3>
-              <span class="cv-date">2018 - 2022</span>
+            <div class="cv-entry-row">
+              <span class="cv-entry-role">METU</span>
+              <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
             </div>
-            <p class="cv-company">Bachelor's Degree • Ankara, TR</p>
-          </div>
-        </div>
-
-        <div class="cv-section">
-          <h2 class="cv-section-title">SKILLS</h2>
-          <div class="cv-skills">
-            <span class="cv-skill">Visual Design</span>
-            <span class="cv-skill">UX Design</span>
-            <span class="cv-skill">UI Design</span>
-            <span class="cv-skill">Prototyping</span>
-            <span class="cv-skill">User Research</span>
-            <span class="cv-skill">Design Systems</span>
-          </div>
-        </div>
-
-        <div class="cv-section">
-          <h2 class="cv-section-title">LANGUAGES</h2>
-          <div class="cv-languages">
-            <div class="cv-language-item">
-              <span class="cv-language">Turkish</span>
-              <span class="cv-proficiency">Native</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">English</span>
-              <span class="cv-proficiency">Fluent</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">Italian</span>
-              <span class="cv-proficiency">Intermediate</span>
+            <div class="cv-entry-row">
+              <span class="cv-entry-company">Bachelors of Industrial Design</span>
+              <span class="cv-entry-date">2019 — 2024</span>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Right column: Skills + Activities + Languages -->
+      <div class="cv-col">
+        <div class="cv-group">
+          <p class="cv-group-label">SKILLS</p>
+          <div class="cv-skill-item">
+            <p class="cv-skill-name">Creative Direction</p>
+            <div class="cv-skill-tags">
+              <span class="cv-entry-tag">BRANDING</span>
+              <span class="cv-entry-tag">GRAPHIC DESIGN</span>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <p class="cv-skill-name">Product Design</p>
+            <div class="cv-skill-tags">
+              <span class="cv-entry-tag">UI DESIGN</span>
+              <span class="cv-entry-tag">UX DESIGN</span>
+              <span class="cv-entry-tag">RESEARCH</span>
+            </div>
+            <div class="cv-skill-tags">
+              <span class="cv-entry-tag">PROTOTYPING</span>
+              <span class="cv-entry-tag">NO-CODE DEV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-group">
+          <p class="cv-group-label">ACTIVITIES</p>
+          <div class="cv-skill-item">
+            <p class="cv-skill-name">METU Falcons American Football</p>
+            <div class="cv-skill-tags">
+              <span class="cv-entry-tag">DESIGNER</span>
+              <span class="cv-entry-tag">PLAYER</span>
+            </div>
+          </div>
+          <div class="cv-skill-item">
+            <p class="cv-skill-name">stuDesigner Student Designers Club</p>
+            <div class="cv-skill-tags">
+              <span class="cv-entry-tag">DESIGNER</span>
+              <span class="cv-entry-tag">MEMBER</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-group">
+          <p class="cv-group-label">LANGUAGES</p>
+          <div class="cv-lang-grid">
+            <div class="cv-lang-item">
+              <p class="cv-lang-name">Turkish</p>
+              <span class="cv-entry-tag">NATIVE</span>
+            </div>
+            <div class="cv-lang-item">
+              <p class="cv-lang-name">English</p>
+              <span class="cv-entry-tag">C2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

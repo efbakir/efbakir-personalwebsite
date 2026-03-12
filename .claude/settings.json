@@ -12,7 +12,10 @@
       "Bash(open \"http://localhost:8080/#figmacapture=ff7b6131-710c-49ba-b197-6c47d61ee6e4&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2Fff7b6131-710c-49ba-b197-6c47d61ee6e4%2Fsubmit&figmadelay=2000&figmaselector=.cv-modal\")",
       "Bash(open \"http://localhost:8080/writings/#figmacapture=5affecce-ebd0-44f9-bd3a-df9cc548395a&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F5affecce-ebd0-44f9-bd3a-df9cc548395a%2Fsubmit&figmadelay=1000\")",
       "Bash(curl -s http://localhost:8080/writings/)",
-      "Bash(open \"http://localhost:8080/writings/#figmacapture=5affecce-ebd0-44f9-bd3a-df9cc548395a&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F5affecce-ebd0-44f9-bd3a-df9cc548395a%2Fsubmit&figmadelay=2000\")"
+      "Bash(open \"http://localhost:8080/writings/#figmacapture=5affecce-ebd0-44f9-bd3a-df9cc548395a&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F5affecce-ebd0-44f9-bd3a-df9cc548395a%2Fsubmit&figmadelay=2000\")",
+      "mcp__figma__get_variable_defs",
+      "mcp__figma__get_metadata",
+      "mcp__figma__create_design_system_rules"
     ]
   }
 }
