@@ -4,7 +4,6 @@
   var themeToggle = document.getElementById('theme-toggle');
   var cvTriggers = Array.from(document.querySelectorAll('[data-open-cv]'));
   var cvOverlay = document.getElementById('cv-overlay');
-  var cvClose = document.getElementById('cv-close');
 
   function syncBodyScrollLock() {
     var navOpen = !!(header && header.classList.contains('nav-open'));
@@ -50,14 +49,24 @@
   }
 
   function initCvOverlay() {
-    if (!cvTriggers.length || !cvOverlay || !cvClose) return;
+    if (!cvTriggers.length || !cvOverlay) return;
+
+    var cvModal = cvOverlay.querySelector('.cv-modal');
 
     function openCv() {
       cvOverlay.hidden = false;
+      if (cvModal) {
+        // Force reflow so transition runs when class is added
+        void cvModal.offsetWidth;
+        cvModal.classList.add('cv-modal-visible');
+      }
       syncBodyScrollLock();
     }
 
     function closeCv() {
+      if (cvModal) {
+        cvModal.classList.remove('cv-modal-visible');
+      }
       cvOverlay.hidden = true;
       syncBodyScrollLock();
     }
@@ -65,7 +74,6 @@
     cvTriggers.forEach(function (trigger) {
       trigger.addEventListener('click', openCv);
     });
-    cvClose.addEventListener('click', closeCv);
 
     cvOverlay.addEventListener('click', function (event) {
       if (event.target === cvOverlay) closeCv();

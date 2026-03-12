@@ -475,7 +475,7 @@ html.page-projects .main-content {
   font-size: var(--body-3-font-size);
   line-height: var(--line-height-normal);
   letter-spacing: var(--body-3-letter-spacing);
-  color: var(--color-text-primary);
+  color: var(--color-gray-lg);
   margin: 0;
   transition: var(--transition-color);
 }
@@ -618,7 +618,7 @@ html.page-projects .main-content {
   font-size: var(--body-3-font-size);
   line-height: var(--line-height-normal);
   letter-spacing: var(--body-3-letter-spacing);
-  color: var(--color-text-primary);
+  color: var(--color-gray-lg);
   margin: 0;
   transition: var(--transition-color);
 }
@@ -628,18 +628,25 @@ html.page-projects .main-content {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: var(--spacing-4);
+  column-gap: var(--spacing-4);
+  row-gap: calc(var(--spacing-4) / 2);
   align-items: center;
   white-space: nowrap;
 }
 
 /* (typography shared via :is(...) above) */
 
-.project-images-group:hover .project-group-title,
-.project-images-group:hover .project-group-year,
-.project-images-group:hover .project-group-description,
-.project-images-group:hover .project-group-tags li {
+/* Only trigger hover state when either the info block or its image block is hovered */
+.project-images-group:has(.project-group-info:hover) .project-group-year,
+.project-images-group:has(.project-flow-block:hover) .project-group-year,
+.project-images-group:has(.project-group-info:hover) .project-group-tags li,
+.project-images-group:has(.project-flow-block:hover) .project-group-tags li {
   color: var(--color-text-secondary);
+}
+
+.project-images-group:has(.project-group-info:hover) .project-group-description,
+.project-images-group:has(.project-flow-block:hover) .project-group-description {
+  color: var(--color-primary);
 }
 
 .project-images-group:last-child {
@@ -733,9 +740,8 @@ html.page-projects .main-content {
   cursor: pointer;
 }
 
-.panel-project-info.is-clickable:hover .panel-project-title,
 .panel-project-info.is-clickable:hover .panel-project-description {
-  color: var(--color-text-secondary);
+  color: var(--color-primary);
 }
 
 /* Contact shared styles */
@@ -920,8 +926,16 @@ html.page-projects .main-content {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  padding: var(--spacing-12);
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-8);
+  padding: var(--spacing-8);
   box-shadow: var(--shadow-modal);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity var(--duration-base) var(--easing-standard),
+    transform var(--duration-base) var(--easing-standard);
 }
 
 [data-theme="dark"] .cv-modal {
@@ -929,10 +943,15 @@ html.page-projects .main-content {
   box-shadow: var(--shadow-modal-dark);
 }
 
+.cv-modal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .cv-close {
   position: absolute;
-  top: var(--spacing-6);
-  right: var(--spacing-6);
+  top: var(--spacing-3);
+  right: var(--spacing-3);
   background: none;
   border: none;
   font-size: var(--size-close-icon);
@@ -946,176 +965,177 @@ html.page-projects .main-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .cv-close:hover {
   color: var(--color-text-primary);
 }
 
-.cv-content {
+/* Sidebar: title + author */
+.cv-sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-8);
+  width: 280px;
+  flex-shrink: 0;
 }
 
-.cv-header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2);
-  padding-bottom: var(--spacing-6);
-  border-bottom: var(--border);
-}
-
-.cv-name {
+.cv-sidebar-title {
+  flex: 1;
   font-family: var(--body-1-font-family);
   font-size: var(--display-lg-font-size);
-  line-height: 1.2;
-  font-weight: var(--body-1-weight-regular);
-  color: var(--accent);
+  line-height: var(--display-lg-line-height);
+  letter-spacing: -0.5px;
+  font-weight: var(--weight-regular);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
-
-
-.cv-contact-info {
+.cv-sidebar-author {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: var(--spacing-2);
+}
+
+.cv-sidebar-author-name {
   font-family: var(--body-3-font-family);
   font-size: var(--body-3-font-size);
   line-height: var(--body-3-line-height);
-  color: var(--color-text-secondary);
-}
-
-.cv-divider {
-  color: var(--color-text-secondary);
-}
-
-.cv-phone,
-.cv-location {
-  color: var(--color-text-secondary);
-}
-
-.cv-social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-4);
-}
-
-.cv-link {
-  font-family: var(--label-3-font-family);
-  font-size: var(--label-3-font-size);
-  line-height: var(--label-3-line-height);
+  letter-spacing: var(--body-3-letter-spacing);
   color: var(--color-text-primary);
-  text-decoration: none;
-  transition: var(--transition-color);
 }
 
-.cv-link:hover {
-  color: var(--accent);
-}
-
-.cv-section {
+/* Content columns */
+.cv-col {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  min-width: 0;
 }
 
-.cv-section-title {
+/* Section group */
+.cv-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  width: 100%;
+}
+
+.cv-group-label {
   font-family: var(--label-heading-font-family);
   font-size: var(--label-heading-font-size);
-  font-weight: var(--label-heading-weight-regular);
   line-height: var(--label-heading-line-height);
+  font-weight: var(--label-heading-weight-regular);
   letter-spacing: var(--label-heading-letter-spacing);
-  color: var(--accent);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
-
-
+/* Experience / Education entry */
 .cv-entry {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-entry-row {
+  display: flex;
+  gap: var(--spacing-1);
+  align-items: baseline;
+}
+
+.cv-entry-role {
+  flex: 1;
+  font-family: var(--body-3-font-family);
+  font-size: var(--body-3-font-size);
+  line-height: var(--body-3-line-height);
+  letter-spacing: var(--label-heading-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.cv-entry-metas {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cv-entry-company {
+  flex: 1;
+  font-family: var(--body-3-font-family);
+  font-size: var(--body-3-font-size);
+  line-height: var(--body-3-line-height);
+  letter-spacing: var(--label-heading-letter-spacing);
+  color: var(--color-text-secondary);
+}
+
+.cv-entry-date {
+  font-family: var(--label-heading-font-family);
+  font-size: var(--label-heading-font-size);
+  line-height: var(--label-heading-line-height);
+  font-weight: var(--label-heading-weight-regular);
+  letter-spacing: var(--label-heading-letter-spacing);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.cv-entry-tag {
+  font-family: var(--label-heading-font-family);
+  font-size: var(--label-heading-font-size);
+  line-height: var(--label-heading-line-height);
+  font-weight: var(--label-heading-weight-regular);
+  letter-spacing: var(--label-heading-letter-spacing);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* Skill and Activity items */
+.cv-skill-item {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1);
 }
 
-.cv-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--spacing-4);
-}
-
-.cv-role {
+.cv-skill-name {
   font-family: var(--body-3-font-family);
   font-size: var(--body-3-font-size);
-  font-weight: var(--body-3-weight-regular);
   line-height: var(--body-3-line-height);
+  letter-spacing: var(--label-heading-letter-spacing);
   color: var(--color-text-primary);
   margin: 0;
 }
 
-.cv-date {
-  font-family: var(--label-heading-font-family);
-  font-size: var(--label-heading-font-size);
-  line-height: var(--label-heading-line-height);
-  color: var(--color-text-secondary);
-  white-space: nowrap;
-}
-
-.cv-company {
-  font-family: var(--label-3-font-family);
-  font-size: var(--label-3-font-size);
-  line-height: var(--label-3-line-height);
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-.cv-description {
-  font-family: var(--body-3-font-family);
-  font-size: var(--body-3-font-size);
-  line-height: var(--body-3-line-height);
-  color: var(--color-text-primary);
-  margin: 0;
-}
-
-.cv-skills {
+.cv-skill-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-2);
 }
 
-.cv-skill {
-  font-family: var(--label-heading-font-family);
-  font-size: var(--label-heading-font-size);
-  line-height: var(--label-heading-line-height);
-  letter-spacing: var(--label-heading-letter-spacing);
-  color: var(--color-text-secondary);
-  padding: var(--spacing-1) var(--spacing-2);
-  border: var(--border);
-  border-radius: var(--radius-md);
+/* Language grid */
+.cv-lang-grid {
+  display: flex;
+  gap: var(--spacing-6);
+  width: 100%;
 }
 
-.cv-languages {
+.cv-lang-item {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-1);
+  width: 100%;
+  flex: 1;
 }
 
-.cv-language-item {
-  display: flex;
-  justify-content: space-between;
+.cv-lang-name {
   font-family: var(--body-3-font-family);
   font-size: var(--body-3-font-size);
   line-height: var(--body-3-line-height);
-}
-
-.cv-language {
+  letter-spacing: var(--label-heading-letter-spacing);
   color: var(--color-text-primary);
-}
-
-.cv-proficiency {
-  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 @media (min-width: 1440px) {
@@ -1239,6 +1259,25 @@ html.page-projects .main-content {
   html.page-writings body,
   html.page-glossary body {
     height: auto;
+  }
+
+  /* CV Modal: collapse 3-col to stacked, sidebar becomes header row */
+  .cv-modal {
+    flex-direction: column;
+    gap: var(--spacing-6);
+    padding: var(--spacing-6);
+    max-height: none;
+  }
+
+  .cv-sidebar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+  }
+
+  .cv-sidebar-title {
+    flex: 0;
   }
 
   /* Align header with main content: same horizontal inset */
@@ -1609,32 +1648,9 @@ html.page-projects .main-content {
     gap: var(--spacing-4);
   }
 
-  /* CV Modal responsive - full screen on mobile */
+  /* CV Modal: tighter padding on mobile */
   .cv-overlay {
-    padding: 0;
-    align-items: stretch;
-  }
-
-  .cv-modal {
-    max-height: 100vh;
-    max-width: 100%;
-    padding: var(--spacing-6) var(--spacing-4);
-    padding-top: var(--spacing-12);
-  }
-
-  .cv-close {
-    top: var(--spacing-4);
-    right: var(--spacing-4);
-  }
-
-  .cv-name {
-    font-size: var(--display-sm-font-size);
-  }
-
-  .cv-entry-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-1);
+    padding: var(--spacing-3);
   }
 
   .cv-contact-info {
@@ -2174,6 +2190,11 @@ html.page-projects .main-content {
   flex-wrap: wrap;
 }
 
+.project-images-group:has(.project-group-info:hover) .project-group-title,
+.project-images-group:has(.project-flow-block:hover) .project-group-title {
+  color: var(--accent);
+}
+
 .project-detail-page-meta-item {
   display: flex;
   flex-direction: column;
@@ -2673,7 +2694,7 @@ html.page-projects .main-content {
   font-family: var(--body-2-font-family);
   font-size: var(--body-2-font-size);
   line-height: var(--body-2-line-height);
-  letter-spacing: -0.08px;
+  letter-spacing: -0.1px;
   color: var(--color-text-secondary);
   margin: 0;
 }
@@ -2742,7 +2763,8 @@ html.page-projects .main-content {
   font-size: var(--label-heading-font-size);
   line-height: var(--label-heading-line-height);
   letter-spacing: var(--label-heading-letter-spacing);
-  color: var(--color-text-secondary);
+  color: var(--color-gray-lg);
+  transition: color var(--duration-fast) var(--easing-standard);
 }
 
 .writing-article-nav-title,
@@ -2758,6 +2780,11 @@ html.page-projects .main-content {
 .writing-article-nav-item:hover .writing-article-nav-title,
 .glossary-article-nav-item:hover .glossary-article-nav-title {
   color: var(--accent);
+}
+
+.writing-article-nav-item:hover .writing-article-nav-label,
+.glossary-article-nav-item:hover .glossary-article-nav-label {
+  color: var(--color-primary);
 }
 
 .writing-article-nav-placeholder,
@@ -2793,9 +2820,9 @@ html.page-projects .main-content {
 .glossary-page-title {
   font-family: var(--body-1-font-family);
   font-size: var(--display-lg-font-size);
-  line-height: var(--line-height-tight);
+  line-height: 1.3;
   font-weight: var(--body-1-weight-regular);
-  letter-spacing: var(--letter-spacing-normal);
+  letter-spacing: -0.5px;
   color: var(--color-text-secondary);
   margin: 0;
 }
