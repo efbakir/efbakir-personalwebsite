@@ -108,6 +108,9 @@
   --spacing-20: 80px;
   --spacing-24: 96px;
 
+  /* Project detail: gap between tags and controls (1.5x section gap) */
+  --spacing-project-controls-margin-top: var(--spacing-14);
+
   /* Layout */
   --grid-container-width: 1280px;
   --grid-margin: var(--spacing-8);

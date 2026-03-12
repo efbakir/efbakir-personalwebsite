@@ -124,6 +124,14 @@
       return (tagString || '').split('|').map(function (t) { return t.trim(); }).filter(Boolean);
     }
 
+    var projectMonths = {
+      'nat-hellen': 'MAR',
+      'wardrobe': 'JAN',
+      'amazon-tvgether': 'FEB',
+      'boty': 'APR',
+      'marte-carmen': 'MAY'
+    };
+
     function ensureOverviewRows() {
       groups.forEach(function (group) {
         if (group.querySelector('.project-group-info')) return;
@@ -131,19 +139,15 @@
         var info = document.createElement('div');
         info.className = 'project-group-info';
 
-        var header = document.createElement('div');
-        header.className = 'project-group-header';
-
         var title = document.createElement('h3');
         title.className = 'project-group-title';
         title.textContent = group.dataset.projectTitle || '';
 
         var year = document.createElement('span');
         year.className = 'project-group-year';
-        year.textContent = group.dataset.projectYear || '';
-
-        header.appendChild(title);
-        header.appendChild(year);
+        var rawYear = group.dataset.projectYear || '';
+        var month = projectMonths[group.dataset.projectId] || '';
+        year.textContent = (month ? month + ' ' : '') + rawYear;
 
         var desc = document.createElement('p');
         desc.className = 'project-group-description';
@@ -157,34 +161,79 @@
           tags.appendChild(li);
         });
 
-        info.appendChild(header);
+        info.appendChild(title);
         info.appendChild(desc);
         info.appendChild(tags);
+        info.appendChild(year);
         group.insertBefore(info, group.firstChild);
       });
     }
 
     function renderProjectAtIndex(index) {
       var data = projectData[index];
-      var nextTitleEl = panelControls && panelControls.querySelector('.panel-project-next-title');
+      var prevBtn = panelControls && panelControls.querySelector('#project-prev-btn');
+      var nextBtn = panelControls && panelControls.querySelector('#project-next-btn');
+      var prevTitleEl = panelControls && panelControls.querySelector('.panel-project-nav-title-prev');
+      var nextTitleEl = panelControls && panelControls.querySelector('.panel-project-nav-title-next');
 
       panelTitle.textContent = data.title;
-      panelYear.textContent = data.year;
+      var monthLabel = projectMonths[data.id] || '';
+      panelYear.textContent = (monthLabel ? monthLabel + ' ' : '') + data.year;
       panelDesc.textContent = data.description;
       panelTags.innerHTML = data.tags.map(function (tag) {
         return '<li>' + tag + '</li>';
       }).join('');
 
-      if (nextTitleEl && projectData.length > 1) {
-        var nextIndex = (index + 1) % projectData.length;
-        nextTitleEl.textContent = projectData[nextIndex].title;
+      if (prevBtn) {
+        prevBtn.hidden = (index === 0);
+      }
+
+      if (nextBtn) {
+        nextBtn.hidden = (index === projectData.length - 1);
+      }
+
+      if (prevTitleEl && index > 0) {
+        prevTitleEl.textContent = projectData[index - 1].title;
+      }
+
+      if (nextTitleEl && index < projectData.length - 1) {
+        nextTitleEl.textContent = projectData[index + 1].title;
       }
     }
 
-    function enterDetail() {
+    var detailGroups = detailImages
+      ? Array.prototype.slice.call(detailImages.querySelectorAll('.project-detail-group[data-project-id]'))
+      : [];
+
+    function isInDetail() {
+      return layout.classList.contains('is-detail');
+    }
+
+    function showDetailGroupForId(id) {
+      if (!detailGroups.length) return;
+      detailGroups.forEach(function (group) {
+        var isMatch = group.dataset.projectId === id;
+        if (isMatch) {
+          group.hidden = false;
+        } else {
+          group.hidden = true;
+        }
+      });
+    }
+
+    function enterDetail(skipPushState) {
       layout.classList.add('is-detail');
-      if (detailImages) detailImages.hidden = false;
+      if (detailImages) {
+        detailImages.hidden = false;
+        var currentId = projectData[currentProjectIndex].id;
+        showDetailGroupForId(currentId);
+      }
       if (panelControls) panelControls.hidden = false;
+      if (!skipPushState) {
+        var id = projectData[currentProjectIndex].id;
+        var hash = '#project-' + id;
+        history.pushState({ projectDetail: true, projectId: id }, '', (window.location.pathname || '/') + hash);
+      }
     }
 
     function exitDetail() {
@@ -192,6 +241,10 @@
       if (detailImages) detailImages.hidden = true;
       if (panelControls) panelControls.hidden = true;
     }
+
+    window.addEventListener('popstate', function (event) {
+      if (isInDetail()) exitDetail();
+    });
 
     panelImages.addEventListener('click', function (event) {
       var trigger = event.target.closest('.project-images-group');
@@ -210,16 +263,29 @@
     if (backButton) {
       backButton.addEventListener('click', function (e) {
         e.stopPropagation();
-        exitDetail();
+        history.back();
       });
     }
 
     if (panelControls) {
-      var nextButton = panelControls.querySelector('.panel-project-next');
+      var nextButton = panelControls.querySelector('#project-next-btn');
+      var prevButtonDetail = panelControls.querySelector('#project-prev-btn');
+
       if (nextButton) {
         nextButton.addEventListener('click', function () {
-          currentProjectIndex = (currentProjectIndex + 1) % projectData.length;
-          renderProjectAtIndex(currentProjectIndex);
+          if (currentProjectIndex < projectData.length - 1) {
+            currentProjectIndex += 1;
+            renderProjectAtIndex(currentProjectIndex);
+          }
+        });
+      }
+
+      if (prevButtonDetail) {
+        prevButtonDetail.addEventListener('click', function () {
+          if (currentProjectIndex > 0) {
+            currentProjectIndex -= 1;
+            renderProjectAtIndex(currentProjectIndex);
+          }
         });
       }
     }
@@ -228,6 +294,16 @@
     renderProjectAtIndex(currentProjectIndex);
     if (detailImages) detailImages.hidden = true;
     if (panelControls) panelControls.hidden = true;
+
+    if (location.hash.indexOf('#project-') === 0) {
+      var hashId = location.hash.slice(1).replace('project-', '');
+      var hashIndex = projectData.findIndex(function (p) { return p.id === hashId; });
+      if (hashIndex >= 0) {
+        currentProjectIndex = hashIndex;
+        renderProjectAtIndex(currentProjectIndex);
+        enterDetail(true);
+      }
+    }
   }
 
   function initWritingsLayout() {

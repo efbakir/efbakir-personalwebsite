@@ -6,6 +6,10 @@
   <title>Efe Bakır</title>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="dns-prefetch" href="https://www.figma.com">
+  <link rel="preconnect" href="https://www.figma.com" crossorigin>
+  <link rel="preload" as="image" href="https://www.figma.com/api/mcp/asset/ecc07308-a9ba-4f83-955b-28118967e8f0">
+  <link rel="preload" as="image" href="https://www.figma.com/api/mcp/asset/4dc0e4fe-ed94-406f-8144-f2219c4fbcdc">
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
@@ -59,9 +63,9 @@
 
       <!-- MIDDLE: Active project info — sticky, JS-updated -->
       <div class="panel-project-info" id="panel-project-info" aria-live="polite">
+        <button type="button" class="panel-project-back" id="project-back-btn">‹ BACK TO PROJECTS</button>
         <div class="panel-project-header">
           <h2 class="panel-project-title" id="panel-project-title">Nat Hellen</h2>
-          <span class="panel-project-year" id="panel-project-year">2026</span>
         </div>
         <p class="panel-project-description" id="panel-project-description">Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.</p>
         <ul class="panel-project-tags" id="panel-project-tags">
@@ -69,11 +73,17 @@
           <li>WEB DESIGN</li>
           <li>BRANDING</li>
         </ul>
+        <span class="panel-project-year" id="panel-project-year">MAR 2026</span>
         <div class="panel-project-controls" id="panel-project-controls" hidden>
-          <button type="button" class="panel-project-back" id="project-back-btn">BACK TO PROJECTS</button>
-          <div class="panel-project-next">
-            <span class="panel-project-next-label">NEXT PROJECT</span>
-            <span class="panel-project-next-title">Wardrobe</span>
+          <div class="panel-project-nav">
+            <button type="button" class="panel-project-prev" id="project-prev-btn">
+              <span class="panel-project-nav-label">PREVIOUS</span>
+              <span class="panel-project-nav-title panel-project-nav-title-prev"></span>
+            </button>
+            <button type="button" class="panel-project-next" id="project-next-btn">
+              <span class="panel-project-nav-label">NEXT</span>
+              <span class="panel-project-nav-title panel-project-nav-title-next"></span>
+            </button>
           </div>
         </div>
       </div>
@@ -117,7 +127,7 @@
              data-project-tags="UI/UX">
           <figure class="project-flow-block">
             <div class="project-flow-media">
-              <img src="https://www.figma.com/api/mcp/asset/7fd51b71-3448-47e0-9e76-4577bebb5308" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+              <img src="/assets/project-thumbs/amazontvgether.jpg" alt="Amazon TVgether cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
             <figcaption class="project-flow-caption">AT_COVERIMAGE.PNG</figcaption>
           </figure>
@@ -131,7 +141,7 @@
              data-project-tags="BRANDING|UI/UX — WEB|CREATIVE DIRECTION">
           <figure class="project-flow-block">
             <div class="project-flow-media">
-              <img src="https://www.figma.com/api/mcp/asset/d9aded3d-914a-436a-8fe8-27d8129edaf2" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+              <img src="/assets/project-thumbs/böty.png" alt="Böty cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
             <figcaption class="project-flow-caption">BT_COVERIMAGE.PNG</figcaption>
           </figure>
@@ -145,7 +155,7 @@
              data-project-tags="BRANDING|CREATIVE DIRECTION|WEB DESIGN">
           <figure class="project-flow-block">
             <div class="project-flow-media">
-              <img src="https://www.figma.com/api/mcp/asset/e5dde7c6-cb7c-4a14-9e3e-9615083e1637" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+              <img src="/assets/project-thumbs/martecarmen.png" alt="Marte Carmen cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
             <figcaption class="project-flow-caption">MC_COVERIMAGE.PNG</figcaption>
           </figure>
@@ -223,21 +233,58 @@
 
       </div><!-- /panel-images -->
 
-      <!-- RIGHT: Nat Hellen detail media (shown in detail mode) -->
+      <!-- RIGHT: Project detail media (shown in detail mode, per project) -->
       <div class="project-detail-images" id="project-detail-images" hidden>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/ecc07308-a9ba-4f83-955b-28118967e8f0" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/4dc0e4fe-ed94-406f-8144-f2219c4fbcdc" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="339"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/b7b290be-2fa9-46ca-896f-c8e9e6c9fcd1" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="339"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/bd4a2776-76e8-4826-8de9-7de5e16552c7" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/dab5e069-47a7-4981-9bdf-729e4994b23f" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/a7ed1e4f-e237-48cd-9b34-bcd4f26528a0" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/951c7403-3541-45f9-b7b7-c2e2019a8427" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/c47a9fc2-0d17-49bf-99c8-986729e398c1" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/aeaf9267-4337-4110-b890-34a0f14b31c0" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/22f87638-7ba0-49cd-86f5-b6669cc1f467" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="678"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/37909a44-086d-489e-8081-2a479816e6b3" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/e16bdb6d-c56f-4f6c-9a4a-33a12c53562f" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
-        <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/91083435-9725-48a7-89d8-4ade0013c55f" alt="" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption></figure>
+        <!-- Nat Hellen detail -->
+        <div class="project-detail-group" data-project-id="nat-hellen">
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/ecc07308-a9ba-4f83-955b-28118967e8f0" alt="Nat Hellen brand — cover" class="project-flow-media-image" loading="eager" decoding="async" fetchpriority="high" width="904" height="603"></div><figcaption class="project-flow-caption">NT_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/4dc0e4fe-ed94-406f-8144-f2219c4fbcdc" alt="Nat Hellen brand — logo and wordmark" class="project-flow-media-image" loading="eager" decoding="async" fetchpriority="high" width="904" height="339"></div><figcaption class="project-flow-caption">NT_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/b7b290be-2fa9-46ca-896f-c8e9e6c9fcd1" alt="Nat Hellen brand — color system" class="project-flow-media-image" loading="eager" decoding="async" width="904" height="339"></div><figcaption class="project-flow-caption">NT_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/bd4a2776-76e8-4826-8de9-7de5e16552c7" alt="Nat Hellen brand — typography" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NT_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/dab5e069-47a7-4981-9bdf-729e4994b23f" alt="Nat Hellen — website hero" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603"></div><figcaption class="project-flow-caption">NT_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/a7ed1e4f-e237-48cd-9b34-bcd4f26528a0" alt="Nat Hellen — website interior" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NT_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/951c7403-3541-45f9-b7b7-c2e2019a8427" alt="Nat Hellen — ecommerce" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NT_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/c47a9fc2-0d17-49bf-99c8-986729e398c1" alt="Nat Hellen — application" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NT_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/aeaf9267-4337-4110-b890-34a0f14b31c0" alt="Nat Hellen — application" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NT_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/22f87638-7ba0-49cd-86f5-b6669cc1f467" alt="Nat Hellen — application" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="678"></div><figcaption class="project-flow-caption">NT_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/37909a44-086d-489e-8081-2a479816e6b3" alt="Nat Hellen — application" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NT_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/e16bdb6d-c56f-4f6c-9a4a-33a12c53562f" alt="Nat Hellen — application" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="904"></div><figcaption class="project-flow-caption">NT_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="https://www.figma.com/api/mcp/asset/91083435-9725-48a7-89d8-4ade0013c55f" alt="Nat Hellen — application" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="508"></div><figcaption class="project-flow-caption">NT_12.PNG</figcaption></figure>
+        </div>
+
+        <!-- Amazon TVgether detail -->
+        <div class="project-detail-group" data-project-id="amazon-tvgether" hidden>
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/projects/amazontvgether/cover.png" alt="Amazon TVgether — cover" class="project-flow-media-image" loading="eager" decoding="async" fetchpriority="high" width="904" height="603">
+            </div>
+            <figcaption class="project-flow-caption">Cover</figcaption>
+          </figure>
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/projects/amazontvgether/01.png" alt="Amazon TVgether — onboarding" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
+            </div>
+            <figcaption class="project-flow-caption">Onboarding</figcaption>
+          </figure>
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/projects/amazontvgether/02.png" alt="Amazon TVgether — live match view" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
+            </div>
+            <figcaption class="project-flow-caption">Live match view</figcaption>
+          </figure>
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/projects/amazontvgether/03.png" alt="Amazon TVgether — reactions and chat" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
+            </div>
+            <figcaption class="project-flow-caption">Reactions &amp; chat</figcaption>
+          </figure>
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/projects/amazontvgether/04.png" alt="Amazon TVgether — watch party" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
+            </div>
+            <figcaption class="project-flow-caption">Watch party</figcaption>
+          </figure>
+        </div>
       </div><!-- /project-detail-images -->
 
     </div><!-- /homepage-layout -->
