@@ -21,7 +21,7 @@ body {
 }
 
 ::selection {
-  background: rgba(252, 81, 19, 0.22);
+  background: var(--color-accent-soft);
 }
 
 /* Header */
@@ -89,13 +89,14 @@ body {
   display: block;
   vertical-align: middle;
   filter: grayscale(1) brightness(0);
-  transition: var(--transition-color);
+  transition: filter var(--duration-fast) var(--easing-standard);
 }
 
-.logo-btn:hover .logo-star {
-  filter: none;
+[data-theme="dark"] .logo-star {
+  filter: grayscale(1) brightness(0) invert(1);
 }
 
+.logo-btn:hover .logo-star,
 [data-theme="dark"] .logo-btn:hover .logo-star {
   filter: none;
 }
@@ -566,7 +567,7 @@ body {
 
 .project-images-group:hover .project-group-title,
 .project-images-group:hover .project-group-description {
-  color: #8c8c8c;
+  color: var(--color-text-secondary);
 }
 
 .project-images-group:last-child {
@@ -653,7 +654,7 @@ body {
 
 .panel-project-info.is-clickable:hover .panel-project-title,
 .panel-project-info.is-clickable:hover .panel-project-description {
-  color: #8c8c8c;
+  color: var(--color-text-secondary);
 }
 
 /* Contact shared styles */
