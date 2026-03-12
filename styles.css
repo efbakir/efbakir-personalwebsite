@@ -48,11 +48,11 @@ body {
 }
 
 body.page-entering {
-  animation: page-enter var(--duration-base) var(--easing-standard) both;
+  animation: page-enter 0.2s var(--easing-standard) both;
 }
 
 body.page-exiting {
-  animation: page-exit 0.18s var(--easing-standard) both;
+  animation: page-exit 0.1s var(--easing-standard) both;
   pointer-events: none;
 }
 
