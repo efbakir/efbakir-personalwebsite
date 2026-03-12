@@ -12,7 +12,7 @@
     document.body.classList.add('page-exiting');
     setTimeout(function () {
       window.location.href = href;
-    }, 180);
+    }, 100);
   });
 
   function open() {
