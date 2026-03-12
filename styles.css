@@ -21,7 +21,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent-soft);
+  background: var(--accent);
 }
 
 /* Page transition */
@@ -121,14 +121,13 @@ body.page-exiting {
   display: block;
   vertical-align: middle;
   filter: grayscale(1) brightness(0);
-  transition: filter var(--duration-fast) var(--easing-standard);
+  transition: var(--transition-color);
 }
 
-[data-theme="dark"] .logo-star {
-  filter: grayscale(1) brightness(0) invert(1);
+.logo-btn:hover .logo-star {
+  filter: none;
 }
 
-.logo-btn:hover .logo-star,
 [data-theme="dark"] .logo-btn:hover .logo-star {
   filter: none;
 }
@@ -2282,7 +2281,7 @@ body.page-exiting {
   line-height: 1.3;
   font-weight: var(--body-1-weight-regular);
   letter-spacing: -0.24px;
-  color: var(--accent);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
@@ -2314,16 +2313,6 @@ body.page-exiting {
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition-opacity);
-}
-
-/* Double spacing around active writing list item */
-.writing-list-item.active {
-  margin-top: var(--spacing-8);
-  margin-bottom: var(--spacing-8);
-}
-
-.writing-list-item.active:first-child {
-  margin-top: 0;
 }
 
 .writing-list-item-header {
@@ -2540,7 +2529,7 @@ body.page-exiting {
   line-height: 1.3;
   font-weight: 400;
   letter-spacing: -0.24px;
-  color: var(--accent);
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
@@ -2570,16 +2559,6 @@ body.page-exiting {
   gap: var(--spacing-2);
   text-decoration: none;
   cursor: pointer;
-}
-
-/* Double spacing around active glossary list item */
-.glossary-list-item.active {
-  margin-top: var(--spacing-8);
-  margin-bottom: var(--spacing-8);
-}
-
-.glossary-list-item.active:first-child {
-  margin-top: 0;
 }
 
 .glossary-list-item-title {
