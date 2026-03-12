@@ -24,6 +24,38 @@ body {
   background: var(--accent);
 }
 
+/* Page transition */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+body.page-entering {
+  animation: page-enter var(--duration-base) var(--easing-standard) both;
+}
+
+body.page-exiting {
+  animation: page-exit 0.18s var(--easing-standard) both;
+  pointer-events: none;
+}
+
 /* Header */
 .header {
   width: 100%;
@@ -101,9 +133,6 @@ body {
 }
 
 .main-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: var(--spacing-4);
   align-items: center;
