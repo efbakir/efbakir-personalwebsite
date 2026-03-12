@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+/* iOS Safari viewport height fix */
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+  body {
+    min-height: -webkit-fill-available;
+  }
+}
+
 body {
   font-family: var(--body-3-font-family);
   line-height: var(--body-3-line-height);
@@ -1149,10 +1159,106 @@ html.page-projects .main-content {
   }
 }
 
+/* --- Tablet Landscape (<=1024px) --- */
+@media (max-width: 1024px) {
+  :root {
+    --grid-margin: var(--spacing-6);
+  }
+
+  /* Homepage: 2-column layout at tablet landscape */
+  .homepage-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .panel-bio {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .panel-project-info {
+    display: none;
+  }
+
+  .panel-images {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Project card: stack info above image */
+  .project-images-group {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .project-group-info {
+    order: 1;
+  }
+
+  .project-flow-block {
+    order: 2;
+  }
+
+  /* Detail mode: project info in left column */
+  .homepage-layout.is-detail .panel-bio {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .homepage-layout.is-detail .panel-project-info {
+    display: flex;
+    grid-column: 1;
+    opacity: 1;
+  }
+
+  .homepage-layout.is-detail .project-detail-images {
+    grid-column: 2;
+  }
+
+  /* Writings/Glossary: 2-column layout */
+  .writings-layout,
+  .glossary-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .writings-panel-header,
+  .glossary-panel-header {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .writings-panel-list,
+  .glossary-panel-list {
+    grid-column: 1;
+    grid-row: 2;
+    max-height: calc(100vh - var(--size-panel-sticky-top) - 120px);
+    overflow-y: auto;
+  }
+
+  .writings-panel-article,
+  .glossary-panel-article {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+}
+
 /* --- Tablet Portrait (<=768px) --- */
 @media (max-width: 768px) {
   :root {
     --grid-margin: var(--spacing-4);
+  }
+
+  /* Allow body to scroll naturally on tablet portrait */
+  html.page-projects,
+  html.page-writings,
+  html.page-glossary {
+    height: auto;
+    overflow: visible;
+  }
+
+  html.page-projects body,
+  html.page-writings body,
+  html.page-glossary body {
+    height: auto;
   }
 
   /* CV Modal: collapse 3-col to stacked, sidebar becomes header row */
@@ -1199,7 +1305,7 @@ html.page-projects .main-content {
     padding: var(--spacing-2) 0;
   }
 
-  /* Touch targets: nav, theme, logo */
+  /* Touch targets: nav, theme, logo - minimum 44px */
   .nav-link,
   .header-cv-link {
     min-height: var(--size-touch-target);
@@ -1229,33 +1335,49 @@ html.page-projects .main-content {
     align-items: center;
   }
 
-  /* Tablet portrait: 2-column layout */
-  .homepage-layout,
-  .writings-layout,
-  .glossary-layout {
-    grid-template-columns: 1fr 2fr;
+  /* Tablet portrait: single column layout */
+  .homepage-layout {
+    grid-template-columns: 1fr;
+    row-gap: var(--spacing-8);
   }
 
-  /* Homepage: bio spans both rows left */
+  .writings-layout,
+  .glossary-layout {
+    grid-template-columns: 1fr;
+    row-gap: var(--spacing-6);
+  }
+
+  /* Homepage: stack panels */
   .panel-bio {
     grid-column: 1;
-    grid-row: 1 / 3;
+    grid-row: 1;
+    position: static;
   }
 
   .panel-project-info {
-    position: static;
-    max-height: none;
-    overflow-y: visible;
-    grid-column: 2;
-    grid-row: 1;
+    display: none;
   }
 
   .panel-images {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 2;
+    max-height: none;
+    overflow-y: visible;
+    padding-bottom: var(--spacing-8);
   }
 
-  /* Writings/Principles: header left top, list left bottom, article right spans */
+  /* Project cards: stack info above image */
+  .project-images-group {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .project-group-info {
+    display: flex;
+    order: -1;
+  }
+
+  /* Writings/Glossary: stack panels */
   .writings-panel-header,
   .glossary-panel-header {
     grid-column: 1;
@@ -1276,8 +1398,8 @@ html.page-projects .main-content {
     position: static;
     max-height: none;
     overflow-y: visible;
-    grid-column: 2;
-    grid-row: 1 / 3;
+    grid-column: 1;
+    grid-row: 3;
   }
 
   /* Detail panel: stack vertically */
@@ -1293,11 +1415,31 @@ html.page-projects .main-content {
 
   .article-nav-btn {
     padding: var(--spacing-4) 0;
+    min-height: var(--size-touch-target);
   }
 
   .project-image-grid-2,
   .project-image-grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  /* Bio contact links: ensure touch targets */
+  .panel-bio-contact-links {
+    gap: var(--spacing-2) var(--spacing-4);
+  }
+
+  .contact-item-link {
+    min-height: var(--size-touch-target);
+    padding: var(--spacing-2);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Writing/glossary list items: larger touch targets */
+  .writing-list-item,
+  .glossary-list-item {
+    min-height: var(--size-touch-target);
+    padding: var(--spacing-2) 0;
   }
 
   /* Improve touch targets for mobile-ish screens */
@@ -1310,6 +1452,13 @@ html.page-projects .main-content {
     min-height: var(--size-touch-target);
     display: inline-flex;
     align-items: center;
+  }
+
+  /* Writing/glossary nav buttons */
+  .writing-article-nav-item,
+  .glossary-article-nav-item {
+    min-height: var(--size-touch-target);
+    padding: var(--spacing-2) 0;
   }
 }
 
@@ -1326,8 +1475,22 @@ html.page-projects .main-content {
     --intro-lead-line-height: var(--body-3-line-height);
   }
 
+  /* Allow body to scroll naturally on mobile */
+  html.page-projects,
+  html.page-writings,
+  html.page-glossary {
+    height: auto;
+    overflow: visible;
+  }
+
+  html.page-projects body,
+  html.page-writings body,
+  html.page-glossary body {
+    height: auto;
+  }
+
   .main-content {
-    padding: 32px var(--grid-margin) var(--page-padding-bottom);
+    padding: var(--spacing-6) var(--grid-margin) var(--page-padding-bottom);
     row-gap: var(--spacing-8);
   }
 
@@ -1363,6 +1526,7 @@ html.page-projects .main-content {
   .writings-layout,
   .glossary-layout {
     grid-template-columns: 1fr;
+    row-gap: var(--spacing-8);
   }
 
   .panel-bio,
@@ -1380,16 +1544,65 @@ html.page-projects .main-content {
   }
 
   .panel-bio { grid-row: 1; }
-  .panel-project-info { grid-row: 2; }
-  .panel-images { grid-column: 1; grid-row: 3; }
+  .panel-project-info { grid-row: 2; display: none; }
+  .panel-images { 
+    grid-column: 1; 
+    grid-row: 2; 
+    max-height: none;
+    overflow-y: visible;
+    padding-bottom: var(--spacing-8);
+  }
+
+  /* Project cards on mobile: show info inline */
+  .project-images-group {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .project-group-info {
+    display: flex;
+    order: -1;
+  }
+
+  .project-group-header {
+    flex-wrap: wrap;
+  }
+
+  .project-group-title {
+    font-size: var(--display-sm-font-size);
+  }
+
+  .project-group-tags {
+    flex-wrap: wrap;
+    row-gap: var(--spacing-1);
+  }
 
   .writings-panel-header { grid-row: 1; }
-  .writings-panel-list { grid-row: 2; }
+  .writings-panel-list { 
+    grid-row: 2; 
+    gap: var(--spacing-4);
+  }
   .writings-panel-article { grid-row: 3; }
 
   .glossary-panel-header { grid-row: 1; }
-  .glossary-panel-list { grid-row: 2; }
+  .glossary-panel-list { 
+    grid-row: 2;
+    gap: var(--spacing-4);
+  }
   .glossary-panel-article { grid-row: 3; }
+
+  /* Bio contact links: larger touch targets */
+  .panel-bio-contact-links {
+    gap: var(--spacing-3) var(--spacing-4);
+  }
+
+  .contact-item-link {
+    min-height: var(--size-touch-target);
+    padding: var(--spacing-2) var(--spacing-3);
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--label-heading-sm-font-size);
+  }
 
   /* Minimum 16px for main content readability */
   .writing-title,
@@ -1401,6 +1614,19 @@ html.page-projects .main-content {
 
   .article-body p,
   .glossary-definition p {
+    font-size: var(--body-2-font-size);
+    line-height: var(--body-2-line-height);
+  }
+
+  /* Writing/glossary list items: larger touch targets */
+  .writing-list-item,
+  .glossary-list-item {
+    min-height: var(--size-touch-target);
+    padding: var(--spacing-3) 0;
+  }
+
+  .writing-list-item-title,
+  .glossary-list-item-title {
     font-size: var(--body-2-font-size);
     line-height: var(--body-2-line-height);
   }
@@ -1425,6 +1651,15 @@ html.page-projects .main-content {
   /* CV Modal: tighter padding on mobile */
   .cv-overlay {
     padding: var(--spacing-3);
+  }
+
+  .cv-contact-info {
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .cv-divider {
+    display: none;
   }
 
   /* Mobile: nav in one row, no scroll – as compact as possible while tappable */
@@ -1459,6 +1694,25 @@ html.page-projects .main-content {
     padding: var(--spacing-4) 0;
   }
 
+  /* Writing/glossary article nav: stack vertically */
+  .writing-article-nav,
+  .glossary-article-nav {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .writing-article-nav-item,
+  .glossary-article-nav-item {
+    min-height: var(--size-touch-target);
+    padding: var(--spacing-3) 0;
+  }
+
+  .writing-article-nav-next,
+  .glossary-article-nav-next {
+    text-align: left;
+    align-items: flex-start;
+  }
+
   .project-image-grid-2,
   .project-image-grid-3 {
     grid-template-columns: 1fr;
@@ -1478,6 +1732,21 @@ html.page-projects .main-content {
   .glossary-term {
     min-height: var(--size-touch-target);
     padding: var(--spacing-4) 0;
+  }
+
+  /* Article titles: responsive sizing */
+  .writing-article-title {
+    font-size: var(--display-sm-font-size);
+  }
+
+  .writing-article-section-title {
+    font-size: var(--body-1-font-size);
+  }
+
+  /* Page titles responsive */
+  .writings-page-title,
+  .glossary-page-title {
+    font-size: var(--display-sm-font-size);
   }
 }
 
@@ -2229,6 +2498,7 @@ html.page-projects .main-content {
   .writing-entry {
     grid-template-columns: 1fr;
     gap: var(--spacing-2);
+    min-height: var(--size-touch-target);
   }
 
   .writing-date {

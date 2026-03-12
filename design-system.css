@@ -85,6 +85,13 @@
   --letter-spacing-normal: -0.24px;
   --letter-spacing-wide: 0px;
 
+  /* Breakpoints (for reference - used in media queries) */
+  /* --bp-desktop-lg: 1440px;  Large desktop */
+  /* --bp-desktop: 1280px;     Desktop */
+  /* --bp-tablet-lg: 1024px;   Tablet landscape */
+  /* --bp-tablet: 768px;       Tablet portrait */
+  /* --bp-mobile: 480px;       Mobile */
+
   /* Spacing scale (4px base) */
   --spacing-0: 0;
   --spacing-1: 4px;
@@ -142,8 +149,8 @@
   --size-project-nav-split-gap: var(--spacing-4);
   --size-project-nav-sidebar-width: clamp(248px, 22vw, 320px);
   --size-project-nav-sidebar-width-tablet: clamp(200px, 28vw, 248px);
-  --size-project-nav-sticky-top: calc(var(--spacing-8) + var(--spacing-4));
-  --size-panel-sticky-top: 96px;
+  --size-project-nav-sticky-top: var(--spacing-4);
+  --size-panel-sticky-top: var(--spacing-4);
   --size-project-nav-card-media-aspect: 908 / 520;
   --size-project-nav-overview-media-aspect: 292 / 220;
   --size-modal-max-width: 960px;
