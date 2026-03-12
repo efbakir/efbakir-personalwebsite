@@ -85,6 +85,13 @@
   --letter-spacing-normal: -0.24px;
   --letter-spacing-wide: 0px;
 
+  /* Breakpoints (for reference - used in media queries) */
+  /* --bp-desktop-lg: 1440px;  Large desktop */
+  /* --bp-desktop: 1280px;     Desktop */
+  /* --bp-tablet-lg: 1024px;   Tablet landscape */
+  /* --bp-tablet: 768px;       Tablet portrait */
+  /* --bp-mobile: 480px;       Mobile */
+
   /* Spacing scale (4px base) */
   --spacing-0: 0;
   --spacing-1: 4px;
