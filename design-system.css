@@ -2,30 +2,26 @@
 
 :root {
   /* Brand */
-  --accent: #fc5113;
+  --accent: #FC5113;
 
-  /* Base palette */
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-400: #9ca3af;
+  /* Core palette (5 colors only) */
+  --color-primary: #141414;
+  --color-gray-lg: #8C8C8C;
+  --color-gray-md: #B4B4B4;
+  --color-gray-sm: #EBEBEB;
 
   /* Semantic colors */
-  --color-bg: #ebebeb;
-  --color-surface: var(--gray-50);
-  --color-surface-muted: var(--gray-100);
-  --color-border: var(--gray-200);
-  --color-text-primary: #141414;
-  --color-text-secondary: #8c8c8c;
-  --color-text-tertiary: #b4b4b4;
-  --color-text-inverse: #ffffff;
-  --color-overlay: rgba(0, 0, 0, 0.8);
-  --color-overlay-strong: rgba(0, 0, 0, 0.9);
+  --color-bg: var(--color-gray-sm);
+  --color-surface: #FAFAFA;
+  --color-surface-muted: #F5F5F5;
+  --color-border: var(--color-gray-md);
+  --color-text-primary: var(--color-primary);
+  --color-text-secondary: var(--color-gray-lg);
+  --color-text-tertiary: var(--color-gray-md);
+  --color-text-inverse: #FFFFFF;
+  --color-overlay: rgba(20, 20, 20, 0.8);
+  --color-overlay-strong: rgba(20, 20, 20, 0.9);
   --color-accent-soft: rgba(252, 81, 19, 0.18);
-
-  /* Legacy black/white aliases */
-  --black: var(--color-text-primary);
-  --white: var(--color-bg);
 
   /* Typography */
   --body-1-font-family: "Suisse Int'l", sans-serif;
@@ -181,57 +177,20 @@
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
   --shadow-soft-dark: 0 8px 24px rgba(0, 0, 0, 0.35);
 
-  /* Dark legacy aliases */
-  --dark-bg: #000000;
-  --dark-text: #ffffff;
-  --dark-gray-400: #9ca3af;
-
-  /* Legacy variable names for compatibility (matching Figma names) */
-  --gray\/50: var(--gray-50);
-  --gray\/100: var(--gray-100);
-  --gray\/200: var(--gray-200);
-  --gray\/400: var(--gray-400);
-  --b\&w\/black: var(--black);
-
-  --body\/body-1\/fontfamily: var(--body-1-font-family);
-  --body\/body-1\/fontsize: var(--body-1-font-size);
-  --body\/body-1\/lineheight: var(--body-1-line-height);
-  --body\/body-1\/letterspacing: var(--body-1-letter-spacing);
-
-  --body\/body-3\/fontfamily: var(--body-3-font-family);
-  --body\/body-3\/fontsize: var(--body-3-font-size);
-  --body\/body-3\/lineheight: var(--body-3-line-height);
-  --body\/body-3\/letterspacing: var(--body-3-letter-spacing);
-
-  --label\/label-3\/fontfamily: var(--label-3-font-family);
-  --label\/label-3\/fontsize: var(--label-3-font-size);
-  --label\/label-3\/lineheight: var(--label-3-line-height);
-  --label\/label-3\/letterspacing: var(--label-3-letter-spacing);
-
-  --Weights\/Regular: var(--weight-regular);
 }
 
 [data-theme="dark"] {
-  --gray-50: #030712;
-  --gray-100: #111827;
-  --gray-200: #1f2937;
-  --gray-400: #9ca3af;
-
-  --color-bg: #141414;
-  --color-surface: #1a1a1a;
+  --color-bg: var(--color-primary);
+  --color-surface: #1A1A1A;
   --color-surface-muted: #222222;
-  --color-border: #2a2a2a;
-  --color-text-primary: #ebebeb;
-  --color-text-secondary: #9ca3af;
+  --color-border: #2A2A2A;
+  --color-text-primary: var(--color-gray-sm);
+  --color-text-secondary: var(--color-gray-lg);
   --color-text-tertiary: #555555;
-  --color-text-inverse: #000000;
+  --color-text-inverse: var(--color-primary);
   --color-overlay: rgba(0, 0, 0, 0.9);
   --color-overlay-strong: rgba(0, 0, 0, 0.95);
   --color-accent-soft: rgba(252, 81, 19, 0.24);
-
-  --dark-bg: var(--color-bg);
-  --dark-text: var(--color-text-primary);
-  --dark-gray-400: var(--color-text-secondary);
 }
 
 /* Font Face - Reddit Mono */
