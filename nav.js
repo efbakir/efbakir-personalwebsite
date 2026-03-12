@@ -1,90 +1,19 @@
 (function () {
-  /* ── Nav order for direction logic ── */
-  var NAV_ORDER = ['/', '/writings/', '/glossary/'];
+  /* Page enter animation on load */
+  document.body.classList.add('page-entering');
 
-  function currentIndex() {
-    var path = window.location.pathname.replace(/\/?$/, '/');
-    // normalise trailing slash
-    for (var i = 0; i < NAV_ORDER.length; i++) {
-      if (path === NAV_ORDER[i] || path.startsWith(NAV_ORDER[i])) return i;
-    }
-    return 0;
-  }
-
-  /* ── Sliding nav pill ── */
-  function initPill(nav) {
-    var links = nav.querySelectorAll('a.nav-link');
-    var pill = document.createElement('span');
-    pill.className = 'nav-pill';
-    nav.insertBefore(pill, nav.firstChild);
-
-    function positionPill(target, animate) {
-      if (!animate) pill.style.transition = 'none';
-      var navRect = nav.getBoundingClientRect();
-      var tRect   = target.getBoundingClientRect();
-      pill.style.left  = (tRect.left - navRect.left) + 'px';
-      pill.style.width = tRect.width + 'px';
-      if (!animate) {
-        // force reflow then re-enable transition
-        pill.offsetWidth;
-        pill.style.transition = '';
-      }
-    }
-
-    var activeLink = nav.querySelector('a.nav-link.active');
-    if (activeLink) positionPill(activeLink, false);
-
-    links.forEach(function (link) {
-      link.addEventListener('mouseenter', function () {
-        positionPill(link, true);
-      });
-    });
-
-    nav.addEventListener('mouseleave', function () {
-      if (activeLink) positionPill(activeLink, true);
-    });
-  }
-
-  /* ── Page enter animation ── */
-  var fromIndex = parseInt(sessionStorage.getItem('navFromIndex') || '-1', 10);
-  var toIndex   = currentIndex();
-  sessionStorage.removeItem('navFromIndex');
-
-  if (fromIndex === -1 || fromIndex === toIndex) {
-    document.body.classList.add('page-entering-right');
-  } else if (fromIndex < toIndex) {
-    document.body.classList.add('page-entering-right');
-  } else {
-    document.body.classList.add('page-entering-left');
-  }
-
-  /* ── Intercept nav-link clicks → exit animation then navigate ── */
+  /* Page transition: intercept nav-link clicks and animate out before navigating */
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a.nav-link');
     if (!link) return;
     var href = link.getAttribute('href');
     if (!href || link.classList.contains('active') || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
-
-    var from = currentIndex();
-    var to   = NAV_ORDER.indexOf(href);
-    sessionStorage.setItem('navFromIndex', from);
-
-    var exitClass = (from < to) ? 'page-exiting-left' : 'page-exiting-right';
-    document.body.classList.add(exitClass);
-
+    document.body.classList.add('page-exiting');
     setTimeout(function () {
       window.location.href = href;
-    }, 200);
+    }, 180);
   });
-
-  var header = document.querySelector('.header');
-  var toggle = document.getElementById('nav-toggle');
-  var nav = document.getElementById('main-nav');
-  var overlay = document.getElementById('nav-overlay');
-  if (!header || !toggle || !nav) return;
-
-  initPill(nav);
 
   function open() {
     header.classList.add('nav-open');
