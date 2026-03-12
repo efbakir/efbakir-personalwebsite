@@ -1,4 +1,20 @@
 (function () {
+  /* Page enter animation on load */
+  document.body.classList.add('page-entering');
+
+  /* Page transition: intercept nav-link clicks and animate out before navigating */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a.nav-link');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (!href || link.classList.contains('active') || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    document.body.classList.add('page-exiting');
+    setTimeout(function () {
+      window.location.href = href;
+    }, 180);
+  });
+
   var header = document.querySelector('.header');
   var toggle = document.getElementById('nav-toggle');
   var nav = document.getElementById('main-nav');
