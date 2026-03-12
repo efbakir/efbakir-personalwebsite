@@ -149,8 +149,8 @@
   --size-project-nav-split-gap: var(--spacing-4);
   --size-project-nav-sidebar-width: clamp(248px, 22vw, 320px);
   --size-project-nav-sidebar-width-tablet: clamp(200px, 28vw, 248px);
-  --size-project-nav-sticky-top: calc(var(--spacing-8) + var(--spacing-4));
-  --size-panel-sticky-top: 96px;
+  --size-project-nav-sticky-top: var(--spacing-4);
+  --size-panel-sticky-top: var(--spacing-4);
   --size-project-nav-card-media-aspect: 908 / 520;
   --size-project-nav-overview-media-aspect: 292 / 220;
   --size-modal-max-width: 800px;
