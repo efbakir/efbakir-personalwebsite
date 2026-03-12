@@ -36,12 +36,12 @@ Defined in `/Users/efbakir/efbakir-personalwebsite/design-system.css`.
 - Focus ring styling is standardized for all actionable controls.
 - Hover and active transitions use shared motion tokens.
 - Reduced-motion support is global.
-- Glossary expansion uses content-safe animation (no fixed max-height clipping).
+- Principles expansion uses content-safe animation (no fixed max-height clipping).
 
 ## Script architecture
 - Shared behavior is centralized in `/Users/efbakir/efbakir-personalwebsite/site.js`:
   - theme toggle
   - CV modal
   - project filters + hover preview
-  - glossary accordion
+  - principles accordion
 - Mobile nav remains in `/Users/efbakir/efbakir-personalwebsite/nav.js` and coordinates body scroll lock with shared logic.

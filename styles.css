@@ -356,7 +356,7 @@ body.page-exiting {
 /* LEFT: Bio + Contact — always sticky */
 .panel-bio {
   position: sticky;
-  top: var(--size-panel-sticky-top);
+  top: calc(var(--size-panel-sticky-top) + var(--spacing-3));
   align-self: start;
   display: flex;
   flex-direction: column;
@@ -402,7 +402,7 @@ body.page-exiting {
 /* MIDDLE: Active project info — sticky, JS-updated */
 .panel-project-info {
   position: sticky;
-  top: var(--size-panel-sticky-top);
+  top: calc(var(--size-panel-sticky-top) + var(--spacing-3));
   display: none;
   flex-direction: column;
   gap: var(--spacing-4);
@@ -1178,7 +1178,7 @@ body.page-exiting {
     grid-row: 2;
   }
 
-  /* Writings/Glossary: header left top, list left bottom, article right spans */
+  /* Writings/Principles: header left top, list left bottom, article right spans */
   .writings-panel-header,
   .glossary-panel-header {
     grid-column: 1;
@@ -1412,7 +1412,7 @@ body.page-exiting {
     min-height: var(--size-touch-target);
   }
 
-  /* Glossary term touch targets */
+  /* Principles term touch targets */
   .glossary-term {
     min-height: var(--size-touch-target);
     padding: var(--spacing-4) 0;
@@ -1525,7 +1525,7 @@ body.page-exiting {
 }
 
 /* ============================================
-   Shared Sub-Page Styles (Writings, Glossary)
+   Shared Sub-Page Styles (Writings, Principles)
    ============================================ */
 
 .logo-link {
@@ -2041,7 +2041,7 @@ body.page-exiting {
 }
 
 /* ============================================
-   Glossary Page
+   Principles Page
    ============================================ */
 
 .glossary-list {
@@ -2497,7 +2497,7 @@ body.page-exiting {
 }
 
 /* ============================================
-   Glossary Three-Column Layout
+   Principles Three-Column Layout
    ============================================ */
 
 .glossary-layout {

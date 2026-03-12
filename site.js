@@ -235,7 +235,7 @@
     activate(initialItem.dataset.writingId, true);
   }
 
-  function initGlossaryLayout() {
+  function initPrinciplesLayout() {
     var list = document.getElementById('glossary-list');
     var articlePanel = document.getElementById('glossary-article-panel');
     if (!list || !articlePanel) return;
@@ -295,7 +295,7 @@
   initCvOverlay();
   initHomepageLayout();
   initWritingsLayout();
-  initGlossaryLayout();
+  initPrinciplesLayout();
 
   syncBodyScrollLock();
 })();
