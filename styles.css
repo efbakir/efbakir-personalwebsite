@@ -357,12 +357,10 @@ body.page-exiting {
 .panel-bio {
   position: sticky;
   top: var(--size-panel-sticky-top);
+  align-self: start;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
-  max-height: none;
-  overflow: hidden;
-  overscroll-behavior: none;
   padding-inline-end: var(--intro-panel-padding-inline-end);
 }
 
