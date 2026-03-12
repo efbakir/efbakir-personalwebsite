@@ -8,7 +8,7 @@
   --color-primary: #141414;
   --color-gray-lg: #8C8C8C;
   --color-gray-md: #B4B4B4;
-  --color-gray-sm: #EBEBEB;
+  --color-gray-sm: #f1f1f1;
 
   /* Semantic colors */
   --color-bg: var(--color-gray-sm);
@@ -57,13 +57,13 @@
   --label-heading-font-family: "Reddit Mono", monospace;
   --label-heading-font-size: 12px;
   --label-heading-line-height: 16px;
-  --label-heading-letter-spacing: -0.12px;
+  --label-heading-letter-spacing: -0.1px;
   --label-heading-weight-regular: 400;
 
   --label-heading-sm-font-family: "Reddit Mono", monospace;
   --label-heading-sm-font-size: 13px;
   --label-heading-sm-line-height: 18px;
-  --label-heading-sm-letter-spacing: -0.12px;
+  --label-heading-sm-letter-spacing: -0.1px;
   --label-heading-sm-weight-regular: 400;
 
   --weight-regular: 400;

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page-glossary">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Principles — Efe Bakır</title>
+  <title>Glossary — Efe Bakır</title>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
@@ -26,7 +26,7 @@
       <nav class="main-nav" id="main-nav">
         <a href="/" class="nav-link">PROJECTS</a>
         <a href="/writings/" class="nav-link">WRITINGS</a>
-        <a href="/glossary/" class="nav-link active">PRINCIPLES</a>
+        <a href="/glossary/" class="nav-link active">GLOSSARY</a>
       </nav>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <span class="theme-label inactive">MOON</span>
@@ -41,7 +41,7 @@
 
       <!-- LEFT: Page header — sticky -->
       <div class="glossary-panel-header">
-        <h1 class="glossary-page-title">Principles</h1>
+        <h1 class="glossary-page-title">Glossary</h1>
         <p class="glossary-page-subtitle">Models and frameworks.</p>
       </div>
 
@@ -107,6 +107,13 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">The process involves identifying your assumptions, breaking them apart, and reconstructing from what you know to be true. Ask: why does this constraint exist? Is it physical, social, historical? Many constraints that seem fixed are actually conventions. First principles thinking surfaces which ones.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <div class="glossary-article-nav-placeholder"></div>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="inversion">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Inversion</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-inversion">
@@ -127,6 +134,16 @@
             <h3 class="writing-article-section-title">Why it matters in design</h3>
             <p class="writing-article-body">Design is particularly prone to optimism bias. Inverted thinking is a check on that. Before shipping, ask: what would make users hate this? What would make it confusing, broken, or irrelevant? The answers are often more valuable than any positive validation you could seek.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="first-principles">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">First Principles Thinking</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="map-territory">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Map is Not the Territory</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-map-territory" hidden>
@@ -143,6 +160,16 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">Hold your frameworks loosely. Use them to navigate, not to dictate. When data from the real world contradicts your model, update the model — not your interpretation of the data. Stay curious about where your map and the territory diverge.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="inversion">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Inversion</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="second-order">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Second-Order Thinking</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-second-order" hidden>
@@ -159,6 +186,16 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">When making decisions, ask "and then what?" at least twice. Force yourself past the immediate, obvious outcome. What does this change about the environment around the decision? What does it make easier or harder down the line?</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="map-territory">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Map is Not the Territory</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="occams-razor">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Occam's Razor</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-occams-razor" hidden>
@@ -175,6 +212,16 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">When a design or decision feels complicated, ask what assumptions are holding it together. Can you remove any of them? Can you reduce the solution without reducing its effectiveness? The version that does the same job with less is usually better.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="second-order">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Second-Order Thinking</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="feedback-loops">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Feedback Loops</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-feedback-loops" hidden>
@@ -191,6 +238,16 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">Map the feedback loops in the systems you work with. Which loops are reinforcing (amplifying)? Which are balancing (stabilising)? Which loops are you inadvertently creating with your design decisions? Understanding feedback loops is essential for designing systems that behave predictably.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="occams-razor">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Occam's Razor</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="circle-competence">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Circle of Competence</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-circle-competence" hidden>
@@ -207,6 +264,16 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">Be explicit about what you know and what you don't. When venturing into new territory, say so — to yourself and to others. Bring in people whose circle covers the area yours doesn't. And work consistently to expand your circle by learning deeply rather than broadly skimming.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="feedback-loops">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Feedback Loops</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="entropy">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Entropy</span>
+            </button>
+          </nav>
         </article>
 
         <article class="glossary-article" id="glossary-article-entropy" hidden>
@@ -223,6 +290,13 @@
             <h3 class="writing-article-section-title">In practice</h3>
             <p class="writing-article-body">Build maintenance into your plans from the start. For every system you create, ask: what is the minimum ongoing effort to keep this functional? Who is responsible for it? What happens if that effort stops? The answer tells you whether you're building something sustainable or just deferring decay.</p>
           </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="circle-competence">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Circle of Competence</span>
+            </button>
+            <div class="glossary-article-nav-placeholder"></div>
+          </nav>
         </article>
 
       </div><!-- /glossary-panel-article -->

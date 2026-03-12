@@ -97,6 +97,21 @@
 
     var detailProjectId = 'nat-hellen';
 
+    var projectData = groups.map(function (group) {
+      return {
+        id: group.dataset.projectId,
+        title: group.dataset.projectTitle || '',
+        year: group.dataset.projectYear || '',
+        description: group.dataset.projectDescription || '',
+        tags: parseTags(group.dataset.projectTags)
+      };
+    });
+
+    var currentProjectIndex = Math.max(
+      0,
+      projectData.findIndex(function (p) { return p.id === detailProjectId; })
+    );
+
     function parseTags(tagString) {
       return (tagString || '').split('|').map(function (t) { return t.trim(); }).filter(Boolean);
     }
@@ -141,6 +156,23 @@
       });
     }
 
+    function renderProjectAtIndex(index) {
+      var data = projectData[index];
+      var nextTitleEl = panelControls && panelControls.querySelector('.panel-project-next-title');
+
+      panelTitle.textContent = data.title;
+      panelYear.textContent = data.year;
+      panelDesc.textContent = data.description;
+      panelTags.innerHTML = data.tags.map(function (tag) {
+        return '<li>' + tag + '</li>';
+      }).join('');
+
+      if (nextTitleEl && projectData.length > 1) {
+        var nextIndex = (index + 1) % projectData.length;
+        nextTitleEl.textContent = projectData[nextIndex].title;
+      }
+    }
+
     function enterDetail() {
       layout.classList.add('is-detail');
       if (detailImages) detailImages.hidden = false;
@@ -156,7 +188,14 @@
     panelImages.addEventListener('click', function (event) {
       var trigger = event.target.closest('.project-images-group');
       if (!trigger) return;
-      if (trigger.dataset.projectId !== detailProjectId) return;
+
+      var clickedIndex = projectData.findIndex(function (p) {
+        return p.id === trigger.dataset.projectId;
+      });
+      if (clickedIndex === -1) return;
+
+      currentProjectIndex = clickedIndex;
+      renderProjectAtIndex(currentProjectIndex);
       enterDetail();
     });
 
@@ -167,11 +206,18 @@
       });
     }
 
+    if (panelControls) {
+      var nextButton = panelControls.querySelector('.panel-project-next');
+      if (nextButton) {
+        nextButton.addEventListener('click', function () {
+          currentProjectIndex = (currentProjectIndex + 1) % projectData.length;
+          renderProjectAtIndex(currentProjectIndex);
+        });
+      }
+    }
+
     ensureOverviewRows();
-    panelTitle.textContent = 'Nat Hellen';
-    panelYear.textContent = '2026';
-    panelDesc.textContent = 'Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.';
-    panelTags.innerHTML = '<li>CREATIVE DIRECTION</li><li>WEB DESIGN</li><li>BRANDING</li>';
+    renderProjectAtIndex(currentProjectIndex);
     if (detailImages) detailImages.hidden = true;
     if (panelControls) panelControls.hidden = true;
   }
@@ -229,13 +275,20 @@
       });
     });
 
+    var navButtons = Array.from(articlePanel.querySelectorAll('.writing-article-nav-item[data-writing-id]'));
+    navButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activate(btn.dataset.writingId);
+      });
+    });
+
     var initialItem = items.find(function (item) {
       return item.classList.contains('active');
     }) || items[0];
     activate(initialItem.dataset.writingId, true);
   }
 
-  function initPrinciplesLayout() {
+  function initGlossaryLayout() {
     var list = document.getElementById('glossary-list');
     var articlePanel = document.getElementById('glossary-article-panel');
     if (!list || !articlePanel) return;
@@ -285,6 +338,13 @@
       });
     });
 
+    var navButtons = Array.from(articlePanel.querySelectorAll('.glossary-article-nav-item[data-glossary-id]'));
+    navButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activate(btn.dataset.glossaryId);
+      });
+    });
+
     var initialItem = items.find(function (item) {
       return item.classList.contains('active');
     }) || items[0];
@@ -295,7 +355,7 @@
   initCvOverlay();
   initHomepageLayout();
   initWritingsLayout();
-  initPrinciplesLayout();
+  initGlossaryLayout();
 
   syncBodyScrollLock();
 })();

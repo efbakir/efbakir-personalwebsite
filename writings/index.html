@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page-writings">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Writings — Efe Bakır</title>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
   <!-- Header -->
@@ -26,7 +27,7 @@
       <nav class="main-nav" id="main-nav">
         <a href="/" class="nav-link">PROJECTS</a>
         <a href="/writings/" class="nav-link active">WRITINGS</a>
-        <a href="/glossary/" class="nav-link">PRINCIPLES</a>
+        <a href="/glossary/" class="nav-link">GLOSSARY</a>
       </nav>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
         <span class="theme-label inactive">MOON</span>
@@ -54,7 +55,7 @@
            role="listitem">
           <div class="writing-list-item-header">
             <span class="writing-list-item-title">The Case for Slower Design</span>
-            <span class="writing-list-item-year">2026</span>
+            <span class="writing-list-item-year">5.3.26</span>
           </div>
           <p class="writing-list-item-excerpt">Why rushing through the design process often leads to solutions that feel polished but miss the point entirely. A reflection on patience as a design tool.</p>
         </a>
@@ -65,7 +66,7 @@
            role="listitem">
           <div class="writing-list-item-header">
             <span class="writing-list-item-title">Interfaces as Conversations</span>
-            <span class="writing-list-item-year">2026</span>
+            <span class="writing-list-item-year">5.3.26</span>
           </div>
           <p class="writing-list-item-excerpt">Every interaction is a dialogue. Exploring how conversational patterns can inform better interface design beyond chatbots and voice assistants.</p>
         </a>
@@ -76,7 +77,7 @@
            role="listitem">
           <div class="writing-list-item-header">
             <span class="writing-list-item-title">On Systems Thinking in Product Design</span>
-            <span class="writing-list-item-year">2026</span>
+            <span class="writing-list-item-year">5.3.26</span>
           </div>
           <p class="writing-list-item-excerpt">Design decisions don't exist in isolation. How understanding feedback loops and emergent behavior changes the way we approach product work.</p>
         </a>
@@ -87,7 +88,7 @@
            role="listitem">
           <div class="writing-list-item-header">
             <span class="writing-list-item-title">Typography as UX</span>
-            <span class="writing-list-item-year">2026</span>
+            <span class="writing-list-item-year">5.3.26</span>
           </div>
           <p class="writing-list-item-excerpt">The most overlooked user experience decision is the one you read. Notes on how type choices shape perception, trust, and usability.</p>
         </a>
@@ -98,7 +99,7 @@
            role="listitem">
           <div class="writing-list-item-header">
             <span class="writing-list-item-title">Moving to Milan: A Design Perspective</span>
-            <span class="writing-list-item-year">2026</span>
+            <span class="writing-list-item-year">5.3.26</span>
           </div>
           <p class="writing-list-item-excerpt">What relocating to a city steeped in design history teaches you about your own practice. On environment, influence, and starting fresh.</p>
         </a>
@@ -136,6 +137,13 @@
             <p class="writing-article-body">Here's the counterintuitive part: slower design often leads to faster outcomes. When you invest time upfront to understand the problem deeply, the execution phase becomes straightforward. You make fewer wrong turns. You need fewer rounds of revision. You ship something that actually solves the problem, rather than something that merely addresses the symptoms.</p>
             <p class="writing-article-body">Speed without understanding is just thrashing. Patience with intention is how you build things that last.</p>
           </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <div class="writing-article-nav-placeholder"></div>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="interfaces-conversations">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Interfaces as Conversations</span>
+            </button>
+          </nav>
         </article>
 
         <!-- Article 2: Interfaces as Conversations -->
@@ -159,6 +167,16 @@
             <p class="writing-article-body">The practical implication is simple: design every interaction as a turn in a conversation. What is the user saying? What do they need to hear back? How quickly? In what tone?</p>
             <p class="writing-article-body">When you frame interface decisions this way, many common UI problems become obvious. Error messages that blame the user are rude. Loading states with no progress indicator leave the conversation hanging. Overly long onboarding flows are monologues.</p>
           </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="slower-design">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">The Case for Slower Design</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="systems-thinking">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">On Systems Thinking in Product Design</span>
+            </button>
+          </nav>
         </article>
 
         <!-- Article 3: On Systems Thinking in Product Design -->
@@ -177,6 +195,16 @@
             <p class="writing-article-body">Systems have feedback loops. A design decision that makes one metric go up will often make another go down. Features that feel good in isolation create emergent behaviors at scale that no one anticipated.</p>
             <p class="writing-article-body">The best designers I know spend time mapping these loops before they start designing. Not formally — not always with diagrams or documentation — but mentally. They ask: if users do X, what happens downstream? If we build this, what do users stop doing?</p>
           </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="interfaces-conversations">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">Interfaces as Conversations</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="typography-ux">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Typography as UX</span>
+            </button>
+          </nav>
         </article>
 
         <!-- Article 4: Typography as UX -->
@@ -195,6 +223,16 @@
             <p class="writing-article-body">Typographic hierarchy isn't just about making headings big. It's a navigation system. It tells the reader where they are, what's important, and what they can skip. Clear hierarchy reduces cognitive load. Poor hierarchy makes every piece of content feel equally demanding.</p>
             <p class="writing-article-body">The practical test: can a user scan your page in three seconds and know where to focus? If not, the hierarchy has failed, regardless of how beautiful the individual type choices are.</p>
           </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="systems-thinking">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">On Systems Thinking in Product Design</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="moving-to-milan">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Moving to Milan: A Design Perspective</span>
+            </button>
+          </nav>
         </article>
 
         <!-- Article 5: Moving to Milan -->
@@ -213,6 +251,13 @@
             <p class="writing-article-body">I didn't expect geography to matter this much. I thought practice was portable — that the habits and standards I'd developed would travel with me. They did, but they also started to change. Slowly. The visual density of the city, the exposure to Italian industrial design, the Politecnico's rigour — these things accumulate.</p>
             <p class="writing-article-body">The lesson isn't that you need to move to a design capital to grow. It's that environment matters, and it's worth being deliberate about the environments you put yourself in. The standards around you become the standards inside you.</p>
           </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="typography-ux">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">Typography as UX</span>
+            </button>
+            <div class="writing-article-nav-placeholder"></div>
+          </nav>
         </article>
 
       </div><!-- /writings-panel-article -->
