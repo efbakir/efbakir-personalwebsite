@@ -27,6 +27,16 @@ body {
   transition: background-color var(--duration-base) var(--easing-standard), color var(--duration-base) var(--easing-standard);
 }
 
+:root {
+  --app-vh: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --app-vh: 100dvh;
+  }
+}
+
 /* Pages with right-column-only scroll (projects, writings, glossary) */
 html.page-projects,
 html.page-writings,
@@ -51,49 +61,7 @@ html.page-glossary body {
   color: var(--color-text-inverse);
 }
 
-/* Page transition */
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes page-exit {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-}
-
-/* Project detail enter: mid-speed subtle animation */
-@keyframes project-detail-enter {
-  from {
-    opacity: 0.97;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-body.page-entering {
-  animation: page-enter 0.2s var(--easing-standard) both;
-}
-
-body.page-exiting {
-  animation: page-exit 0.1s var(--easing-standard) both;
-  pointer-events: none;
-}
+/* Page transition — animations removed for a static experience */
 
 /* Header */
 .header {
@@ -348,10 +316,10 @@ body.page-exiting {
 .main-content {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 32px var(--grid-margin) var(--page-padding-bottom);
+  padding: var(--spacing-4) var(--grid-margin) var(--page-padding-bottom);
 }
 
-/* Projects homepage: slightly tighter top inset */
+/* Projects homepage shares same inset as other pages */
 html.page-projects .main-content {
   padding-top: var(--spacing-4);
 }
@@ -372,7 +340,7 @@ html.page-projects .main-content {
   font-size: var(--body-3-font-size);
   line-height: var(--body-3-line-height);
   letter-spacing: var(--body-3-letter-spacing);
-  color: var(--color-text-primary);
+  color: var(--color-gray-lg);
   margin: 0;
 }
 
@@ -387,9 +355,6 @@ html.page-projects .main-content {
   align-items: start;
 }
 
-.homepage-layout.is-detail {
-  animation: project-detail-enter 0.35s var(--easing-standard) both;
-}
 
 /* Keep 1/4–1/4–1/2 proportions while shrinking */
 .homepage-layout > * {
@@ -405,6 +370,8 @@ html.page-projects .main-content {
   flex-direction: column;
   gap: var(--spacing-8);
   padding-inline-end: var(--intro-panel-padding-inline-end);
+  max-height: calc(100vh - var(--size-panel-sticky-top));
+  overflow-y: auto;
 }
 
 .panel-bio-about {
@@ -415,7 +382,7 @@ html.page-projects .main-content {
   font-size: var(--intro-copy-font-size);
   line-height: var(--intro-copy-line-height);
   letter-spacing: var(--body-3-letter-spacing);
-  color: var(--color-text-primary);
+  color: var(--color-gray-lg);
   max-width: var(--intro-text-measure);
 }
 
@@ -442,13 +409,85 @@ html.page-projects .main-content {
   align-items: center;
 }
 
+.panel-current-work {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  max-width: var(--intro-text-measure);
+  padding-top: var(--spacing-8);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.current-work-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.current-work-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  align-items: flex-start;
+  padding: 0;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: transparent;
+}
+
+.current-work-content {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-1) / 2);
+  min-width: 0;
+}
+
+.current-work-header {
+  display: none;
+}
+
+.current-work-title {
+  font-family: var(--body-3-font-family);
+  font-size: var(--body-3-font-size);
+  line-height: var(--body-3-line-height);
+  letter-spacing: var(--body-3-letter-spacing);
+  font-weight: var(--body-3-weight-regular);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.current-work-date {
+  font-family: var(--label-heading-font-family);
+  font-size: var(--label-heading-font-size);
+  line-height: var(--label-heading-line-height);
+  letter-spacing: var(--label-heading-letter-spacing);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.current-work-description {
+  font-family: var(--body-3-font-family);
+  font-size: var(--label-heading-font-size);
+  line-height: var(--body-3-line-height);
+  letter-spacing: var(--body-3-letter-spacing);
+  color: var(--color-text-tertiary);
+  margin: 0;
+}
+
+.current-work-icon {
+  width: 12px;
+  height: 16px;
+  display: none;
+  flex-shrink: 0;
+}
+
 /* MIDDLE: Active project info — sticky, JS-updated */
 .panel-project-info {
   position: sticky;
   top: var(--size-panel-sticky-top);
   display: none;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-2);
   max-height: none;
   overflow: hidden;
   overscroll-behavior: none;
@@ -485,6 +524,35 @@ html.page-projects .main-content {
   white-space: nowrap;
   display: inline-block;
   margin-top: var(--spacing-1);
+}
+
+.panel-project-meta {
+  display: none;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.panel-project-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.panel-project-meta-label {
+  font-family: var(--label-heading-font-family);
+  font-size: var(--label-heading-font-size);
+  line-height: var(--label-heading-line-height);
+  letter-spacing: var(--label-heading-letter-spacing);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.panel-project-meta-value {
+  font-family: var(--body-3-font-family);
+  font-size: var(--body-3-font-size);
+  line-height: var(--body-3-line-height);
+  color: var(--color-text-primary);
 }
 
 .panel-project-description {
@@ -549,12 +617,29 @@ html.page-projects .main-content {
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: var(--transition-color);
+  transition:
+    var(--transition-color),
+    transform var(--duration-fast) var(--easing-standard),
+    opacity var(--duration-fast) var(--easing-standard);
   align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-2);
 }
 
 .panel-project-back::before {
   content: '';
+}
+
+.panel-project-back-icon {
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.panel-project-back-label {
+  letter-spacing: var(--label-heading-letter-spacing);
 }
 
 .panel-project-back:hover {
@@ -566,6 +651,36 @@ html.page-projects .main-content {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.panel-project-nav:has(#project-prev-btn[hidden]) {
+  justify-content: flex-end;
+}
+
+.panel-project-nav:has(#project-next-btn[hidden]) {
+  justify-content: flex-start;
+}
+
+.panel-project-nav.is-next-only {
+  justify-content: flex-end;
+}
+
+.panel-project-nav.is-prev-only {
+  justify-content: flex-start;
+}
+
+/* Wardrobe detail: remove PREVIOUS entirely (no way back to Wardrobe) */
+.panel-project-controls[data-current-project="wardrobe"] .panel-project-prev {
+  display: none;
+}
+
+.panel-project-controls[data-current-project="wardrobe"] .panel-project-nav {
+  justify-content: flex-end;
+}
+
+/* Experimental (last) project detail state: hide the NEXT button entirely */
+.homepage-layout.is-detail .panel-project-nav.is-prev-only .panel-project-next {
+  display: none;
 }
 
 .panel-project-prev,
@@ -645,7 +760,7 @@ html.page-projects .main-content {
   flex-direction: column;
   gap: var(--spacing-16);
   transition: opacity var(--duration-base) var(--easing-standard);
-  max-height: calc(100vh - var(--size-panel-sticky-top));
+  max-height: calc(var(--app-vh) - var(--size-panel-sticky-top));
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -658,8 +773,8 @@ html.page-projects .main-content {
 
 .project-images-group {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  column-gap: var(--spacing-8);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  column-gap: var(--grid-gutter);
   align-items: start;
   cursor: pointer;
   padding-bottom: 0;
@@ -668,7 +783,7 @@ html.page-projects .main-content {
 .project-group-info {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-2);
 }
 
 .project-group-header {
@@ -724,13 +839,6 @@ html.page-projects .main-content {
 /* (typography shared via :is(...) above) */
 
 /* Only trigger hover state when either the info block or its image block is hovered */
-.project-images-group:has(.project-group-info:hover) .project-group-year,
-.project-images-group:has(.project-flow-block:hover) .project-group-year,
-.project-images-group:has(.project-group-info:hover) .project-group-tags li,
-.project-images-group:has(.project-flow-block:hover) .project-group-tags li {
-  color: var(--color-text-secondary);
-}
-
 .project-images-group:has(.project-group-info:hover) .project-group-description,
 .project-images-group:has(.project-flow-block:hover) .project-group-description {
   color: var(--color-primary);
@@ -744,7 +852,7 @@ html.page-projects .main-content {
 .project-flow-block {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-4);
   margin: 0;
 }
 
@@ -789,12 +897,18 @@ html.page-projects .main-content {
   display: none;
   flex-direction: column;
   gap: var(--spacing-6);
-  grid-column: 2 / 4;
-  max-height: calc(100vh - var(--size-panel-sticky-top));
+  grid-column: 3 / 4;
+  max-height: calc(var(--app-vh) - var(--size-panel-sticky-top));
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
   padding-bottom: var(--spacing-20);
+}
+
+.project-detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
 }
 
 .project-detail-images::-webkit-scrollbar {
@@ -825,6 +939,10 @@ html.page-projects .main-content {
 
 .homepage-layout.is-detail .panel-project-controls {
   display: flex;
+}
+
+.homepage-layout.is-detail .panel-project-meta:not([hidden]) {
+  display: grid;
 }
 
 .panel-project-info.is-clickable {
@@ -1321,7 +1439,7 @@ html.page-projects .main-content {
   .glossary-panel-list {
     grid-column: 1;
     grid-row: 2;
-    max-height: calc(100vh - var(--size-panel-sticky-top) - 120px);
+    max-height: calc(var(--app-vh) - var(--size-panel-sticky-top) - 120px);
     overflow-y: auto;
   }
 
@@ -1455,6 +1573,11 @@ html.page-projects .main-content {
     max-height: none;
     overflow-y: visible;
     padding-bottom: var(--spacing-8);
+  }
+
+  .current-work-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: var(--spacing-3);
   }
 
   /* Project cards: stack info above image */
@@ -1657,6 +1780,11 @@ html.page-projects .main-content {
 
   .project-group-header {
     flex-wrap: wrap;
+  }
+
+  .current-work-card {
+    grid-template-columns: 64px minmax(0, 1fr);
+    padding: var(--spacing-3);
   }
 
   .project-group-title {
@@ -1959,7 +2087,7 @@ html.page-projects .main-content {
 .page-content {
   max-width: var(--grid-container-width);
   margin: 0 auto;
-  padding: var(--spacing-8) var(--grid-margin) var(--page-padding-bottom);
+  padding: var(--spacing-4) var(--grid-margin) var(--page-padding-bottom);
 }
 
 .page-inner {
@@ -2662,18 +2790,24 @@ html.page-projects .main-content {
 .writings-panel-list {
   position: sticky;
   top: var(--size-panel-sticky-top);
-  max-height: none;
-  overflow: hidden;
+  max-height: calc(var(--app-vh) - var(--size-panel-sticky-top));
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overscroll-behavior: none;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
 }
 
+.writings-panel-list::-webkit-scrollbar {
+  display: none;
+}
+
 .writing-list-item {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-2);
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition-opacity);
@@ -2746,10 +2880,12 @@ html.page-projects .main-content {
 .writings-panel-article {
   position: sticky;
   top: var(--size-panel-sticky-top);
-  max-height: calc(100vh - var(--size-panel-sticky-top));
+  max-height: calc(var(--app-vh) - var(--size-panel-sticky-top));
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  padding-bottom: var(--spacing-10);
+  scroll-padding-bottom: var(--spacing-10);
 }
 
 .writings-panel-article::-webkit-scrollbar {
@@ -2760,6 +2896,8 @@ html.page-projects .main-content {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
+  min-width: 0;
+  padding-bottom: var(--spacing-8);
 }
 
 .writings-panel-article .writing-article[hidden] {
@@ -2826,11 +2964,22 @@ html.page-projects .main-content {
   padding: var(--spacing-4) 0;
   margin-top: var(--spacing-4);
   margin-bottom: var(--spacing-8);
+  min-width: 0;
+}
+
+.writing-article-nav--next-only,
+.glossary-article-nav--next-only {
+  justify-content: flex-end;
+}
+
+.writing-article-nav--prev-only,
+.glossary-article-nav--prev-only {
+  justify-content: flex-start;
 }
 
 .writing-article-nav-item,
 .glossary-article-nav-item {
-  flex: 0 0 auto;
+  flex: 0 1 50%;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
@@ -2841,6 +2990,8 @@ html.page-projects .main-content {
   text-align: left;
   transition: var(--transition-color);
   width: fit-content;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .writing-article-nav-next,
@@ -2867,6 +3018,7 @@ html.page-projects .main-content {
   letter-spacing: var(--body-3-letter-spacing);
   color: var(--color-text-secondary);
   transition: color var(--duration-fast) var(--easing-standard);
+  overflow-wrap: anywhere;
 }
 
 .writing-article-nav-item:hover .writing-article-nav-title,
@@ -2882,6 +3034,7 @@ html.page-projects .main-content {
 .writing-article-nav-placeholder,
 .glossary-article-nav-placeholder {
   flex: 1;
+  min-width: 0;
 }
 
 /* ============================================
@@ -2942,7 +3095,7 @@ html.page-projects .main-content {
 .glossary-list-item {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-1);
   text-decoration: none;
   cursor: pointer;
 }
@@ -2988,7 +3141,7 @@ html.page-projects .main-content {
 .glossary-panel-article {
   position: sticky;
   top: var(--size-panel-sticky-top);
-  max-height: calc(100vh - var(--size-panel-sticky-top));
+  max-height: calc(var(--app-vh) - var(--size-panel-sticky-top));
   overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;

@@ -21,7 +21,7 @@
     <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
     <div class="header-content">
       <div class="brand-group">
-        <a href="/" class="logo-btn" aria-label="Go to projects">
+        <a href="/" class="logo-btn" aria-label="Go to work">
           <img src="/star.svg" alt="" class="logo-star" width="16" height="16">
           Efe Bakır
         </a>
@@ -32,7 +32,7 @@
         <span class="nav-toggle-icon" aria-hidden="true"></span>
       </button>
       <nav class="main-nav" id="main-nav">
-        <a href="/" class="nav-link active">PROJECTS</a>
+        <a href="/" class="nav-link active">WORK</a>
         <a href="/writings/" class="nav-link">WRITINGS</a>
         <a href="/glossary/" class="nav-link">GLOSSARY</a>
       </nav>
@@ -62,21 +62,62 @@
             <a href="mailto:efeec.bakir@gmail.com" class="contact-item-link">efeec.bakir@gmail.com</a>
           </div>
         </div>
+        <section class="panel-current-work" aria-labelledby="current-work-heading">
+          <h2 class="section-heading" id="current-work-heading">CURRENTLY WORKING ON</h2>
+          <div class="current-work-list">
+            <article class="current-work-card">
+              <div class="current-work-content">
+                <img src="/assets/ongoing-projects/unit-grey.svg" alt="" class="current-work-icon" width="16" height="16">
+                <h3 class="current-work-title">Unit</h3>
+                <p class="current-work-description">Building progressive overload tracker app</p>
+              </div>
+            </article>
+            <article class="current-work-card">
+              <div class="current-work-content">
+                <img src="/assets/ongoing-projects/star-grey.svg" alt="" class="current-work-icon" width="16" height="16">
+                <h3 class="current-work-title">Personal Website</h3>
+                <p class="current-work-description">Building portfolio system from scratch</p>
+              </div>
+            </article>
+            <article class="current-work-card">
+              <div class="current-work-content">
+                <img src="/assets/ongoing-projects/colonist-grey.svg" alt="" class="current-work-icon" width="16" height="16">
+                <h3 class="current-work-title">Colonist</h3>
+                <p class="current-work-description">Improving the UI & UX</p>
+              </div>
+            </article>
+            <article class="current-work-card">
+              <div class="current-work-content">
+                <img src="/assets/ongoing-projects/thesis-grey.svg" alt="" class="current-work-icon" width="16" height="16">
+                <h3 class="current-work-title">Master's Thesis</h3>
+                <p class="current-work-description">Exploring the self improvement tools</p>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
 
       <!-- MIDDLE: Active project info — sticky, JS-updated -->
       <div class="panel-project-info" id="panel-project-info" aria-live="polite">
-        <button type="button" class="panel-project-back" id="project-back-btn">‹ BACK TO PROJECTS</button>
+        <button type="button" class="panel-project-back" id="project-back-btn">
+          <span class="panel-project-back-icon" aria-hidden="true">‹</span>
+          <span class="panel-project-back-label">BACK TO WORK</span>
+        </button>
         <div class="panel-project-header">
-          <h2 class="panel-project-title" id="panel-project-title">Nat Hellen</h2>
+          <h2 class="panel-project-title" id="panel-project-title">Wardrobe</h2>
         </div>
-        <p class="panel-project-description" id="panel-project-description">Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform.</p>
+        <p class="panel-project-description" id="panel-project-description">Graduation project for a digital wardrobe app promoting mindful clothing habits.</p>
         <ul class="panel-project-tags" id="panel-project-tags">
-          <li>CREATIVE DIRECTION</li>
-          <li>WEB DESIGN</li>
+          <li>UI/UX</li>
           <li>BRANDING</li>
         </ul>
-        <span class="panel-project-year" id="panel-project-year">MAR 2026</span>
+        <span class="panel-project-year" id="panel-project-year">JUN 24</span>
+        <div class="panel-project-meta" id="panel-project-meta" hidden>
+          <div class="panel-project-meta-item" id="panel-project-team-item" hidden>
+            <span class="panel-project-meta-label">Team</span>
+            <span class="panel-project-meta-value" id="panel-project-team"></span>
+          </div>
+        </div>
         <div class="panel-project-controls" id="panel-project-controls" hidden>
           <div class="panel-project-nav">
             <button type="button" class="panel-project-prev" id="project-prev-btn">
@@ -95,128 +136,195 @@
       <div class="panel-images" id="panel-images">
 
         <div class="project-images-group"
-             data-project-id="nat-hellen"
-             data-project-title="Nat Hellen"
-             data-project-year="2026"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
-          <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">NH_COVERIMAGE.PNG</figcaption>
-          </figure>
-        </div>
-
-        <div class="project-images-group"
              data-project-id="wardrobe"
              data-project-title="Wardrobe"
-             data-project-year="2024"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
-          <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">WD_COVERIMAGE.PNG</figcaption>
-          </figure>
-        </div>
-
-        <div class="project-images-group"
-             data-project-id="amazon-tvgether"
-             data-project-title="Amazon TVgether"
-             data-project-year="2025"
-             data-project-description="Reducing digital chaos to make it easier for people to share, react, and stay connected during live sports — whether together or apart."
-             data-project-tags="UI/UX">
+             data-project-date="JUN 2024"
+             data-project-context="Graduation Project"
+             data-project-description="Graduation project for a digital wardrobe app promoting mindful clothing habits."
+             data-project-tags="UI/UX|BRANDING">
           <figure class="project-flow-block">
             <div class="project-flow-media">
-              <img src="/assets/project-thumbs/amazontvgether.jpg" alt="Amazon TVgether cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+              <img src="/assets/project-thumbs/wardrobe.png" alt="Wardrobe cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
-            <figcaption class="project-flow-caption">AT_COVERIMAGE.PNG</figcaption>
-          </figure>
-        </div>
-
-        <div class="project-images-group"
-             data-project-id="boty"
-             data-project-title="Böty"
-             data-project-year="2024"
-             data-project-description="Surrealism-forward identity for böty™, a beauty cosmetics organization coming to change your attitude towards yourself, for expressive and commercial purposes."
-             data-project-tags="BRANDING|UI/UX — WEB|CREATIVE DIRECTION">
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/project-thumbs/böty.png" alt="Böty cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
-            </div>
-            <figcaption class="project-flow-caption">BT_COVERIMAGE.PNG</figcaption>
-          </figure>
-        </div>
-
-        <div class="project-images-group"
-             data-project-id="marte-carmen"
-             data-project-title="Marte Carmen"
-             data-project-year="2023"
-             data-project-description="Brand system for Marte Carmen, a Netherlands-based horror writer, aligning with her new portfolio and ecommerce website launch."
-             data-project-tags="BRANDING|CREATIVE DIRECTION|WEB DESIGN">
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/project-thumbs/martecarmen.png" alt="Marte Carmen cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
-            </div>
-            <figcaption class="project-flow-caption">MC_COVERIMAGE.PNG</figcaption>
-          </figure>
-        </div>
-
-        <div class="project-images-group"
-             data-project-id="aletheai"
-             data-project-title="AletheAI"
-             data-project-year="2026"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
-          <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">AL_COVERIMAGE.PNG</figcaption>
-          </figure>
-        </div>
-
-        <div class="project-images-group"
-             data-project-id="landscapes"
-             data-project-title="Landscapes"
-             data-project-year="2026"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
-          <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">LS_COVERIMAGE.PNG</figcaption>
+            <figcaption class="project-flow-caption">WR_COVER.PNG</figcaption>
           </figure>
         </div>
 
         <div class="project-images-group"
              data-project-id="love"
              data-project-title="Love"
-             data-project-year="2024"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+             data-project-date="JAN 2024"
+             data-project-team="Mehmet, Seymur, Selen"
+             data-project-description="Dating app concept addressing matching inequality, trust, and healthier connections."
+             data-project-tags="UI/UX|BRANDING">
           <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">LV_COVERIMAGE.PNG</figcaption>
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/love.png" alt="Love cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">LV_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="boty"
+             data-project-title="Böty"
+             data-project-date="FEB 2024"
+             data-project-description="Surrealism-led identity for böty - a beauty brand built for expressive commercial use."
+             data-project-tags="UI/UX|CREATIVE DIRECTION">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/böty.png" alt="Böty cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">BT_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="smart-tv"
+             data-project-title="Amazon TVgether"
+             data-project-date="MAY 2025"
+             data-project-context="Polimi"
+             data-project-team="Inkara, Dilge, Ecem, Filippo"
+             data-project-description="Polimi project reducing digital chaos in live sports viewing across shared screens."
+             data-project-tags="UI/UX">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/amazontvgether.png" alt="Amazon TVgether cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">STV_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="nat-hellen"
+             data-project-title="Nat Hellen"
+             data-project-date="JAN 2026"
+             data-project-context="Italy-based Meditation Musician"
+             data-project-description="Brand system for an Italy-based meditation musician’s portfolio and ecommerce site."
+             data-project-tags="WEB DESIGN|CREATIVE DIRECTION">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/nathellen.png" alt="Nat Hellen cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">NH_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="marte-carmen"
+             data-project-title="Marte Carmen"
+             data-project-date="OCT 2023"
+             data-project-context="Netherlands-based Horror Writer"
+             data-project-description="Brand system for a horror writer’s portfolio and ecommerce website launch."
+             data-project-tags="WEB DESIGN|CREATIVE DIRECTION">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/martercarmen.png" alt="Marte Carmen cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">MC_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="regime-of-care"
+             data-project-title="Regime of Care"
+             data-project-date="DEC 2025"
+             data-project-context="Polimi Class Project"
+             data-project-description="Polimi class project critiquing landscape as control and care as withdrawal."
+             data-project-tags="GRAPHIC DESIGN">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/regimeofcare.png" alt="Regime of Care cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">ROC_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="aletheai"
+             data-project-title="AletheAI"
+             data-project-date="NOV 2025"
+             data-project-context="Polimi"
+             data-project-description="Polimi project exploring more-than-human design around AI."
+             data-project-tags="GRAPHIC DESIGN">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/aletheai.png" alt="AletheAI cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">AA_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="bus-design"
+             data-project-title="ISUZU Hivee"
+             data-project-date="JAN 2024"
+             data-project-context="METU Class"
+             data-project-description="METU class project for an agile electric minibus shaped for dense urban transport."
+             data-project-tags="INDUSTRIAL DESIGN|UI/UX">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/hivee.png" alt="ISUZU Hivee cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">BD_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="ovie"
+             data-project-title="OVIE"
+             data-project-date="SEP 2023"
+             data-project-context="Netherlands-based Creative Community"
+             data-project-description="Brand system for OVIE’s film, editorial and gallery-centered digital platform."
+             data-project-tags="CREATIVE DIRECTION|UI/UX">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/ovie.png" alt="OVIE cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">OV_COVER.PNG</figcaption>
           </figure>
         </div>
 
         <div class="project-images-group"
              data-project-id="colonist"
              data-project-title="Colonist"
-             data-project-year="2025"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+             data-project-date="ONGOING"
+             data-project-description="Ongoing product and brand work shaping clear, fast and player first UX."
+             data-project-tags="UI/UX|BRANDING">
           <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">CL_COVERIMAGE.PNG</figcaption>
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/colonist.png" alt="Colonist cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">CL_COVER.PNG</figcaption>
           </figure>
         </div>
 
         <div class="project-images-group"
-             data-project-id="harvest-kaplankaya"
-             data-project-title="Harvest Kaplankaya"
-             data-project-year="2025"
-             data-project-description="Created a complete brand system for Nat Hellen to support the launch of her new portfolio and ecommerce platform."
-             data-project-tags="CREATIVE DIRECTION|WEB DESIGN|BRANDING">
+             data-project-id="scooty"
+             data-project-title="Scooty"
+             data-project-date="APR 202 3"
+             data-project-team="Gökay Aydın"
+             data-project-description="Electric scooter concept designed for the mobility needs of METU riders."
+             data-project-tags="INDUSTRIAL DESIGN|UI/UX">
           <figure class="project-flow-block">
-            <div class="project-flow-media project-flow-media--placeholder"></div>
-            <figcaption class="project-flow-caption">HK_COVERIMAGE.PNG</figcaption>
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/scooty.png" alt="Scooty cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">SC_COVER.PNG</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-images-group"
+             data-project-id="selected-graphic-design"
+             data-project-title="Experimental"
+             data-project-date="EVOLVING"
+             data-project-description="Mix of graphic design work created to experiement and for client and club work."
+             data-project-tags="GRAPHIC DESIGN">
+          <figure class="project-flow-block">
+            <div class="project-flow-media">
+              <img src="/assets/project-thumbs/experimental.png" alt="Experimental cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
+            </div>
+            <figcaption class="project-flow-caption">SG_COVER.PNG</figcaption>
           </figure>
         </div>
 
@@ -224,107 +332,102 @@
 
       <!-- RIGHT: Project detail media (shown in detail mode, per project) -->
       <div class="project-detail-images" id="project-detail-images" hidden>
-        <!-- Nat Hellen detail -->
-        <div class="project-detail-group" data-project-id="nat-hellen">
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_03.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_04.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_05.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_06.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_07.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_08.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_09.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_10.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_11.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NT_12.PNG</figcaption></figure>
+        <div class="project-detail-group" data-project-id="wardrobe">
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_03.PNG</figcaption></figure>
         </div>
 
-        <!-- Amazon TVgether detail -->
-        <div class="project-detail-group" data-project-id="amazon-tvgether" hidden>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/amazontvgether/cover.png" alt="Amazon TVgether — cover" class="project-flow-media-image" loading="eager" decoding="async" fetchpriority="high" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">Cover</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/amazontvgether/01.png" alt="Amazon TVgether — onboarding" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">Onboarding</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/amazontvgether/02.png" alt="Amazon TVgether — live match view" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">Live match view</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/amazontvgether/03.png" alt="Amazon TVgether — reactions and chat" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">Reactions &amp; chat</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/amazontvgether/04.png" alt="Amazon TVgether — watch party" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">Watch party</figcaption>
-          </figure>
+        <div class="project-detail-group" data-project-id="thesis-project" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">TH_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">TH_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">TH_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">TH_03.PNG</figcaption></figure>
         </div>
 
-        <!-- Böty detail -->
+        <div class="project-detail-group" data-project-id="love" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_03.PNG</figcaption></figure>
+        </div>
+
         <div class="project-detail-group" data-project-id="boty" hidden>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/01.png" alt="Böty — 01" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_01.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/02.png" alt="Böty — 02" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_02.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/03.png" alt="Böty — 03" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_03.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/04.png" alt="Böty — 04" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_04.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/05.png" alt="Böty — 05" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_05.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/06.png" alt="Böty — 06" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_06.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/07.png" alt="Böty — 07" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_07.PNG</figcaption>
-          </figure>
-          <figure class="project-flow-block">
-            <div class="project-flow-media">
-              <img src="/assets/projects/böty/08.png" alt="Böty — 08" class="project-flow-media-image" loading="lazy" decoding="async" width="904" height="603">
-            </div>
-            <figcaption class="project-flow-caption">BT_08.PNG</figcaption>
-          </figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="smart-tv" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="nat-hellen" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="marte-carmen" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="regime-of-care" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="aletheai" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">AA_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">AA_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">AA_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">AA_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="bus-design" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="ovie" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="colonist" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">CL_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">CL_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">CL_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">CL_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="scooty" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_03.PNG</figcaption></figure>
+        </div>
+
+        <div class="project-detail-group" data-project-id="selected-graphic-design" hidden>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_03.PNG</figcaption></figure>
         </div>
       </div><!-- /project-detail-images -->
 

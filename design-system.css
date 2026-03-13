@@ -178,13 +178,13 @@
   --opacity-project-card-idle: 0.78;
   --opacity-project-card-active: 1;
 
-  /* Motion */
-  --duration-fast: 0.2s;
-  --duration-base: 0.3s;
+  /* Motion — transitions disabled for instant hover behavior */
+  --duration-fast: 0s;
+  --duration-base: 0s;
   --easing-standard: ease;
-  --transition-color: color var(--duration-fast) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard), border-color var(--duration-fast) var(--easing-standard);
-  --transition-opacity: opacity var(--duration-fast) var(--easing-standard);
-  --transition-transform: transform var(--duration-fast) var(--easing-standard);
+  --transition-color: none;
+  --transition-opacity: none;
+  --transition-transform: none;
 
   /* Focus */
   --focus-ring-width: 2px;
