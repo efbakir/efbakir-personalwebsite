@@ -108,6 +108,17 @@
   --spacing-20: 80px;
   --spacing-24: 96px;
 
+  /* Spacing aliases for styles.css compatibility */
+  --space-0: var(--spacing-0);
+  --space-1: var(--spacing-1);
+  --space-2: var(--spacing-2);
+  --space-3: var(--spacing-3);
+  --space-4: var(--spacing-4);
+  --space-6: var(--spacing-6);
+  --space-8: var(--spacing-8);
+  --space-12: var(--spacing-12);
+  --space-16: var(--spacing-16);
+
   /* Project detail: gap between tags and controls (1.5x section gap) */
   --spacing-project-controls-margin-top: var(--spacing-14);
 
@@ -133,6 +144,32 @@
   --intro-copy-line-height: 18px;
   --intro-lead-font-size: 14px;
   --intro-lead-line-height: 20px;
+
+  /* Layout aliases for styles.css compatibility */
+  --grid-max-width: 1440px;
+  --sticky-top: var(--spacing-4);
+  --touch-target: var(--size-touch-target);
+  --modal-max-width: var(--size-modal-max-width);
+  --nav-icon-gap: 5px;
+  --nav-icon-width: 18px;
+  --nav-icon-height: 2px;
+  --nav-icon-shift: 7px;
+
+  /* Typography aliases for styles.css compatibility */
+  --font-sans: "Suisse Int'l", "Inter", sans-serif;
+  --font-mono: "Reddit Mono", monospace;
+  --font-weight: 400;
+  --text-lg: 16px;
+  --text-md: 14px;
+  --text-sm: 12px;
+  --display-lg: 24px;
+  --display-md: 20px;
+  --display-sm: 18px;
+  --leading-tight: 1.3;
+  --leading-normal: 1.4;
+  --leading-relaxed: 1.5;
+  --tracking-tight: -0.2px;
+  --tracking-normal: 0px;
 
   /* Icon & control sizes */
   --icon-sm: 12px;
