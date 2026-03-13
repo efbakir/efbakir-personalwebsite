@@ -520,6 +520,11 @@ html.page-projects .main-content {
   color: var(--color-text-secondary);
 }
 
+/* Project list tags use tertiary text color (maps to #B4B4B4 in light mode) */
+.project-group-tags li {
+  color: var(--color-text-tertiary);
+}
+
 .panel-project-controls {
   display: none;
   flex-direction: column;
@@ -690,7 +695,7 @@ html.page-projects .main-content {
   font-size: var(--label-heading-font-size);
   line-height: var(--label-heading-line-height);
   letter-spacing: 0;
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
   white-space: nowrap;
   margin-top: var(--spacing-1);
 }
@@ -747,6 +752,11 @@ html.page-projects .main-content {
   width: 100%;
   overflow: hidden;
   background: var(--color-surface-muted);
+}
+
+/* Placeholder blocks for when project images are not yet provided */
+.project-flow-media--placeholder {
+  aspect-ratio: 16 / 9;
 }
 
 /* Figma 123:526 overview covers are uniform 592x333 */
@@ -2663,7 +2673,7 @@ html.page-projects .main-content {
 .writing-list-item {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-4);
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition-opacity);
