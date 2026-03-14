@@ -4870,8 +4870,8 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    height: var(--app-vh);
-    max-height: var(--app-vh);
+    height: calc(var(--app-vh) * 0.5);
+    max-height: calc(var(--app-vh) * 0.5);
     z-index: 90;
     margin: 0;
     padding: var(--spacing-6) var(--spacing-4) var(--spacing-6);

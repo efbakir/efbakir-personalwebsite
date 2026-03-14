@@ -970,18 +970,19 @@
           article.hidden = (article.id !== 'article-' + id);
         });
         activeWritingId = id;
+        closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
         resetScrollToTop();
         if (typeof articlePanel.scrollIntoView === 'function') {
           setTimeout(function () {
             articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
           }, 0);
         }
-        closeSectionNavigator('writings-nav-toggle', list);
         scheduleViewportSync();
       }
 
       if (isSameArticle) {
-        closeSectionNavigator('writings-nav-toggle', list);
+        closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
+        resetScrollToTop();
         return true;
       }
 
@@ -1080,18 +1081,19 @@
           article.hidden = (article.id !== 'glossary-article-' + id);
         });
         activeGlossaryId = id;
+        closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
         resetScrollToTop();
         if (typeof articlePanel.scrollIntoView === 'function') {
           setTimeout(function () {
             articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
           }, 0);
         }
-        closeSectionNavigator('glossary-nav-toggle', list);
         scheduleViewportSync();
       }
 
       if (isSameArticle) {
-        closeSectionNavigator('glossary-nav-toggle', list);
+        closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
+        resetScrollToTop();
         return true;
       }
 
@@ -1143,9 +1145,10 @@
     scheduleViewportSync();
   }
 
-  function closeSectionNavigator(toggleId, listEl) {
+  function closeSectionNavigator(toggleId, listEl, options) {
     var toggle = document.getElementById(toggleId);
     if (!toggle || !listEl) return;
+    var shouldRestoreScroll = !(options && options.restoreScroll === false);
     toggle.setAttribute('aria-expanded', 'false');
     listEl.classList.remove('is-open');
     document.body.classList.remove('section-nav-open');
@@ -1153,6 +1156,9 @@
     if (overlay) {
       overlay.setAttribute('hidden', '');
       overlay.setAttribute('aria-hidden', 'true');
+    }
+    if (!shouldRestoreScroll) {
+      document.body.setAttribute('data-scroll-y', '0');
     }
     syncBodyScrollLock();
   }
