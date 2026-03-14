@@ -1009,6 +1009,13 @@
         beforeSwap: commitArticleSwap,
         afterSwap: function () {
           isTransitioning = false;
+          var panel = document.getElementById('writings-article-panel');
+          if (panel) {
+            panel.scrollTop = 0;
+            window.requestAnimationFrame(function () {
+              panel.scrollTop = 0;
+            });
+          }
         }
       });
       return true;
@@ -1129,6 +1136,13 @@
         beforeSwap: commitArticleSwap,
         afterSwap: function () {
           isTransitioning = false;
+          var panel = document.getElementById('glossary-article-panel');
+          if (panel) {
+            panel.scrollTop = 0;
+            window.requestAnimationFrame(function () {
+              panel.scrollTop = 0;
+            });
+          }
         }
       });
       return true;
