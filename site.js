@@ -955,6 +955,7 @@
         return article.id === 'article-' + id;
       });
       var isSameArticle = activeWritingId === id;
+      var isSectionNavigatorOpen = list.classList.contains('is-open') || document.body.classList.contains('section-nav-open');
       var direction = currentIndex !== -1 && nextIndex < currentIndex ? 'prev' : 'next';
 
       // Update list items
@@ -970,19 +971,27 @@
           article.hidden = (article.id !== 'article-' + id);
         });
         activeWritingId = id;
-        closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
-        resetScrollToTop();
-        if (typeof articlePanel.scrollIntoView === 'function') {
-          setTimeout(function () {
-            articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
-          }, 0);
+        if (isSectionNavigatorOpen) {
+          closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
+          resetScrollToTop();
+          if (typeof articlePanel.scrollIntoView === 'function') {
+            setTimeout(function () {
+              articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
+            }, 0);
+          }
+        } else {
+          articlePanel.scrollTop = 0;
         }
         scheduleViewportSync();
       }
 
       if (isSameArticle) {
-        closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
-        resetScrollToTop();
+        if (isSectionNavigatorOpen) {
+          closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
+          resetScrollToTop();
+        } else {
+          articlePanel.scrollTop = 0;
+        }
         return true;
       }
 
@@ -1067,6 +1076,7 @@
         return article.id === 'glossary-article-' + id;
       });
       var isSameArticle = activeGlossaryId === id;
+      var isSectionNavigatorOpen = list.classList.contains('is-open') || document.body.classList.contains('section-nav-open');
       var direction = currentIndex !== -1 && nextIndex < currentIndex ? 'prev' : 'next';
 
       items.forEach(function (item) {
@@ -1081,19 +1091,27 @@
           article.hidden = (article.id !== 'glossary-article-' + id);
         });
         activeGlossaryId = id;
-        closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
-        resetScrollToTop();
-        if (typeof articlePanel.scrollIntoView === 'function') {
-          setTimeout(function () {
-            articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
-          }, 0);
+        if (isSectionNavigatorOpen) {
+          closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
+          resetScrollToTop();
+          if (typeof articlePanel.scrollIntoView === 'function') {
+            setTimeout(function () {
+              articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
+            }, 0);
+          }
+        } else {
+          articlePanel.scrollTop = 0;
         }
         scheduleViewportSync();
       }
 
       if (isSameArticle) {
-        closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
-        resetScrollToTop();
+        if (isSectionNavigatorOpen) {
+          closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
+          resetScrollToTop();
+        } else {
+          articlePanel.scrollTop = 0;
+        }
         return true;
       }
 
