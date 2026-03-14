@@ -4828,6 +4828,16 @@ img {
     align-items: center;
   }
 
+  body.section-nav-open .writings-panel-header,
+  body.section-nav-open .glossary-panel-header {
+    display: none;
+  }
+
+  body.section-nav-open .writings-layout,
+  body.section-nav-open .glossary-layout {
+    row-gap: 0;
+  }
+
   /* So fixed #writings-list is positioned relative to viewport, not main (main has transform) */
   body.section-nav-open .main-content {
     transform: none;
@@ -4860,7 +4870,8 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    max-height: var(--section-list-overlay-max-height);
+    height: var(--app-vh);
+    max-height: var(--app-vh);
     z-index: 90;
     margin: 0;
     padding: var(--spacing-6) var(--spacing-4) var(--spacing-6);
@@ -4878,6 +4889,11 @@ img {
 
   #writings-list {
     box-shadow: none;
+  }
+
+  [data-theme="dark"] .writings-panel-list,
+  [data-theme="dark"] .glossary-panel-list {
+    box-shadow: var(--shadow-soft-dark);
   }
 
   .writings-panel-list.is-open,
@@ -5040,12 +5056,21 @@ img {
     gap: var(--spacing-4);
   }
 
+  .panel-bio-contact {
+    gap: var(--spacing-1);
+  }
+
   /* Bio panel: touch targets, no horizontal padding so links stay left-aligned with copy */
   .panel-bio .contact-item-link {
-    min-height: var(--size-touch-target);
-    padding: var(--spacing-2) 0;
+    min-height: 32px;
+    padding: var(--spacing-1) 0;
     display: inline-flex;
     align-items: center;
+  }
+
+  html.page-about .contact-item-link {
+    min-height: 32px;
+    padding: var(--spacing-1) 0;
   }
 
   .panel-bio-about-links {
@@ -5185,6 +5210,35 @@ img {
   html.page-projects {
     height: auto;
     overflow: visible;
+  }
+
+  :is(
+    a,
+    button,
+    [role="button"],
+    input,
+    select,
+    textarea,
+    summary,
+    .writing-list-item,
+    .glossary-list-item,
+    .writing-article-nav-item,
+    .glossary-article-nav-item,
+    .glossary-term
+  ) {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :is(
+    .logo-btn,
+    .nav-link,
+    .header-cv-link,
+    .theme-toggle,
+    .section-nav-toggle,
+    .section-list-close,
+    .header.nav-open .main-nav .nav-link
+  ) {
+    border-radius: 0;
   }
 
   html.page-projects body {

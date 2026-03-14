@@ -5,6 +5,12 @@
   var cvTriggers = Array.from(document.querySelectorAll('[data-open-cv]'));
   var cvOverlay = document.getElementById('cv-overlay');
 
+  try {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  } catch (error) {}
+
   function getViewportHeight() {
     if (window.visualViewport && window.visualViewport.height) {
       return Math.round(window.visualViewport.height);
@@ -83,7 +89,7 @@
     ));
 
     panels.forEach(function (panel) {
-      /* Section list overlays (writings/glossary SEE ALL) use CSS max-height: 50vh and scroll; do not override */
+      /* Section list overlays (writings/glossary SEE ALL) manage their own full-viewport height in CSS; do not override */
       if (panel.classList.contains('writings-panel-list') || panel.classList.contains('glossary-panel-list')) {
         panel.style.maxHeight = '';
         return;
@@ -782,6 +788,7 @@
         var hash = '#project-' + id;
         history.pushState({ projectDetail: true, projectId: id }, '', (window.location.pathname || '/') + hash);
       }
+      resetScrollToTop();
       scheduleViewportSync();
     }
 
@@ -790,6 +797,7 @@
       layout.classList.remove('is-detail');
       if (detailImages) detailImages.hidden = true;
       if (panelControls) panelControls.hidden = true;
+      resetScrollToTop();
       scheduleViewportSync();
     }
 
@@ -846,9 +854,9 @@
         currentProjectIndex = index;
         renderProjectAtIndex(currentProjectIndex);
         showDetailGroupForId(projectData[currentProjectIndex].id);
-        if (detailImages) detailImages.scrollTop = 0;
         var id = projectData[currentProjectIndex].id;
         history.replaceState({ projectDetail: true, projectId: id }, '', (window.location.pathname || '/') + '#project-' + id);
+        resetScrollToTop();
         scheduleViewportSync();
         return;
       }
@@ -864,9 +872,9 @@
           currentProjectIndex = index;
           renderProjectAtIndex(currentProjectIndex);
           showDetailGroupForId(projectData[currentProjectIndex].id);
-          if (detailImages) detailImages.scrollTop = 0;
           var id = projectData[currentProjectIndex].id;
           history.replaceState({ projectDetail: true, projectId: id }, '', (window.location.pathname || '/') + '#project-' + id);
+          resetScrollToTop();
           panelInfo.classList.remove('is-content-transitioning-out');
         },
         afterSwap: function () {
@@ -962,7 +970,7 @@
           article.hidden = (article.id !== 'article-' + id);
         });
         activeWritingId = id;
-        articlePanel.scrollTop = 0;
+        resetScrollToTop();
         if (typeof articlePanel.scrollIntoView === 'function') {
           setTimeout(function () {
             articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
@@ -1072,7 +1080,7 @@
           article.hidden = (article.id !== 'glossary-article-' + id);
         });
         activeGlossaryId = id;
-        articlePanel.scrollTop = 0;
+        resetScrollToTop();
         if (typeof articlePanel.scrollIntoView === 'function') {
           setTimeout(function () {
             articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
@@ -1406,24 +1414,13 @@
       });
       resetScrollToTop();
     } else {
-      // Full load: if this was a back/forward navigation, reset scroll (e.g. Safari when bfcache not used)
-      try {
-        var navEntries = window.performance.getEntriesByType('navigation');
-        if (navEntries.length && navEntries[0].type === 'back_forward') {
-          resetScrollToTop();
-        }
-      } catch (err) {}
+      resetScrollToTop();
     }
     ensureBodyUnlockedIfSafe();
     scheduleViewportSync();
   });
   window.addEventListener('load', function () {
-    try {
-      var navEntries = window.performance.getEntriesByType('navigation');
-      if (navEntries.length && navEntries[0].type === 'back_forward') {
-        resetScrollToTop();
-      }
-    } catch (err) {}
+    resetScrollToTop();
     ensureBodyUnlockedIfSafe();
     scheduleViewportSync();
   });

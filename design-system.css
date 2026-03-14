@@ -217,7 +217,7 @@
   --color-bg-darker: #0E0E0E;
   --color-surface: #1A1A1A;
   --color-surface-muted: #222222;
-  --color-surface-elevated: var(--color-lightest);
+  --color-surface-elevated: #181818;
   --color-border: #2A2A2A;
   --color-text-primary: var(--color-gray-sm);
   --color-text-secondary: var(--color-gray-lg);
