@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Efe Bakır</title>
-  <link rel="icon" href="/star-black.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="/star-black.svg" type="image/svg+xml">
-  <link rel="mask-icon" href="/star-black.svg" color="#141414">
+  <link rel="icon" href="/star-black.svg?v=3" type="image/svg+xml" sizes="any">
+  <link rel="shortcut icon" href="/star-black.svg?v=3" type="image/svg+xml">
+  <link rel="mask-icon" href="/star-black.svg?v=3" color="#141414">
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
   <link rel="dns-prefetch" href="https://www.figma.com">
@@ -26,20 +26,26 @@
           Efe Bakır
         </a>
       </div>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav" >
-        <span class="nav-toggle-icon" aria-hidden="true"></span>
-        <span class="nav-toggle-icon" aria-hidden="true"></span>
-        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-sheet">
+        <span class="nav-toggle-label">NAVIGATE</span>
       </button>
-      <nav class="main-nav" id="main-nav">
-        <a href="/" class="nav-link active">WORK</a>
-        <a href="/writings/" class="nav-link">WRITINGS</a>
-        <a href="/glossary/" class="nav-link">GLOSSARY</a>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <span class="theme-label inactive">MOON</span>
-        <span class="theme-label active">SUN</span>
-      </button>
+      <div class="header-status">
+        <span id="header-status-text" class="header-status-text"></span>
+      </div>
+      <div class="nav-sheet" id="nav-sheet" hidden>
+        <div class="nav-sheet-status">
+          <span class="header-status-text" data-header-status-text></span>
+        </div>
+        <nav class="main-nav" id="main-nav">
+          <a href="/" class="nav-link active">WORK</a>
+          <a href="/writings/" class="nav-link">WRITINGS</a>
+          <a href="/glossary/" class="nav-link">GLOSSARY</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-label inactive">MOON</span>
+          <span class="theme-label active">SUN</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -50,20 +56,24 @@
       <!-- LEFT: Bio + Contact — always sticky -->
       <div class="panel-bio">
         <div class="panel-bio-about">
-          <p>Lorem ipsum dolor sit amet consectetur. Sed non fames risus vitae justo consequat phasellus non. Vestibulum placerat eu rutrum dui. Sit odio feugiat lectus nunc faucibus proin egestas enim nunc. About.</p>
-          <p class="panel-bio-contact-description">Currently based in Milan, IT.</p>
+          <p>Product & Brand Designer.</p>
+          <p>Sitting in the midst of product, interface and systems. Chasing greatness and freedom. </p>
+          <p>Currently product designer at Colonist.</p>
+          <div class="panel-bio-about-links">
+            <a href="/about/" class="contact-item-link">MORE & CV</a>
+          </div>
         </div>
         <div class="panel-bio-contact">
-          <p class="panel-bio-contact-description">If you'd like further details about my work approach or want to discuss a project or idea, please get in touch.</p>
+          <p class="panel-bio-contact-description">Available for projects that connect with me.</p>
           <div class="panel-bio-contact-links">
             <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">LINKEDIN</a>
             <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">BEHANCE</a>
-            <button type="button" class="contact-item-link" data-open-cv>CV</button>
+            <a href="https://instagram.com/efbakir" target="_blank" rel="noopener noreferrer" class="contact-item-link">INSTAGRAM</a>
             <a href="mailto:efeec.bakir@gmail.com" class="contact-item-link">efeec.bakir@gmail.com</a>
           </div>
         </div>
         <section class="panel-current-work" aria-labelledby="current-work-heading">
-          <h2 class="section-heading" id="current-work-heading">CURRENTLY WORKING ON</h2>
+          <h2 class="section-heading" id="current-work-heading">Busy with</h2>
           <div class="current-work-list">
             <article class="current-work-card">
               <div class="current-work-content">
@@ -75,22 +85,22 @@
             <article class="current-work-card">
               <div class="current-work-content">
                 <img src="/assets/ongoing-projects/star-grey.svg" alt="" class="current-work-icon" width="16" height="16">
-                <h3 class="current-work-title">Personal Website</h3>
-                <p class="current-work-description">Building portfolio system from scratch</p>
+                <h3 class="current-work-title">Personal website</h3>
+                <p class="current-work-description">Building digital existence from scratch</p>
+              </div>
+            </article>
+            <article class="current-work-card">
+              <div class="current-work-content">
+                <img src="/assets/ongoing-projects/thesis-grey.svg" alt="" class="current-work-icon" width="16" height="16">
+                <h3 class="current-work-title">Master's thesis</h3>
+                <p class="current-work-description">Writing a critique on self-improvement tools</p>
               </div>
             </article>
             <article class="current-work-card">
               <div class="current-work-content">
                 <img src="/assets/ongoing-projects/colonist-grey.svg" alt="" class="current-work-icon" width="16" height="16">
                 <h3 class="current-work-title">Colonist</h3>
-                <p class="current-work-description">Improving the UI & UX</p>
-              </div>
-            </article>
-            <article class="current-work-card">
-              <div class="current-work-content">
-                <img src="/assets/ongoing-projects/thesis-grey.svg" alt="" class="current-work-icon" width="16" height="16">
-                <h3 class="current-work-title">Master's Thesis</h3>
-                <p class="current-work-description">Exploring the self improvement tools</p>
+                <p class="current-work-description">Designing #1 Online Catan</p>
               </div>
             </article>
           </div>
@@ -154,8 +164,8 @@
              data-project-id="love"
              data-project-title="Love"
              data-project-date="JAN 2024"
-             data-project-team="Mehmet, Seymur, Selen"
-             data-project-description="Dating app concept addressing matching inequality, trust, and healthier connections."
+             data-project-team="Mehmet Akif Yalçın, Selen Elçin Erşan, Seymur Mammadov"
+             data-project-description="Dating app concept addressing matching inequality, trust and healthier connections."
              data-project-tags="UI/UX|BRANDING">
           <figure class="project-flow-block">
             <div class="project-flow-media">
@@ -184,14 +194,14 @@
              data-project-title="Amazon TVgether"
              data-project-date="MAY 2025"
              data-project-context="Polimi"
-             data-project-team="Inkara, Dilge, Ecem, Filippo"
+             data-project-team="Filippo Alessandrini, Dilge Arslancan, Inkar Raissova, Ece Yalım"
              data-project-description="Polimi project reducing digital chaos in live sports viewing across shared screens."
              data-project-tags="UI/UX">
           <figure class="project-flow-block">
             <div class="project-flow-media">
               <img src="/assets/project-thumbs/amazontvgether.png" alt="Amazon TVgether cover" class="project-flow-media-image" loading="lazy" decoding="async" width="592" height="333">
             </div>
-            <figcaption class="project-flow-caption">STV_COVER.PNG</figcaption>
+            <figcaption class="project-flow-caption">ATV_COVER.PNG</figcaption>
           </figure>
         </div>
 
@@ -302,7 +312,7 @@
         <div class="project-images-group"
              data-project-id="scooty"
              data-project-title="Scooty"
-             data-project-date="APR 202 3"
+             data-project-date="APR 2023"
              data-project-team="Gökay Aydın"
              data-project-description="Electric scooter concept designed for the mobility needs of METU riders."
              data-project-tags="INDUSTRIAL DESIGN|UI/UX">
@@ -333,10 +343,16 @@
       <!-- RIGHT: Project detail media (shown in detail mode, per project) -->
       <div class="project-detail-images" id="project-detail-images" hidden>
         <div class="project-detail-group" data-project-id="wardrobe">
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">WR_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/1.png" alt="Wardrobe 01" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="1085"></div><figcaption class="project-flow-caption">WR_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/2.png" alt="Wardrobe 02" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="1085"></div><figcaption class="project-flow-caption">WR_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/3.png" alt="Wardrobe 03" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="2264"></div><figcaption class="project-flow-caption">WR_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/4.png" alt="Wardrobe 04" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1936" height="1644"></div><figcaption class="project-flow-caption">WR_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/5.png" alt="Wardrobe 05" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="4836"></div><figcaption class="project-flow-caption">WR_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/6.png" alt="Wardrobe 06" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="1400"></div><figcaption class="project-flow-caption">WR_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/7.png" alt="Wardrobe 07" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="1918"></div><figcaption class="project-flow-caption">WR_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/8.png" alt="Wardrobe 08" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="1446"></div><figcaption class="project-flow-caption">WR_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/9.png" alt="Wardrobe 09" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="2929"></div><figcaption class="project-flow-caption">WR_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/wardrobe/10.png" alt="Wardrobe 10" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="1920" height="1085"></div><figcaption class="project-flow-caption">WR_10.PNG</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="thesis-project" hidden>
@@ -347,45 +363,105 @@
         </div>
 
         <div class="project-detail-group" data-project-id="love" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">LV_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/love/love_01.png" alt="Love detail 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">LV_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/love/love_02.png" alt="Love detail 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1106"></div><figcaption class="project-flow-caption">LV_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/love/love_03.png" alt="Love detail 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">LV_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/love/love_04.png" alt="Love detail 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">LV_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--proto"><iframe class="project-flow-media-embed" src="https://embed.figma.com/proto/0B9M58ge54ccyxFN9h7nxN/ID415---Love---English?page-id=1%3A2961&type=design&node-id=9-7180&viewport=3075%2C582%2C0.07&scaling=scale-down-width&content-scaling=responsive&starting-point-node-id=9%3A7180&show-proto-sidebar=0&embed-host=share" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">LV_PROTOTYPE</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--embed"><iframe class="project-flow-media-embed" src="https://www.youtube.com/embed/NjuQKT92K5M" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">LV_VIDEO</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="boty" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BT_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/01.png" alt="Böty detail 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1600"></div><figcaption class="project-flow-caption">BT_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/02.png" alt="Böty detail 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/03.png" alt="Böty detail 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><video class="project-flow-media-video" autoplay loop muted playsinline preload="auto"><source src="/assets/projects/boty/04.mp4" type="video/mp4"></video></div><figcaption class="project-flow-caption">BT_04.MP4</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/05.png" alt="Böty detail 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/06.png" alt="Böty detail 06" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/07.png" alt="Böty detail 07" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/08.png" alt="Böty detail 08" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/10.png" alt="Böty detail 10" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><iframe class="project-flow-media-embed project-flow-media-embed--full-width" src="https://player.vimeo.com/video/898096262?badge=0&autopause=0&loop=1&dnt=1" allowfullscreen loading="lazy"></iframe><figcaption class="project-flow-caption">BT_VIDEO.MP4</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/11.png" alt="Böty detail 11" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/12.png" alt="Böty detail 12" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_12.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/13.png" alt="Böty detail 13" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_13.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/14.png" alt="Böty detail 14" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_14.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/15.png" alt="Böty detail 15" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_15.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/16.png" alt="Böty detail 16" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_16.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/17.png" alt="Böty detail 17" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_17.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/18.png" alt="Böty detail 18" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_18.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/19.png" alt="Böty detail 19" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_19.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/20.png" alt="Böty detail 20" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_20.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/21.png" alt="Böty detail 21" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_21.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/boty/22.png" alt="Böty detail 22" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1066"></div><figcaption class="project-flow-caption">BT_22.PNG</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="smart-tv" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">STV_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether01.png" alt="Amazon TVgether 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether02.png" alt="Amazon TVgether 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether03.png" alt="Amazon TVgether 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether04.png" alt="Amazon TVgether 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether05.png" alt="Amazon TVgether 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether06.png" alt="Amazon TVgether 06" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether07.png" alt="Amazon TVgether 07" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether08.png" alt="Amazon TVgether 08" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether09.png" alt="Amazon TVgether 09" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether10.png" alt="Amazon TVgether 10" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether11.png" alt="Amazon TVgether 11" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether12.png" alt="Amazon TVgether 12" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_12.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether13.png" alt="Amazon TVgether 13" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_13.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--embed"><iframe class="project-flow-media-embed" src="https://embed.figma.com/proto/nqVBmm7aG79wqktJnnq02r/UI-Design?page-id=&node-id=489-5530&p=f&viewport=-20436%2C-1905%2C0.28&scaling=scale-down&content-scaling=fixed&starting-point-node-id=489%3A5530&embed-host=share" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">ATV_PROTOTYPE</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether14.png" alt="Amazon TVgether 14" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_14.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether15.png" alt="Amazon TVgether 15" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_15.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/smart-tv/tvgether16.png" alt="Amazon TVgether 16" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">ATV_16.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--embed"><iframe class="project-flow-media-embed" src="https://www.youtube.com/embed/LNA7h09kDPU" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">ATV_TEASER_VIDEO</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="nat-hellen" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">NH_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/project-thumbs/nathellen.png" alt="Nat Hellen cover" class="project-flow-media-image" loading="lazy" decoding="async"></div><figcaption class="project-flow-caption">NH_COVER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/1.png" alt="Nat Hellen detail 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1872"></div><figcaption class="project-flow-caption">NH_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/2.png" alt="Nat Hellen detail 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="720"></div><figcaption class="project-flow-caption">NH_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/3.png" alt="Nat Hellen detail 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="720"></div><figcaption class="project-flow-caption">NH_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/4.png" alt="Nat Hellen detail 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">NH_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/5.png" alt="Nat Hellen detail 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1920"></div><figcaption class="project-flow-caption">NH_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/6.png" alt="Nat Hellen detail 06" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1920"></div><figcaption class="project-flow-caption">NH_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/7.png" alt="Nat Hellen detail 07" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">NH_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/8.png" alt="Nat Hellen detail 08" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1440"></div><figcaption class="project-flow-caption">NH_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/9.png" alt="Nat Hellen detail 09" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1920"></div><figcaption class="project-flow-caption">NH_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/10.png" alt="Nat Hellen detail 10" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="2270"></div><figcaption class="project-flow-caption">NH_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/11.png" alt="Nat Hellen detail 11" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">NH_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/12.png" alt="Nat Hellen detail 12" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1440"></div><figcaption class="project-flow-caption">NH_12.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/13.png" alt="Nat Hellen detail 13" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="264"></div><figcaption class="project-flow-caption">NH_13.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/igstory.png" alt="Nat Hellen Instagram story" class="project-flow-media-image" loading="lazy" decoding="async" width="1080" height="1920"></div><figcaption class="project-flow-caption">NH_IGSTORY.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/nat-hellen/igstory-announce.png" alt="Nat Hellen Instagram story announce" class="project-flow-media-image" loading="lazy" decoding="async" width="1080" height="1920"></div><figcaption class="project-flow-caption">NH_IGSTORY_ANNOUNCE.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><video class="project-flow-media-video" controls playsinline preload="metadata"><source src="/assets/projects/nat-hellen/igvideo-compressed3.mp4" type="video/mp4"></video></div><figcaption class="project-flow-caption">NH_IGVIDEO.MP4</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="marte-carmen" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">MC_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/01.png" alt="Marte Carmen 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1349"></div><figcaption class="project-flow-caption">MC_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/02.png" alt="Marte Carmen 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="771"></div><figcaption class="project-flow-caption">MC_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/03.png" alt="Marte Carmen 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="453"></div><figcaption class="project-flow-caption">MC_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/04.png" alt="Marte Carmen 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="645"></div><figcaption class="project-flow-caption">MC_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/05.png" alt="Marte Carmen 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="655"></div><figcaption class="project-flow-caption">MC_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/06.png" alt="Marte Carmen 06" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1600"></div><figcaption class="project-flow-caption">MC_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/07.png" alt="Marte Carmen 07" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1386"></div><figcaption class="project-flow-caption">MC_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/08.png" alt="Marte Carmen 08" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="796"></div><figcaption class="project-flow-caption">MC_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/09.png" alt="Marte Carmen 09" class="project-flow-media-image" loading="lazy" decoding="async" width="1290" height="1600"></div><figcaption class="project-flow-caption">MC_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/10.png" alt="Marte Carmen 10" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1105"></div><figcaption class="project-flow-caption">MC_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/11.png" alt="Marte Carmen 11" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="776"></div><figcaption class="project-flow-caption">MC_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/12.png" alt="Marte Carmen 12" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="900"></div><figcaption class="project-flow-caption">MC_12.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/13.png" alt="Marte Carmen 13" class="project-flow-media-image" loading="lazy" decoding="async" width="1255" height="1600"></div><figcaption class="project-flow-caption">MC_13.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/14.png" alt="Marte Carmen 14" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="900"></div><figcaption class="project-flow-caption">MC_14.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/15.png" alt="Marte Carmen 15" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1260"></div><figcaption class="project-flow-caption">MC_15.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/16.png" alt="Marte Carmen 16" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="645"></div><figcaption class="project-flow-caption">MC_16.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/17.png" alt="Marte Carmen 17" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1600"></div><figcaption class="project-flow-caption">MC_17.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/marte-carmen/18.png" alt="Marte Carmen 18" class="project-flow-media-image" loading="lazy" decoding="async" width="1600" height="1179"></div><figcaption class="project-flow-caption">MC_18.PNG</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="regime-of-care" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">ROC_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--embed"><iframe class="project-flow-media-embed" src="https://www.youtube.com/embed/osJH-fPheX8" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">ROC_VIDEO</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/regime-of-care/poster-ready.png" alt="Regime of Care poster" class="project-flow-media-image" loading="lazy" decoding="async" width="1190" height="1684"></div><figcaption class="project-flow-caption">ROC_POSTER.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/regime-of-care/postermock.png" alt="Regime of Care poster mockup" class="project-flow-media-image" loading="lazy" decoding="async" width="6000" height="4000"></div><figcaption class="project-flow-caption">ROC_POSTERMOCK.PNG</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="aletheai" hidden>
@@ -396,17 +472,39 @@
         </div>
 
         <div class="project-detail-group" data-project-id="bus-design" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">BD_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/bus-design/hivee_01.png" alt="Hivee 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">BD_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/bus-design/hivee_02.png" alt="Hivee 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">BD_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/bus-design/hivee_03.png" alt="Hivee 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">BD_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/bus-design/hivee_04.png" alt="Hivee 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">BD_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/bus-design/hivee_05.png" alt="Hivee 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">BD_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/bus-design/hivee_06.png" alt="Hivee 06" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">BD_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--proto"><iframe class="project-flow-media-embed" src="https://embed.figma.com/proto/dDMTL46HqfUQH6wsOi5GDN/HIVEE-Mobile-app?page-id=0%3A1&type=design&node-id=1-904&viewport=864%2C412%2C0.26&scaling=min-zoom&starting-point-node-id=1%3A1649&embed-host=share" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">BD_PROTOTYPE</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--embed"><iframe class="project-flow-media-embed" src="https://www.youtube.com/embed/9nv4MW5BSB0" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">BD_CAMPAIGN_VIDEO</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="ovie" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">OV_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/01.png" alt="Ovie 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1921" height="1439"></div><figcaption class="project-flow-caption">OV_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/02.png" alt="Ovie 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="925"></div><figcaption class="project-flow-caption">OV_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/03.png" alt="Ovie 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="797"></div><figcaption class="project-flow-caption">OV_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/04.png" alt="Ovie 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1520"></div><figcaption class="project-flow-caption">OV_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/05.png" alt="Ovie 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1176"></div><figcaption class="project-flow-caption">OV_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/06.png" alt="Ovie 06" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1394"></div><figcaption class="project-flow-caption">OV_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/07.png" alt="Ovie 07" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1103"></div><figcaption class="project-flow-caption">OV_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/08.png" alt="Ovie 08" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1520"></div><figcaption class="project-flow-caption">OV_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/09.png" alt="Ovie 09" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1176"></div><figcaption class="project-flow-caption">OV_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/10.png" alt="Ovie 10" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="2752"></div><figcaption class="project-flow-caption">OV_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/11.png" alt="Ovie 11" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1017"></div><figcaption class="project-flow-caption">OV_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/12.png" alt="Ovie 12" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1520"></div><figcaption class="project-flow-caption">OV_12.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/13.png" alt="Ovie 13" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1046"></div><figcaption class="project-flow-caption">OV_13.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/14.png" alt="Ovie 14" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1439"></div><figcaption class="project-flow-caption">OV_14.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/15.png" alt="Ovie 15" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1176"></div><figcaption class="project-flow-caption">OV_15.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/16.png" alt="Ovie 16" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1554"></div><figcaption class="project-flow-caption">OV_16.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/17.png" alt="Ovie 17" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1439"></div><figcaption class="project-flow-caption">OV_17.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/18.png" alt="Ovie 18" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1176"></div><figcaption class="project-flow-caption">OV_18.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/19.png" alt="Ovie 19" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1821"></div><figcaption class="project-flow-caption">OV_19.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/20.png" alt="Ovie 20" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1476"></div><figcaption class="project-flow-caption">OV_20.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/21.png" alt="Ovie 21" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1103"></div><figcaption class="project-flow-caption">OV_21.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/ovie/22.png" alt="Ovie 22" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1176"></div><figcaption class="project-flow-caption">OV_22.PNG</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="colonist" hidden>
@@ -417,17 +515,32 @@
         </div>
 
         <div class="project-detail-group" data-project-id="scooty" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SC_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/scooty/scooty_02.png" alt="Scooty 01" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">SC_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/scooty/scooty_03.png" alt="Scooty 02" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">SC_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/scooty/scooty_04.png" alt="Scooty 03" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1206"></div><figcaption class="project-flow-caption">SC_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/scooty/scooty_05.png" alt="Scooty 04" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">SC_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/scooty/scooty_06.png" alt="Scooty 05" class="project-flow-media-image" loading="lazy" decoding="async" width="1920" height="1080"></div><figcaption class="project-flow-caption">SC_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--proto"><iframe class="project-flow-media-embed" src="https://embed.figma.com/proto/QyHcCM5V1fTt43E7gtpbiH/e-scooter?page-id=&type=design&node-id=484-8896&viewport=932%2C127%2C0.07&scaling=scale-down&starting-point-node-id=484%3A8759&show-proto-sidebar=1&content-scaling=responsive&embed-host=share" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">SC_PROTOTYPE</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--embed"><iframe class="project-flow-media-embed" src="https://www.youtube.com/embed/UxiqBEKpkPc" allowfullscreen loading="lazy"></iframe></div><figcaption class="project-flow-caption">SC_ASSEMBLY_VIDEO</figcaption></figure>
         </div>
 
         <div class="project-detail-group" data-project-id="selected-graphic-design" hidden>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_COVER.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_01.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_02.PNG</figcaption></figure>
-          <figure class="project-flow-block"><div class="project-flow-media project-flow-media--placeholder"></div><figcaption class="project-flow-caption">SG_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/graphic01.png" alt="Graphic 01" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="870" height="294"></div><figcaption class="project-flow-caption">SG_01.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/graphic02.png" alt="Graphic 02" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="870" height="294"></div><figcaption class="project-flow-caption">SG_02.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/graphic03.png" alt="Graphic 03" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="870" height="294"></div><figcaption class="project-flow-caption">SG_03.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/falcons01.png" alt="Falcons 01" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="405" height="269"></div><figcaption class="project-flow-caption">SG_04.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/falcons02.png" alt="Falcons 02" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="405" height="189"></div><figcaption class="project-flow-caption">SG_05.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/falcons03.png" alt="Falcons 03" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="405" height="292"></div><figcaption class="project-flow-caption">SG_06.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/falcons04.png" alt="Falcons 04" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="405" height="279"></div><figcaption class="project-flow-caption">SG_07.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/falcons05.png" alt="Falcons 05" class="project-flow-media-image project-flow-media-image--no-border" loading="lazy" decoding="async" width="405" height="279"></div><figcaption class="project-flow-caption">SG_08.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%201%20-%20Route%201.png" alt="Harvest Part 1 Route 1" class="project-flow-media-image" loading="lazy" decoding="async" width="4943" height="1278"></div><figcaption class="project-flow-caption">SG_09.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%201%20-%20Route%202.png" alt="Harvest Part 1 Route 2" class="project-flow-media-image" loading="lazy" decoding="async" width="4191" height="1278"></div><figcaption class="project-flow-caption">SG_10.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%201%20-%20Route%203.png" alt="Harvest Part 1 Route 3" class="project-flow-media-image" loading="lazy" decoding="async" width="4936" height="1278"></div><figcaption class="project-flow-caption">SG_11.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%202%20-%20Route%201.png" alt="Harvest Part 2 Route 1" class="project-flow-media-image" loading="lazy" decoding="async" width="5495" height="2839"></div><figcaption class="project-flow-caption">SG_12.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%202%20-%20Route%202.png" alt="Harvest Part 2 Route 2" class="project-flow-media-image" loading="lazy" decoding="async" width="3704" height="2839"></div><figcaption class="project-flow-caption">SG_13.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%202%20-%20Route%203.png" alt="Harvest Part 2 Route 3" class="project-flow-media-image" loading="lazy" decoding="async" width="3704" height="2839"></div><figcaption class="project-flow-caption">SG_14.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%202%20-%20Route%204.png" alt="Harvest Part 2 Route 4" class="project-flow-media-image" loading="lazy" decoding="async" width="3704" height="2839"></div><figcaption class="project-flow-caption">SG_15.PNG</figcaption></figure>
+          <figure class="project-flow-block"><div class="project-flow-media"><img src="/assets/projects/selected-graphic-design/harvest-Part%202%20-%20Route%205.png" alt="Harvest Part 2 Route 5" class="project-flow-media-image" loading="lazy" decoding="async" width="3704" height="2839"></div><figcaption class="project-flow-caption">SG_16.PNG</figcaption></figure>
         </div>
       </div><!-- /project-detail-images -->
 
@@ -456,7 +569,9 @@
               <span class="cv-entry-metas"><span class="cv-entry-tag">USA</span></span>
             </div>
             <div class="cv-entry-row">
-              <span class="cv-entry-company">Colonist</span>
+              <span class="cv-entry-company">
+                <a href="https://colonist.io" class="current-work-link" target="_blank" rel="noopener noreferrer">Colonist</a>
+              </span>
               <span class="cv-entry-date">JUL 2024 — CURRENT</span>
             </div>
           </div>
@@ -466,7 +581,9 @@
               <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
             </div>
             <div class="cv-entry-row">
-              <span class="cv-entry-company">Insider</span>
+              <span class="cv-entry-company">
+                <a href="https://insiderone.com" class="current-work-link" target="_blank" rel="noopener noreferrer">Insider</a>
+              </span>
               <span class="cv-entry-date">FEB — JUN 2024</span>
             </div>
           </div>
@@ -479,7 +596,9 @@
               </span>
             </div>
             <div class="cv-entry-row">
-              <span class="cv-entry-company">HLO Branding</span>
+              <span class="cv-entry-company">
+                <a href="https://www.hlobranding.com/" class="current-work-link" target="_blank" rel="noopener noreferrer">HLO Branding</a>
+              </span>
               <span class="cv-entry-date">JUN — OCT 2023</span>
             </div>
           </div>
@@ -489,7 +608,9 @@
               <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
             </div>
             <div class="cv-entry-row">
-              <span class="cv-entry-company">I-AM Online</span>
+              <span class="cv-entry-company">
+                <a href="https://www.i-amonline.com/" class="current-work-link" target="_blank" rel="noopener noreferrer">I-AM Online</a>
+              </span>
               <span class="cv-entry-date">SEP 2022 — JUN 2023</span>
             </div>
           </div>
@@ -499,7 +620,9 @@
               <span class="cv-entry-metas"><span class="cv-entry-tag">TURKEY</span></span>
             </div>
             <div class="cv-entry-row">
-              <span class="cv-entry-company">UTRLAB</span>
+              <span class="cv-entry-company">
+                <a href="https://www.utrlab.com/" class="current-work-link" target="_blank" rel="noopener noreferrer">UTRLAB</a>
+              </span>
               <span class="cv-entry-date">OCT 2022 — MAY 2023</span>
             </div>
           </div>

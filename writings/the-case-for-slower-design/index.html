@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>The Case for Slower Design - Efe Bakır</title>
-  <link rel="icon" href="/star-black.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="/star-black.svg" type="image/svg+xml">
-  <link rel="mask-icon" href="/star-black.svg" color="#141414">
+  <link rel="icon" href="/star-black.svg?v=3" type="image/svg+xml" sizes="any">
+  <link rel="shortcut icon" href="/star-black.svg?v=3" type="image/svg+xml">
+  <link rel="mask-icon" href="/star-black.svg?v=3" color="#141414">
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
   <!-- Header -->
@@ -21,20 +22,26 @@
           Efe Bakır
         </a>
       </div>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-        <span class="nav-toggle-icon" aria-hidden="true"></span>
-        <span class="nav-toggle-icon" aria-hidden="true"></span>
-        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-sheet">
+        <span class="nav-toggle-label">NAVIGATE</span>
       </button>
-      <nav class="main-nav" id="main-nav">
-        <a href="/" class="nav-link">WORK</a>
-        <a href="/writings/" class="nav-link active">WRITINGS</a>
-        <a href="/glossary/" class="nav-link">GLOSSARY</a>
-      </nav>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <span class="theme-label inactive">MOON</span>
-        <span class="theme-label active">SUN</span>
-      </button>
+      <div class="header-status">
+        <span id="header-status-text" class="header-status-text"></span>
+      </div>
+      <div class="nav-sheet" id="nav-sheet" hidden>
+        <div class="nav-sheet-status">
+          <span class="header-status-text" data-header-status-text></span>
+        </div>
+        <nav class="main-nav" id="main-nav">
+          <a href="/" class="nav-link">WORK</a>
+          <a href="/writings/" class="nav-link active">WRITINGS</a>
+          <a href="/glossary/" class="nav-link">GLOSSARY</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-label inactive">MOON</span>
+          <span class="theme-label active">SUN</span>
+        </button>
+      </div>
     </div>
   </header>
 
