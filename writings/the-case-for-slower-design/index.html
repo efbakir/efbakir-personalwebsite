@@ -7,14 +7,15 @@
   <link rel="icon" href="/star-black.svg?v=3" type="image/svg+xml" sizes="any">
   <link rel="shortcut icon" href="/star-black.svg?v=3" type="image/svg+xml">
   <link rel="mask-icon" href="/star-black.svg?v=3" color="#141414">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
   <!-- Header -->
-  <header class="header">
-    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
+  <header class="header" style="opacity:0;transform:translateY(14px)">
     <div class="header-content">
       <div class="brand-group">
         <a href="/" class="logo-btn" aria-label="Go to work">
@@ -46,7 +47,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="page-content">
+  <main class="page-content" style="opacity:0;transform:translateY(14px)">
     <div class="article-inner">
 
       <!-- Article Header -->

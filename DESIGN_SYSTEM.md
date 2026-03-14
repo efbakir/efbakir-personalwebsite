@@ -11,9 +11,10 @@
 Defined in `/Users/efbakir/efbakir-personalwebsite/design-system.css`.
 
 - Color tokens
-  - `--color-bg`, `--color-surface`, `--color-surface-muted`
+  - `--color-bg`, `--color-surface`, `--color-surface-muted`, `--color-surface-elevated`
   - `--color-text-primary`, `--color-text-secondary`
-  - `--color-border`, `--color-overlay`, `--color-overlay-strong`
+  - `--color-border`, `--color-overlay`, `--color-overlay-strong`, `--color-overlay-dropdown`
+  - `--color-lightest`
   - `--accent`
 - Spacing tokens
   - `--spacing-0` through `--spacing-24` (4px base rhythm)

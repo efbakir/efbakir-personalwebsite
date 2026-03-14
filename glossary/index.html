@@ -7,14 +7,14 @@
   <link rel="icon" href="/star-black.svg?v=3" type="image/svg+xml" sizes="any">
   <link rel="shortcut icon" href="/star-black.svg?v=3" type="image/svg+xml">
   <link rel="mask-icon" href="/star-black.svg?v=3" color="#141414">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
-  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
   <!-- Header -->
-  <header class="header">
-    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
+  <header class="header" style="opacity:0;transform:translateY(14px)">
     <div class="header-content">
       <div class="brand-group">
         <a href="/" class="logo-btn" aria-label="Go to work">
@@ -46,7 +46,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" style="opacity:0;transform:translateY(14px)">
     <div class="glossary-layout" id="glossary-layout">
       <div class="section-list-overlay" id="glossary-list-overlay" aria-hidden="true" hidden></div>
 
@@ -55,7 +55,7 @@
         <div class="section-panel-header-inner">
           <div class="section-panel-heading">
             <h1 class="glossary-page-title">Glossary</h1>
-            <p class="glossary-page-subtitle">Models and frameworks.</p>
+            <p class="glossary-page-subtitle">Everyday models and frameworks.</p>
           </div>
           <button type="button" class="section-nav-toggle" id="glossary-nav-toggle" aria-expanded="false" aria-controls="glossary-list">
             <span class="section-nav-toggle-label">SEE ALL</span>
@@ -72,44 +72,69 @@
           <input type="search" class="section-list-search-input" id="glossary-search" placeholder="SEARCH" aria-label="Search glossary" autocomplete="off">
         </div>
         <div class="section-list-overlay-content" role="list">
-        <a class="glossary-list-item" href="/glossary/first-principles-thinking/" data-glossary-id="first-principles" role="listitem">
-          <span class="glossary-list-item-title">First Principles Thinking</span>
-          <p class="glossary-list-item-definition">Break problems into fundamentals.</p>
+        <a class="glossary-list-item active" href="/glossary/#pick-the-harder-option" data-glossary-id="pick-the-harder-option" role="listitem">
+          <span class="glossary-list-item-title">Pick The Harder Option</span>
+          <p class="glossary-list-item-definition">Ask yourself which one is harder to do and pick it.</p>
         </a>
 
-        <a class="glossary-list-item active" href="/glossary/inversion/" data-glossary-id="inversion" role="listitem">
-          <span class="glossary-list-item-title">Inversion</span>
-          <p class="glossary-list-item-definition">Ask what guarantees failure.</p>
+        <a class="glossary-list-item" href="/glossary/#go-against-regret" data-glossary-id="go-against-regret" role="listitem">
+          <span class="glossary-list-item-title">Go Against Regret</span>
+          <p class="glossary-list-item-definition">Use regret as decision making criteria.</p>
         </a>
 
-        <a class="glossary-list-item" href="/glossary/map-is-not-the-territory/" data-glossary-id="map-territory" role="listitem">
-          <span class="glossary-list-item-title">Map is Not the Territory</span>
-          <p class="glossary-list-item-definition">Remember models aren't reality.</p>
+        <a class="glossary-list-item" href="/glossary/#hyperfocus-tips" data-glossary-id="hyperfocus-tips" role="listitem">
+          <span class="glossary-list-item-title">Hyperfocus Tips</span>
+          <p class="glossary-list-item-definition">Things I do when the deep work is a must.</p>
         </a>
 
-        <a class="glossary-list-item" href="/glossary/second-order-thinking/" data-glossary-id="second-order" role="listitem">
-          <span class="glossary-list-item-title">Second-Order Thinking</span>
-          <p class="glossary-list-item-definition">Consider consequences of consequences.</p>
+        <a class="glossary-list-item" href="/glossary/#delay-gratification" data-glossary-id="delay-gratification" role="listitem">
+          <span class="glossary-list-item-title">Delay Gratification</span>
+          <p class="glossary-list-item-definition">Remember the marshmallow experiment.</p>
         </a>
 
-        <a class="glossary-list-item" href="/glossary/occams-razor/" data-glossary-id="occams-razor" role="listitem">
-          <span class="glossary-list-item-title">Occam's Razor</span>
-          <p class="glossary-list-item-definition">Prefer simplest working explanation.</p>
+        <a class="glossary-list-item" href="/glossary/#biggest-dopamine" data-glossary-id="biggest-dopamine" role="listitem">
+          <span class="glossary-list-item-title">Biggest Dopamine</span>
+          <p class="glossary-list-item-definition">Earned highs over cheap ones.</p>
         </a>
 
-        <a class="glossary-list-item" href="/glossary/feedback-loops/" data-glossary-id="feedback-loops" role="listitem">
-          <span class="glossary-list-item-title">Feedback Loops</span>
-          <p class="glossary-list-item-definition">Watch outputs feeding back in.</p>
+        <a class="glossary-list-item" href="/glossary/#everybody-addicted" data-glossary-id="everybody-addicted" role="listitem">
+          <span class="glossary-list-item-title">Everybody Is Addicted To Something</span>
+          <p class="glossary-list-item-definition">Can't run away from getting addicted but at least be wise.</p>
         </a>
 
-        <a class="glossary-list-item" href="/glossary/circle-of-competence/" data-glossary-id="circle-competence" role="listitem">
-          <span class="glossary-list-item-title">Circle of Competence</span>
-          <p class="glossary-list-item-definition">Stay within what you understand.</p>
+        <a class="glossary-list-item" href="/glossary/#decrease-the-noise" data-glossary-id="decrease-the-noise" role="listitem">
+          <span class="glossary-list-item-title">Decrease The Noise</span>
+          <p class="glossary-list-item-definition">Cut what does not matter until only the essential remains.</p>
         </a>
 
-        <a class="glossary-list-item" href="/glossary/entropy/" data-glossary-id="entropy" role="listitem">
-          <span class="glossary-list-item-title">Entropy</span>
-          <p class="glossary-list-item-definition">Systems decay without deliberate upkeep.</p>
+        <a class="glossary-list-item" href="/glossary/#devil-loves-empty-blocks" data-glossary-id="devil-loves-empty-blocks" role="listitem">
+          <span class="glossary-list-item-title">Devil Loves Empty Blocks</span>
+          <p class="glossary-list-item-definition">Depression can't hit a moving target.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/#not-everything-you-want-will-be-good-for-you" data-glossary-id="not-everything-you-want-will-be-good-for-you" role="listitem">
+          <span class="glossary-list-item-title">Not Everything You Want Will Be Good For You</span>
+          <p class="glossary-list-item-definition">Not everything I want is worth chasing.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/#mood-follows-motion" data-glossary-id="mood-follows-motion" role="listitem">
+          <span class="glossary-list-item-title">Mood Follows Motion</span>
+          <p class="glossary-list-item-definition">Movement changes state faster than thinking.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/#environment-beats-willpower" data-glossary-id="environment-beats-willpower" role="listitem">
+          <span class="glossary-list-item-title">Environment Beats Willpower</span>
+          <p class="glossary-list-item-definition">Design spaces that make good actions easier.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/#friction-reveals-truth" data-glossary-id="friction-reveals-truth" role="listitem">
+          <span class="glossary-list-item-title">Friction Reveals Truth</span>
+          <p class="glossary-list-item-definition">What survives friction is what you actually value.</p>
+        </a>
+
+        <a class="glossary-list-item" href="/glossary/#action-clarifies" data-glossary-id="action-clarifies" role="listitem">
+          <span class="glossary-list-item-title">Action Clarifies</span>
+          <p class="glossary-list-item-definition">Clarity often comes after action, not before it.</p>
         </a>
 
         </div><!-- /section-list-overlay-content -->
@@ -118,207 +143,324 @@
       <!-- RIGHT: Active term content — sticky, scrollable -->
       <div class="glossary-panel-article" id="glossary-article-panel" aria-live="polite">
 
-        <article class="glossary-article" id="glossary-article-first-principles" hidden>
+        <article class="glossary-article" id="glossary-article-pick-the-harder-option">
           <div class="writing-article-header">
-            <h2 class="writing-article-title">First Principles Thinking</h2>
-            <p class="writing-article-intro">Break problems into fundamentals.</p>
+            <h2 class="writing-article-title">Pick The Harder Option</h2>
+            <p class="writing-article-intro">When two options are available, choose the one that creates more friction, discomfort or fear. Other will make you regret later</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">First principles thinking is the practice of breaking down a problem to its most basic, foundational elements and reasoning up from there. Rather than reasoning by analogy — assuming things must work the way they've always worked — first principles thinking asks: what do we know for certain? What is actually true?</p>
-            <p class="writing-article-body">It's a method used by scientists, engineers, and designers to escape the constraints of conventional thinking. When you reason from first principles, you're not limited by what's been done before. You start from scratch, identify the core constraints, and build a solution that actually fits the problem.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">The harder option is usually the one that forces growth instead of keeping me in comfort.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">The process involves identifying your assumptions, breaking them apart, and reconstructing from what you know to be true. Ask: why does this constraint exist? Is it physical, social, historical? Many constraints that seem fixed are actually conventions. First principles thinking surfaces which ones.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Staying in the library a couple more hours instead of going home and hoping I'll study there. Or walking up to someone I want to meet instead of telling myself I'm too busy.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
             <div class="glossary-article-nav-placeholder"></div>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="inversion">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="go-against-regret">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Inversion</span>
+              <span class="glossary-article-nav-title">Go Against Regret</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-inversion">
+        <article class="glossary-article" id="glossary-article-go-against-regret" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Inversion</h2>
-            <p class="writing-article-intro">Ask what guarantees failure.</p>
+            <h2 class="writing-article-title">Go Against Regret</h2>
+            <p class="writing-article-intro">There are some things in the world you'll regret you couldn't have the courage to do. Find them and do them.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">Inversion is the practice of thinking backwards. Instead of asking "how do I succeed at X?", you ask "what would guarantee failure at X?" Then you avoid those things. It sounds simple, but it's surprisingly powerful because it surfaces risks and obstacles that forward-thinking tends to miss.</p>
-            <p class="writing-article-body">The mental model was championed by Charlie Munger, who borrowed it from mathematician Carl Jacobi. Jacobi's advice: "Invert, always invert." By approaching problems in reverse, you often find solutions that direct thinking never would.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">Ask yourself do you want to regret anything. Or when do you usually regret. For me it's when I'm older and looking back at my life and see a version of my life that could have happened.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">When starting a new project, take ten minutes to list every way it could fail. What assumptions are you making that might be wrong? What dependencies could break? What would the worst version of this look like? Use those answers to stress-test your plan before you invest in it.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Why it matters in design</h3>
-            <p class="writing-article-body">Design is particularly prone to optimism bias. Inverted thinking is a check on that. Before shipping, ask: what would make users hate this? What would make it confusing, broken, or irrelevant? The answers are often more valuable than any positive validation you could seek.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Very busy day. Night in your home. You promised yourself that you'll run today. But couldn't find time. Now go further in time think about tomorrow yourself. Staying at home or running. Which one would make you regretful?</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="first-principles">
+            <button class="glossary-article-nav-item" data-glossary-id="pick-the-harder-option">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">First Principles Thinking</span>
+              <span class="glossary-article-nav-title">Pick The Harder Option</span>
             </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="map-territory">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="hyperfocus-tips">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Map is Not the Territory</span>
+              <span class="glossary-article-nav-title">Hyperfocus Tips</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-map-territory" hidden>
+        <article class="glossary-article" id="glossary-article-hyperfocus-tips" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Map is Not the Territory</h2>
-            <p class="writing-article-intro">Remember models aren't reality.</p>
+            <h2 class="writing-article-title">Hyperfocus Tips</h2>
+            <p class="writing-article-intro">It's actually really easy to focus. You just need to shape some things around that. Only discipline never works.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">The phrase originates with Alfred Korzybski: "A map is not the territory it represents, but, if correct, it has a similar structure to the territory." All models, frameworks, and abstractions are simplifications. They are useful, but they are not the thing itself.</p>
-            <p class="writing-article-body">This is a warning against mistaking the representation for reality. A business model is not a business. A persona is not a user. A wireframe is not an experience. When we forget this, we optimize the model instead of solving the underlying problem.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I reduce visual and mental distractions before I start working.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">Hold your frameworks loosely. Use them to navigate, not to dictate. When data from the real world contradicts your model, update the model — not your interpretation of the data. Stay curious about where your map and the territory diverge.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Outside the house - library or cafe (not too loud), THAM set, silicone headphones or earplugs, cap on (narrower FOV - less distractions) and sitting in the corner facing the wall.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="inversion">
+            <button class="glossary-article-nav-item" data-glossary-id="go-against-regret">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Inversion</span>
+              <span class="glossary-article-nav-title">Go Against Regret</span>
             </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="second-order">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="delay-gratification">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Second-Order Thinking</span>
+              <span class="glossary-article-nav-title">Delay Gratification</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-second-order" hidden>
+        <article class="glossary-article" id="glossary-article-delay-gratification" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Second-Order Thinking</h2>
-            <p class="writing-article-intro">Consider consequences of consequences.</p>
+            <h2 class="writing-article-title">Delay Gratification</h2>
+            <p class="writing-article-intro">The ability to wait, resist impulses and stay with the harder long-term path compounds over time.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">First-order thinking asks: what happens if I do this? Second-order thinking asks: and then what? It's thinking about the consequences of consequences, the ripple effects of decisions that aren't immediately obvious. Most people stop at first-order. Second-order thinkers have an edge.</p>
-            <p class="writing-article-body">The concept is associated with Howard Marks and Charlie Munger. In investing, it means thinking not just about whether a company will perform well, but about whether that is already priced in. In design, it means thinking not just about whether a feature solves a user problem, but about what behaviour it incentivises downstream.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I remind myself that chasing what feels good now usually weakens what I want later. Even ask yourself the thing you want is it really good for you?</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">When making decisions, ask "and then what?" at least twice. Force yourself past the immediate, obvious outcome. What does this change about the environment around the decision? What does it make easier or harder down the line?</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Finishing the work block before checking my phone, leaving entertainment for after training or staying with the difficult process instead of escaping into instant stimulation.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="map-territory">
+            <button class="glossary-article-nav-item" data-glossary-id="hyperfocus-tips">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Map is Not the Territory</span>
+              <span class="glossary-article-nav-title">Hyperfocus Tips</span>
             </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="occams-razor">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="biggest-dopamine">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Occam's Razor</span>
+              <span class="glossary-article-nav-title">Biggest Dopamine</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-occams-razor" hidden>
+        <article class="glossary-article" id="glossary-article-biggest-dopamine" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Occam's Razor</h2>
-            <p class="writing-article-intro">Prefer simplest working explanation.</p>
+            <h2 class="writing-article-title">Biggest Dopamine</h2>
+            <p class="writing-article-intro">Identified two items thats giving me the most dopamine. Intensity and earned momentum.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">Among competing hypotheses, the one with the fewest assumptions should be selected. Named after 14th-century friar William of Ockham, Occam's Razor is a principle of parsimony. It doesn't say the simplest explanation is always correct — it says that, all else being equal, unnecessary complexity should be cut away.</p>
-            <p class="writing-article-body">In science, it's a heuristic for hypothesis selection. In design, it's an argument for restraint: do not add what you cannot justify. Every element of a system should earn its place.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I try to build my life around earned highs instead of cheap ones.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">When a design or decision feels complicated, ask what assumptions are holding it together. Can you remove any of them? Can you reduce the solution without reducing its effectiveness? The version that does the same job with less is usually better.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Near-life experiences or finishing a 10+ hour library session and walking home alone at midnight feeling completely emptied out but proud.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Pro tip</h3>
+            <p class="writing-article-body">Don't be afraid to be alone. You'll be surprised how much you can do alone.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="second-order">
+            <button class="glossary-article-nav-item" data-glossary-id="delay-gratification">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Second-Order Thinking</span>
+              <span class="glossary-article-nav-title">Delay Gratification</span>
             </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="feedback-loops">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="everybody-addicted">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Feedback Loops</span>
+              <span class="glossary-article-nav-title">Everybody Is Addicted To Something</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-feedback-loops" hidden>
+        <article class="glossary-article" id="glossary-article-everybody-addicted" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Feedback Loops</h2>
-            <p class="writing-article-intro">Watch outputs feeding back in.</p>
+            <h2 class="writing-article-title">Everybody Is Addicted To Something</h2>
+            <p class="writing-article-intro">Everyone gets attached to a source of stimulation, identity or escape. Pick wisely.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">A feedback loop occurs when the output of a system feeds back into the system as an input. Positive feedback amplifies change; negative feedback dampens it. Understanding which loops are operating in a system tells you a lot about how it will behave over time.</p>
-            <p class="writing-article-body">In product design, user behaviour creates feedback loops. A feature that's used more gets prioritised; a feature that's confusing generates support tickets that trigger redesigns. These loops shape the product over time, often in ways that weren't intended.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">Since I'll get pulled by something anyway, I try to get pulled by things that build me instead of weaken me.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">Map the feedback loops in the systems you work with. Which loops are reinforcing (amplifying)? Which are balancing (stabilising)? Which loops are you inadvertently creating with your design decisions? Understanding feedback loops is essential for designing systems that behave predictably.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Better to be addicted to sport, work, mastery or deep relationships than to social media, attention or numbing habits.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="occams-razor">
+            <button class="glossary-article-nav-item" data-glossary-id="biggest-dopamine">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Occam's Razor</span>
+              <span class="glossary-article-nav-title">Biggest Dopamine</span>
             </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="circle-competence">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="decrease-the-noise">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Circle of Competence</span>
+              <span class="glossary-article-nav-title">Decrease The Noise</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-circle-competence" hidden>
+        <article class="glossary-article" id="glossary-article-decrease-the-noise" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Circle of Competence</h2>
-            <p class="writing-article-intro">Stay within what you understand.</p>
+            <h2 class="writing-article-title">Decrease The Noise</h2>
+            <p class="writing-article-intro">Simplicity is removing what does not matter until only the essential remains.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">Each person has a domain — a circle — of things they genuinely understand. Within that circle, their judgement is sound. Outside it, they're guessing. The mental model, associated with Warren Buffett and Charlie Munger, is less about staying small and more about knowing where you are.</p>
-            <p class="writing-article-body">The danger isn't operating outside your circle — sometimes you have to. The danger is not knowing when you're outside it. Overconfidence in unfamiliar territory is where most serious mistakes are made.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">When life feels confusing, I look for noise - things to cut before I look for new solutions.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">Be explicit about what you know and what you don't. When venturing into new territory, say so — to yourself and to others. Bring in people whose circle covers the area yours doesn't. And work consistently to expand your circle by learning deeply rather than broadly skimming.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Fewer tabs, fewer inputs, fewer random commitments, fewer people's opinions and fewer distractions between me and the thing I need to do. Last months been busy a lot doing everything. But now I'm cutting things out and focusing on the essential. Identified several points that were not essential and cut them out. Main ones are: late night going out, dating, smoking.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="feedback-loops">
+            <button class="glossary-article-nav-item" data-glossary-id="everybody-addicted">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Feedback Loops</span>
+              <span class="glossary-article-nav-title">Everybody Is Addicted To Something</span>
             </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="entropy">
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="devil-loves-empty-blocks">
               <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Entropy</span>
+              <span class="glossary-article-nav-title">Devil Loves Empty Blocks</span>
             </button>
           </nav>
         </article>
 
-        <article class="glossary-article" id="glossary-article-entropy" hidden>
+        <article class="glossary-article" id="glossary-article-devil-loves-empty-blocks" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Entropy</h2>
-            <p class="writing-article-intro">Systems decay without deliberate upkeep.</p>
+            <h2 class="writing-article-title">Devil Loves Empty Blocks</h2>
+            <p class="writing-article-intro">Empty time can easily turn into overthinking, avoidance or self-destruction if I leave it unmanaged.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What it means</h3>
-            <p class="writing-article-body">In thermodynamics, entropy is the measure of disorder in a system. The second law of thermodynamics states that entropy in an isolated system always increases over time — things tend toward disorder, not order. Applied as a mental model, entropy is a reminder that systems don't maintain themselves.</p>
-            <p class="writing-article-body">Organisations, codebases, relationships, and design systems all tend toward disorder unless actively maintained. The effort you put in just to stay at the same level is the entropy tax. Recognising this helps you plan for maintenance, not just creation.</p>
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I try to give my days structure so I do not drift into useless thought loops.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">In practice</h3>
-            <p class="writing-article-body">Build maintenance into your plans from the start. For every system you create, ask: what is the minimum ongoing effort to keep this functional? Who is responsible for it? What happens if that effort stops? The answer tells you whether you're building something sustainable or just deferring decay.</p>
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Planning my day in advance, filling open time with training, work, reading or going out instead of leaving whole chunks of the day undefined.</p>
           </div>
           <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="circle-competence">
+            <button class="glossary-article-nav-item" data-glossary-id="decrease-the-noise">
               <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Circle of Competence</span>
+              <span class="glossary-article-nav-title">Decrease The Noise</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="not-everything-you-want-will-be-good-for-you">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Not Everything You Want Will Be Good For You</span>
+            </button>
+          </nav>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-not-everything-you-want-will-be-good-for-you" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Not Everything You Want Will Be Good For You</h2>
+            <p class="writing-article-intro">Not everything I want is worth chasing.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">Not everything I want is worth chasing. Some things are obviously bad for me, like drinking, smoking, hooking up, or skipping the gym. But sometimes the more dangerous version is when I become deeply committed to something that looks impressive or meaningful without questioning whether it actually comes from me.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">This happened with my Polimi master's experience. I wanted it badly, and at one point it was almost not happening. Instead of stepping back and asking whether that might actually be a good thing, I kept pushing until I made it happen. In the end, I was not that glad I did.</p>
+          </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="devil-loves-empty-blocks">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Devil Loves Empty Blocks</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="mood-follows-motion">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Mood Follows Motion</span>
+            </button>
+          </nav>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-mood-follows-motion" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Mood Follows Motion</h2>
+            <p class="writing-article-intro">I do not trust my mind to fix itself while sitting still.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">Movement changes state faster than thinking.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">If I feel mentally stuck, I walk, train, shower, or leave the room before trying to think my way out.</p>
+          </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="not-everything-you-want-will-be-good-for-you">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Not Everything You Want Will Be Good For You</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="environment-beats-willpower">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Environment Beats Willpower</span>
+            </button>
+          </nav>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-environment-beats-willpower" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Environment Beats Willpower</h2>
+            <p class="writing-article-intro">My environment often decides my behavior before discipline even gets a chance.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I design spaces that make good actions easier and bad actions harder.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Phone away, clean desk, right seat, right music, right place.</p>
+          </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="mood-follows-motion">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Mood Follows Motion</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="friction-reveals-truth">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Friction Reveals Truth</span>
+            </button>
+          </nav>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-friction-reveals-truth" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Friction Reveals Truth</h2>
+            <p class="writing-article-intro">What I keep doing when it becomes inconvenient shows what I actually value.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I do not judge myself by intentions. I judge by what survives friction.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">If I say I care about writing, training or business, I should still move toward it when tired, bored, or busy.</p>
+          </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="environment-beats-willpower">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Environment Beats Willpower</span>
+            </button>
+            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="action-clarifies">
+              <span class="glossary-article-nav-label">NEXT</span>
+              <span class="glossary-article-nav-title">Action Clarifies</span>
+            </button>
+          </nav>
+        </article>
+
+        <article class="glossary-article" id="glossary-article-action-clarifies" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Action Clarifies</h2>
+            <p class="writing-article-intro">Clarity often comes after action, not before it.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">How I use it</h3>
+            <p class="writing-article-body">I start before I feel fully certain, because movement creates information.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Example</h3>
+            <p class="writing-article-body">Sending the message, publishing the thing, going to the event or beginning the work before I feel fully ready.</p>
+          </div>
+          <nav class="glossary-article-nav" aria-label="Glossary navigation">
+            <button class="glossary-article-nav-item" data-glossary-id="friction-reveals-truth">
+              <span class="glossary-article-nav-label">PREVIOUS</span>
+              <span class="glossary-article-nav-title">Friction Reveals Truth</span>
             </button>
             <div class="glossary-article-nav-placeholder"></div>
           </nav>
@@ -328,95 +470,6 @@
 
     </div><!-- /glossary-layout -->
   </main>
-
-  <!-- CV Overlay Modal -->
-  <div class="cv-overlay" id="cv-overlay" hidden>
-    <div class="cv-modal">
-      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</button>
-      <div class="cv-content">
-        <div class="cv-header">
-          <h1 class="cv-name">Efe Eren Can Bakır</h1>
-          <div class="cv-contact-info">
-            <a href="mailto:efeec.bakir@gmail.com" class="cv-link">efeec.bakir@gmail.com</a>
-            <span class="cv-divider">•</span>
-            <span class="cv-phone">+39 351 4705647</span>
-            <span class="cv-divider">•</span>
-            <span class="cv-location">Milan, IT</span>
-          </div>
-          <div class="cv-social-links">
-            <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">LinkedIn</a>
-            <a href="https://layers.to/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Layers</a>
-            <a href="https://bento.me/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Bento</a>
-            <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Behance</a>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">EXPERIENCE</h2>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">Product Designer</h3>
-              <span class="cv-date">2024 - Present</span>
-            </div>
-            <p class="cv-company">Company Name • Milan, IT</p>
-            <p class="cv-description">Leading end-to-end product design for web and mobile applications. Conducting user research, creating design systems, and collaborating with cross-functional teams.</p>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">UX Designer</h3>
-              <span class="cv-date">2023 - 2024</span>
-            </div>
-            <p class="cv-company">Previous Company • Remote</p>
-            <p class="cv-description">Designed user experiences for digital products, conducted usability testing, and created wireframes and prototypes.</p>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">EDUCATION</h2>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">Politecnico di Milano</h3>
-              <span class="cv-date">2022 - 2024</span>
-            </div>
-            <p class="cv-company">Master's Degree • Milan, IT</p>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">METU</h3>
-              <span class="cv-date">2018 - 2022</span>
-            </div>
-            <p class="cv-company">Bachelor's Degree • Ankara, TR</p>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">SKILLS</h2>
-          <div class="cv-skills">
-            <span class="cv-skill">Visual Design</span>
-            <span class="cv-skill">UX Design</span>
-            <span class="cv-skill">UI Design</span>
-            <span class="cv-skill">Prototyping</span>
-            <span class="cv-skill">User Research</span>
-            <span class="cv-skill">Design Systems</span>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">LANGUAGES</h2>
-          <div class="cv-languages">
-            <div class="cv-language-item">
-              <span class="cv-language">Turkish</span>
-              <span class="cv-proficiency">Native</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">English</span>
-              <span class="cv-proficiency">Fluent</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">Italian</span>
-              <span class="cv-proficiency">Intermediate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="/nav.js"></script>
   <script src="/site.js"></script>

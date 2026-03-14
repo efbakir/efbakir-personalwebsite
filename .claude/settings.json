@@ -15,7 +15,29 @@
       "Bash(open \"http://localhost:8080/writings/#figmacapture=5affecce-ebd0-44f9-bd3a-df9cc548395a&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F5affecce-ebd0-44f9-bd3a-df9cc548395a%2Fsubmit&figmadelay=2000\")",
       "mcp__figma__get_variable_defs",
       "mcp__figma__get_metadata",
-      "mcp__figma__create_design_system_rules"
+      "mcp__figma__create_design_system_rules",
+      "Bash(grep -rn \"favicon\\\\|star\\\\.svg\\\\|star-black\" /Users/efbakir/efbakir-personalwebsite/*.html /Users/efbakir/efbakir-personalwebsite/**/*.html)",
+      "Bash(find /Users/efbakir/efbakir-personalwebsite -name \"*.html\" -not -path \"*/node_modules/*\" -exec sed -i '' 's/star-black\\\\.svg?v=2/star-black.svg?v=3/g' {} +)",
+      "mcp__figma__get_screenshot",
+      "Bash(open \"http://localhost:8000/#figmacapture=7caf466d-ba3c-4d2c-960f-c3b6dbc55e10&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F7caf466d-ba3c-4d2c-960f-c3b6dbc55e10%2Fsubmit&figmadelay=1000\")",
+      "Bash(open \"http://localhost:8000/writings/#figmacapture=82b22a7b-e821-4a30-ab75-ce41a46b91dd&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F82b22a7b-e821-4a30-ab75-ce41a46b91dd%2Fsubmit&figmadelay=1000\")",
+      "Bash(open \"http://localhost:8000/glossary/#figmacapture=56642e41-e421-4cc2-98f0-c21d370f12d7&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F56642e41-e421-4cc2-98f0-c21d370f12d7%2Fsubmit&figmadelay=1000\")",
+      "Bash(open \"http://localhost:8000/about/#figmacapture=0f9387eb-b5c8-4127-ae6a-0736a18d783d&figmaendpoint=https%3A%2F%2Fmcp.figma.com%2Fmcp%2Fcapture%2F0f9387eb-b5c8-4127-ae6a-0736a18d783d%2Fsubmit&figmadelay=1000\")",
+      "Bash(for dir:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/efbakir/efbakir-personalwebsite/**)",
+      "Bash(done)",
+      "Bash(curl -sL \"https://mir-s3-cdn-cf.behance.net/project_modules/1400/8e1630190065237.65b5108a58b84.gif\" -o /Users/efbakir/efbakir-personalwebsite/assets/projects/boty/04.gif)",
+      "Bash(ffmpeg -i /Users/efbakir/efbakir-personalwebsite/assets/projects/boty/04.gif -vf \"scale=trunc\\(iw/2\\)*2:trunc\\(ih/2\\)*2\" -c:v libx264 -pix_fmt yuv420p -movflags faststart -crf 23 -y /Users/efbakir/efbakir-personalwebsite/assets/projects/boty/04.mp4)",
+      "Bash(brew install:*)",
+      "Bash(curl -c /tmp/gdrive_cookies.txt -s \"https://drive.google.com/uc?export=download&id=1xDG-J9ZNPiHG_1TAO9bIJLbmq34x65qX\")",
+      "Read(//private/tmp/**)",
+      "mcp__vercel__list_teams",
+      "WebFetch(domain:valeriiakostenko.com)",
+      "Bash(curl -s https://valeriiakostenko.com/about-me)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://embed.figma.com/proto/0B9M58ge54ccyxFN9h7nxN/ID415---Love---English?page-id=1%3A2961&node-id=9-7180&scaling=scale-down&content-scaling=responsive&starting-point-node-id=9%3A7180&embed-host=share\")",
+      "Bash(curl -s -L -o /dev/null -w \"%{http_code} final_url: %{url_effective}\" \"https://embed.figma.com/proto/0B9M58ge54ccyxFN9h7nxN/ID415---Love---English?page-id=1%3A2961&node-id=9-7180&scaling=scale-down&content-scaling=responsive&starting-point-node-id=9%3A7180&embed-host=share\")",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -L \"https://embed.figma.com/proto/0B9M58ge54ccyxFN9h7nxN/ID415---Love---English?page-id=1%3A2961&node-id=9-7180&p=f&viewport=22%2C-256%2C0.05&scaling=scale-down&content-scaling=responsive&starting-point-node-id=1%3A9007&show-proto-sidebar=1&embed-host=share\")"
     ]
   }
 }

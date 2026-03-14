@@ -7,14 +7,14 @@
   <link rel="icon" href="/star-black.svg?v=3" type="image/svg+xml" sizes="any">
   <link rel="shortcut icon" href="/star-black.svg?v=3" type="image/svg+xml">
   <link rel="mask-icon" href="/star-black.svg?v=3" color="#141414">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
   <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/styles.css">
-  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
   <!-- Header -->
-  <header class="header">
-    <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
+  <header class="header" style="opacity:0;transform:translateY(14px)">
     <div class="header-content">
       <div class="brand-group">
         <a href="/" class="logo-btn" aria-label="Go to work">
@@ -32,21 +32,21 @@
         <div class="nav-sheet-status">
           <span class="header-status-text" data-header-status-text></span>
         </div>
-        <nav class="main-nav" id="main-nav">
+      <nav class="main-nav" id="main-nav">
           <a href="/" class="nav-link">WORK</a>
-          <a href="/writings/" class="nav-link active">WRITINGS</a>
-          <a href="/glossary/" class="nav-link">GLOSSARY</a>
-        </nav>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="theme-label inactive">MOON</span>
-          <span class="theme-label active">SUN</span>
-        </button>
+        <a href="/writings/" class="nav-link active">WRITINGS</a>
+        <a href="/glossary/" class="nav-link">GLOSSARY</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-label inactive">MOON</span>
+        <span class="theme-label active">SUN</span>
+      </button>
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" style="opacity:0;transform:translateY(14px)">
     <div class="writings-layout" id="writings-layout">
       <div class="section-list-overlay" id="writings-list-overlay" aria-hidden="true" hidden></div>
 
@@ -54,8 +54,8 @@
       <div class="writings-panel-header">
         <div class="section-panel-header-inner">
           <div class="section-panel-heading">
-            <h1 class="writings-page-title">Writings</h1>
-            <p class="writings-page-subtitle">Thoughts on life.</p>
+        <h1 class="writings-page-title">Writings</h1>
+        <p class="writings-page-subtitle">Thoughts on life.</p>
           </div>
           <button type="button" class="section-nav-toggle" id="writings-nav-toggle" aria-expanded="false" aria-controls="writings-list">
             <span class="section-nav-toggle-label">SEE ALL</span>
@@ -73,58 +73,102 @@
         </div>
         <div class="section-list-overlay-content" role="list">
         <a class="writing-list-item active"
-           href="/writings/the-case-for-slower-design/"
-           data-writing-id="slower-design"
+           href="/writings/#freedom"
+           data-writing-id="freedom"
            role="listitem">
           <div class="writing-list-item-header">
-            <span class="writing-list-item-title">The Case for Slower Design</span>
+            <span class="writing-list-item-title">Freedom</span>
           </div>
-          <p class="writing-list-item-excerpt">Why rushing through the design process often leads to solutions that feel polished but miss the point entirely. A reflection on patience as a design tool.</p>
+          <p class="writing-list-item-excerpt">Not losing myself when someone or something enters my life.</p>
           <span class="writing-list-item-year">MAR 13 2026</span>
         </a>
 
         <a class="writing-list-item"
-           href="/writings/interfaces-as-conversations/"
-           data-writing-id="interfaces-conversations"
+           href="/writings/#completely-different"
+           data-writing-id="completely-different"
            role="listitem">
           <div class="writing-list-item-header">
-            <span class="writing-list-item-title">Interfaces as Conversations</span>
+            <span class="writing-list-item-title">Completely Different</span>
           </div>
-          <p class="writing-list-item-excerpt">Every interaction is a dialogue. Exploring how conversational patterns can inform better interface design beyond chatbots and voice assistants.</p>
-          <span class="writing-list-item-year">MAR 13 2026</span>
+          <p class="writing-list-item-excerpt">Some people are simply too far from you.</p>
+          <span class="writing-list-item-year">MAR 11 2026</span>
         </a>
 
         <a class="writing-list-item"
-           href="/writings/on-systems-thinking-in-product-design/"
-           data-writing-id="systems-thinking"
+           href="/writings/#the-right-people"
+           data-writing-id="the-right-people"
            role="listitem">
           <div class="writing-list-item-header">
-            <span class="writing-list-item-title">On Systems Thinking in Product Design</span>
+            <span class="writing-list-item-title">The Right People</span>
           </div>
-          <p class="writing-list-item-excerpt">Design decisions don't exist in isolation. How understanding feedback loops and emergent behavior changes the way we approach product work.</p>
-          <span class="writing-list-item-year">MAR 13 2026</span>
+          <p class="writing-list-item-excerpt">Sometimes the real problem is the lack of the right people around you.</p>
+          <span class="writing-list-item-year">MAR 7 2026</span>
         </a>
 
         <a class="writing-list-item"
-           href="/writings/typography-as-ux/"
-           data-writing-id="typography-ux"
+           href="/writings/#regret"
+           data-writing-id="regret"
            role="listitem">
           <div class="writing-list-item-header">
-            <span class="writing-list-item-title">Typography as UX</span>
+            <span class="writing-list-item-title">Regret</span>
           </div>
-          <p class="writing-list-item-excerpt">The most overlooked user experience decision is the one you read. Notes on how type choices shape perception, trust, and usability.</p>
-          <span class="writing-list-item-year">MAR 13 2026</span>
+          <p class="writing-list-item-excerpt">Choosing the smaller life.</p>
+          <span class="writing-list-item-year">FEB 14 2026</span>
         </a>
 
         <a class="writing-list-item"
-           href="/writings/moving-to-milan/"
-           data-writing-id="moving-to-milan"
+           href="/writings/#how-other-people-control-emotions"
+           data-writing-id="how-other-people-control-emotions"
            role="listitem">
           <div class="writing-list-item-header">
-            <span class="writing-list-item-title">Moving to Milan: A Design Perspective</span>
+            <span class="writing-list-item-title">Who Controls Your Emotions</span>
           </div>
-          <p class="writing-list-item-excerpt">What relocating to a city steeped in design history teaches you about your own practice. On environment, influence, and starting fresh.</p>
-          <span class="writing-list-item-year">MAR 13 2026</span>
+          <p class="writing-list-item-excerpt">Who pulls your strings.</p>
+          <span class="writing-list-item-year">FEB 13 2026</span>
+        </a>
+
+        <a class="writing-list-item"
+           href="/writings/#weight-of-not-knowing"
+           data-writing-id="weight-of-not-knowing"
+           role="listitem">
+          <div class="writing-list-item-header">
+            <span class="writing-list-item-title">Weight of Not Knowing</span>
+          </div>
+          <p class="writing-list-item-excerpt">The dark part before anything becomes real.</p>
+          <span class="writing-list-item-year">FEB 8 2026</span>
+        </a>
+
+        <a class="writing-list-item"
+           href="/writings/#hindu-cows"
+           data-writing-id="hindu-cows"
+           role="listitem">
+          <div class="writing-list-item-header">
+            <span class="writing-list-item-title">Hindu Cows</span>
+          </div>
+          <p class="writing-list-item-excerpt">What places like this want.</p>
+          <span class="writing-list-item-year">JAN 15 2026</span>
+        </a>
+
+        <a class="writing-list-item"
+           href="/writings/#barriers-of-calling"
+           data-writing-id="barriers-of-calling"
+           role="listitem">
+          <div class="writing-list-item-header">
+            <span class="writing-list-item-title">Barriers of Calling</span>
+          </div>
+          <p class="writing-list-item-excerpt">Fear as the test and the doorway.</p>
+          <span class="writing-list-item-year">DEC 17 2025</span>
+        </a>
+
+        <a class="writing-list-item"
+           href="/writings/#voice-of-calling"
+           data-writing-id="voice-of-calling"
+           role="listitem">
+          <div class="writing-list-item-header">
+            <span class="writing-list-item-title">Voice of Calling</span>
+          </div>
+          <p class="writing-list-item-excerpt">Work you're meant to do whispers.</p>
+          <span class="writing-list-item-year">DEC 14 2025</span>
         </a>
 
         </div><!-- /section-list-overlay-content -->
@@ -133,151 +177,418 @@
       <!-- RIGHT: Article content — sticky, scrollable, JS-updated -->
       <div class="writings-panel-article" id="writings-article-panel" aria-live="polite">
 
-        <!-- Article 1: The Case for Slower Design -->
-        <article class="writing-article" id="article-slower-design">
+        <!-- Article: Freedom -->
+        <article class="writing-article" id="article-freedom">
           <div class="writing-article-header">
-            <h2 class="writing-article-title">The Case for Slower Design</h2>
-            <p class="writing-article-intro">Why rushing through the design process often leads to solutions that feel polished but miss the point entirely. A reflection on patience as a design tool.</p>
+            <h2 class="writing-article-title">Freedom</h2>
+            <p class="writing-article-intro">Freedom was never just a preference for me. It became a way to protect myself.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">The Pressure to Ship Fast</h3>
-            <p class="writing-article-body">In modern product teams, speed is often treated as a virtue in itself. We celebrate "shipping fast and iterating," we admire designers who can turn around mockups overnight, and we measure success in velocity. But somewhere in this rush, we've conflated speed with effectiveness.</p>
-            <p class="writing-article-body">The problem isn't iteration—it's shallow iteration. When we move too quickly, we iterate on surfaces instead of understanding. We refine the UI before we've properly understood the problem. We A/B test button colors before we've validated whether users even need that button in the first place.</p>
+            <p class="writing-article-body">I do not think my need for freedom comes only from personality. Part of it was built much earlier.</p>
+            <p class="writing-article-body">If you grow up around tension, conflict, and instability, you learn that peace can disappear at any moment. Someone else's emotions can take over the room. Safety does not feel guaranteed. So you start protecting your own space. You become careful. You stay alert. You learn that if you do not guard yourself, something outside you will get in and disturb everything.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What Slower Design Looks Like</h3>
-            <p class="writing-article-body">Slower design doesn't mean procrastination or perfectionism. It means being deliberate about where you invest time. It means spending three days understanding a workflow before touching Figma. It means sketching twenty rough concepts before committing to high-fidelity mockups. It means saying "I need more time to think about this" when your instinct tells you something's off, even if the stakeholder is eager to move forward.</p>
-            <p class="writing-article-body">This kind of slowness is strategic. It prevents costly rework later. It surfaces edge cases early. It allows you to design systems instead of just screens.</p>
+            <p class="writing-article-body">Later, life adds more reasons to hold that line. Difficult friendships, feeling misunderstood, not wanting to hurt people, but also not wanting to feel trapped by them. After enough of that, freedom stops being an abstract idea. It becomes something you need in order to stay clear.</p>
+            <p class="writing-article-body">That is why I know I cannot live by a soft philosophy of just opening up more and feeling more. What I need is something firmer. A structure that lets me be close to people without disappearing inside them.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How to Practice Slower Design</h3>
-            <p class="writing-article-body">Front-load research. Spend disproportionate time early in the process understanding the problem space. Talk to users, map workflows, identify constraints. This upfront investment pays dividends downstream.</p>
-            <p class="writing-article-body">Sit with ambiguity. Resist the urge to jump straight to solutions. Let ideas marinate. The best insights often come when you're not actively trying to solve the problem.</p>
-            <p class="writing-article-body">Design in lo-fi longer. Stay in sketches and wireframes until you're confident in the structure and flow. Polish is cheap to add; strategy is expensive to retrofit.</p>
-            <p class="writing-article-body">Build in reflection time. After completing a design sprint or milestone, pause before moving to the next thing. What worked? What didn't? What would you do differently?</p>
+            <h3 class="writing-article-section-title">In relationships</h3>
+            <p class="writing-article-body">I have noticed that my biggest fear in relationships is not really being left. It is being trapped. When someone gets closer, my mind immediately starts checking for danger. What will they expect from me? Is my space getting smaller? Am I slowly entering a role? Can I still stay myself inside this?</p>
+            <p class="writing-article-body">That is where a lot of my tension comes from. I can connect, but then I pull back. I can care, but then I start feeling the pressure of expectation. And if I do not speak early enough, discomfort builds until distance feels like the only solution.</p>
+            <p class="writing-article-body">So the real skill I need is not becoming colder. It is learning how to set boundaries before I reach that point.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">The Paradox</h3>
-            <p class="writing-article-body">Here's the counterintuitive part: slower design often leads to faster outcomes. When you invest time upfront to understand the problem deeply, the execution phase becomes straightforward. You make fewer wrong turns. You need fewer rounds of revision. You ship something that actually solves the problem, rather than something that merely addresses the symptoms.</p>
-            <p class="writing-article-body">Speed without understanding is just thrashing. Patience with intention is how you build things that last.</p>
+            <h3 class="writing-article-section-title">In bigger life transitions</h3>
+            <p class="writing-article-body">The same thing happens in bigger life transitions too. New cities, endings, uncertainty, new people. In those periods I become more open, but also more unstable. I start romanticizing more. A city feels like it will save me. A person feels bigger than they are. An idea feels like the answer to my whole life. But I know by now that transition can distort things. It loosens your sense of self, and when that happens, almost anything can look like freedom.</p>
+            <p class="writing-article-body">That is why I need anchors. Body, work, and solitude. If I keep those three, I stay grounded. If I lose them, the environment starts shaping me too much.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">At night</h3>
+            <p class="writing-article-body">I see this most clearly at night. That is when I am most likely to drift. The body is tired, control is lower, loneliness gets louder, and small impulses start looking important. Then the mind packages it as depth or spontaneity, when really it is often just a tired nervous system looking for relief.</p>
+            <p class="writing-article-body">Because of that, I have started trusting structure more. Not because structure is exciting, but because it protects me better than mood does. Some thoughts are not truths, just night thoughts. Some urges do not need meaning, they just need distance. Some feelings do not need a story, only recognition.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The deeper question</h3>
+            <p class="writing-article-body">When I look at all of this together, the deeper question is simple. Can I move through people, places, and emotions without losing myself in them?</p>
+            <p class="writing-article-body">That is what I am trying to build now. Not total independence. Not isolation. Not emotional numbness. Just a way of staying in contact with life without being swallowed by it.</p>
+            <p class="writing-article-body">That is what freedom means to me at this point.</p>
+            <p class="writing-article-body">Not needing no one.</p>
+            <p class="writing-article-body">Just not losing myself when someone or something enters my life.</p>
           </div>
           <nav class="writing-article-nav writing-article-nav--next-only" aria-label="Article navigation">
-            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="interfaces-conversations">
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="completely-different">
               <span class="writing-article-nav-label">NEXT</span>
-              <span class="writing-article-nav-title">Interfaces as Conversations</span>
+              <span class="writing-article-nav-title">Completely Different</span>
             </button>
           </nav>
         </article>
 
-        <!-- Article 2: Interfaces as Conversations -->
-        <article class="writing-article" id="article-interfaces-conversations" hidden>
+        <!-- Article: Completely Different -->
+        <article class="writing-article" id="article-completely-different" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Interfaces as Conversations</h2>
-            <p class="writing-article-intro">Every interaction is a dialogue. Exploring how conversational patterns can inform better interface design beyond chatbots and voice assistants.</p>
+            <h2 class="writing-article-title">Completely Different</h2>
+            <p class="writing-article-intro">Had 5 days trip to Vienna living in friend's shared flat. Learned this: we all should accept that you are completely different from some people.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">A Two-Way Exchange</h3>
-            <p class="writing-article-body">Every time a user taps a button, submits a form, or navigates between screens, they're making a statement. The interface responds. This back-and-forth is fundamentally conversational — a structured exchange of intentions and confirmations.</p>
-            <p class="writing-article-body">We tend to think of conversation design as the domain of chatbots and voice assistants. But the principles apply everywhere. Clarity, timing, and appropriate response — these are the foundations of good dialogue, and good interface design.</p>
+            <p class="writing-article-body">I found myself inside a group I had only just met. All girls — all living together in a big house — all close to each other even controlling each others lives — all moving through life in a way that felt very far from mine. Different habits. Different friendships. Different reflexes. And more importantly, different assumptions about what is normal.</p>
+            <p class="writing-article-body">Maybe they had easier lives than I did. Maybe not. I cannot know that for sure. But after talking to some of them, I noticed that a few did not seem to come from the kind of friction, instability or difficulty that shapes how you read people and situations. That may have something to do with it. Or maybe it doesn't.</p>
+            <p class="writing-article-body">Still being around them showed me something I probably needed to see up close.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">What Good Conversation Looks Like</h3>
-            <p class="writing-article-body">Good conversation is reciprocal. It listens before it responds. It doesn't interrupt. It confirms understanding before moving forward. It's proportionate — a simple question gets a simple answer; a complex request gets a thorough response.</p>
-            <p class="writing-article-body">Interfaces fail when they violate these rules. A form that clears all inputs on validation error isn't listening. A modal that appears without warning is interrupting. A success state with no confirmation is leaving the user hanging.</p>
+            <h3 class="writing-article-section-title">No matter where you go</h3>
+            <p class="writing-article-body">No matter where you go, there will be people very near you who think in ways that feel almost hostile to your nature. Not evil. Not always openly aggressive. Just built on a logic it's impossible for you to respect and sometimes cannot even understand.</p>
+            <p class="writing-article-body">First started seeing it in small things: tiny gestures, the way they react under pressure, the way they explain their decisions, what they expect from you, what is missing when you need something. What feels natural to them can feel unbelievable to you. That happened to me a lot during that trip.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Designing for Dialogue</h3>
-            <p class="writing-article-body">The practical implication is simple: design every interaction as a turn in a conversation. What is the user saying? What do they need to hear back? How quickly? In what tone?</p>
-            <p class="writing-article-body">When you frame interface decisions this way, many common UI problems become obvious. Error messages that blame the user are rude. Loading states with no progress indicator leave the conversation hanging. Overly long onboarding flows are monologues.</p>
+            <p class="writing-article-body">During some deep conversation I was lucky to realize people in that group was coming from a very different life. Even seeing that world from the inside expanded my perspective. Their routines. Their lifestyle. Everything was interesting to watch. The observer I turned into was real good.</p>
+            <p class="writing-article-body">When something happened, the place my mind went and the place their minds went were not even on the same map.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">When conflict happened</h3>
+            <p class="writing-article-body">That difference became impossible to ignore some conflict in the house. Had an argument with flatmates of my friends and basically I wasn't wanted there anymore. Deep realization happened after my friend accepting mates decision instead of trying to find a middle ground. She did not say, "My friends don't want this, but he came here for me, so I need to find some middle ground." She did not try to hold both realities at once. She said she had done everything she could and that I needed to understand her. Meanwhile, I was the one completely pushed out.</p>
+            <p class="writing-article-body">At one point, she had to call and ask for permission just for me to enter the house. Then after all of this, the expectation somehow became that I should apologize. I still can't put the pieces together about their rationale.</p>
+            <p class="writing-article-body">What stayed with me is the complete lack of a shared center. No attempt to meet halfway. No real space for my side of the experience. Just a quiet assumption that her reality was the full reality. That was exhausting.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The lesson</h3>
+            <p class="writing-article-body">But here is the lesson is not that they will disappear. They won't. People like this will keep entering your life in different forms. The lesson is that when the gap is this wide, when the difference in values and reasoning is this obvious, you should not stay too long hoping mutual understanding will magically appear. This time I was late.</p>
+            <p class="writing-article-body">Stayed in situations that made me smaller. Treated them like experiences to absorb, as if endurance itself was maturity. Maybe some of it was useful. But next time as soon as realize I'm getting smaller and smaller, It'll be time to leave.</p>
+            <p class="writing-article-body">Some differences are not meant to be negotiated. Some people are simply too far from you. And accepting that early is cleaner than trying to turn it into harmony.</p>
           </div>
           <nav class="writing-article-nav" aria-label="Article navigation">
-            <button class="writing-article-nav-item" data-writing-id="slower-design">
+            <button class="writing-article-nav-item" data-writing-id="freedom">
               <span class="writing-article-nav-label">PREVIOUS</span>
-              <span class="writing-article-nav-title">The Case for Slower Design</span>
+              <span class="writing-article-nav-title">Freedom</span>
             </button>
-            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="systems-thinking">
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="the-right-people">
               <span class="writing-article-nav-label">NEXT</span>
-              <span class="writing-article-nav-title">On Systems Thinking in Product Design</span>
+              <span class="writing-article-nav-title">The Right People</span>
             </button>
           </nav>
         </article>
 
-        <!-- Article 3: On Systems Thinking in Product Design -->
-        <article class="writing-article" id="article-systems-thinking" hidden>
+        <!-- Article: The Right People -->
+        <article class="writing-article" id="article-the-right-people" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">On Systems Thinking in Product Design</h2>
-            <p class="writing-article-intro">Design decisions don't exist in isolation. How understanding feedback loops and emergent behavior changes the way we approach product work.</p>
+            <h2 class="writing-article-title">The Right People</h2>
+            <p class="writing-article-intro">Loneliness is not always the problem. Sometimes the real problem is the lack of the right people around you.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Nothing Exists in Isolation</h3>
-            <p class="writing-article-body">A button isn't just a button. It's connected to a flow, a mental model, a business goal, a user frustration, a technical constraint, and a dozen other buttons across the product. Change one and you change all of them, at least a little.</p>
-            <p class="writing-article-body">Systems thinking is the practice of seeing these connections before you act on them. It's the difference between fixing a symptom and understanding the disease. In product design, it's one of the most undervalued skills.</p>
+            <p class="writing-article-body">Last week was intense, but in a good way. There was movement, people, groups, energy. It reminded me of something simple. I do not think I am someone who is built to live too far from people all the time. Yes, I need space. Yes, I need solitude. But I can also see more clearly now that some part of me comes alive around the right people.</p>
+            <p class="writing-article-body">Not just any people.</p>
+            <p class="writing-article-body">The right kind.</p>
+            <p class="writing-article-body">People I can work next to. Sit with in the same café. Meet in the middle of the day. Study with. Talk to without force. People with a similar mentality. People who make life feel a little more shared.</p>
+            <p class="writing-article-body">That is the difference.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Feedback Loops and Emergent Behavior</h3>
-            <p class="writing-article-body">Systems have feedback loops. A design decision that makes one metric go up will often make another go down. Features that feel good in isolation create emergent behaviors at scale that no one anticipated.</p>
-            <p class="writing-article-body">The best designers I know spend time mapping these loops before they start designing. Not formally — not always with diagrams or documentation — but mentally. They ask: if users do X, what happens downstream? If we build this, what do users stop doing?</p>
+            <p class="writing-article-body">Because life already brings enough loneliness on its own. There is no need to add extra distance on top of it and call that strength. If there were someone more like me in the same country, in the same rhythm, I know what would happen. We would probably meet often. Same cafés, same work sessions, same walks, same conversations. The structure would form naturally. That kind of closeness would not feel heavy. It would feel supportive.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">This week will be calmer, then things will get intense again. But that does not really change the point. Whether life is socially full or socially quiet, I still need to keep opening up. I am not in school anymore, so that built-in feeling of community is weaker now. Nobody is going to hand me a circle. I have to keep asking, keep showing up, keep sitting down, keep becoming visible. Confidence matters here. Not fake confidence. More like the willingness to continue without waiting for the perfect setting.</p>
+            <p class="writing-article-body">And I think that is where a lot of people get lost.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Everyone's emotional strings are in other people's hands. Everyone is being dragged around by moods, reactions, insecurities, social tension, small changes in atmosphere. Almost nobody seems able to stay in their own center. Almost nobody stops and asks, why am I being moved this easily? Why does every shift around me become a shift inside me too?</p>
+            <p class="writing-article-body">That is why I keep coming back to the same idea.</p>
+            <p class="writing-article-body">Even when circumstances change, the version of me at the center should stay the same.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">If the real Efe is happy, then he should act from that place. If he wants to create something, he should create. If he wants to leave a message, he should choose it carefully and leave it clearly. If he wants to keep his energy high, he should protect that energy and spread it. That is how he grows. That is how he feels alive. That is how he looks back and feels good about the way he lived.</p>
+            <p class="writing-article-body">Because there is only one life, and when I look back at this period, I know how I want it to feel. I want it to feel alive. Energetic. Open. Strong.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Being alone has its place. I know that. But I can also admit something else now. Part of what feeds me is being with people. Being inside a group. Working with others. Feeling that shared momentum. Last week showed me that clearly. I was relaxed. I was doing work I enjoy. There was not much stress. And being around people made my energy higher.</p>
+            <p class="writing-article-body">That is not weakness. That is useful information.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">So maybe the goal is not just "be okay alone."</p>
+            <p class="writing-article-body">Maybe the goal is to build a life where the right people are regularly part of the rhythm.</p>
+            <p class="writing-article-body">People you like. People you respect. People you can meet during the day. People you can study with, work with, spend time with without draining yourself. A real environment. A real circle. Not constant noise, not random socializing, but a few good people placed well inside the week.</p>
+            <p class="writing-article-body">That kind of life seems healthier to me.</p>
+            <p class="writing-article-body">And maybe it is also more honest.</p>
           </div>
           <nav class="writing-article-nav" aria-label="Article navigation">
-            <button class="writing-article-nav-item" data-writing-id="interfaces-conversations">
+            <button class="writing-article-nav-item" data-writing-id="completely-different">
               <span class="writing-article-nav-label">PREVIOUS</span>
-              <span class="writing-article-nav-title">Interfaces as Conversations</span>
+              <span class="writing-article-nav-title">Completely Different</span>
             </button>
-            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="typography-ux">
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="regret">
               <span class="writing-article-nav-label">NEXT</span>
-              <span class="writing-article-nav-title">Typography as UX</span>
+              <span class="writing-article-nav-title">Regret</span>
             </button>
           </nav>
         </article>
 
-        <!-- Article 4: Typography as UX -->
-        <article class="writing-article" id="article-typography-ux" hidden>
+        <!-- Article: Regret -->
+        <article class="writing-article" id="article-regret" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Typography as UX</h2>
-            <p class="writing-article-intro">The most overlooked user experience decision is the one you read. Notes on how type choices shape perception, trust, and usability.</p>
+            <h2 class="writing-article-title">Regret</h2>
+            <p class="writing-article-intro">The real regret isn't failing. It's knowing you kept choosing the smaller life.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">The Invisible Interface</h3>
-            <p class="writing-article-body">Most users never consciously notice typography. They don't think about line height or tracking or the difference between optical and metric kerning. But they feel it. They feel the difference between text that's easy to read and text that makes them work. They feel the personality a typeface projects before they've processed a single word.</p>
-            <p class="writing-article-body">This invisibility is exactly what makes typography so important and so dangerous. Bad typography erodes trust without the user knowing why. Good typography builds confidence invisibly.</p>
+            <p class="writing-article-body">Regret scares me more than failure.</p>
+            <p class="writing-article-body">Failure has movement in it.</p>
+            <p class="writing-article-body">Regret just sits there.</p>
+            <p class="writing-article-body">You turn around years later and see a version of your life that could have happened, and now it is untouchable. That is what makes it heavy. Not just the mistake itself. The fact that time closed around it and you cannot re-enter.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Hierarchy Is Navigation</h3>
-            <p class="writing-article-body">Typographic hierarchy isn't just about making headings big. It's a navigation system. It tells the reader where they are, what's important, and what they can skip. Clear hierarchy reduces cognitive load. Poor hierarchy makes every piece of content feel equally demanding.</p>
-            <p class="writing-article-body">The practical test: can a user scan your page in three seconds and know where to focus? If not, the hierarchy has failed, regardless of how beautiful the individual type choices are.</p>
+            <p class="writing-article-body">When I think about my university years, there are things I could regret. I never would have wanted that injury for American football. Never. Some things are not life lessons. Some things are just damage. And even outside of that, I can see other missing pieces. I could have been more social. I could have met more people. Built a better circle. Spent more time with people, lived more with them, been happier with them. There were probably whole parts of life available to me that I did not fully step into.</p>
+            <p class="writing-article-body">Then I think further back. What would I change about high school? Honestly, maybe I would have rebelled more. Maybe I would have cared less. I never really felt like I belonged there. Aydın was not for me. Then I came to Ankara. Maybe Istanbul would have been better. I do not know. Back then there was no real guidance. No real intelligence behind my choices. No real agency. Still, even with that, I probably could have chosen better for myself.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">That is the part I care about now</h3>
+            <p class="writing-article-body">I do not want to keep repeating that pattern. I do not want to reach another stage of life and realize I lived it too safely, too politely, too passively, too shaped by hesitation.</p>
+            <p class="writing-article-body">Because if I am honest, the biggest regret waiting for me in the future is probably not failure. It is low risk. Taking the smaller path. Being too afraid to upset people. Being too afraid that someone will be disappointed. Being too afraid of the roads I actually want. That is the real danger. Not ruining my life, but shrinking it.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">That is why some things feel so important to me right now. Thailand, for example. Fighting. Going there. Living there for a while. Trying it. Seeing it. Learning what that life actually feels like instead of just admiring it from far away. I know I need to ask more questions. I know I need to take more risks. I know that already. The only question is whether I will act like I know it.</p>
+            <p class="writing-article-body">Because regret usually does not come from being reckless. It comes from betraying something clear inside you. You knew. You wanted it. You felt the pull. And still you stayed where it was safer. That is the kind of memory that follows you.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The better question</h3>
+            <p class="writing-article-body">So maybe the better question is not "What do I want right now?" Maybe it is this: How do I build my life in a way that lets me turn 30 and say I did not betray 25? That feels more serious.</p>
+            <p class="writing-article-body">If I wanted to live in a way that leaves less room for regret, I think the answer would be simple, even if not easy. I would meet more people. Real people. Go out with them. Listen to their stories. Build actual connection instead of staying in my own lane too much. I would bring better energy into rooms. Not fake positivity. More like presence. Aliveness. Openness. A stronger spirit. I would take real action on my personal business. Produce. Build. Publish. Sell. Learn through movement. Choose a field that fits my strengths and still develop the rest along the way. And I would understand myself better as I get older, not worse. I would become more honest about who I am, what I want, what kind of life is actually mine, and what kind of strength I need to build to carry it.</p>
+            <p class="writing-article-body">Maybe that is all regret is in the end. A signal. A brutal way of showing you where you were not brave enough to become yourself. And if that is true, then the point is not to sit around fearing regret. The point is to use it early. To look ahead and ask what future version of you would resent. To ask where you are still choosing comfort over truth. To ask where fear is still pretending to be wisdom.</p>
+            <p class="writing-article-body">Because I do not want a future where I look back and see a life shaped by caution. I do not want to realize I stayed too small because I was trying to avoid pain, avoid conflict, avoid risk, avoid being misunderstood. That kind of life may look clean from the outside. But inside it would feel like waste. And that, more than failure, is what scares me.</p>
           </div>
           <nav class="writing-article-nav" aria-label="Article navigation">
-            <button class="writing-article-nav-item" data-writing-id="systems-thinking">
+            <button class="writing-article-nav-item" data-writing-id="the-right-people">
               <span class="writing-article-nav-label">PREVIOUS</span>
-              <span class="writing-article-nav-title">On Systems Thinking in Product Design</span>
+              <span class="writing-article-nav-title">The Right People</span>
             </button>
-            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="moving-to-milan">
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="how-other-people-control-emotions">
               <span class="writing-article-nav-label">NEXT</span>
-              <span class="writing-article-nav-title">Moving to Milan: A Design Perspective</span>
+              <span class="writing-article-nav-title">Who Controls Your Emotions</span>
             </button>
           </nav>
         </article>
 
-        <!-- Article 5: Moving to Milan -->
-        <article class="writing-article" id="article-moving-to-milan" hidden>
+        <!-- Article: How Other People Control Our Emotions -->
+        <article class="writing-article" id="article-how-other-people-control-emotions" hidden>
           <div class="writing-article-header">
-            <h2 class="writing-article-title">Moving to Milan: A Design Perspective</h2>
-            <p class="writing-article-intro">What relocating to a city steeped in design history teaches you about your own practice. On environment, influence, and starting fresh.</p>
+            <h2 class="writing-article-title">Who Controls Your Emotions</h2>
+            <p class="writing-article-intro">Mindfulness has helped me a lot lately. Not in some dramatic way. More in the sense that it gives my mind a little more space. A little more air.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">A City That Takes Design Seriously</h3>
-            <p class="writing-article-body">Milan is not a city that politely tolerates design. It is a city built around it. The furniture, the storefronts, the way a café arranges its pastries — there is a visible seriousness to how things are made here. Moving here from a context where design is primarily a business function was disorienting in the best way.</p>
-            <p class="writing-article-body">You start to see differently. You notice craft where you used to notice only category. You start asking why a surface is finished the way it is, not just what it does.</p>
+            <p class="writing-article-body">Mindfulness has helped me a lot lately. Not in some dramatic way. More in the sense that it gives my mind a little more space. A little more air. It calms me down because it keeps teaching me the same thing from different angles: to step out of my head.</p>
+            <p class="writing-article-body">Even that idea changes something in me. When I think about not having a head, or at least not being trapped inside it all the time, I relax. My attention turns outward. I loosen my grip on myself. Something about ego weakens. Something about self-obsession weakens too. And once that happens, social situations start to look different.</p>
           </div>
           <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Environment Shapes Practice</h3>
-            <p class="writing-article-body">I didn't expect geography to matter this much. I thought practice was portable — that the habits and standards I'd developed would travel with me. They did, but they also started to change. Slowly. The visual density of the city, the exposure to Italian industrial design, the Politecnico's rigour — these things accumulate.</p>
-            <p class="writing-article-body">The lesson isn't that you need to move to a design capital to grow. It's that environment matters, and it's worth being deliberate about the environments you put yourself in. The standards around you become the standards inside you.</p>
+            <h3 class="writing-article-section-title">The exercise</h3>
+            <p class="writing-article-body">There was an exercise in the app a few days ago. It said to enter different environments and simply watch what happens to you. Watch how you feel when the people around you change. Watch how your sense of self shifts from place to place. Watch how one room can make you feel open and another can make you feel small. Watch how the arrival of one person can change your whole inner state.</p>
+            <p class="writing-article-body">That stayed with me. Because I keep noticing how much control other people have over us, and how normal that seems to everybody. That is the strange part. Not that it happens, but that almost nobody finds it strange. People just live like this. Their emotional strings are in other people's hands and they barely step back enough to notice it.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Look around</h3>
+            <p class="writing-article-body">Look around. Everyone is worried. Everyone has insecurities. Everyone is unable to fully accept what is. Everyone is pulled around by glances, moods, comments, tension, social atmosphere. Someone says something. Someone enters the room. Someone goes quiet. And suddenly their whole state changes. They do not put any distance between what happened and their reaction to it. It all becomes one thing.</p>
+            <p class="writing-article-body">Maybe that is what mindfulness is for me now. Putting a wall between myself and what is happening. Not to become cold. Not to become detached in some fake spiritual way. Just to stop being dragged away by every shift in the external world.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Because life is really just a flow of experiences. One place, then another. One conversation, then another. One version of you, then another. There is not even one fixed life. There is not one fixed self either. Maybe there is no stable self at all, but that is a different subject. Still, it keeps bringing me back to the same question. Why are we so externally controlled?</p>
+            <p class="writing-article-body">Why does the state of our mind change so quickly depending on who is in front of us, what kind of street we are walking on, what room we are sitting in, what kind of energy surrounds us? Why does a random person, a random environment, a random interaction get to decide so much about what we feel? And the strongest place I see this is in emotions. In states. How one event can take over the whole day.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Where suffering multiplies</h3>
+            <p class="writing-article-body">You argue with your sister. The conversation ends. The real event is over. That is the only concrete thing that actually happened. But it does not end there. In your mind it keeps going. You continue the conversation alone. You replay it. You rewrite it. You add things. You defend yourself. You get hurt again. The moment is gone, but your mind keeps feeding it and stretching it into something bigger than it was. That is where suffering multiplies. Not always in the event itself, but in the continuation of it. In the way we let it keep living inside us.</p>
+            <p class="writing-article-body">That is why I keep thinking about this more seriously now. After practicing mindfulness more, after getting pulled into the philosophy behind it, after learning new concepts that make me question what the mind even is, I cannot look at my own reactions the same way. When I stop staring from inside my own head and look outward, I mostly just see other people's heads. Other people's minds. Other people lost inside reactions they never examine. And then I come back to myself and ask the harder question. Why am I still allowing this too? Why do I still let external things move me this much? Why is the control so often outside of me?</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Because there is always some state I want to live in. A light mood. A relaxed mood. A grounded mood. A state where I am just here, unbothered, stable, in myself. But so often that state gets interrupted by something outside of me. A look. A tone. A room. A stranger. A social setting. A street I do not know. And suddenly I am elsewhere.</p>
+            <p class="writing-article-body">For me, this has always been difficult. In new environments especially, but honestly in almost any environment, staying fully with myself has never come naturally. Being so rooted that I am not disturbed by people's expressions, their judgments, their presence, their approval or disapproval. That kind of state has always been hard for me to hold. That is why these mindfulness practices have been helping so much lately. I feel more inside myself. I care less about what is happening around me. And because of that, I feel more confident. More relaxed. Less available to be pulled around.</p>
+            <p class="writing-article-body">I think that is the real thing I wanted to say here. Maybe we should all look more carefully at who pulls us where. Which people make us contract? Which interactions leave us heavy? Which environments quietly change our entire nervous system? And why do we allow that so easily? Why do we not place some distance between what happens and what happens inside us? I do not mean escaping life. I do not mean becoming emotionless. Pain is still pain. Awkwardness is still awkwardness. A bad interaction is still bad. But there has to be some space between the world and our surrender to it. Otherwise we are just handed from one state to another all day long, and we call that normal. Lately that no longer feels normal to me. It feels unsettling. And strangely, seeing that has made me calmer.</p>
+          </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="regret">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">Regret</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="weight-of-not-knowing">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Weight of Not Knowing</span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- Article 4: The Weight of Not Knowing -->
+        <article class="writing-article" id="article-weight-of-not-knowing" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Weight of Not Knowing</h2>
+            <p class="writing-article-intro">Success has always come with a problem for me. Not success itself. What comes before it. The uncertainty. The dark part before anything becomes real.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Lately these thoughts have been coming to me a lot again. Questions about where I will end up. Whether the things I want will work. Whether I am taking the right steps or wasting time without realizing it. Whether I am building something real or just keeping myself busy. I am scared of things not going well. That is the truth.</p>
+            <p class="writing-article-body">A while ago I talked about this with GPT and one explanation stayed with me. The constant doubt. The inability to feel fully safe inside unclear situations. The need to know. The fear of chaos. It tied some of it back to childhood, to unclear environments, to family chaos, to growing up in places where things were not stable enough to trust. Maybe that is part of it. I do not know. But it makes sense that uncertainty does not feel neutral to me. It feels dangerous. And the future is uncertainty in its purest form.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Of course there are things I want</h3>
+            <p class="writing-article-body">Of course there are things I want. There are paths that can take me there too. I want to walk those paths every day. I want to make progress. I have goals and I want to reach them in this lifetime. Looking back, I am not bad at reaching things I set my mind on. I can say that. I have done things I wanted to do. But there are also things I keep failing at. Things I keep dropping. Parts of life that keep slipping while I hold onto others. That is where it gets heavy.</p>
+            <p class="writing-article-body">Life has branches. Business. Gym. Family. Classes. Money. Health. You hold one and another escapes. You try to help your mother with something. Your training starts disappearing. You try to get disciplined again. Something else breaks. You try to be fully present in one domain and another starts rotting quietly in the background. It makes you feel split. And then the bigger fear comes in. What if this never comes together? What if I build the wrong life slowly, day by day, while telling myself I am trying? What if I wake up too late?</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">I do not want a miserable life. I know that much. I want freedom. Real freedom. Not needing anyone. Not being trapped by money, place, permission, or some weak structure that limits what my life can become. I want to be able to move because I chose well, not because I was cornered. But then the question returns. How are we going to do this? Really. How is this going to happen? That question bothers me more than I want to admit. Some nights it affects my sleep.</p>
+            <p class="writing-article-body">I am in my mid-twenties. One third of life, maybe. These years feel too important to waste. Probably the years with the most energy, the most courage, the most room for risk. You know that while living them too. That is what makes them heavy. They are not just passing. They are valuable while they are passing. You want to do something with them. But nothing happens immediately. You set goals. Time passes. Some things build slowly. Almost nothing happens when you want it to. Maybe for some things to happen, you need to be obsessed for a while. Maybe you do need a few nights where sleep does not come easily because your mind is asking the same question again and again. How will this happen? How will I build this? What am I missing? Maybe that pressure is not always the enemy. Maybe sometimes it is the cost of wanting something enough.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">And sahiden, looking back</h3>
+            <p class="writing-article-body">And sahiden, looking back, some of it does bear fruit. That anxiety. The overthinking. The missed sleep. The dark clouds. They do leave something behind. They make me take things more seriously. They make time feel more expensive. They push me to fit more into each day. I have seen this in my own life.</p>
+            <p class="writing-article-body">When I was at ODTÜ ENTASTA, even as a second-year student, I was already obsessed with gaining experience because I knew I needed money and I knew I did not want to wait around passively. I saw people above me getting internships and doing real things, and it drove me half crazy. I felt like I had to move too. That obsession made me find an internship a year before many of my classmates. Then after the internship, they hired me as a designer. I started making money. I started building experience. I was working as a UI/UX designer while I was still in my second year of design education.</p>
+            <p class="writing-article-body">If you looked at my journals from that time, you would not see some calm, balanced, healthy ambition. You would see misery. You would see how badly I wanted it. How consumed I was. My friends used to say they only saw me in front of my laptop. And when they said that, I did not even know what to say back, because it did not feel strange to me anymore. It had become normal. That was my life. That was the shape my ambition had taken.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">So when people say you should live without anxiety</h3>
+            <p class="writing-article-body">So when people say you should live without anxiety, I do not fully believe them. I do not think a person can live completely free of worry and still build something meaningful. I do not think being fully stress-free is normal if you are trying to make something of your life. Some anxiety has to exist. Some concern. Some fear of wasting yourself. Some relationship with the darkness ahead. The future is not clear. It is probably more likely to go badly than beautifully if you move through it half-asleep. The problem is not anxiety itself. The problem is what kind. There is anxiety that keeps you moving. And there is anxiety that rots the present while pretending to protect the future. I know both very well.</p>
+            <p class="writing-article-body">Right now I am in the second year of my master's. I know I do not want to stay in Italy. I know I want to be abroad. I know I want to build my own business. I know there are too many decisions to make and that the picture is not clear enough yet. And I remember this feeling from before. Waiting to hear back from Polimi in my final year at ODTÜ. The same dark clouds. The same uncertainty. The same feeling of being cornered by a future that had not shown its face yet. Those clouds did clear eventually. But they did not clear because I became relaxed. They cleared after nights of no sleep. After exhaustion. After calling my mother and crying because I was tired, scared, and lost inside the uncertainty of whether success would come at all. That image is still in me. So yes, worry can produce movement.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">But there is another layer</h3>
+            <p class="writing-article-body">But there is another layer to this that bothers me more. When I look closely, the center of most of these anxieties is not even fully mine. That is the worst part. The expectations behind them. The pressure. The image of what success should look like. Who set those? Was it really me? Or did I inherit them so deeply that now I mistake them for my own voice? Sometimes I think almost everything I call "my ambition" has other people's fingerprints on it. Family. Society. Comparison. Status. Fear. The quiet standards that entered me before I was even aware enough to reject them. They shaped me so deeply that now even the life I am trying to build can feel suspicious. Is this actually my path? Are these actually my decisions? Is this road mine? Or am I just executing a script that entered me years ago and never left? That question goes deeper than success. It touches everything. The work I choose. The city I stay in. The things I panic about. The things I think I am late for. The things I call failure. Even the shape of the future I am afraid of.</p>
+            <p class="writing-article-body">And this is where mindfulness has been helping me recently. Not by removing the anxiety completely. More by helping me catch it while it is happening. If I notice it early enough, I can stop myself from drowning in it. That is what it feels like sometimes. Like being dragged into a huge dark sea with my eyes closed. I do not even know where I am. I just know I am somewhere bad. Somewhere that gives me fear, not clarity. But if I catch it. If I stop. If I breathe. If I ask where this is coming from. Then something shifts. I see that a lot of these worries are not helping me build a better future. They are just damaging the present. And because they damage the present, they damage the future too. They do not make me act better. They make me heavy. Unfair to myself. Ungrateful. They make me stare at what is missing instead of what is already there. They make me think more about what I failed to do than what I have actually done. That state is not useful. A clear mind plans better. A clear mind decides better. A clear mind can think about the future without kneeling in front of it.</p>
+            <p class="writing-article-body">Maybe that is the real work now. Not becoming someone with no anxiety. That sounds fake to me. More like becoming someone who can tell which worry is real and which one was planted there. Which fear belongs to the soul and which one belongs to the crowd. Which pressure is a signal and which one is just poison wearing the clothes of ambition. Because one of them builds a life. The other one steals it. And I think a person has to stop sometimes and ask the hardest question there is. This life I am moving toward. These choices. This pressure. This version of success I am chasing. Is any of it actually mine?</p>
+          </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="how-other-people-control-emotions">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">Who Controls Your Emotions</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="hindu-cows">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Hindu Cows</span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- Article 5: Hindu Cows -->
+        <article class="writing-article" id="article-hindu-cows" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Hindu Cows</h2>
+            <p class="writing-article-intro">That is what places like this want. A visit to the office and what it reveals about how companies shape people.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Hindu cows. That is what places like this want.</p>
+            <p class="writing-article-body">I came into Insider today and had a hard time believing what I was seeing. TVs everywhere. Writing on the walls. Noise inside the office. Colors, objects, shelves, visual clutter. The whole place feels messy, loud, chaotic. Sometimes the sound suddenly rises for no reason. The only clearly good thing is that you are somewhere. You are in an office. You have internet, a chair, a desk, a stable place to work. That is the bait. Because once you look a little closer, the whole thing starts to feel dark.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">I keep noticing things</h3>
+            <p class="writing-article-body">I keep noticing things and each one feels too obvious to ignore. Even something as simple as a sentence on the wall. You know what it says? If you are not taking care of your customer, someone else will. And that tells you everything. It is not there to inspire you. It is there to push you. To remind you who matters and who does not. To turn you into a machine. To make sure your attention goes in one direction only. Produce. Serve. Perform. Give more. Live for the company's outcomes. Be useful. Stay useful. Not for yourself. For them.</p>
+            <p class="writing-article-body">I learned something else from a friend. If you become the best player on the team that year, they make you a shareholder. I had seen that once before on LinkedIn and wondered how it happened. The person was from my school too, one or two years above me in design. I was curious back then. Now I get it. And now that I get it, I also see how dark it is underneath. This place knows how to chain people to itself.</p>
+            <p class="writing-article-body">There is more to say about that. The way they turn work into identity. The way they inject little messages into people every day. The way they wash the brain slowly, not dramatically, just enough for you to stop resisting. You even see it in places where you should be left alone. Even in the bathroom. Even there, they are still talking to you. Still shaping you. Still telling you what kind of human you should become for them. They literally write it on the wall. Huge words. Big slogans. A giant customer centric with adjectives around it like a moral code. I looked at the ones that stood out first: tireless, stress resistant, nonstop. Read that again. Tireless. Stress resistant. Nonstop. That is not humane. That is not wisdom. That is not healthy ambition. That is a blueprint for a better slave. A better machine. A worker that keeps going no matter what breaks inside. And the worst part is they are not even hiding it.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">They do not care about the workers</h3>
+            <p class="writing-article-body">They do not care about the workers. They care about customers, numbers, growth, revenue. And to push those numbers higher, they use people. Openly. In your face. They tell you who the center is, and it is not you.</p>
+            <p class="writing-article-body">At the start I mentioned the TVs. Do you know what is always playing on them? Not anything useful. Not something about health. Not a practical update. Not something that would actually help people work better or live better. No. What plays on those screens is footage from past events. Happy faces. Group photos. People dancing. Loud laughter. Retreat clips. Team moments. Fake warmth. Manufactured energy. Why? Because they need you to believe people here are happy. They need you to believe this is a reward. They need to cover the wound. That is what all of it is for. The retreats. The shallow conversations. The forced smiles. The event footage. The cheap fun after long days. It is there to make you forget what is underneath. To distract you from the fact that your life is being spent in a place that wants as much from you as possible while giving back just enough comfort to keep you from leaving. The screens are not there to inform you. They are there to distract you. And what is funny is that they even distract you while you work. Those videos reduce focus. They pull your attention away. But they still put them there, because the goal is not actually the quality of your attention in that moment. The bigger goal is conditioning. Keep the atmosphere strong. Keep the illusion alive. Keep people emotionally managed. That matters more than your concentration.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">And then there is the dopamine cycle</h3>
+            <p class="writing-article-body">And then there is the dopamine cycle. They push people down, then give them little highs. Music, events, breakfast, snacks, drinks, nice desks, nice offices, promotions, retreats, the occasional public praise. People fall for it because they are tired and hungry and desperate for relief. So they dance. They laugh. They go on the trip. They post the picture. They feel alive again for a second. But what about the days before that? What about the dull pain of all the ordinary mornings? What about all the hours where something inside you knows this is not it? This is the same problem as waiting for Friday. Friday should not need to save you. If you are always waiting for the week to end, if the relief only comes when work pauses, if your joy depends on escaping your job for two days, the problem is not your mood. The problem is the structure of your life.</p>
+            <p class="writing-article-body">Places like this know how to trap people who are just uncomfortable enough to want out, but comfortable enough to stay. That is the trick. They build a cage that does not look like a cage. Promotions. Breakfast. Good coffee. Snacks. Parking. A nice laptop. A shiny office. A yearly retreat. A cool brand name. Just enough status to make you feel like leaving would be irrational. Just enough convenience to make your soul negotiable. But it is all decoration. It is all there to hide the larger pain.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">I have seen other corporate places before and not all of them felt this shameless. But still, what do you expect in the end? You are inside a private company. The limits are whatever they decide. The rules are whatever they can get away with. Use people as much as possible. Push as far as possible. Manipulate as softly as possible. Call it culture. Call it growth. Call it excellence. It is still exploitation.</p>
+            <p class="writing-article-body">This place honestly feels like 1984 to me. Capitalism in one of its cleanest modern forms. Especially for young people. Make it look cool. Make it look ambitious. Make it look like the smart place to be. Give it a name, a building, a story, a little prestige. Then fill it with messages about endurance and output until people no longer know whether they are building a career or slowly giving themselves away. And people do give themselves away. They work for wages, for image, for a nice title, for the building, for the car they can now finance, for the status of having a respectable job. They complain on the way there. They feel slightly better during the day because human connection softens the damage. Then by evening they get happy because the day is ending. Tomorrow morning it starts again. The same resentment. The same tiredness. The same quiet hatred. But the company pulls them back in every time with some new polished comfort. That should not fool anyone.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">I am saying all this while also seeing my own contradiction clearly</h3>
+            <p class="writing-article-body">I am saying all this while also seeing my own contradiction clearly. In four days, I have a retreat. I will see my team face to face for the first time in a year. I am excited. They planned it well. I feel grateful. A lot of things are covered. For one week we will live well. I can enjoy that and still tell the truth. That comfort does not erase the deeper reality. That retreat should not make me forget that I am still not doing my calling. That is the real danger with places like this. Not that they hurt you openly. That would be easier to detect. The danger is that they can make you comfortable enough to betray yourself quietly. And meanwhile this company makes a lot of money. It serves multiple continents. It has hundreds of customers. It is big. It is successful. And still, look at how it treats people. Look at the values it puts on the wall. Look at the psychology of the place. This is modern slavery. Cleaned up. Branded well. Made to look like opportunity.</p>
+          </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="weight-of-not-knowing">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">Weight of Not Knowing</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="barriers-of-calling">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Barriers of Calling</span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- Article 6: Barriers of Calling -->
+        <article class="writing-article" id="article-barriers-of-calling" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Barriers of Calling</h2>
+            <p class="writing-article-intro">Fear is not just holding you back. Fear is the test. If you never feel it, you're probably not anywhere close to your calling.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">Fear is not just holding you back. Fear is the test. If you never feel it, you're probably not anywhere close to your calling. But let's be honest: fear doesn't show up as one clear voice. It arrives in layers. You fear being judged. You fear being alone. You fear failing. You fear wasting years of your life on the wrong path. And the worst of all? You fear walking without a path at all. That's why most people never leave the system. They'd rather stay chained to stability than face the dark road of uncertainty.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The Illusion of Stability</h3>
+            <p class="writing-article-body">From the outside, stability looks like the dream: a paycheck, a respectable career, a title, a seat at the table. But here's what Dan Koe writes in <em>Purpose &amp; Profit</em>: "Most people outsource their goals. They think someone else knows better, so they climb ladders placed in front of them instead of building their own." — Dan Koe. That's the trap. You don't just trade time for money — you trade sovereignty for comfort. A career is just survival stacked on survival. Each promotion feels like progress, but it's really comfort disguised as growth. You know it. You feel it. The deeper you climb into someone else's structure, the heavier it gets to imagine leaving. By the halfway point, the fear of wasting years makes escape feel impossible.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">My Own Checkpoint</h3>
+            <p class="writing-article-body">I've seen this in my own work. Right now, in my company, decisions for Q4 are being made. The strategies, the directions, the priorities. I don't make those decisions. I follow them. Part of me wants to be in that decision-making seat. But another part admits: I'm not ready yet. It feels like a game. Like I haven't passed enough checkpoints to earn that level. So I let others choose for me. That's safer. That's easier. But here's the uncomfortable truth: every time you prefer orders over ownership, you trade growth for obedience. You accept someone else's playthrough instead of building your own. It doesn't matter if you're at a startup, a corporate giant, or freelancing under another person's system. If you're letting fear of the next level hold you back, you're not playing your own game. And deep down, you know it.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The Compounding Weight of Fear</h3>
+            <p class="writing-article-body">Fear doesn't stay small. It multiplies. It tells you: "If I quit, I'll be unemployed." It whispers: "If I fail, my family will be ashamed." It haunts you: "If I choose wrong, I'll ruin my future." This is where the noise takes over. Opinions from family, friends, coworkers. Advice from people who never lived the life you want. The social conditioning that says, Play it safe. Don't risk too much. Stay grateful for what you have. But what they call "safe" is really dangerous. The modern world is designed to keep you in chains. A slave to the system. A drooling bag of bones that craves instant gratification, free handouts, and constant stimulation. Safety keeps you distracted. Stability keeps you sedated. Fear convinces you that chains are a blessing. That's why so many people never challenge their beliefs. They confuse predictability with peace.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The Dark Road</h3>
+            <p class="writing-article-body">And here's the scariest part: calling has no map. When you step off the pre-drawn ladder, there's no guarantee. No syllabus. No manager telling you what to do next. You can sink or you can swim. Both are possible, and nobody will hand you the outcome. That's why the fear of walking without a clear route feels heavier than anything else. But this is where sovereignty begins. Fear is the cost of sovereignty. If you want control over your life, you must be willing to walk into darkness with no guarantee. Fear is the toll you pay to own your path. If you never feel it, it means you're still walking someone else's.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Why Fear Is Proof</h3>
+            <p class="writing-article-body">Look closer at your fears. The fear of being judged? Proof that you're stepping outside the herd. The fear of failing? Proof that you're finally risking something real. The fear of wasting years? Proof that you're waking up to how precious your years actually are. Fear is not your enemy. Fear is evidence you're alive. What should terrify you more is not failing — it's never trying.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Your Challenge</h3>
+            <p class="writing-article-body">Most people will never face this. They'll keep outsourcing their goals, stacking survival on survival, and calling it progress. But you know better. So here's your challenge: Choose one place in your life where fear has been steering the wheel. Write it down. Then take one small step into that darkness. Not because it's safe. But because it's yours. Because on the other side of fear is the only thing worth chasing: fulfillment.</p>
+            <p class="writing-article-body">Fear is the barrier. But it's also the doorway. You can let it keep you in noise, expectations, and comfort. Or you can treat it as the toll you must pay to build your own path. You will never eliminate fear. But you can choose what it means. And that choice is where your calling lives. So ask yourself: Will you keep climbing ladders that were built for you? Or will you finally walk the dark road, trembling, but free?</p>
+          </div>
+          <nav class="writing-article-nav" aria-label="Article navigation">
+            <button class="writing-article-nav-item" data-writing-id="hindu-cows">
+              <span class="writing-article-nav-label">PREVIOUS</span>
+              <span class="writing-article-nav-title">Hindu Cows</span>
+            </button>
+            <button class="writing-article-nav-item writing-article-nav-next" data-writing-id="voice-of-calling">
+              <span class="writing-article-nav-label">NEXT</span>
+              <span class="writing-article-nav-title">Voice of Calling</span>
+            </button>
+          </nav>
+        </article>
+
+        <!-- Article 7: Voice of Calling -->
+        <article class="writing-article" id="article-voice-of-calling" hidden>
+          <div class="writing-article-header">
+            <h2 class="writing-article-title">Voice of Calling</h2>
+            <p class="writing-article-intro">You know the feeling. You're sitting at your desk, the project looks exciting, your creative spark is burning inside you. And then, cold sweat.</p>
+          </div>
+          <div class="writing-article-section">
+            <p class="writing-article-body">You know the feeling. You're sitting at your desk, the project looks exciting, your creative spark is burning inside you. You can almost see the design, glowing, ready to come alive. And then, cold sweat. Someone says it's out of scope. Another department blocks it. Decisions fly over your head. You can't do anything about it because it's outside your circle of control. The light you felt shining from within dies out in front of you. You move on with the new task, but inside, you feel it: something beautiful was just buried. If you were building it for yourself, it would have been real. It would have served the world, served your community. That's the voice of calling. It whispers. It stings. Sometimes it feels like a thorn under your skin, constantly poking you. You can't ignore it for long, but you can silence it. And every time you do, a part of you withers.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The Fallacy of Comfort</h3>
+            <p class="writing-article-body">Here's the paradox: you might have everything that looks "right" on paper. Graduating from the hard-earned Masters. A part-time job that will turn full-time. A steady paycheck. Even a chance to live abroad. A work setup that's more flexible than the standard nine-to-five. It looks like freedom. But deep down, you know it's a trap. Because working for someone else's dream. No matter how chill the environment, no matter how good the pay. Never will be your calling.</p>
+            <p class="writing-article-body">Dan Koe says it perfectly in <em>Purpose &amp; Profit</em>: "A job is some unpleasant work you do for someone else for the sole purpose of making money. A job is a survival mechanism. A job is one milestone on the path to living up to those who shaped your mind." — Dan Koe. And you feel that truth in your body. When you ignore your calling, you don't just feel something's off. You feel the clouds forming. You feel pulled down, heavy. You feel disgust at wasting yourself on tasks that serve fleeting goals but not your future. Your stomach turns when you realize this path doesn't serve your becoming. That's not laziness. That's not entitlement. That's your soul telling you: <em>this isn't it.</em></p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Why It's So Hard to Hear</h3>
+            <p class="writing-article-body">Hearing your calling is difficult. Almost impossible at times. Why? Because you're surrounded by pre-drawn paths. From childhood to adulthood, every step of your life has been mapped. School. Grades. University. Job. Society has laid ladders in front of you and told you to climb. Because everyone else is climbing, you climb too. The trap is that by the time you finally pause to ask if this is your ladder, you are already halfway up. You end up staring at decades of momentum you never truly chose. By then, fear locks you in. Fear of being left alone. Fear of failing. Fear of being judged. Fear of regret. That's why most people don't challenge their beliefs. They keep walking someone else's road, pretending not to hear the voice inside them. But you know better. You can already sense the thorn pressing under your skin.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">The Whisper That Won't Stop</h3>
+            <p class="writing-article-body">Calling is not a job. It's not even a career. It's the work you can't pull yourself away from, the obsession that keeps you awake. Koe calls it "the point where improvement turns into obsession." Your calling is like a signal. It doesn't shout. It whispers. It pricks. You feel it when you're told what to learn instead of exploring freely. When you're forced to follow nonsense instructions just because "that's how it's done." When your creativity is capped by someone else's limits. It feels wrong. And that "wrongness" doesn't go away.</p>
+            <p class="writing-article-body">I felt it years ago, during an internship in the Netherlands. It was my first time abroad, my first flight, my first time alone in a foreign place. I was scared. Everything was unfamiliar. But pursuing it was exhilarating. That experience showed me what freedom feels like. It revealed what I want and don't want. It also showed me the nonsense of being treated as "just another intern," told to follow instructions that killed any sense of purpose. That was the whisper: <em>you need to carve your own path.</em></p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">A Small Experiment</h3>
+            <p class="writing-article-body">Here's the thing: following your calling doesn't start with burning everything down. It often begins with a small, simple shift. For me, it was reclaiming the first hour of my day. I used to wake up and dive straight into the job. Emails. Tasks. Responsibilities. The noise of someone else's priorities. Now, I wake up 1 hour earlier and spend that block on my own work. Writing. Creating. Building something for myself. It's not perfect. It's early. But in that one hour, I feel alive. The clouds clear. The disgust lifts. I taste what it feels like to be in alignment. And that taste is enough to convince me: this is the way forward.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Why This Matters</h3>
+            <p class="writing-article-body">When you ignore your calling, life becomes predictable, flat, mechanical. You go to work, you lay on the sofa watching youtube, you spend your time with shallow pleasures. You smile in the mirror but something inside you is broken. When you follow your calling, even in small ways, you begin to align with something greater. That's why this matters. It's not just about you feeling good. It's about serving the world with the light only you can shine. If you kill your light in service of someone else's meaningless tasks, you rob the world of what you were here to bring.</p>
+          </div>
+          <div class="writing-article-section">
+            <h3 class="writing-article-section-title">Your Next Step</h3>
+            <p class="writing-article-body">You don't need to quit your job today. You don't need to figure out your life's purpose in one week. But you do need to listen. Start tomorrow with one hour that's yours. Write. Build. Create. Explore. Whatever makes you feel alive. Feel the difference. Notice how your body reacts. Notice how your inner clouds shift. That's your calling speaking.</p>
+            <p class="writing-article-body">The voice of calling is quiet, but it never goes away. It will prick you like a thorn until you listen. You can ignore it for years, even decades. But at what cost? Life is long enough to recover from mistakes. But it may not be long enough to recover from a life spent climbing someone else's ladder. So I'll leave you with this question: What will happen if you start listening today? Because Episode 2 will be about what happens when you don't. When fear, stability, and expectations bury the voice of calling until it feels almost lost. Don't wait for that. Start now.</p>
           </div>
           <nav class="writing-article-nav writing-article-nav--prev-only" aria-label="Article navigation">
-            <button class="writing-article-nav-item" data-writing-id="typography-ux">
+            <button class="writing-article-nav-item" data-writing-id="barriers-of-calling">
               <span class="writing-article-nav-label">PREVIOUS</span>
-              <span class="writing-article-nav-title">Typography as UX</span>
+              <span class="writing-article-nav-title">Barriers of Calling</span>
             </button>
           </nav>
         </article>
@@ -286,95 +597,6 @@
 
     </div><!-- /writings-layout -->
   </main>
-
-  <!-- CV Overlay Modal -->
-  <div class="cv-overlay" id="cv-overlay" hidden>
-    <div class="cv-modal">
-      <button class="cv-close" id="cv-close" aria-label="Close CV">&times;</button>
-      <div class="cv-content">
-        <div class="cv-header">
-          <h1 class="cv-name">Efe Eren Can Bakır</h1>
-          <div class="cv-contact-info">
-            <a href="mailto:efeec.bakir@gmail.com" class="cv-link">efeec.bakir@gmail.com</a>
-            <span class="cv-divider">•</span>
-            <span class="cv-phone">+39 351 4705647</span>
-            <span class="cv-divider">•</span>
-            <span class="cv-location">Milan, IT</span>
-          </div>
-          <div class="cv-social-links">
-            <a href="https://linkedin.com/in/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">LinkedIn</a>
-            <a href="https://layers.to/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Layers</a>
-            <a href="https://bento.me/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Bento</a>
-            <a href="https://behance.net/efbakir" target="_blank" rel="noopener noreferrer" class="cv-link">Behance</a>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">EXPERIENCE</h2>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">Product Designer</h3>
-              <span class="cv-date">2024 - Present</span>
-            </div>
-            <p class="cv-company">Company Name • Milan, IT</p>
-            <p class="cv-description">Leading end-to-end product design for web and mobile applications. Conducting user research, creating design systems, and collaborating with cross-functional teams.</p>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">UX Designer</h3>
-              <span class="cv-date">2023 - 2024</span>
-            </div>
-            <p class="cv-company">Previous Company • Remote</p>
-            <p class="cv-description">Designed user experiences for digital products, conducted usability testing, and created wireframes and prototypes.</p>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">EDUCATION</h2>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">Politecnico di Milano</h3>
-              <span class="cv-date">2022 - 2024</span>
-            </div>
-            <p class="cv-company">Master's Degree • Milan, IT</p>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-entry-header">
-              <h3 class="cv-role">METU</h3>
-              <span class="cv-date">2018 - 2022</span>
-            </div>
-            <p class="cv-company">Bachelor's Degree • Ankara, TR</p>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">SKILLS</h2>
-          <div class="cv-skills">
-            <span class="cv-skill">Visual Design</span>
-            <span class="cv-skill">UX Design</span>
-            <span class="cv-skill">UI Design</span>
-            <span class="cv-skill">Prototyping</span>
-            <span class="cv-skill">User Research</span>
-            <span class="cv-skill">Design Systems</span>
-          </div>
-        </div>
-        <div class="cv-section">
-          <h2 class="cv-section-title">LANGUAGES</h2>
-          <div class="cv-languages">
-            <div class="cv-language-item">
-              <span class="cv-language">Turkish</span>
-              <span class="cv-proficiency">Native</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">English</span>
-              <span class="cv-proficiency">Fluent</span>
-            </div>
-            <div class="cv-language-item">
-              <span class="cv-language">Italian</span>
-              <span class="cv-proficiency">Intermediate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="/nav.js"></script>
   <script src="/site.js"></script>
