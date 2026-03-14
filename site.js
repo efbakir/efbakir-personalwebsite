@@ -963,6 +963,11 @@
         });
         activeWritingId = id;
         articlePanel.scrollTop = 0;
+        if (typeof articlePanel.scrollIntoView === 'function') {
+          setTimeout(function () {
+            articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
+          }, 0);
+        }
         closeSectionNavigator('writings-nav-toggle', list);
         scheduleViewportSync();
       }
@@ -1068,6 +1073,11 @@
         });
         activeGlossaryId = id;
         articlePanel.scrollTop = 0;
+        if (typeof articlePanel.scrollIntoView === 'function') {
+          setTimeout(function () {
+            articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
+          }, 0);
+        }
         closeSectionNavigator('glossary-nav-toggle', list);
         scheduleViewportSync();
       }
@@ -1375,21 +1385,45 @@
       scheduleViewportSync();
     }
   });
+  function resetScrollToTop() {
+    window.scrollTo(0, 0);
+    var writingsPanel = document.getElementById('writings-article-panel');
+    var glossaryPanel = document.getElementById('glossary-article-panel');
+    var projectDetailImages = document.getElementById('project-detail-images');
+    if (writingsPanel) writingsPanel.scrollTop = 0;
+    if (glossaryPanel) glossaryPanel.scrollTop = 0;
+    if (projectDetailImages) projectDetailImages.scrollTop = 0;
+  }
+
   window.addEventListener('pageshow', function (e) {
     if (e.persisted) {
-      // Page restored from bfcache — no entrance animation, show content immediately
+      // Page restored from bfcache (e.g. browser back) — reset scroll and show content immediately
       document.documentElement.classList.add('no-page-animation');
-      // Clear inline entrance state so CSS opacity:1 can apply (inline would otherwise win)
       var entranceEls = document.querySelectorAll('.header, .main-content, .page-content');
       Array.prototype.forEach.call(entranceEls, function (el) {
         el.style.opacity = '';
         el.style.transform = '';
       });
+      resetScrollToTop();
+    } else {
+      // Full load: if this was a back/forward navigation, reset scroll (e.g. Safari when bfcache not used)
+      try {
+        var navEntries = window.performance.getEntriesByType('navigation');
+        if (navEntries.length && navEntries[0].type === 'back_forward') {
+          resetScrollToTop();
+        }
+      } catch (err) {}
     }
     ensureBodyUnlockedIfSafe();
     scheduleViewportSync();
   });
   window.addEventListener('load', function () {
+    try {
+      var navEntries = window.performance.getEntriesByType('navigation');
+      if (navEntries.length && navEntries[0].type === 'back_forward') {
+        resetScrollToTop();
+      }
+    } catch (err) {}
     ensureBodyUnlockedIfSafe();
     scheduleViewportSync();
   });

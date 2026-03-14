@@ -4725,6 +4725,25 @@ img {
 
   .panel-bio {
     grid-row: 1;
+    gap: var(--spacing-4);
+  }
+
+  .panel-bio-contact {
+    gap: var(--spacing-2);
+  }
+
+  .panel-bio-contact-links .contact-item-link:last-child {
+    margin-top: calc(-1 * var(--spacing-1));
+  }
+
+  .panel-current-work {
+    gap: var(--spacing-2);
+  }
+
+  .current-work-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2);
   }
 
   .panel-project-info {
@@ -4844,7 +4863,8 @@ img {
     max-height: var(--section-list-overlay-max-height);
     z-index: 90;
     margin: 0;
-    padding: var(--spacing-6) var(--spacing-4) var(--spacing-4);
+    padding: var(--spacing-6) var(--spacing-4) var(--spacing-6);
+    padding-bottom: calc(var(--spacing-6) + env(safe-area-inset-bottom, 0px));
     background: var(--color-surface-elevated);
     border: 0;
     border-radius: 0;
@@ -4937,8 +4957,10 @@ img {
     min-height: 0;
     flex: 1;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4);
+    gap: var(--spacing-6);
+    row-gap: var(--spacing-5);
     align-content: start;
+    padding-bottom: calc(var(--spacing-8) + env(safe-area-inset-bottom, 0px));
   }
 
   .section-list-overlay-content::-webkit-scrollbar {
@@ -4953,7 +4975,7 @@ img {
 
   .writings-panel-list .writing-list-item,
   .glossary-panel-list .glossary-list-item {
-    padding: var(--spacing-3) 0;
+    padding: var(--spacing-4) 0;
     min-height: 0;
     width: 100%;
     text-align: left;
@@ -5013,9 +5035,9 @@ img {
     align-items: flex-end;
   }
 
-  /* Bio panel: Figma 390px — 48px gap between sections */
+  /* Bio panel: tighter gaps on phone so main content starts earlier */
   .panel-bio {
-    gap: var(--section-gap-large);
+    gap: var(--spacing-4);
   }
 
   /* Bio panel: touch targets, no horizontal padding so links stay left-aligned with copy */
