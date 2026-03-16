@@ -308,20 +308,20 @@
     }
 
     var mediaPool = [
-      '/assets/project-thumbs/aletheai.png',
-      '/assets/project-thumbs/amazontvgether.png',
-      '/assets/project-thumbs/b%C3%B6ty.png',
-      '/assets/project-thumbs/colonist.png?v=2',
-      '/assets/project-thumbs/experimental.png',
-      '/assets/project-thumbs/hivee.png',
-      '/assets/project-thumbs/love.png',
-      '/assets/project-thumbs/martercarmen.png',
-      '/assets/project-thumbs/nathellen.png',
-      '/assets/project-thumbs/ovie.png',
-      '/assets/project-thumbs/regimeofcare.png',
-      '/assets/project-thumbs/scooty.png',
-      '/assets/project-thumbs/wardrobe.png',
-      '/assets/project-thumbs/website.png'
+      '/assets/project-thumbs/aletheai.webp',
+      '/assets/project-thumbs/amazontvgether.webp',
+      '/assets/project-thumbs/b%C3%B6ty.webp',
+      '/assets/project-thumbs/colonist.webp?v=2',
+      '/assets/project-thumbs/experimental.webp',
+      '/assets/project-thumbs/hivee.webp',
+      '/assets/project-thumbs/love.webp',
+      '/assets/project-thumbs/martercarmen.webp',
+      '/assets/project-thumbs/nathellen.webp',
+      '/assets/project-thumbs/ovie.webp',
+      '/assets/project-thumbs/regimeofcare.webp',
+      '/assets/project-thumbs/scooty.webp',
+      '/assets/project-thumbs/wardrobe.webp',
+      '/assets/project-thumbs/thesis.webp'
     ];
 
     var overlay = document.createElement('div');

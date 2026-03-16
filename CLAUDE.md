@@ -230,7 +230,7 @@ Uppercase monospace labels (nav items, section labels, metadata) use `--label-he
 ## Asset Handling
 
 - SVG project thumbnails: `assets/project-thumbs/*.svg`
-- PNG assets: `assets/project-thumbs/*.png`
+- WebP assets: `assets/project-thumbs/*.webp`
 - Figma MCP image assets: use the provided `https://www.figma.com/api/mcp/asset/...` URLs directly as `src`
 - Site logo: `star.svg` at root
 - **Do not install icon libraries** — use inline SVG or existing assets only
