@@ -182,16 +182,6 @@
     }, duration);
   }
 
-  function getPageHashValue() {
-    return (window.location.hash || '').replace(/^#/, '');
-  }
-
-  function replacePageHash(value) {
-    var path = window.location.pathname || '/';
-    var nextUrl = value ? path + '#' + value : path;
-    history.replaceState(history.state, '', nextUrl);
-  }
-
   function readStoredTheme() {
     try {
       return localStorage.getItem('theme');
@@ -265,21 +255,18 @@
     );
     if (!statusEls.length) return;
 
-    function formatTime(date) {
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      var ampm = hours >= 12 ? 'PM' : 'AM';
-      var displayHours = hours % 12;
-      if (displayHours === 0) displayHours = 12;
-      var seconds = date.getSeconds();
-      var minutesStr = minutes < 10 ? '0' + minutes : String(minutes);
-      var secondsStr = seconds < 10 ? '0' + seconds : String(seconds);
-      return displayHours + ':' + minutesStr + ':' + secondsStr + ' ' + ampm;
-    }
+    var timeZone = 'Europe/Rome';
+    var formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: timeZone,
+      hour: 'numeric',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
 
     function update() {
       var now = new Date();
-      var text = formatTime(now) + ' IT';
+      var text = formatter.format(now) + ' IT';
       statusEls.forEach(function (statusEl) {
         statusEl.textContent = text;
       });
@@ -306,6 +293,11 @@
     if (prefersReducedMotion || hasSeenLaunch) {
       return;
     }
+
+    if (html.classList.contains('page-projects')) {
+      html.setAttribute('data-home-reveal', 'pending');
+    }
+    html.setAttribute('data-launch-sequence', 'active');
 
     var mediaPool = [
       '/assets/project-thumbs/aletheai.webp',
@@ -546,6 +538,8 @@
         window.cancelAnimationFrame(progressFrame);
       }
       overlay.remove();
+      html.removeAttribute('data-launch-sequence');
+      document.dispatchEvent(new Event('site:launch-complete'));
     }
 
     overlay.addEventListener('transitionend', function (event) {
@@ -922,347 +916,101 @@
     }
   }
 
-  function initWritingsLayout() {
-    var list = document.getElementById('writings-list');
-    var articlePanel = document.getElementById('writings-article-panel');
-    if (!list || !articlePanel) return;
+  function initHomepageEntrance() {
+    if (!html.classList.contains('page-projects')) return;
 
-    var items = Array.from(list.querySelectorAll('.writing-list-item'));
-    var articles = Array.from(articlePanel.querySelectorAll('.writing-article'));
-    if (!items.length || !articles.length) return;
+    var layout = document.getElementById('homepage-layout');
+    if (!layout) return;
 
-    var transitionDuration = 180;
-    var activeWritingId = null;
-    var isTransitioning = false;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      transitionDuration = 0;
-    }
+    var prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var staticItems = [
+      layout.querySelector('.panel-bio-about'),
+      layout.querySelector('.panel-bio-contact'),
+      layout.querySelector('.panel-current-work'),
+      layout.querySelector('.panel-project-info')
+    ].filter(Boolean);
+    var groups = Array.from(layout.querySelectorAll('.project-images-group'));
 
-    function activate(id, skipTransition, skipUrlUpdate) {
-      var nextIndex = items.findIndex(function (item) {
-        return item.dataset.writingId === id;
-      });
-      if (nextIndex === -1) return false;
-      if (isTransitioning && !skipTransition) return false;
+    staticItems.forEach(function (item, index) {
+      item.classList.add('home-reveal-item');
+      item.style.setProperty('--home-reveal-delay', (index * 120) + 'ms');
+    });
 
-      var currentIndex = items.findIndex(function (item) {
-        return item.dataset.writingId === activeWritingId;
-      });
-      var currentArticle = activeWritingId
-        ? articles.find(function (article) { return article.id === 'article-' + activeWritingId; })
-        : articles.find(function (article) { return !article.hidden; });
-      var nextArticle = articles.find(function (article) {
-        return article.id === 'article-' + id;
-      });
-      var isSameArticle = activeWritingId === id;
-      var isSectionNavigatorOpen = list.classList.contains('is-open') || document.body.classList.contains('section-nav-open');
-      var direction = currentIndex !== -1 && nextIndex < currentIndex ? 'prev' : 'next';
+    groups.forEach(function (group, index) {
+      group.classList.add('home-reveal-item');
+      group.style.setProperty('--home-reveal-delay', (360 + Math.min(index, 6) * 90) + 'ms');
+    });
 
-      // Update list items
-      items.forEach(function (item) {
-        item.classList.toggle('active', item.dataset.writingId === id);
-      });
-      if (!skipUrlUpdate) {
-        replacePageHash(id);
-      }
-
-      function commitArticleSwap() {
-        articles.forEach(function (article) {
-          article.hidden = (article.id !== 'article-' + id);
+    function revealHomepage() {
+      window.setTimeout(function () {
+        window.requestAnimationFrame(function () {
+          html.setAttribute('data-home-reveal', 'ready');
         });
-        activeWritingId = id;
-        if (isSectionNavigatorOpen) {
-          closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
-          resetScrollToTop();
-          if (typeof articlePanel.scrollIntoView === 'function') {
-            setTimeout(function () {
-              articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
-            }, 0);
-          }
-        } else {
-          articlePanel.scrollTop = 0;
-        }
-        scheduleViewportSync();
-      }
-
-      if (isSameArticle) {
-        if (isSectionNavigatorOpen) {
-          closeSectionNavigator('writings-nav-toggle', list, { restoreScroll: false });
-          resetScrollToTop();
-        } else {
-          articlePanel.scrollTop = 0;
-        }
-        return true;
-      }
-
-      if (skipTransition || transitionDuration === 0 || !currentArticle || !nextArticle) {
-        commitArticleSwap();
-        return true;
-      }
-
-      isTransitioning = true;
-      animateContentSwap({
-        duration: transitionDuration,
-        direction: direction,
-        outgoing: [currentArticle],
-        incoming: [nextArticle],
-        beforeSwap: commitArticleSwap,
-        afterSwap: function () {
-          isTransitioning = false;
-          var panel = document.getElementById('writings-article-panel');
-          if (panel) {
-            panel.scrollTop = 0;
-            window.requestAnimationFrame(function () {
-              panel.scrollTop = 0;
-            });
-          }
-        }
-      });
-      return true;
+      }, 140);
     }
 
-    items.forEach(function (item) {
-      item.addEventListener('click', function (e) {
-        e.preventDefault();
-        activate(item.dataset.writingId);
-      });
-    });
-
-    var navButtons = Array.from(articlePanel.querySelectorAll('.writing-article-nav-item[data-writing-id]'));
-    navButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        activate(btn.dataset.writingId);
-      });
-    });
-
-    function activateFromHash() {
-      return activate(getPageHashValue(), true, true);
+    if (prefersReducedMotion) {
+      html.setAttribute('data-home-reveal', 'ready');
+      return;
     }
 
-    var initialItem = items.find(function (item) {
-      return item.classList.contains('active');
-    }) || items[0];
-    if (!activateFromHash()) {
-      activate(initialItem.dataset.writingId, true);
+    if (html.getAttribute('data-launch-sequence') === 'active') {
+      html.setAttribute('data-home-reveal', 'pending');
+      document.addEventListener('site:launch-complete', revealHomepage, { once: true });
+      return;
     }
-    window.addEventListener('hashchange', activateFromHash);
-    initSectionNavigator('writings-nav-toggle', list);
-    scheduleViewportSync();
+
+    html.removeAttribute('data-home-reveal');
   }
 
-  function initGlossaryLayout() {
-    var list = document.getElementById('glossary-list');
-    var articlePanel = document.getElementById('glossary-article-panel');
-    if (!list || !articlePanel) return;
-
-    var items = Array.from(list.querySelectorAll('.glossary-list-item'));
-    var articles = Array.from(articlePanel.querySelectorAll('.glossary-article'));
-    if (!items.length || !articles.length) return;
-
-    var transitionDuration = 180;
-    var activeGlossaryId = null;
-    var isTransitioning = false;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      transitionDuration = 0;
+  function getWritingParaRevealStaggerMs() {
+    try {
+      var raw = window.getComputedStyle(document.documentElement)
+        .getPropertyValue('--writing-para-reveal-stagger')
+        .trim();
+      if (!raw) return 72;
+      var n = parseFloat(raw, 10);
+      if (isNaN(n)) return 72;
+      if (raw.indexOf('ms') !== -1) return Math.round(n);
+      return Math.round(n * 1000);
+    } catch (err) {
+      return 72;
     }
+  }
 
-    function activate(id, skipTransition, skipUrlUpdate) {
-      var nextIndex = items.findIndex(function (item) {
-        return item.dataset.glossaryId === id;
-      });
-      if (nextIndex === -1) return false;
-      if (isTransitioning && !skipTransition) return false;
+  function initWritingArticleParagraphReveal() {
+    var article = document.querySelector('article.writing-article--standalone.writing-article-paras--armed');
+    if (!article) return;
 
-      var currentIndex = items.findIndex(function (item) {
-        return item.dataset.glossaryId === activeGlossaryId;
-      });
-      var currentArticle = activeGlossaryId
-        ? articles.find(function (article) { return article.id === 'glossary-article-' + activeGlossaryId; })
-        : articles.find(function (article) { return !article.hidden; });
-      var nextArticle = articles.find(function (article) {
-        return article.id === 'glossary-article-' + id;
-      });
-      var isSameArticle = activeGlossaryId === id;
-      var isSectionNavigatorOpen = list.classList.contains('is-open') || document.body.classList.contains('section-nav-open');
-      var direction = currentIndex !== -1 && nextIndex < currentIndex ? 'prev' : 'next';
+    var paras = Array.prototype.slice.call(
+      article.querySelectorAll('p.writing-article-intro, p.writing-article-body')
+    );
+    if (!paras.length) return;
 
-      items.forEach(function (item) {
-        item.classList.toggle('active', item.dataset.glossaryId === id);
-      });
-      if (!skipUrlUpdate) {
-        replacePageHash(id);
-      }
+    var staggerMs = getWritingParaRevealStaggerMs();
+    paras.forEach(function (p, index) {
+      p.style.setProperty('--writing-para-reveal-delay', (index * staggerMs) + 'ms');
+    });
 
-      function commitArticleSwap() {
-        articles.forEach(function (article) {
-          article.hidden = (article.id !== 'glossary-article-' + id);
+    function startReveal() {
+      window.setTimeout(function () {
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            article.classList.add('writing-article-paras--visible');
+          });
         });
-        activeGlossaryId = id;
-        if (isSectionNavigatorOpen) {
-          closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
-          resetScrollToTop();
-          if (typeof articlePanel.scrollIntoView === 'function') {
-            setTimeout(function () {
-              articlePanel.scrollIntoView({ block: 'start', behavior: 'auto' });
-            }, 0);
-          }
-        } else {
-          articlePanel.scrollTop = 0;
-        }
-        scheduleViewportSync();
-      }
-
-      if (isSameArticle) {
-        if (isSectionNavigatorOpen) {
-          closeSectionNavigator('glossary-nav-toggle', list, { restoreScroll: false });
-          resetScrollToTop();
-        } else {
-          articlePanel.scrollTop = 0;
-        }
-        return true;
-      }
-
-      if (skipTransition || transitionDuration === 0 || !currentArticle || !nextArticle) {
-        commitArticleSwap();
-        return true;
-      }
-
-      isTransitioning = true;
-      animateContentSwap({
-        duration: transitionDuration,
-        direction: direction,
-        outgoing: [currentArticle],
-        incoming: [nextArticle],
-        beforeSwap: commitArticleSwap,
-        afterSwap: function () {
-          isTransitioning = false;
-          var panel = document.getElementById('glossary-article-panel');
-          if (panel) {
-            panel.scrollTop = 0;
-            window.requestAnimationFrame(function () {
-              panel.scrollTop = 0;
-            });
-          }
-        }
-      });
-      return true;
+      }, 100);
     }
 
-    items.forEach(function (item) {
-      item.addEventListener('click', function (e) {
-        e.preventDefault();
-        activate(item.dataset.glossaryId);
-      });
-    });
-
-    var navButtons = Array.from(articlePanel.querySelectorAll('.glossary-article-nav-item[data-glossary-id]'));
-    navButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        activate(btn.dataset.glossaryId);
-      });
-    });
-
-    function activateFromHash() {
-      return activate(getPageHashValue(), true, true);
+    if (html.getAttribute('data-launch-sequence') === 'active') {
+      document.addEventListener('site:launch-complete', startReveal, { once: true });
+      return;
     }
 
-    var initialItem = items.find(function (item) {
-      return item.classList.contains('active');
-    }) || items[0];
-    if (!activateFromHash()) {
-      activate(initialItem.dataset.glossaryId, true);
-    }
-    window.addEventListener('hashchange', activateFromHash);
-    initSectionNavigator('glossary-nav-toggle', list);
-    scheduleViewportSync();
-  }
-
-  function closeSectionNavigator(toggleId, listEl, options) {
-    var toggle = document.getElementById(toggleId);
-    if (!toggle || !listEl) return;
-    var shouldRestoreScroll = !(options && options.restoreScroll === false);
-    toggle.setAttribute('aria-expanded', 'false');
-    listEl.classList.remove('is-open');
-    document.body.classList.remove('section-nav-open');
-    var overlay = listEl.parentElement && listEl.parentElement.querySelector('.section-list-overlay');
-    if (overlay) {
-      overlay.setAttribute('hidden', '');
-      overlay.setAttribute('aria-hidden', 'true');
-    }
-    if (!shouldRestoreScroll) {
-      document.body.setAttribute('data-scroll-y', '0');
-    }
-    syncBodyScrollLock();
-  }
-
-  function initSectionNavigator(toggleId, listEl) {
-    var toggle = document.getElementById(toggleId);
-    if (!toggle || !listEl) return;
-
-    var overlay = listEl.parentElement && listEl.parentElement.querySelector('.section-list-overlay');
-
-    function syncForViewport() {
-      if (window.innerWidth > 767) {
-        listEl.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('section-nav-open');
-        if (overlay) {
-          overlay.setAttribute('hidden', '');
-          overlay.setAttribute('aria-hidden', 'true');
-        }
-        syncBodyScrollLock();
-      }
-    }
-
-    toggle.addEventListener('click', function () {
-      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-      listEl.classList.toggle('is-open', !isOpen);
-      document.body.classList.toggle('section-nav-open', !isOpen);
-      if (overlay) {
-        if (isOpen) {
-          overlay.setAttribute('hidden', '');
-          overlay.setAttribute('aria-hidden', 'true');
-        } else {
-          overlay.removeAttribute('hidden');
-          overlay.setAttribute('aria-hidden', 'false');
-        }
-      }
-      syncBodyScrollLock();
-      scheduleViewportSync();
-    });
-
-    if (overlay) {
-      overlay.addEventListener('click', function () {
-        closeSectionNavigator(toggleId, listEl);
-      });
-    }
-
-    var closeButtons = Array.from(listEl.querySelectorAll('[data-section-nav-close]'));
-    closeButtons.forEach(function (button) {
-      button.addEventListener('click', function () {
-        closeSectionNavigator(toggleId, listEl);
-      });
-    });
-
-    listEl.addEventListener('click', function (e) {
-      if (e.target === listEl) {
-        closeSectionNavigator(toggleId, listEl);
-      }
-    });
-
-    window.addEventListener('resize', syncForViewport);
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        closeSectionNavigator(toggleId, listEl);
-      }
-    });
-
-    syncForViewport();
+    startReveal();
   }
 
   function initCurrentWorkTooltip() {
-    if (!window.matchMedia || !window.matchMedia('(hover: hover)').matches) return;
     var list = document.querySelector('.panel-current-work .current-work-list');
     if (!list) return;
     var tooltip = document.createElement('div');
@@ -1270,56 +1018,80 @@
     tooltip.setAttribute('aria-hidden', 'true');
     document.body.appendChild(tooltip);
     var offset = 12;
+    var canHover = !!(window.matchMedia && window.matchMedia('(hover: hover)').matches);
+    var activeCard = null;
+
+    function positionTooltip(clientX, clientY) {
+      var rect = tooltip.getBoundingClientRect();
+      var minInset = 12;
+      var maxLeft = Math.max(minInset, window.innerWidth - rect.width - minInset);
+      var maxTop = Math.max(minInset, window.innerHeight - rect.height - minInset);
+      var nextLeft = Math.max(minInset, Math.min(clientX + offset, maxLeft));
+      var nextTop = Math.max(minInset, Math.min(clientY + offset, maxTop));
+      tooltip.style.left = nextLeft + 'px';
+      tooltip.style.top = nextTop + 'px';
+    }
+
+    function showTooltip(text, clientX, clientY, card) {
+      tooltip.textContent = text;
+      tooltip.classList.add('is-visible');
+      positionTooltip(clientX, clientY);
+      activeCard = card || null;
+    }
+
+    function hideTooltip() {
+      tooltip.classList.remove('is-visible');
+      activeCard = null;
+    }
+
     var cards = list.querySelectorAll('.current-work-card');
     cards.forEach(function (card) {
       if (card.querySelector('.current-work-link')) return;
       var descEl = card.querySelector('.current-work-description');
       if (!descEl) return;
-      card.addEventListener('mouseenter', function (e) {
-        tooltip.textContent = descEl.textContent.trim();
-        tooltip.classList.add('is-visible');
-        tooltip.style.left = (e.clientX + offset) + 'px';
-        tooltip.style.top = (e.clientY + offset) + 'px';
-      });
-      card.addEventListener('mousemove', function (e) {
-        tooltip.style.left = (e.clientX + offset) + 'px';
-        tooltip.style.top = (e.clientY + offset) + 'px';
-      });
-      card.addEventListener('mouseleave', function () {
-        tooltip.classList.remove('is-visible');
-      });
+      var tooltipText = descEl.textContent.trim();
+      card.setAttribute('tabindex', '0');
+
+      if (canHover) {
+        card.addEventListener('mouseenter', function (e) {
+          showTooltip(tooltipText, e.clientX, e.clientY, card);
+        });
+        card.addEventListener('mousemove', function (e) {
+          positionTooltip(e.clientX, e.clientY);
+        });
+        card.addEventListener('mouseleave', hideTooltip);
+      } else {
+        card.addEventListener('click', function (e) {
+          var rect = card.getBoundingClientRect();
+          var clientX = rect.left + Math.min(rect.width / 2, 72);
+          var clientY = rect.bottom;
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (activeCard === card && tooltip.classList.contains('is-visible')) {
+            hideTooltip();
+            return;
+          }
+
+          showTooltip(tooltipText, clientX, clientY, card);
+        });
+
+        card.addEventListener('keydown', function (e) {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+          card.click();
+        });
+      }
     });
-  }
 
-  function initSectionListSearch() {
-    var writingsSearch = document.getElementById('writings-search');
-    var writingsList = document.getElementById('writings-list');
-    var glossarySearch = document.getElementById('glossary-search');
-    var glossaryList = document.getElementById('glossary-list');
-
-    function filterList(listEl, query, itemSelector, titleSelector, bodySelector) {
-      if (!listEl) return;
-      var items = listEl.querySelectorAll(itemSelector);
-      var q = (query || '').trim().toLowerCase();
-      items.forEach(function (item) {
-        var titleEl = item.querySelector(titleSelector);
-        var bodyEl = item.querySelector(bodySelector);
-        var title = titleEl ? titleEl.textContent : '';
-        var body = bodyEl ? bodyEl.textContent : '';
-        var match = !q || title.toLowerCase().indexOf(q) !== -1 || body.toLowerCase().indexOf(q) !== -1;
-        item.hidden = !match;
+    if (!canHover) {
+      document.addEventListener('click', function (e) {
+        if (list.contains(e.target)) return;
+        hideTooltip();
       });
-    }
-
-    if (writingsSearch && writingsList) {
-      writingsSearch.addEventListener('input', function () {
-        filterList(writingsList, writingsSearch.value, '.writing-list-item', '.writing-list-item-title', '.writing-list-item-excerpt');
-      });
-    }
-    if (glossarySearch && glossaryList) {
-      glossarySearch.addEventListener('input', function () {
-        filterList(glossaryList, glossarySearch.value, '.glossary-list-item', '.glossary-list-item-title', '.glossary-list-item-definition');
-      });
+      window.addEventListener('scroll', hideTooltip, { passive: true });
+      window.addEventListener('resize', hideTooltip);
     }
   }
 
@@ -1406,9 +1178,8 @@
   initLaunchAnimation();
   initCvOverlay();
   initHomepageLayout();
-  initWritingsLayout();
-  initGlossaryLayout();
-  initSectionListSearch();
+  initHomepageEntrance();
+  initWritingArticleParagraphReveal();
   initCurrentWorkTooltip();
   initHeaderStatus();
   initImageLightbox();
@@ -1445,11 +1216,19 @@
     if (e.persisted) {
       // Page restored from bfcache (e.g. browser back) — reset scroll and show content immediately
       document.documentElement.classList.add('no-page-animation');
+      document.documentElement.removeAttribute('data-home-reveal');
+      document.documentElement.removeAttribute('data-launch-sequence');
       var entranceEls = document.querySelectorAll('.header, .main-content, .page-content');
       Array.prototype.forEach.call(entranceEls, function (el) {
         el.style.opacity = '';
         el.style.transform = '';
       });
+      var writingArticle = document.querySelector(
+        'article.writing-article--standalone.writing-article-paras--armed'
+      );
+      if (writingArticle) {
+        writingArticle.classList.add('writing-article-paras--visible');
+      }
       resetScrollToTop();
     } else {
       resetScrollToTop();

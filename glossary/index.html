@@ -13,7 +13,6 @@
 </head>
 <body>
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true" hidden></div>
-  <!-- Header -->
   <header class="header" style="opacity:0;transform:translateY(14px)">
     <div class="header-content">
       <div class="brand-group">
@@ -34,7 +33,7 @@
         </div>
         <nav class="main-nav" id="main-nav">
           <a href="/" class="nav-link">WORK</a>
-          <a href="/writings/" class="nav-link">WRITINGS</a>
+          <a href="/writings/" class="nav-link">WRITING</a>
           <a href="/glossary/" class="nav-link active">GLOSSARY</a>
         </nav>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
@@ -45,430 +44,58 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content" style="opacity:0;transform:translateY(14px)">
-    <div class="glossary-layout" id="glossary-layout">
-      <div class="section-list-overlay" id="glossary-list-overlay" aria-hidden="true" hidden></div>
-
-      <!-- LEFT: Page header — sticky -->
-      <div class="glossary-panel-header">
-        <div class="section-panel-header-inner">
-          <div class="section-panel-heading">
-            <h1 class="glossary-page-title">Glossary</h1>
-            <p class="glossary-page-subtitle">Everyday models and frameworks.</p>
-          </div>
-          <button type="button" class="section-nav-toggle" id="glossary-nav-toggle" aria-expanded="false" aria-controls="glossary-list">
-            <span class="section-nav-toggle-label">SEE ALL</span>
-          </button>
+  <main class="main-content section-index-page" style="opacity:0;transform:translateY(14px)">
+    <div class="homepage-layout homepage-layout--section-index" id="glossary-index-layout">
+      <div class="panel-bio panel-bio--section-index">
+        <div class="panel-bio-about">
+          <h1 class="panel-bio-about-heading">Glossary</h1>
+          <p>Everyday models and frameworks.</p>
         </div>
       </div>
-
-      <!-- MIDDLE: Term list — sticky, scrollable -->
-      <div class="glossary-panel-list" id="glossary-list" role="list">
-        <div class="section-list-overlay-header">
-          <span class="section-list-overlay-title">GLOSSARY</span>
+      <div class="section-index-main">
+        <div class="glossary-index-list" id="glossary-list" role="list">
+          <a class="glossary-index-item" href="/glossary/pick-the-harder-option/" role="listitem">
+            <span class="glossary-index-item-title">Pick The Harder Option</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/go-against-regret/" role="listitem">
+            <span class="glossary-index-item-title">Go Against Regret</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/hyperfocus-tips/" role="listitem">
+            <span class="glossary-index-item-title">Hyperfocus Tips</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/delay-gratification/" role="listitem">
+            <span class="glossary-index-item-title">Delay Gratification</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/biggest-dopamine/" role="listitem">
+            <span class="glossary-index-item-title">Biggest Dopamine</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/everybody-addicted/" role="listitem">
+            <span class="glossary-index-item-title">Everybody Is Addicted To Something</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/decrease-the-noise/" role="listitem">
+            <span class="glossary-index-item-title">Decrease The Noise</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/devil-loves-empty-blocks/" role="listitem">
+            <span class="glossary-index-item-title">Devil Loves Empty Blocks</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/not-everything-you-want-will-be-good-for-you/" role="listitem">
+            <span class="glossary-index-item-title">Not Everything You Want Will Be Good For You</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/mood-follows-motion/" role="listitem">
+            <span class="glossary-index-item-title">Mood Follows Motion</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/environment-beats-willpower/" role="listitem">
+            <span class="glossary-index-item-title">Environment Beats Willpower</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/friction-reveals-truth/" role="listitem">
+            <span class="glossary-index-item-title">Friction Reveals Truth</span>
+          </a>
+          <a class="glossary-index-item" href="/glossary/action-clarifies/" role="listitem">
+            <span class="glossary-index-item-title">Action Clarifies</span>
+          </a>
         </div>
-        <div class="section-list-search">
-          <input type="search" class="section-list-search-input" id="glossary-search" placeholder="SEARCH" aria-label="Search glossary" autocomplete="off">
-        </div>
-        <div class="section-list-overlay-content" role="list">
-        <a class="glossary-list-item active" href="/glossary/#pick-the-harder-option" data-glossary-id="pick-the-harder-option" role="listitem">
-          <span class="glossary-list-item-title">Pick The Harder Option</span>
-          <p class="glossary-list-item-definition">Ask yourself which one is harder to do and pick it.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#go-against-regret" data-glossary-id="go-against-regret" role="listitem">
-          <span class="glossary-list-item-title">Go Against Regret</span>
-          <p class="glossary-list-item-definition">Use regret as decision making criteria.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#hyperfocus-tips" data-glossary-id="hyperfocus-tips" role="listitem">
-          <span class="glossary-list-item-title">Hyperfocus Tips</span>
-          <p class="glossary-list-item-definition">Things I do when the deep work is a must.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#delay-gratification" data-glossary-id="delay-gratification" role="listitem">
-          <span class="glossary-list-item-title">Delay Gratification</span>
-          <p class="glossary-list-item-definition">Remember the marshmallow experiment.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#biggest-dopamine" data-glossary-id="biggest-dopamine" role="listitem">
-          <span class="glossary-list-item-title">Biggest Dopamine</span>
-          <p class="glossary-list-item-definition">Earned highs over cheap ones.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#everybody-addicted" data-glossary-id="everybody-addicted" role="listitem">
-          <span class="glossary-list-item-title">Everybody Is Addicted To Something</span>
-          <p class="glossary-list-item-definition">Can't run away from getting addicted but at least be wise.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#decrease-the-noise" data-glossary-id="decrease-the-noise" role="listitem">
-          <span class="glossary-list-item-title">Decrease The Noise</span>
-          <p class="glossary-list-item-definition">Cut what does not matter until only the essential remains.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#devil-loves-empty-blocks" data-glossary-id="devil-loves-empty-blocks" role="listitem">
-          <span class="glossary-list-item-title">Devil Loves Empty Blocks</span>
-          <p class="glossary-list-item-definition">Depression can't hit a moving target.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#not-everything-you-want-will-be-good-for-you" data-glossary-id="not-everything-you-want-will-be-good-for-you" role="listitem">
-          <span class="glossary-list-item-title">Not Everything You Want Will Be Good For You</span>
-          <p class="glossary-list-item-definition">Not everything I want is worth chasing.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#mood-follows-motion" data-glossary-id="mood-follows-motion" role="listitem">
-          <span class="glossary-list-item-title">Mood Follows Motion</span>
-          <p class="glossary-list-item-definition">Movement changes state faster than thinking.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#environment-beats-willpower" data-glossary-id="environment-beats-willpower" role="listitem">
-          <span class="glossary-list-item-title">Environment Beats Willpower</span>
-          <p class="glossary-list-item-definition">Design spaces that make good actions easier.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#friction-reveals-truth" data-glossary-id="friction-reveals-truth" role="listitem">
-          <span class="glossary-list-item-title">Friction Reveals Truth</span>
-          <p class="glossary-list-item-definition">What survives friction is what you actually value.</p>
-        </a>
-
-        <a class="glossary-list-item" href="/glossary/#action-clarifies" data-glossary-id="action-clarifies" role="listitem">
-          <span class="glossary-list-item-title">Action Clarifies</span>
-          <p class="glossary-list-item-definition">Clarity often comes after action, not before it.</p>
-        </a>
-
-        </div><!-- /section-list-overlay-content -->
       </div>
-
-      <!-- RIGHT: Active term content — sticky, scrollable -->
-      <div class="glossary-panel-article" id="glossary-article-panel" aria-live="polite">
-
-        <article class="glossary-article" id="glossary-article-pick-the-harder-option">
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Pick The Harder Option</h2>
-            <p class="writing-article-intro">When two options are available, choose the one that creates more friction, discomfort or fear. Other will make you regret later</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">The harder option is usually the one that forces growth instead of keeping me in comfort.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Staying in the library a couple more hours instead of going home and hoping I'll study there. Or walking up to someone I want to meet instead of telling myself I'm too busy.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <div class="glossary-article-nav-placeholder"></div>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="go-against-regret">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Go Against Regret</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-go-against-regret" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Go Against Regret</h2>
-            <p class="writing-article-intro">There are some things in the world you'll regret you couldn't have the courage to do. Find them and do them.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">Ask yourself do you want to regret anything. Or when do you usually regret. For me it's when I'm older and looking back at my life and see a version of my life that could have happened.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Very busy day. Night in your home. You promised yourself that you'll run today. But couldn't find time. Now go further in time think about tomorrow yourself. Staying at home or running. Which one would make you regretful?</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="pick-the-harder-option">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Pick The Harder Option</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="hyperfocus-tips">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Hyperfocus Tips</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-hyperfocus-tips" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Hyperfocus Tips</h2>
-            <p class="writing-article-intro">It's actually really easy to focus. You just need to shape some things around that. Only discipline never works.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I reduce visual and mental distractions before I start working.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Outside the house - library or cafe (not too loud), THAM set, silicone headphones or earplugs, cap on (narrower FOV - less distractions) and sitting in the corner facing the wall.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="go-against-regret">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Go Against Regret</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="delay-gratification">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Delay Gratification</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-delay-gratification" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Delay Gratification</h2>
-            <p class="writing-article-intro">The ability to wait, resist impulses and stay with the harder long-term path compounds over time.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I remind myself that chasing what feels good now usually weakens what I want later. Even ask yourself the thing you want is it really good for you?</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Finishing the work block before checking my phone, leaving entertainment for after training or staying with the difficult process instead of escaping into instant stimulation.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="hyperfocus-tips">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Hyperfocus Tips</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="biggest-dopamine">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Biggest Dopamine</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-biggest-dopamine" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Biggest Dopamine</h2>
-            <p class="writing-article-intro">Identified two items thats giving me the most dopamine. Intensity and earned momentum.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I try to build my life around earned highs instead of cheap ones.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Near-life experiences or finishing a 10+ hour library session and walking home alone at midnight feeling completely emptied out but proud.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Pro tip</h3>
-            <p class="writing-article-body">Don't be afraid to be alone. You'll be surprised how much you can do alone.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="delay-gratification">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Delay Gratification</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="everybody-addicted">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Everybody Is Addicted To Something</span>
-            </button>
-          </nav>
-        </article>q
-
-        <article class="glossary-article" id="glossary-article-everybody-addicted" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Everybody Is Addicted To Something</h2>
-            <p class="writing-article-intro">Everyone gets attached to a source of stimulation, identity or escape. Pick wisely.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">Since I'll get pulled by something anyway, I try to get pulled by things that build me instead of weaken me.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Better to be addicted to sport, work, mastery or deep relationships than to social media, attention or numbing habits.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="biggest-dopamine">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Biggest Dopamine</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="decrease-the-noise">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Decrease The Noise</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-decrease-the-noise" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Decrease The Noise</h2>
-            <p class="writing-article-intro">Simplicity is removing what does not matter until only the essential remains.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">When life feels confusing, I look for noise - things to cut before I look for new solutions.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Fewer tabs, fewer inputs, fewer random commitments, fewer people's opinions and fewer distractions between me and the thing I need to do. Last months been busy a lot doing everything. But now I'm cutting things out and focusing on the essential. Identified several points that were not essential and cut them out. Main ones are: late night going out, dating, smoking.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="everybody-addicted">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Everybody Is Addicted To Something</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="devil-loves-empty-blocks">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Devil Loves Empty Blocks</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-devil-loves-empty-blocks" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Devil Loves Empty Blocks</h2>
-            <p class="writing-article-intro">Empty time can easily turn into overthinking, avoidance or self-destruction if I leave it unmanaged.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I try to give my days structure so I do not drift into useless thought loops.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Planning my day in advance, filling open time with training, work, reading or going out instead of leaving whole chunks of the day undefined.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="decrease-the-noise">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Decrease The Noise</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="not-everything-you-want-will-be-good-for-you">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Not Everything You Want Will Be Good For You</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-not-everything-you-want-will-be-good-for-you" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Not Everything You Want Will Be Good For You</h2>
-            <p class="writing-article-intro">Not everything I want is worth chasing.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">Not everything I want is worth chasing. Some things are obviously bad for me, like drinking, smoking, hooking up, or skipping the gym. But sometimes the more dangerous version is when I become deeply committed to something that looks impressive or meaningful without questioning whether it actually comes from me.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">This happened with my Polimi master's experience. I wanted it badly, and at one point it was almost not happening. Instead of stepping back and asking whether that might actually be a good thing, I kept pushing until I made it happen. In the end, I was not that glad I did.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="devil-loves-empty-blocks">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Devil Loves Empty Blocks</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="mood-follows-motion">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Mood Follows Motion</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-mood-follows-motion" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Mood Follows Motion</h2>
-            <p class="writing-article-intro">I do not trust my mind to fix itself while sitting still.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">Movement changes state faster than thinking.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">If I feel mentally stuck, I walk, train, shower, or leave the room before trying to think my way out.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="not-everything-you-want-will-be-good-for-you">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Not Everything You Want Will Be Good For You</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="environment-beats-willpower">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Environment Beats Willpower</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-environment-beats-willpower" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Environment Beats Willpower</h2>
-            <p class="writing-article-intro">My environment often decides my behavior before discipline even gets a chance.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I design spaces that make good actions easier and bad actions harder.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Phone away, clean desk, right seat, right music, right place.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="mood-follows-motion">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Mood Follows Motion</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="friction-reveals-truth">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Friction Reveals Truth</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-friction-reveals-truth" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Friction Reveals Truth</h2>
-            <p class="writing-article-intro">What I keep doing when it becomes inconvenient shows what I actually value.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I do not judge myself by intentions. I judge by what survives friction.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">If I say I care about writing, training or business, I should still move toward it when tired, bored, or busy.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="environment-beats-willpower">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Environment Beats Willpower</span>
-            </button>
-            <button class="glossary-article-nav-item glossary-article-nav-next" data-glossary-id="action-clarifies">
-              <span class="glossary-article-nav-label">NEXT</span>
-              <span class="glossary-article-nav-title">Action Clarifies</span>
-            </button>
-          </nav>
-        </article>
-
-        <article class="glossary-article" id="glossary-article-action-clarifies" hidden>
-          <div class="writing-article-header">
-            <h2 class="writing-article-title">Action Clarifies</h2>
-            <p class="writing-article-intro">Clarity often comes after action, not before it.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">How I use it</h3>
-            <p class="writing-article-body">I start before I feel fully certain, because movement creates information.</p>
-          </div>
-          <div class="writing-article-section">
-            <h3 class="writing-article-section-title">Example</h3>
-            <p class="writing-article-body">Sending the message, publishing the thing, going to the event or beginning the work before I feel fully ready.</p>
-          </div>
-          <nav class="glossary-article-nav" aria-label="Glossary navigation">
-            <button class="glossary-article-nav-item" data-glossary-id="friction-reveals-truth">
-              <span class="glossary-article-nav-label">PREVIOUS</span>
-              <span class="glossary-article-nav-title">Friction Reveals Truth</span>
-            </button>
-            <div class="glossary-article-nav-placeholder"></div>
-          </nav>
-        </article>
-
-      </div><!-- /glossary-panel-article -->
-
-    </div><!-- /glossary-layout -->
+    </div>
   </main>
 
   <script src="/nav.js"></script>

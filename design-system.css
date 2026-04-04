@@ -16,10 +16,14 @@
   --color-surface: #FAFAFA;
   --color-surface-muted: #F5F5F5;
   --color-surface-elevated: var(--color-lightest);
+  --color-surface-contrast: var(--color-primary);
   --color-border: var(--color-gray-md);
   --color-text-primary: var(--color-primary);
-  --color-text-secondary: var(--color-gray-lg);
+  /* Long-form body: softer than headings, stronger than secondary (captions, de-emphasis) */
+  --color-text-prose: #353535;
+  --color-text-secondary: #6E6E6E;
   --color-text-tertiary: var(--color-gray-md);
+  --color-text-meta: #9F9F9F;
   --color-text-inverse: #FFFFFF;
   --color-overlay: rgba(20, 20, 20, 0.8);
   --color-overlay-strong: rgba(20, 20, 20, 0.9);
@@ -44,6 +48,10 @@
   --body-2-font-size: 16px;
   --body-2-line-height: 23px;
   --body-2-letter-spacing: var(--letter-spacing-20);
+  /* Long-form prose: slightly tighter tracking than zero */
+  --writing-article-body-letter-spacing: var(--letter-spacing-20);
+  /* ~15% looser than body-2 for long reads */
+  --writing-article-body-line-height: calc(var(--body-2-line-height) * 1.15);
   --body-2-weight-regular: 400;
 
   --body-3-font-family: "Suisse Int'l", "Inter", sans-serif;
@@ -171,6 +179,7 @@
   --size-modal-max-width: 960px;
   --size-close-icon: 28px;
   --size-nav-menu-link-min-height: 48px;
+  --size-mobile-bottom-nav-reserve: calc(var(--size-touch-target) + var(--spacing-12) + env(safe-area-inset-bottom, 0px));
 
   /* Radius */
   --radius-sm: 2px;
@@ -199,6 +208,12 @@
   --transition-opacity: opacity var(--duration-fast) var(--easing-standard);
   --transition-transform: transform var(--duration-fast) var(--easing-standard);
 
+  /* Writing article: staggered paragraph reveal (opacity + slower transform ≈ parallax depth) */
+  --writing-para-reveal-distance: var(--spacing-8);
+  --writing-para-reveal-opacity-duration: 0.52s;
+  --writing-para-reveal-transform-duration: 0.78s;
+  --writing-para-reveal-stagger: 72ms;
+
   /* Focus */
   --focus-ring-width: 2px;
   --focus-ring-color: var(--accent);
@@ -218,10 +233,13 @@
   --color-surface: #1A1A1A;
   --color-surface-muted: #222222;
   --color-surface-elevated: #181818;
+  --color-surface-contrast: #FFFFFF;
   --color-border: #2A2A2A;
   --color-text-primary: var(--color-gray-sm);
+  --color-text-prose: #D6D6D6;
   --color-text-secondary: var(--color-gray-lg);
   --color-text-tertiary: #555555;
+  --color-text-meta: #6A6A6A;
   --color-text-inverse: var(--color-primary);
   --color-overlay: rgba(0, 0, 0, 0.9);
   --color-overlay-strong: rgba(0, 0, 0, 0.95);
