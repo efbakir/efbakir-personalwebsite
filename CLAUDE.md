@@ -79,7 +79,7 @@ Two typefaces only:
 | Token prefix | Family | Usage |
 |---|---|---|
 | `--body-*` / `--label-*` | `"Suisse Int'l", sans-serif` | All prose, UI labels |
-| `--label-heading-*` | `"Reddit Mono", monospace` | Mono labels, nav items, metadata tags |
+| `--label-heading-*` | `"Geist Mono", monospace` | Mono labels, nav items, metadata tags |
 
 **Text style tokens:**
 
@@ -92,8 +92,8 @@ Two typefaces only:
 /* Labels */
 --label-2-*         15px / 22px / 0px
 --label-3-*         14px / 20px / 0px
---label-heading-*   12px / 16px / -0.1px  Reddit Mono  /* section labels, UPPERCASE */
---label-heading-sm  13px / 18px / -0.1px  Reddit Mono
+--label-heading-*   12px / 16px / -0.1px  Geist Mono  /* section labels, UPPERCASE */
+--label-heading-sm  13px / 18px / -0.1px  Geist Mono
 
 /* Display (headings) */
 --display-lg-font-size: 24px  / --display-lg-line-height: 32px
@@ -212,7 +212,7 @@ Use the HTML `hidden` attribute, not `display: none` in CSS. The CSS handles `[h
 
 ### Tags / mono labels
 
-Uppercase monospace labels (nav items, section labels, metadata) use `--label-heading-font-family` (Reddit Mono) with `letter-spacing: var(--label-heading-letter-spacing)`.
+Uppercase monospace labels (nav items, section labels, metadata) use `--label-heading-font-family` (Geist Mono) with `letter-spacing: var(--label-heading-letter-spacing)`.
 
 ---
 

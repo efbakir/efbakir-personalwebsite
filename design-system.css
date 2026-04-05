@@ -72,13 +72,13 @@
   --label-3-letter-spacing: var(--letter-spacing-20);
   --label-3-weight-regular: 400;
 
-  --label-heading-font-family: "Reddit Mono", monospace;
+  --label-heading-font-family: "Geist Mono", monospace;
   --label-heading-font-size: 12px;
   --label-heading-line-height: 120%;
   --label-heading-letter-spacing: var(--letter-spacing-25);
   --label-heading-weight-regular: 400;
 
-  --label-heading-sm-font-family: "Reddit Mono", monospace;
+  --label-heading-sm-font-family: "Geist Mono", monospace;
   --label-heading-sm-font-size: 13px;
   --label-heading-sm-line-height: 120%;
   --label-heading-sm-letter-spacing: var(--letter-spacing-25);
@@ -247,5 +247,5 @@
   --color-accent-soft: rgba(252, 81, 19, 0.24);
 }
 
-/* Font Face - Reddit Mono + Inter (fallback for Suisse Int'l) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Reddit+Mono:wght@400&display=swap');
+/* Font Face - Geist Mono + Inter (fallback for Suisse Int'l) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Geist+Mono:wght@400&display=swap');
