@@ -926,7 +926,7 @@
     var staticItems = [
       layout.querySelector('.panel-bio-about'),
       layout.querySelector('.panel-bio-contact'),
-      layout.querySelector('.panel-current-work'),
+      layout.querySelector('.panel-bio-photo'),
       layout.querySelector('.panel-project-info')
     ].filter(Boolean);
     var groups = Array.from(layout.querySelectorAll('.project-images-group'));
@@ -1010,88 +1010,25 @@
     startReveal();
   }
 
-  function initCurrentWorkTooltip() {
-    var list = document.querySelector('.panel-current-work .current-work-list');
-    if (!list) return;
-    var tooltip = document.createElement('div');
-    tooltip.className = 'current-work-tooltip';
-    tooltip.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(tooltip);
-    var offset = 12;
-    var canHover = !!(window.matchMedia && window.matchMedia('(hover: hover)').matches);
-    var activeCard = null;
-
-    function positionTooltip(clientX, clientY) {
-      var rect = tooltip.getBoundingClientRect();
-      var minInset = 12;
-      var maxLeft = Math.max(minInset, window.innerWidth - rect.width - minInset);
-      var maxTop = Math.max(minInset, window.innerHeight - rect.height - minInset);
-      var nextLeft = Math.max(minInset, Math.min(clientX + offset, maxLeft));
-      var nextTop = Math.max(minInset, Math.min(clientY + offset, maxTop));
-      tooltip.style.left = nextLeft + 'px';
-      tooltip.style.top = nextTop + 'px';
-    }
-
-    function showTooltip(text, clientX, clientY, card) {
-      tooltip.textContent = text;
-      tooltip.classList.add('is-visible');
-      positionTooltip(clientX, clientY);
-      activeCard = card || null;
-    }
-
-    function hideTooltip() {
-      tooltip.classList.remove('is-visible');
-      activeCard = null;
-    }
-
-    var cards = list.querySelectorAll('.current-work-card');
-    cards.forEach(function (card) {
-      if (card.querySelector('.current-work-link')) return;
-      var descEl = card.querySelector('.current-work-description');
-      if (!descEl) return;
-      var tooltipText = descEl.textContent.trim();
-      card.setAttribute('tabindex', '0');
-
-      if (canHover) {
-        card.addEventListener('mouseenter', function (e) {
-          showTooltip(tooltipText, e.clientX, e.clientY, card);
-        });
-        card.addEventListener('mousemove', function (e) {
-          positionTooltip(e.clientX, e.clientY);
-        });
-        card.addEventListener('mouseleave', hideTooltip);
-      } else {
-        card.addEventListener('click', function (e) {
-          var rect = card.getBoundingClientRect();
-          var clientX = rect.left + Math.min(rect.width / 2, 72);
-          var clientY = rect.bottom;
-
-          e.preventDefault();
-          e.stopPropagation();
-
-          if (activeCard === card && tooltip.classList.contains('is-visible')) {
-            hideTooltip();
-            return;
-          }
-
-          showTooltip(tooltipText, clientX, clientY, card);
-        });
-
-        card.addEventListener('keydown', function (e) {
-          if (e.key !== 'Enter' && e.key !== ' ') return;
-          e.preventDefault();
-          card.click();
-        });
+  /**
+   * Writing + glossary item titles: keep the first word as authored; force every
+   * letter in following words to lowercase (replaces CSS first-letter-only caps).
+   */
+  function initWritingGlossaryTitleCasing() {
+    var selector =
+      '.writing-title, .writing-article-title, .glossary-index-item-title, .glossary-list-item-title, .writing-list-item-title, .writing-article-nav-title, .glossary-article-nav-title';
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      var raw = el.textContent.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
+      if (!raw) continue;
+      var parts = raw.split(' ');
+      if (parts.length < 2) continue;
+      var out = [parts[0]];
+      for (var j = 1; j < parts.length; j++) {
+        out.push(parts[j].toLowerCase());
       }
-    });
-
-    if (!canHover) {
-      document.addEventListener('click', function (e) {
-        if (list.contains(e.target)) return;
-        hideTooltip();
-      });
-      window.addEventListener('scroll', hideTooltip, { passive: true });
-      window.addEventListener('resize', hideTooltip);
+      el.textContent = out.join(' ');
     }
   }
 
@@ -1180,9 +1117,9 @@
   initHomepageLayout();
   initHomepageEntrance();
   initWritingArticleParagraphReveal();
-  initCurrentWorkTooltip();
   initHeaderStatus();
   initImageLightbox();
+  initWritingGlossaryTitleCasing();
 
   syncBodyScrollLock();
   scheduleViewportSync();
