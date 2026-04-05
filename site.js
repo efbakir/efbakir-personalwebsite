@@ -1028,7 +1028,10 @@
       for (var j = 1; j < parts.length; j++) {
         out.push(parts[j].toLowerCase());
       }
-      el.textContent = out.join(' ');
+      var normalized = out.join(' ');
+      /* Place name after em-dash-style suffix (e.g. essay locales) */
+      normalized = normalized.replace(/ - milan$/i, ' - Milan');
+      el.textContent = normalized;
     }
   }
 
