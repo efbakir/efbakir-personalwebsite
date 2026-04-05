@@ -1031,6 +1031,8 @@
       var normalized = out.join(' ');
       /* Place name after em-dash-style suffix (e.g. essay locales) */
       normalized = normalized.replace(/ - milan$/i, ' - Milan');
+      /* Proper noun in “On friendship with Bingen” and similar */
+      normalized = normalized.replace(/ bingen$/i, ' Bingen');
       el.textContent = normalized;
     }
   }
