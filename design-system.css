@@ -225,6 +225,9 @@
   --duration-base: 0.3s;
   --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --easing-enter: cubic-bezier(0.23, 0.98, 0.56, 1);
+  /* Page entrance: gentle ease-out with no flat tail (the front-loaded --easing-enter
+     reached ~98% in the first ~23% of the duration, reading as "snap then stall"). */
+  --easing-page-enter: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-color: color var(--duration-fast) var(--easing-standard), background-color var(--duration-fast) var(--easing-standard), border-color var(--duration-fast) var(--easing-standard);
   --transition-opacity: opacity var(--duration-fast) var(--easing-standard);
   --transition-transform: transform var(--duration-fast) var(--easing-standard);

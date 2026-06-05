@@ -24,6 +24,7 @@ body {
   font-weight: var(--body-3-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-wrap: pretty;
   transition: background-color var(--duration-base) var(--easing-standard), color var(--duration-base) var(--easing-standard);
 }
 
@@ -63,18 +64,20 @@ html.page-projects body {
 }
 
 /* === Page load entrance animation === */
-/* Quick opacity fade (first ~20%) then slide up — smooth fade without long blank period */
+/* One keyframe animates opacity + transform together on a single gentle ease-out, with
+   the same duration for both and no inter-element stagger. The previous version split
+   fade/rise into two tracks under a front-loaded curve (--easing-enter peaked at ~98%
+   within ~23% of the duration) — which read as "snap, then a stuck/stalled tail."
+   will-change pre-promotes the GPU layer so the first frame is already composited
+   (no raster hitch at the start). */
 @keyframes page-enter {
   from {
     opacity: 0;
-    transform: translateY(14px);
-  }
-  20% {
-    opacity: 1;
+    transform: translate3d(0, 14px, 0);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -95,13 +98,11 @@ html.page-projects body {
   }
 }
 
-.header {
-  animation: page-enter 0.55s var(--easing-enter) both;
-}
-
+.header,
 .main-content,
 .page-content {
-  animation: page-enter 0.6s var(--easing-enter) 0.08s both;
+  will-change: opacity, transform;
+  animation: page-enter 0.45s var(--easing-page-enter) both;
 }
 
 /* Suppress entrance animation when navigating back (bfcache) */
@@ -638,6 +639,33 @@ body.section-nav-open .header {
   outline-offset: var(--focus-ring-offset);
 }
 
+/* Scale on press — tactile feedback for interactive elements */
+:is(
+  .nav-link,
+  .header-cv-link,
+  .logo-btn,
+  .theme-toggle,
+  .filter-btn,
+  .glossary-filter-btn,
+  .article-nav-btn,
+  .projects-overview-next,
+  .contact-item-link,
+  .cv-link,
+  .cv-close,
+  .nav-toggle,
+  .panel-project-back,
+  .panel-project-prev,
+  .panel-project-next,
+  .section-detail-back-link,
+  .section-nav-toggle,
+  .section-list-close,
+  .image-lightbox-close,
+  .writing-article-nav-item,
+  .glossary-article-nav-item
+):active {
+  transform: scale(0.96);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -864,6 +892,7 @@ html.page-glossary .page-content {
   color: var(--color-text-primary);
   background-color: transparent;
   border-radius: var(--radius-sm);
+  text-wrap: balance;
   transition: var(--transition-color);
 }
 
@@ -937,6 +966,12 @@ html.page-glossary .page-content {
     height: auto;
     display: block;
     border-radius: 0;
+    outline: 1px solid rgba(0, 0, 0, 0.06);
+    outline-offset: -1px;
+  }
+
+  [data-theme="dark"] .panel-bio-photo-img {
+    outline-color: rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -979,6 +1014,7 @@ html.page-glossary .page-content {
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-primary);
   margin: 0;
+  text-wrap: balance;
   transition: var(--transition-color);
 }
 
@@ -1094,6 +1130,11 @@ html.page-glossary .page-content {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+.panel-project-back:hover .panel-project-back-icon {
+  transform: translateX(-2px);
 }
 
 .panel-project-back-label {
@@ -1193,7 +1234,9 @@ a.panel-project-back:hover {
   line-height: var(--line-height-normal);
   letter-spacing: var(--body-3-letter-spacing);
   color: var(--color-text-secondary);
-  transition: color var(--duration-fast) var(--easing-standard);
+  transition:
+    color var(--duration-fast) var(--easing-standard),
+    background-color var(--duration-fast) var(--easing-standard);
   overflow-wrap: anywhere;
 }
 
@@ -1268,7 +1311,10 @@ a.panel-project-back:hover {
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-primary);
   margin: 0;
-  transition: var(--transition-color);
+  text-wrap: balance;
+  transition:
+    var(--transition-color),
+    background-color var(--duration-fast) var(--easing-standard);
   border-radius: var(--radius-sm);
 }
 
@@ -1323,12 +1369,30 @@ a.panel-project-back:hover {
   width: 100%;
   overflow: hidden;
   background: transparent;
+  position: relative;
+}
+
+/* Subtle inset outline so images don't bleed into matching backgrounds */
+.project-flow-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .project-flow-media::after {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 /* Placeholder blocks for when project images are not yet provided */
 .project-flow-media--placeholder {
   aspect-ratio: 16 / 9;
   background: var(--color-surface-muted);
+}
+
+.project-flow-media--placeholder::after {
+  content: none;
 }
 
 /* Figma 123:526 overview covers are uniform 592x333 */
@@ -1342,6 +1406,11 @@ a.panel-project-back:hover {
   height: auto;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s var(--easing-enter);
+}
+
+.project-images-group:hover .project-flow-media-image {
+  transform: scale(1.02);
 }
 
 .project-flow-media-video {
@@ -1748,10 +1817,10 @@ a.panel-project-back:hover {
   padding: var(--spacing-8);
   box-shadow: var(--shadow-modal);
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateY(8px) scale(0.98);
   transition:
-    opacity var(--duration-base) var(--easing-standard),
-    transform var(--duration-base) var(--easing-standard);
+    opacity var(--duration-base) var(--easing-enter),
+    transform var(--duration-base) var(--easing-enter);
 }
 
 [data-theme="dark"] .cv-modal {
@@ -1761,7 +1830,7 @@ a.panel-project-back:hover {
 
 .cv-modal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .cv-close {
@@ -1810,6 +1879,7 @@ a.panel-project-back:hover {
   color: var(--color-text-secondary);
   margin: 0;
   white-space: nowrap;
+  text-wrap: balance;
 }
 
 .cv-sidebar-author {
@@ -2911,10 +2981,15 @@ a.panel-project-back:hover {
   width: var(--icon-sm);
   height: var(--icon-sm);
   display: block;
+  transition: transform var(--duration-fast) var(--easing-standard);
 }
 
 .section-detail-back-link:hover {
   color: var(--accent);
+}
+
+.section-detail-back-link:hover .section-detail-back-icon {
+  transform: translateX(-2px);
 }
 
 .writing-article--standalone {
@@ -3515,11 +3590,11 @@ html.page-about .contact-item-link:hover {
 
 .glossary-entry.open .glossary-toggle {
   transform: rotate(45deg);
-  transition: transform var(--duration-base) var(--easing-standard);
+  transition: transform var(--duration-base) var(--easing-enter);
 }
 
 .glossary-entry:not(.open) .glossary-toggle {
-  transition: transform var(--duration-base) var(--easing-standard);
+  transition: transform var(--duration-base) var(--easing-enter);
 }
 
 .glossary-term {
@@ -3711,6 +3786,7 @@ html.page-about .contact-item-link:hover {
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-secondary);
   margin: 0;
+  text-wrap: balance;
 }
 
 .writings-page-subtitle {
@@ -3841,6 +3917,7 @@ html.page-about .contact-item-link:hover {
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-primary);
   margin: 0;
+  text-wrap: balance;
 }
 
 .writing-article-intro {
@@ -3863,6 +3940,16 @@ html.page-about .contact-item-link:hover {
   margin-top: var(--spacing-6);
 }
 
+/* Flat rhythm (e.g. "Lately Life"): every block sits one even gap apart — matching
+   the header→first-section gap — and the bullet list is tightened. */
+.writing-article.writing-article--flat > .writing-article-section + .writing-article-section {
+  margin-top: 0;
+}
+
+.writing-article--flat .writing-article-unordered-list > li:not(:last-child) {
+  margin-bottom: var(--spacing-2);
+}
+
 .writing-article-section-title {
   font-family: var(--body-1-font-family);
   font-size: var(--display-sm-font-size);
@@ -3873,6 +3960,7 @@ html.page-about .contact-item-link:hover {
   margin: 0;
   margin-top: var(--spacing-4);
   text-transform: lowercase;
+  text-wrap: balance;
 }
 
 .writing-article-section-title::first-letter {
@@ -3900,7 +3988,8 @@ html.page-about .contact-item-link:hover {
 
 /* Ordered / nested lists in writings (semantic numbering) */
 /* Avoid display:flex on ol/ul — it breaks marker/body pairing in WebKit (blank list rows). */
-.writing-article-ordered-list {
+.writing-article-ordered-list,
+.writing-article-unordered-list {
   font-family: var(--body-2-font-family);
   font-size: var(--body-2-font-size);
   line-height: var(--writing-article-body-line-height);
@@ -3911,12 +4000,18 @@ html.page-about .contact-item-link:hover {
   list-style-position: outside;
 }
 
-.writing-article-ordered-list > li {
+.writing-article-unordered-list {
+  list-style-type: disc;
+}
+
+.writing-article-ordered-list > li,
+.writing-article-unordered-list > li {
   padding-left: var(--spacing-2);
   margin-bottom: var(--spacing-3);
 }
 
-.writing-article-ordered-list > li:last-child {
+.writing-article-ordered-list > li:last-child,
+.writing-article-unordered-list > li:last-child {
   margin-bottom: 0;
 }
 
@@ -3961,6 +4056,13 @@ html.page-about .contact-item-link:hover {
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);
+  outline: 1px solid rgba(0, 0, 0, 0.06);
+  outline-offset: -1px;
+}
+
+[data-theme="dark"] .writing-article-figure img,
+[data-theme="dark"] .writing-article-figure video {
+  outline-color: rgba(255, 255, 255, 0.06);
 }
 
 .writing-article-figure--half img {
@@ -4071,7 +4173,9 @@ html.page-about .contact-item-link:hover {
   line-height: var(--line-height-normal);
   letter-spacing: var(--body-3-letter-spacing);
   color: var(--color-text-secondary);
-  transition: color var(--duration-fast) var(--easing-standard);
+  transition:
+    color var(--duration-fast) var(--easing-standard),
+    background-color var(--duration-fast) var(--easing-standard);
   overflow-wrap: anywhere;
 }
 
@@ -4160,6 +4264,7 @@ html.page-about .contact-item-link:hover {
   letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-secondary);
   margin: 0;
+  text-wrap: balance;
 }
 
 .glossary-page-subtitle {
@@ -5427,6 +5532,12 @@ img {
   user-select: none;
   -webkit-user-drag: none;
   display: block;
+  transform: scale(0.94);
+  transition: transform var(--duration-base) var(--easing-enter);
+}
+
+.image-lightbox-overlay.is-open .image-lightbox-img {
+  transform: scale(1);
 }
 
 .image-lightbox-close {

@@ -1011,29 +1011,63 @@
   }
 
   /**
-   * Writing + glossary item titles: keep the first word as authored; force every
-   * letter in following words to lowercase (replaces CSS first-letter-only caps).
+   * Writing titles → Title Case: capitalize every word except connector words
+   * (articles, conjunctions, short prepositions), with the first word always
+   * capitalized. Proper nouns like Milan/Bingen capitalize naturally as content words.
+   * Glossary titles → sentence case: keep the first word as authored, lowercase the rest.
+   * Add data-keep-case to any title to opt out entirely (e.g. dated titles).
    */
   function initWritingGlossaryTitleCasing() {
-    var selector =
-      '.writing-title, .writing-article-title, .glossary-index-item-title, .glossary-list-item-title, .writing-list-item-title, .writing-article-nav-title, .glossary-article-nav-title';
-    var nodes = document.querySelectorAll(selector);
-    for (var i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      var raw = el.textContent.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
+    var titleCaseSelector =
+      '.writing-title, .writing-article-title, .writing-list-item-title, .writing-article-nav-title';
+    var sentenceCaseSelector =
+      '.glossary-index-item-title, .glossary-list-item-title, .glossary-article-nav-title';
+
+    /* Connector words kept lowercase mid-title */
+    var minorWords = {
+      a: 1, an: 1, the: 1, and: 1, but: 1, or: 1, nor: 1, for: 1, yet: 1, so: 1,
+      of: 1, to: 1, in: 1, on: 1, at: 1, by: 1, up: 1, as: 1, with: 1, from: 1,
+      into: 1, onto: 1, over: 1, off: 1, out: 1, per: 1, via: 1, vs: 1
+    };
+
+    function normalizeRaw(el) {
+      return el.textContent.replace(/^\s+|\s+$/g, '').replace(/\s+/g, ' ');
+    }
+
+    function capitalizeFirst(word) {
+      return word.replace(/[a-z]/i, function (ch) {
+        return ch.toUpperCase();
+      });
+    }
+
+    var titleNodes = document.querySelectorAll(titleCaseSelector);
+    for (var i = 0; i < titleNodes.length; i++) {
+      var el = titleNodes[i];
+      if (el.hasAttribute('data-keep-case')) continue;
+      var raw = normalizeRaw(el);
       if (!raw) continue;
       var parts = raw.split(' ');
-      if (parts.length < 2) continue;
-      var out = [parts[0]];
-      for (var j = 1; j < parts.length; j++) {
-        out.push(parts[j].toLowerCase());
+      var out = [];
+      for (var j = 0; j < parts.length; j++) {
+        var lower = parts[j].toLowerCase();
+        out.push(j > 0 && minorWords[lower] ? lower : capitalizeFirst(lower));
       }
-      var normalized = out.join(' ');
-      /* Place name after em-dash-style suffix (e.g. essay locales) */
-      normalized = normalized.replace(/ - milan$/i, ' - Milan');
-      /* Proper noun in “On friendship with Bingen” and similar */
-      normalized = normalized.replace(/ bingen$/i, ' Bingen');
-      el.textContent = normalized;
+      el.textContent = out.join(' ');
+    }
+
+    var glossaryNodes = document.querySelectorAll(sentenceCaseSelector);
+    for (var k = 0; k < glossaryNodes.length; k++) {
+      var gEl = glossaryNodes[k];
+      if (gEl.hasAttribute('data-keep-case')) continue;
+      var gRaw = normalizeRaw(gEl);
+      if (!gRaw) continue;
+      var gParts = gRaw.split(' ');
+      if (gParts.length < 2) continue;
+      var gOut = [gParts[0]];
+      for (var m = 1; m < gParts.length; m++) {
+        gOut.push(gParts[m].toLowerCase());
+      }
+      gEl.textContent = gOut.join(' ');
     }
   }
 
